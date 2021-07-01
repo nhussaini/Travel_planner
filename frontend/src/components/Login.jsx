@@ -1,6 +1,6 @@
 export default function Login(props) {
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center box">
       <form>
         <div className="mb-3 text-left">
           <label for="exampleInputEmail1" className="form-label">
