@@ -1,17 +1,10 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import "./App.css";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
-import './App.css';
-import Register from './components/Register';
-import Login from './components/Login';
-import Home from './components/Home';
-  
 function App() {
   return (
     <div className="App">
@@ -24,12 +17,11 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register />
           </Route>
         </Switch>
       </Router>
     </div>
-    
   );
 }
 
