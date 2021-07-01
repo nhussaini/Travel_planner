@@ -14,13 +14,13 @@ export default function Form(props) {
     <div className="d-flex justify-content-center">
       <form className="w-50" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+          <label htmlFor="inputLocation" className="form-label">
             Choose a Destination
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            id="exampleInputEmail1"
+            id="inputLocation"
             aria-describedby="emailHelp"
             placeholder="Choose a City"
             onChange={handleChange}
