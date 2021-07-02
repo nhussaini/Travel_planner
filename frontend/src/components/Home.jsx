@@ -5,7 +5,7 @@ import ImagesList from "./ImagesList";
 import axios from "axios";
 
 export default function Home(props) {
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState([]);
 
   function getWeather(location) {
     // console.log("From home---", location);

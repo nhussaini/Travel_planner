@@ -1,8 +1,7 @@
 export default function Image(props) {
   return (
     <div>
-      I am image component
-      {console.log(props.images)}
+      <img className="image-res" alt={props.alt} src={props.src} />
     </div>
   );
 }
