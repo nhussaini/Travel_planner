@@ -2,7 +2,7 @@ import "../styles/Register.scss";
 
 export default function Register(props) {
   return (
-    <body>
+    <body class="register-bg">
       <div class="top-div">
         <div class="register-box">
           <div class="register-title">Register</div>
