@@ -17,6 +17,7 @@ export default function Home(props) {
     // axios.get("/weatherData").then((data) => console.log(data.data));
     console.log("after setting", location);
     axios.post("/imageTest", { userInput: location }).then((data) => {
+      console.log("data", data);
       setImages(data.data);
     });
     // axios.get("/imageData").then((data) => {

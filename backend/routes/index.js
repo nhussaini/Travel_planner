@@ -11,10 +11,13 @@ const weatherApi = `https://api.weatherbit.io/v2.0/forecast/daily?city=Toronto&k
 router.post("/imageTest", (req, res) => {
   console.log("location", req.body);
   // res.send("Reached Post route");
+  const url = `https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=${process.env.imageKEY}&per_page=5`;
 
+  console.log("url", url);
   axios
     .get(
-      `https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=${process.env.imageKEY}&per_page=5`
+      //`https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=88i7qHkpW1-r-T3rR0tk7OEwVE4KGDCJD04P_ZLyGYs`
+      url
     )
     .then((data) => {
       // console.log(data.data.results);

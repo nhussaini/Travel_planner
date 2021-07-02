@@ -5,7 +5,7 @@ export default function Login(props) {
     <body class="login-bg">
       <div class="top-div-login">
         <div class="login-box">
-          <div class="register-title">Register</div>
+          <div class="login-title">Login</div>
           <div class="input-forms">
             <form>
               <div className="mb-3 text-left">
