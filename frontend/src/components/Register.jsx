@@ -18,6 +18,7 @@ export default function Register(props) {
                   className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  placeholder="Name..."
                 />
               </div>
               <div className="mb-3 text-left">
@@ -30,6 +31,7 @@ export default function Register(props) {
                   className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
+                  placeholder="Email..."
                 />
               </div>
               <div class="mb-3 text-left">
@@ -40,6 +42,7 @@ export default function Register(props) {
                   type="password"
                   className="form-control"
                   id="exampleInputPassword1"
+                  placeholder="Password..."
                 />
               </div>
 
