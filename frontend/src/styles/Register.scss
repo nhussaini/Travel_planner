@@ -1,11 +1,30 @@
+.top-div {
+  padding-top: 5em;
+}
+
+.register-box {
+  text-align: center;
+  border: 1px solid;
+  margin-top: 5em;
+  padding-bottom: 2em;
+  width: 40%;
+  margin: 0 auto;
+}
+
 .register-title {
   font-size: 30px;
   text-align: center;
+  padding-top: 1em;
 }
 
 .input-forms {
-  margin-top: 5em;
-  width: 30%;
+  margin-top: 2em;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.label-name {
+  display: flex;
+  padding-bottom: 0.5rem;
 }
