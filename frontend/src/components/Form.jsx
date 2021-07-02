@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 export default function Form(props) {
-  const [location, setLocation] = useState(null);
+  const [input, setInput] = useState(null);
 
   function handleChange(e) {
-    setLocation(e.target.value);
+    setInput(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.getWeather(location);
+    props.getWeather(input);
   }
   return (
     <div className="d-flex justify-content-center">
