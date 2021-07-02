@@ -1,5 +1,8 @@
 {
   "name": "travel",
   "version": "0.1.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
 }

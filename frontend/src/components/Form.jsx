@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function Form(props) {
   const [location, setLocation] = useState(null);
+
   function handleChange(e) {
     setLocation(e.target.value);
   }
