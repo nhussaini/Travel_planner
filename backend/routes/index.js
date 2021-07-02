@@ -5,12 +5,22 @@ const axios = require("axios");
 /* GET home page. */
 
 const weatherApi = `https://api.weatherbit.io/v2.0/forecast/daily?city=Toronto&key=d3509fa02316452b83ce154197d1139b`;
+const imageApi = `https://api.unsplash.com/search/photos?page=1&query=office&client_id=88i7qHkpW1-r-T3rR0tk7OEwVE4KGDCJD04P_ZLyGYs`;
 
 router.get("/weatherData", (req, res) => {
   axios.get(weatherApi).then((data) => {
     res.send(data.data);
   });
+  // res.send("Okay");
 });
+
+router.get("/imageData", (req, res) => {
+  axios.get(imageApi).then((data) => {
+    // console.log(data.data.results);
+    res.send(data.data.results);
+  });
+});
+
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
