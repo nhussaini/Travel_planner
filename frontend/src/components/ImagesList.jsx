@@ -12,11 +12,13 @@ export default function ImagesList(props) {
     );
   });
   return (
-    <div className="d-flex">
-      <h2 className="text-center">
-        {props.images.length ? `images of ${props.location}` : ""}
-      </h2>
-      <div>{allImages}</div>
+    <div>
+      <div>
+        <h2 className="heading">
+          {props.images.length ? `images of ${props.location}` : ""}
+        </h2>
+      </div>
+      <div className="d-flex flex-wrap justify-content-center">{allImages}</div>
     </div>
   );
 }
