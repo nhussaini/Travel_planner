@@ -10,15 +10,15 @@ export default function Home(props) {
 
   useEffect(() => {
     //fetch images for specific location
-    axios.post("/imageTest", { userInput: location }).then((data) => {
+    axios.post("/imageData", { userInput: location }).then((data) => {
       console.log("data", data);
       setImages(data.data);
     });
 
     //fetch weather information for a specific location
-    axios.post("/weather", { userInput: location }).then((data) => {
-      console.log("weather data:", data);
-    });
+    // axios.post("/weatherData", { userInput: location }).then((data) => {
+    //   console.log("weather data:", data);
+    // });
   }, [location]);
 
   // useEffect(() => {
