@@ -1,10 +1,16 @@
-export default function Weather() {
+export default function Weather(props) {
   return (
     <div className="border m-2">
-      <p>Sunday</p>
-      <p>49°C</p>
-      <img src="" alt="image-icon" />
-      <p>Mostly Cloudy</p>
+      <p>{props.datetime}</p>
+      <p>{props.temp}</p>
+      <img
+        alt={props.description}
+        src={`https://www.weatherbit.io/static/img/icons/${props.icon}.png`}
+      />
+      <p>{props.description}</p>
     </div>
   );
 }
+
+// https://www.weatherbit.io/static/img/icons/t01d.png
+// https://www.weatherbit.io/static/img/c02d.png

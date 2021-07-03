@@ -19,7 +19,8 @@ export default function Home(props) {
       });
       //fetch weather information for a specific location
       axios.post("/weatherData", { userInput: location }).then((data) => {
-        console.log("weather data:", data);
+        setWeather(data.data.data);
+        // console.log("weather data:", data.data.data);
       });
     }
   }, [location]);
@@ -34,7 +35,7 @@ export default function Home(props) {
       Home
       <Form setLocationState={setLocationState} />
       <ImagesList location={location} images={images} />
-      <WeatherList />
+      <WeatherList weather={weather} />
     </div>
   );
 }
