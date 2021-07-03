@@ -1,21 +1,5 @@
 import convertDate from "../helpers/helper";
 export default function Weather(props) {
-  // const days = [
-  //   "Monday",
-  //   "Tuesday",
-  //   "Wednesday",
-  //   "Thursday",
-  //   "Friday",
-  //   "Saturday",
-  //   "Sunday",
-  // ];
-
-  // function convertDate(date) {
-  //   const currentDay = new Date(props.date);
-  //   const dayName = currentDay.getDay();
-  //   return days[dayName];
-  // }
-
   return (
     <div className="border m-2">
       <p>{convertDate(props.date)}</p>
