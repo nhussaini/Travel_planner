@@ -21,11 +21,11 @@ export default function Home(props) {
     // });
   }, [location]);
 
-  // useEffect(() => {
-  //   axios.post("/weather", {userInput: location}).then((data)=>{
-  //     console.log("weather data:", data);
-  //   })
-  // });
+  useEffect(() => {
+    axios.post("/weather", { userInput: location }).then((data) => {
+      console.log("weather data:", data);
+    });
+  }, [location]);
 
   function setLocationState(userInput) {
     console.log(userInput);
