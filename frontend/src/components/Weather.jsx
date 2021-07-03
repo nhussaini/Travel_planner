@@ -1,4 +1,16 @@
 export default function Weather(props) {
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const currentDay = new Date(props.date);
+  const dayName = currentDay.getDay();
+  console.log("day", days[dayName]);
   return (
     <div className="border m-2">
       <p>{props.date}</p>
