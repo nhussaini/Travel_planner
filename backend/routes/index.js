@@ -27,7 +27,6 @@ router.post("/imageData", (req, res) => {
     });
 });
 
-
 //Fectches weather data for a location
 router.post("/weatherData", (req, res) => {
   const weatherAPI = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}`;
@@ -38,13 +37,13 @@ router.post("/weatherData", (req, res) => {
   // res.send("Okay");
 });
 
-router.get("/imageData", (req, res) => {
-  console.log("Line 18", req.params.body);
-  axios.get(imageApi).then((data) => {
-    // console.log(data.data.results);
-    res.send(data.data.results);
-  });
-});
+// router.get("/imageData", (req, res) => {
+//   console.log("Line 18", req.params.body);
+//   axios.get(imageApi).then((data) => {
+//     // console.log(data.data.results);
+//     res.send(data.data.results);
+//   });
+// });
 
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });

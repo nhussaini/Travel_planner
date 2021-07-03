@@ -15,17 +15,17 @@ export default function Home(props) {
       setImages(data.data);
     });
 
-    //fetch weather information for a specific location
-    // axios.post("/weatherData", { userInput: location }).then((data) => {
-    //   console.log("weather data:", data);
-    // });
-  }, [location]);
-
-  useEffect(() => {
-    axios.post("/weather", { userInput: location }).then((data) => {
+    // fetch weather information for a specific location
+    axios.post("/weatherData", { userInput: location }).then((data) => {
       console.log("weather data:", data);
     });
   }, [location]);
+
+  // useEffect(() => {
+  //   axios.post("/weather", { userInput: location }).then((data) => {
+  //     console.log("weather data:", data);
+  //   });
+  // }, [location]);
 
   function setLocationState(userInput) {
     console.log(userInput);
