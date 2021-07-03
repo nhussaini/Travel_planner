@@ -29,7 +29,7 @@ router.post("/imageData", (req, res) => {
 
 //Fectches weather data for a location
 router.post("/weatherData", (req, res) => {
-  const weatherAPI = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}`;
+  const weatherAPI = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
 
   axios.get(weatherAPI).then((data) => {
     res.send(data.data);

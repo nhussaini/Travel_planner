@@ -1,7 +1,7 @@
 export default function Weather(props) {
   return (
     <div className="border m-2">
-      <p>{props.datetime}</p>
+      <p>{props.date}</p>
       <p>{props.temp}</p>
       <img
         alt={props.description}
