@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 import Form from "./Form";
+import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import axios from "axios";
 
 export default function Home(props) {
   const [location, setLocation] = useState("");
   const [images, setImages] = useState([]);
+  const [weather, setWeather] = useState([]);
 
   useEffect(() => {
     //fetch images for specific location
@@ -32,6 +34,7 @@ export default function Home(props) {
       Home
       <Form setLocationState={setLocationState} />
       <ImagesList location={location} images={images} />
+      <WeatherList />
     </div>
   );
 }
