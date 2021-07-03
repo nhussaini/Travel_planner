@@ -8,12 +8,13 @@ require("dotenv").config();
 const weatherApi = `https://api.weatherbit.io/v2.0/forecast/daily?city=Toronto&key=d3509fa02316452b83ce154197d1139b`;
 // const imageApi = `https://api.unsplash.com/search/photos?page=1&query=office&client_id=88i7qHkpW1-r-T3rR0tk7OEwVE4KGDCJD04P_ZLyGYs`;
 
+//Fetches images for a specific location
 router.post("/imageTest", (req, res) => {
   console.log("location", req.body);
   // res.send("Reached Post route");
   const url = `https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=${process.env.imageKEY}&per_page=8`;
 
-  console.log("url", url);
+  // console.log("url", url);
   axios
     .get(
       //`https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=88i7qHkpW1-r-T3rR0tk7OEwVE4KGDCJD04P_ZLyGYs`
@@ -25,7 +26,9 @@ router.post("/imageTest", (req, res) => {
     });
 });
 
-router.get("/weatherData", (req, res) => {
+
+//Fectches weather data for a location
+router.post("/weatherData", (req, res) => {
   axios.get(weatherApi).then((data) => {
     res.send(data.data);
   });

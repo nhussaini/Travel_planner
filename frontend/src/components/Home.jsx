@@ -9,14 +9,16 @@ export default function Home(props) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
+    //fetch images for specific location
     axios.post("/imageTest", { userInput: location }).then((data) => {
       console.log("data", data);
       setImages(data.data);
     });
 
-    // axios.post("/weather", { userInput: location }).then((data) => {
-    //   console.log("weather data:", data);
-    // });
+    //fetch weather information for a specific location
+    axios.post("/weather", { userInput: location }).then((data) => {
+      console.log("weather data:", data);
+    });
   }, [location]);
 
   // useEffect(() => {
