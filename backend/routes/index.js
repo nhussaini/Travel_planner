@@ -11,7 +11,7 @@ require("dotenv").config();
 
 //Fetches images for a specific location
 router.post("/imageData", (req, res) => {
-  console.log("location", req.body);
+  // console.log("location", req.body);
   // res.send("Reached Post route");
   const imageAPI = `https://api.unsplash.com/search/photos?page=1&query=${req.body.userInput}&client_id=${process.env.imageKEY}&per_page=8`;
 
@@ -37,13 +37,9 @@ router.post("/weatherData", (req, res) => {
   // res.send("Okay");
 });
 
-// router.get("/imageData", (req, res) => {
-//   console.log("Line 18", req.params.body);
-//   axios.get(imageApi).then((data) => {
-//     // console.log(data.data.results);
-//     res.send(data.data.results);
-//   });
-// });
+router.post("/weather", (req, res) => {
+  res.send("Hiuiiiii");
+});
 
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
