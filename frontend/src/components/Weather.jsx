@@ -8,13 +8,20 @@ export default function Weather(props) {
     "Saturday",
     "Sunday",
   ];
-  const currentDay = new Date(props.date);
-  const dayName = currentDay.getDay();
-  console.log("day", days[dayName]);
+
+  function convertDate(date) {
+    const currentDay = new Date(props.date);
+    const dayName = currentDay.getDay();
+    console.log("day", days[dayName]);
+    return days[dayName];
+  }
+
+  //console.log("test", convertDate("2021-07-06"));
   return (
     <div className="border m-2">
       <p>{props.date}</p>
-      <p>{props.temp}</p>
+      <p>{convertDate(props.date)}</p>
+      <p>{props.temp}°C</p>
       <img
         alt={props.description}
         src={`https://www.weatherbit.io/static/img/icons/${props.icon}.png`}
