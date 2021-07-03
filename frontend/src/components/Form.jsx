@@ -9,7 +9,7 @@ export default function Form(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.getWeather(input);
+    props.setLocationState(input);
   }
   return (
     <div className="d-flex justify-content-center">

@@ -13,9 +13,19 @@ export default function Home(props) {
       console.log("data", data);
       setImages(data.data);
     });
+
+    // axios.post("/weather", { userInput: location }).then((data) => {
+    //   console.log("weather data:", data);
+    // });
   }, [location]);
 
-  function getWeather(userInput) {
+  // useEffect(() => {
+  //   axios.post("/weather", {userInput: location}).then((data)=>{
+  //     console.log("weather data:", data);
+  //   })
+  // });
+
+  function setLocationState(userInput) {
     console.log(userInput);
     // setLocation(null);
     setLocation(userInput);
@@ -23,7 +33,7 @@ export default function Home(props) {
   return (
     <div>
       Home
-      <Form getWeather={getWeather} />
+      <Form setLocationState={setLocationState} />
       <ImagesList location={location} images={images} />
     </div>
   );
