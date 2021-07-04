@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 export default function CityDetails(props) {
   console.log("props test", props.locationData.attributes);
   return (
