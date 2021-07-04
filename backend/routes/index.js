@@ -49,17 +49,27 @@ router.post("/weatherData", (req, res) => {
 router.post("/citySummary", (req, res) =>{
   console.log("citysummary route");
   const auth_key = Buffer.from('bc8bd73ed4416f3824623910174c4bcf:d7055907b51a5ece2b5e4c715fadd789').toString('base64');
-  const options = {
-  'method': 'GET',
-  'hostname': 'api.roadgoat.com',
-  'port': 80,
-  'path': `/api/v2/destinations/${req.body.userInput}`,
-  'headers': {
-    'Authorization': `Basic ${auth_key}`
-  },
-  'maxRedirects': 20
-};
-  axios.get(options).then((data)=> {
+//   const options = {
+//   // 'method': 'GET',
+//   'hostname': 'api.roadgoat.com',
+//   // 'port': 80,
+//   // 'path': `/api/v2/destinations/${req.body.userInput}`,
+//   'path': `https://api.roadgoat.com/api/v2/destinations/${req.body.userInput}`,
+
+//   'headers': {
+//     'Authorization': `Basic ${auth_key}`
+//   }
+//   // 'maxRedirects': 20
+// };
+  // axios.get(options).then((data)=> {
+  //   res.send("city summary route");
+  //   console.log("city summar data:", data);
+  // })
+  // https://api.roadgoat.com/api/v2/destinations/auto_complete?q=barcelona
+  axios.get('https://api.roadgoat.com/api/v2/destinations/auto_complete?q=barcelona', {headers: {
+    // 'Test-Header': 'test-value'
+    'Authorization': auth_key
+  }}).then((data)=> {
     res.send("city summary route");
     console.log("city summar data:", data);
   })

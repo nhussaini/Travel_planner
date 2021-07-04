@@ -23,11 +23,11 @@ export default function Home(props) {
         // console.log("weather data:", data.data.data);
       });
 
-      // axios.post("/citySummary", { userInput: location }).then((data) => {
-      //   // setWeather(data.data.data);
-      //   // console.log("weather data:", data.data.data);
-      //   console.log("axios front end city summary");
-      // });
+      axios.post("/citySummary", { userInput: location }).then((data) => {
+        // setWeather(data.data.data);
+        // console.log("weather data:", data.data.data);
+        console.log("axios front end city summary");
+      });
     }
   }, [location]);
 
