@@ -1,7 +1,17 @@
-.weather-card {
-  // d-flex justify-content-between align-items-center p-2
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5px;
+.weather-container {
+  border: 2px solid rgb(228, 228, 233);
+  margin: 0 3px;
+  width: 13%;
+  p {
+    margin-bottom: 2px;
+  }
+  .weather-card {
+    img {
+      width: 75px;
+    }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // padding: 0 15%;
+  }
 }

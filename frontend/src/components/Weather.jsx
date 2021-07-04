@@ -17,20 +17,20 @@ export default function Weather(props) {
     //   <p>{props.description}</p>
     // </div>
 
-    <div className="border m-2">
+    <div className="weather-container">
       <p>{convertDate(props.date)}</p>
       <p>{props.date}</p>
       <div className="weather-card">
         <img
-          className="w-50"
+          // className="w-50"
           alt={props.description}
           src={`https://www.weatherbit.io/static/img/icons/${props.icon}.png`}
         />
         <p className="">{Math.round(props.temp)}°C</p>
       </div>
-      <p className="text-wrap">{props.description}</p>
+      <p className="text-wrap p-2">{props.description}</p>
       <p>
-        H:{Math.round(props.maxTemp)} L:{Math.round(props.minTemp)}
+        Max:{Math.round(props.maxTemp)} Min:{Math.round(props.minTemp)}
       </p>
     </div>
 
