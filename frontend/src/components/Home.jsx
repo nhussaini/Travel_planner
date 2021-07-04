@@ -42,7 +42,7 @@ export default function Home(props) {
       <Form setLocationState={setLocationState} />
       <ImagesList location={location} images={images} />
       <WeatherList weather={weather} />
-      <CityDetails locationData={locationData}/>
+      <CityDetails locationData={locationData} />
     </div>
   );
 }
