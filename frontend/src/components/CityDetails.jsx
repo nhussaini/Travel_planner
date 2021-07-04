@@ -3,7 +3,7 @@ export default function CityDetails(props) {
   return (
     <>
       {props.locationData.attributes ? (
-        <div className="d-flex justify-content-center text-left">
+        <div className="d-flex justify-content-around text-left">
           <div>
             City Details
             <p>
@@ -12,12 +12,7 @@ export default function CityDetails(props) {
             </p>
             <div>
               <h5>Keep in mind</h5>
-              <p>
-                Covid Risk:{" "}
-                <span>
-                  {props.locationData.attributes.covid["Cook County"]?.text}
-                </span>
-              </p>
+
               <p>
                 safety:{" "}
                 <span>
