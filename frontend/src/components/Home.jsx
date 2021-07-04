@@ -22,6 +22,12 @@ export default function Home(props) {
         setWeather(data.data.data);
         // console.log("weather data:", data.data.data);
       });
+
+      axios.post("/citySummary", { userInput: location }).then((data) => {
+        // setWeather(data.data.data);
+        // console.log("weather data:", data.data.data);
+        console.log("axios front end city summary");
+      });
     }
   }, [location]);
 
