@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Form from "./Form";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
+import CityDetails from "./CityDetails";
 import axios from "axios";
 
 export default function Home(props) {
@@ -41,6 +42,7 @@ export default function Home(props) {
       <Form setLocationState={setLocationState} />
       <ImagesList location={location} images={images} />
       <WeatherList weather={weather} />
+      <CityDetails locationData={locationData}/>
     </div>
   );
 }
