@@ -27,22 +27,67 @@ export default function CityDetails(props) {
                 }
               </span>
             </p>
+            <p>
+              population:{" "}
+              <span>{props.locationData.attributes.population}</span>
+            </p>
+            <p>
+              Altitude: <span>{props.locationData.attributes.altitude}</span>
+            </p>
           </div>
-          <p>
-            <a href={props.locationData.attributes.airbnb_url}>
-              checkout airbnb
-            </a>
-          </p>
-          <p>
-            Find where you can walk in the nature
-            <a
-              href={props.locationData.attributes.alltrails_url}
-              target="_blank"
-            >
-              {" "}
-              here{" "}
-            </a>
-          </p>
+          <div>
+            <p>
+              <a href={props.locationData.attributes.airbnb_url}>
+                checkout airbnb
+              </a>
+            </p>
+
+            <p>
+              <a
+                href={props.locationData.attributes.kayak_lodgings_url}
+                target="_blank"
+              >
+                checkout some hotels
+              </a>
+            </p>
+            <p>
+              <a
+                href={props.locationData.attributes.google_events_url}
+                target="_blank"
+              >
+                upcoming events
+              </a>
+            </p>
+            <p>
+              Find where you can walk in the nature
+              <a
+                href={props.locationData.attributes.alltrails_url}
+                target="_blank"
+              >
+                here
+              </a>
+            </p>
+            <p>
+              Take a tour in the city{" "}
+              <a
+                href={props.locationData.attributes.getyourguide_url}
+                target="_blank"
+              >
+                {" "}
+                here
+              </a>
+            </p>
+            <p>
+              rent a car
+              <a
+                href={props.locationData.attributes.kayak_car_rental_url}
+                target="_blank"
+              >
+                {" "}
+                here
+              </a>
+            </p>
+          </div>
         </div>
       ) : null}
     </>
