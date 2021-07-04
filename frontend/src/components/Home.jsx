@@ -40,9 +40,9 @@ export default function Home(props) {
     <div>
       Home
       <Form setLocationState={setLocationState} />
+      <CityDetails locationData={locationData} />
       <ImagesList location={location} images={images} />
       <WeatherList weather={weather} />
-      <CityDetails locationData={locationData} />
     </div>
   );
 }

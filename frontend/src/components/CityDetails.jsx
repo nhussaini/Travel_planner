@@ -3,39 +3,39 @@ export default function CityDetails(props) {
   return (
     <>
       {props.locationData.attributes ? (
-        <div>
-          City Details
-          <p>
-            Where:
-            <span>{props.locationData.attributes.long_name}</span>
-          </p>
+        <div className="d-flex justify-content-center text-left">
           <div>
-            <h5>Keep in mind</h5>
+            City Details
             <p>
-              Covid Risk:{" "}
-              <span>
-                {props.locationData.attributes.covid["Cook County"]?.text}
-              </span>
+              Where:
+              <span>{props.locationData.attributes.long_name}</span>
             </p>
-            <p>
-              safety:{" "}
-              <span>
-                {
-                  props.locationData.attributes.safety[
-                    props.locationData.attributes.name
-                  ]?.text
-                }
-              </span>
-            </p>
-            <p>
-              population:{" "}
-              <span>{props.locationData.attributes.population}</span>
-            </p>
-            <p>
-              Altitude: <span>{props.locationData.attributes.altitude}</span>
-            </p>
+            <div>
+              <h5>Keep in mind</h5>
+              <p>
+                Covid Risk:{" "}
+                <span>
+                  {props.locationData.attributes.covid["Cook County"]?.text}
+                </span>
+              </p>
+              <p>
+                safety:{" "}
+                <span>
+                  {
+                    props.locationData.attributes.safety[
+                      props.locationData.attributes.name
+                    ]?.text
+                  }
+                </span>
+              </p>
+              <p>
+                population:{" "}
+                <span>{props.locationData.attributes.population}</span>
+              </p>
+            </div>
           </div>
-          <div>
+
+          <div className="text-left">
             <p>
               <a href={props.locationData.attributes.airbnb_url}>
                 checkout airbnb
