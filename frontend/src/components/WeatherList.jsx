@@ -17,4 +17,9 @@ export default function WeatherList(props) {
     );
   });
   return <div className="d-flex justify-content-center">{allWeather}</div>;
+  // return (
+  //   <div className="d-flex justify-content-center">
+  //     <Weather />
+  //   </div>
+  // );
 }
