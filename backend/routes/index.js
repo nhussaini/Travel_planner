@@ -9,6 +9,10 @@ require("dotenv").config();
 
 // const imageApi = `https://api.unsplash.com/search/photos?page=1&query=office&client_id=88i7qHkpW1-r-T3rR0tk7OEwVE4KGDCJD04P_ZLyGYs`;
 
+//Potential api for getting location(city, country, lat, lng) data and get country data based on that
+const getLocationInfo = `http://api.geonames.org/searchJSON?q=toronto&name_equals=toronto&isNameRequired=true&maxRows=2&username=coding4flife`;
+const getCountryInfo = `https://restcountries.eu/rest/v2/name/Canada?fullText=true`;
+
 //Fetches images for a specific location
 router.post("/imageData", (req, res) => {
   // console.log("location", req.body);
