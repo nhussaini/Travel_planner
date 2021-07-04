@@ -9,6 +9,7 @@ export default function Home(props) {
   const [location, setLocation] = useState("");
   const [images, setImages] = useState([]);
   const [weather, setWeather] = useState([]);
+  const [locationData, setLocationData] = useState([]);
 
   useEffect(() => {
     //fetch images for specific location
@@ -22,11 +23,9 @@ export default function Home(props) {
         setWeather(data.data.data);
         // console.log("weather data:", data.data.data);
       });
-
-      axios.post("/citySummary", { userInput: location }).then((data) => {
-        // setWeather(data.data.data);
-        // console.log("weather data:", data.data.data);
-        console.log("axios front end city summary");
+      axios.post("/locationSummary", { userInput: location }).then((data) => {
+        setLocationData(data.data);
+        console.log("Location data---", data.data);
       });
     }
   }, [location]);
