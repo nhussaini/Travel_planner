@@ -5,6 +5,7 @@ import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import CityDetails from "./CityDetails";
 import ThingsToDoList from "./ThingsToDoList";
+import FlightData from "./FlightData";
 import axios from "axios";
 
 export default function Home(props) {
@@ -52,6 +53,7 @@ export default function Home(props) {
       <ThingsToDoList location={location} thingsToDo={thingsToDo} />
       <ImagesList location={location} images={images} />
       <WeatherList location={location} weather={weather} />
+      {/* <FlightData /> */}
     </div>
   );
 }

@@ -8,6 +8,7 @@ export default function ThingToDo(props) {
         alt={props.name}
       />
       <p>{props.name}</p>
+      <p>{props.address}</p>
       <p>{props.rating}</p>
       <p>{props.reviewsCount}</p>
     </div>

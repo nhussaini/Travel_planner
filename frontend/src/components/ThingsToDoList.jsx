@@ -10,6 +10,7 @@ export default function ThingsToDoList(props) {
       <ThingToDo
         key={thing.place_id}
         name={thing.name}
+        // address={thing.name}
         rating={thing.rating}
         reviewsCount={thing.user_ratings_total}
         reference={thing.photos[0].photo_reference}
