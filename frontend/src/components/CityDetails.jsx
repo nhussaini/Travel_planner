@@ -1,8 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCar,
+  faMapMarkedAlt,
+  faHiking,
+  faCalendarAlt,
+  faHotel,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(fab);
 
 export default function CityDetails(props) {
   console.log("props test", props.locationData.attributes);
+  //const element = <FontAwesomeIcon icon={faCoffee} />;
+
   return (
     <>
       {props.locationData.attributes ? (
@@ -35,54 +46,57 @@ export default function CityDetails(props) {
 
           <div className="text-left">
             <p>
+              Checkout some Airbnb's{" "}
               <a href={props.locationData.attributes.airbnb_url}>
-                checkout airbnb
+                <FontAwesomeIcon icon={["fab", "airbnb"]} />
               </a>
             </p>
 
             <p>
+              Checkout some hotels{" "}
               <a
                 href={props.locationData.attributes.kayak_lodgings_url}
                 target="_blank"
               >
-                checkout some hotels
+                <FontAwesomeIcon icon={faHotel} />
               </a>
             </p>
             <p>
+              Upcoming events{" "}
               <a
                 href={props.locationData.attributes.google_events_url}
                 target="_blank"
               >
-                upcoming events
+                <FontAwesomeIcon icon={faCalendarAlt} />
               </a>
             </p>
             <p>
-              Find where you can walk in the nature
+              Find where you can walk in the nature{" "}
               <a
                 href={props.locationData.attributes.alltrails_url}
                 target="_blank"
               >
-                here
+                <FontAwesomeIcon icon={faHiking} />
               </a>
             </p>
             <p>
-              Take a tour in the city{" "}
+              Explore guides in the city{" "}
               <a
                 href={props.locationData.attributes.getyourguide_url}
                 target="_blank"
               >
                 {" "}
-                here
+                <FontAwesomeIcon icon={faMapMarkedAlt} />
               </a>
             </p>
             <p>
-              rent a car
+              Rent a car{" "}
               <a
                 href={props.locationData.attributes.kayak_car_rental_url}
                 target="_blank"
               >
-                {" "}
-                here
+                {""}
+                <FontAwesomeIcon icon={faCar} />
               </a>
             </p>
           </div>
