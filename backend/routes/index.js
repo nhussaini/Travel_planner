@@ -2,6 +2,12 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
+
+//GOOGLE MAPS DATA
+//key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0
+//https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+toronto&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0
+//https://www.npmjs.com/package/google-maps-react
+
 // const  net = require('follow-redirects').https;
 // const fs = require('fs');
 // const auth_key = Buffer.from('access_key:d7055907b51a5ece2b5e4c715fadd789').toString('base64');
