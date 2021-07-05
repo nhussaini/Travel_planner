@@ -96,7 +96,7 @@ export default function CityDetails(props) {
               </a>
             </p>
           </div>
-          <Map />
+          <Map location={props.locationData.attributes.long_name} />
         </section>
       ) : null}
     </>
