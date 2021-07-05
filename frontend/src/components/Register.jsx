@@ -1,6 +1,25 @@
+import { useState } from "react";
 import "../styles/Register.scss";
 
 export default function Register(props) {
+
+  const [token, setToken] = useState();
+  const [fullName, setFullName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  function handleNameChange(e) {
+    setFullName(e.target.value);
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
   return (
     <body class="register-bg">
       <div class="top-div">
@@ -13,12 +32,13 @@ export default function Register(props) {
                   Full Name
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   class="input-form"
                   className="form-control"
                   id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  aria-describedby="nameHelp"
                   placeholder="Name..."
+                  onChange={handleNameChange}
                 />
               </div>
               <div className="mb-3 text-left">
@@ -32,6 +52,7 @@ export default function Register(props) {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
+                  onChange={handleEmailChange}
                 />
               </div>
               <div class="mb-3 text-left">
@@ -43,6 +64,7 @@ export default function Register(props) {
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password..."
+                  onChange={handlePasswordChange}
                 />
               </div>
 

@@ -7,11 +7,11 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 
 function App() {
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
-  if (!token) {
-    return <Login setToken={setToken} />
-  }
+  // if (!token) {
+  //   return <Login setToken={setToken} />
+  // }
 
   return (
     <div className="App">
