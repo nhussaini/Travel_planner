@@ -1,3 +1,4 @@
+import Map from "./Map";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -16,7 +17,7 @@ export default function CityDetails(props) {
   return (
     <>
       {props.locationData.attributes ? (
-        <div className="d-flex justify-content-around text-left">
+        <section className="d-flex justify-content-around">
           <div>
             City Details
             <p>
@@ -41,16 +42,12 @@ export default function CityDetails(props) {
                 <span>{props.locationData.attributes.population}</span>
               </p>
             </div>
-          </div>
-
-          <div className="text-left">
             <p>
               Checkout some Airbnb's{" "}
               <a href={props.locationData.attributes.airbnb_url}>
                 <FontAwesomeIcon icon={["fab", "airbnb"]} size="lg" />
               </a>
             </p>
-
             <p>
               Checkout some hotels{" "}
               <a
@@ -99,7 +96,8 @@ export default function CityDetails(props) {
               </a>
             </p>
           </div>
-        </div>
+          <Map />
+        </section>
       ) : null}
     </>
 
