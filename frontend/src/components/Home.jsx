@@ -4,6 +4,7 @@ import Form from "./Form";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import CityDetails from "./CityDetails";
+import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 
 export default function Home(props) {
@@ -11,6 +12,7 @@ export default function Home(props) {
   const [images, setImages] = useState([]);
   const [weather, setWeather] = useState([]);
   const [locationData, setLocationData] = useState([]);
+  const [thingsToDo, setThingsToDo] = useState([]);
 
   useEffect(() => {
     //fetch images for specific location
@@ -31,7 +33,7 @@ export default function Home(props) {
       // });
       // Fetch thingstodo for a location
       axios.post("/thingsToDo", { userInput: location }).then((data) => {
-        // setLocationData(data.data);
+        setThingsToDo(data.data);
         console.log("ThingstoDo data---", data);
       });
     }
@@ -46,9 +48,10 @@ export default function Home(props) {
     <div>
       Home
       <Form setLocationState={setLocationState} />
-      <CityDetails locationData={locationData} />
+      {/* <CityDetails locationData={locationData} />
       <ImagesList location={location} images={images} />
-      <WeatherList weather={weather} />
+      <WeatherList weather={weather} /> */}
+      <ThingsToDoList thingsToDo={thingsToDo} />
     </div>
   );
 }
