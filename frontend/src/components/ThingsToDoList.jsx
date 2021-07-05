@@ -3,7 +3,7 @@ import ThingToDo from "./ThingToDo";
 export default function ThingsToDoList(props) {
   const sortedArray = [...props.thingsToDo]
     .sort((a, b) => b.user_ratings_total - a.user_ratings_total)
-    .slice(0, 9);
+    .slice(0, 10);
   const allThingsToDo = sortedArray.map((thing) => {
     return (
       <ThingToDo
@@ -16,9 +16,12 @@ export default function ThingsToDoList(props) {
   });
   return (
     <div>
-      ThingstoDoList
-      {allThingsToDo}
-      <ThingToDo />
+      <div>
+        <h2 className="heading">
+          {props.location ? `Top Attractions in ${props.location}` : ""}
+        </h2>
+      </div>
+      <div className="d-flex">{allThingsToDo}</div>
     </div>
   );
 }

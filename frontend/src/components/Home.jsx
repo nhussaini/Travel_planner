@@ -51,7 +51,7 @@ export default function Home(props) {
       {/* <CityDetails locationData={locationData} />
       <ImagesList location={location} images={images} />
       <WeatherList weather={weather} /> */}
-      <ThingsToDoList thingsToDo={thingsToDo} />
+      <ThingsToDoList location={location} thingsToDo={thingsToDo} />
     </div>
   );
 }
