@@ -1,4 +1,5 @@
 import ThingToDo from "./ThingToDo";
+import "../styles/attractions.scss";
 
 export default function ThingsToDoList(props) {
   const sortedArray = [...props.thingsToDo]
@@ -11,6 +12,7 @@ export default function ThingsToDoList(props) {
         name={thing.name}
         rating={thing.rating}
         reviewsCount={thing.user_ratings_total}
+        reference={thing.photos[0].photo_reference}
       />
     );
   });
@@ -21,7 +23,7 @@ export default function ThingsToDoList(props) {
           {props.location ? `Top Attractions in ${props.location}` : ""}
         </h2>
       </div>
-      <div className="d-flex">{allThingsToDo}</div>
+      <div className="things-to-do-container">{allThingsToDo}</div>
     </div>
   );
 }

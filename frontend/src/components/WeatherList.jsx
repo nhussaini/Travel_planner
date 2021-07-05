@@ -15,7 +15,16 @@ export default function WeatherList(props) {
     );
   });
   return (
-    <div className="d-flex flex-wrap justify-content-center">{allWeather}</div>
+    <div>
+      <div>
+        <h2 className="heading">
+          {props.location ? `7 Day forecast for  ${props.location}` : ""}
+        </h2>
+      </div>
+      <div className="d-flex flex-wrap justify-content-center">
+        {allWeather}
+      </div>
+    </div>
   );
   // return (
   //   <div className="d-flex justify-content-center">

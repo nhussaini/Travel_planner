@@ -17,20 +17,20 @@ export default function Home(props) {
   useEffect(() => {
     //fetch images for specific location
     if (location) {
-      // axios.post("/imageData", { userInput: location }).then((data) => {
-      //   console.log("data", data);
-      //   setImages(data.data);
-      // });
-      // //fetch weather information for a specific location
-      // axios.post("/weatherData", { userInput: location }).then((data) => {
-      //   setWeather(data.data.data);
-      //   // console.log("weather data:", data.data.data);
-      // });
-      // // Fetch Summary information for Location
-      // axios.post("/locationSummary", { userInput: location }).then((data) => {
-      //   setLocationData(data.data);
-      //   console.log("Location data---", data.data);
-      // });
+      axios.post("/imageData", { userInput: location }).then((data) => {
+        console.log("data", data);
+        setImages(data.data);
+      });
+      //fetch weather information for a specific location
+      axios.post("/weatherData", { userInput: location }).then((data) => {
+        setWeather(data.data.data);
+        // console.log("weather data:", data.data.data);
+      });
+      // Fetch Summary information for Location
+      axios.post("/locationSummary", { userInput: location }).then((data) => {
+        setLocationData(data.data);
+        console.log("Location data---", data.data);
+      });
       // Fetch thingstodo for a location
       axios.post("/thingsToDo", { userInput: location }).then((data) => {
         setThingsToDo(data.data);
@@ -48,10 +48,10 @@ export default function Home(props) {
     <div>
       Home
       <Form setLocationState={setLocationState} />
-      {/* <CityDetails locationData={locationData} />
-      <ImagesList location={location} images={images} />
-      <WeatherList weather={weather} /> */}
+      <CityDetails locationData={locationData} />
       <ThingsToDoList location={location} thingsToDo={thingsToDo} />
+      <ImagesList location={location} images={images} />
+      <WeatherList location={location} weather={weather} />
     </div>
   );
 }
