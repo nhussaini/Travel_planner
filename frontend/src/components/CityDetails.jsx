@@ -12,7 +12,6 @@ library.add(fab);
 
 export default function CityDetails(props) {
   console.log("props test", props.locationData.attributes);
-  //const element = <FontAwesomeIcon icon={faCoffee} />;
 
   return (
     <>
@@ -48,7 +47,7 @@ export default function CityDetails(props) {
             <p>
               Checkout some Airbnb's{" "}
               <a href={props.locationData.attributes.airbnb_url}>
-                <FontAwesomeIcon icon={["fab", "airbnb"]} />
+                <FontAwesomeIcon icon={["fab", "airbnb"]} size="lg" />
               </a>
             </p>
 
@@ -58,7 +57,7 @@ export default function CityDetails(props) {
                 href={props.locationData.attributes.kayak_lodgings_url}
                 target="_blank"
               >
-                <FontAwesomeIcon icon={faHotel} />
+                <FontAwesomeIcon icon={faHotel} size="lg" />
               </a>
             </p>
             <p>
@@ -67,7 +66,7 @@ export default function CityDetails(props) {
                 href={props.locationData.attributes.google_events_url}
                 target="_blank"
               >
-                <FontAwesomeIcon icon={faCalendarAlt} />
+                <FontAwesomeIcon icon={faCalendarAlt} size="lg" />
               </a>
             </p>
             <p>
@@ -76,7 +75,7 @@ export default function CityDetails(props) {
                 href={props.locationData.attributes.alltrails_url}
                 target="_blank"
               >
-                <FontAwesomeIcon icon={faHiking} />
+                <FontAwesomeIcon icon={faHiking} size="lg" />
               </a>
             </p>
             <p>
@@ -86,7 +85,7 @@ export default function CityDetails(props) {
                 target="_blank"
               >
                 {" "}
-                <FontAwesomeIcon icon={faMapMarkedAlt} />
+                <FontAwesomeIcon icon={faMapMarkedAlt} size="lg" />
               </a>
             </p>
             <p>
@@ -96,7 +95,7 @@ export default function CityDetails(props) {
                 target="_blank"
               >
                 {""}
-                <FontAwesomeIcon icon={faCar} />
+                <FontAwesomeIcon icon={faCar} size="lg" />
               </a>
             </p>
           </div>
