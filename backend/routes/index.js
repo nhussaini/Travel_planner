@@ -50,11 +50,6 @@ router.post("/weatherData", (req, res) => {
   // res.send("Okay");
 });
 
-// router.post("/weather", (req, res) => {
-//   res.send("Hiuiiiii");
-// });
-// const auth_key = 'd7055907b51a5ece2b5e4c715fadd789'
-
 //Fetches Overview Data for a location
 router.post("/locationSummary", (req, res) => {
   // setup credentials for basic auth
@@ -81,6 +76,17 @@ router.post("/locationSummary", (req, res) => {
         .then((data) => {
           res.send(data.data.data);
         });
+    });
+});
+
+router.post("/thingsToDo", (req, res) => {
+  // res.send("Reached ThingstoDo route");
+  axios
+    .get(
+      `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${req.body.userInput}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`
+    )
+    .then((todoData) => {
+      res.send(todoData.data.results);
     });
 });
 
