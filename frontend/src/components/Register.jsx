@@ -4,13 +4,17 @@ import "../styles/Register.scss";
 
 export default function Register(props) {
 
-  const [token, setToken] = useState();
-  const [fullName, setFullName] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState()
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  function handleNameChange(e) {
-    setFullName(e.target.value);
+  function handleFirstNameChange(e) {
+    setFirstName(e.target.value);
+  }
+
+  function handleLastNameChange(e) {
+    setLastName(e.target.value);
   }
 
   function handleEmailChange(e) {
@@ -23,7 +27,7 @@ export default function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("/users", {fullName:fullName, email:email, password:password})
+    axios.post("/users", {firstName:firstName, lastName:lastName, email:email, password:password})
     .then((data) => console.log(data))
   }
 
@@ -36,16 +40,30 @@ export default function Register(props) {
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputName" className="label-name">
-                  Full Name
+                  First Name
                 </label>
                 <input
                   type="text"
                   className="input-form"
                   className="form-control"
-                  id="exampleInputName"
+                  id="exampleInputFirstName"
                   aria-describedby="nameHelp"
                   placeholder="Name..."
-                  onChange={handleNameChange}
+                  onChange={handleFirstNameChange}
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="exampleInputLastName" className="label-name">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  className="input-form"
+                  className="form-control"
+                  id="exampleInputLastName"
+                  aria-describedby="nameHelp"
+                  placeholder="Name..."
+                  onChange={handleLastNameChange}
                 />
               </div>
               <div className="mb-3 text-left">
