@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET users listing. */
+/* insert users into database */
 
 module.exports = (db) => {
   router.post("/", (req, res, next) => {

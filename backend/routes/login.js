@@ -5,19 +5,20 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const { email, password } = req.body;
     const queryString = `
-        SELECT * FROM users 
-        WHERE email = $1 
-        AND password = $2
-        RETURNING id;`;
+      SELECT email, password
+      FROM users 
+      WHERE email = $1 
+      AND password = $2;
+    `;
 
     db.query(queryString, [email, password]).then((data) =>
       console.log("login query", data)
     );
     res.send("login post route");
-
-    router.get("/", (req, res) => {
-      res.send("login get route");
-    });
-    return router;
   });
+
+  router.get("/", (req, res) => {
+    res.send("login get route");
+  });
+  return router;
 };
