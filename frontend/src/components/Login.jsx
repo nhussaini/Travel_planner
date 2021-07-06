@@ -20,6 +20,7 @@ export default function Login(props) {
       .post("/users", { email: email, password: password })
       .then((data) => console.log(data));
   }
+
   return (
     <div className="top-div-login login-bg">
       <div className="login-box">
