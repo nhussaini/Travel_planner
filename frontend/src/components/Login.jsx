@@ -32,7 +32,7 @@ export default function Login(props) {
       <div className="top-div-login">
         <div className="login-box">
           <div className="login-title">Login</div>
-          <div className="input-forms">
+          <div className="input-forms-login">
             <form onSubmit={handleSubmit}>
               <div className="mb-3 text-left">
                 <label for="exampleInputEmail1" class="label-name">
