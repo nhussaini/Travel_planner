@@ -9,6 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "dotenv": "^10.0.0",
-    "follow-redirects": "^1.14.1"
+    "follow-redirects": "^1.14.1",
+    "react-rating-stars-component": "^2.2.0"
   }
 }
