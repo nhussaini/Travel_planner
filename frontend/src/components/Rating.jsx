@@ -21,6 +21,7 @@ export default function Rating(props) {
         isHalf
         edit={false}
       />
+      {/* <span>{props.reviewsCount}</span> */}
     </div>
   );
 }
