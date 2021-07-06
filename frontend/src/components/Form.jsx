@@ -11,6 +11,7 @@ export default function Form(props) {
     e.preventDefault();
     props.setLocationState(input);
   }
+
   return (
     <div className="d-flex justify-content-center">
       <form className="w-50" onSubmit={handleSubmit}>
