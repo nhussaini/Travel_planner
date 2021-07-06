@@ -12,11 +12,11 @@ import {
 library.add(fab);
 
 export default function CityDetails(props) {
-  console.log("props test", props.locationData.attributes);
+  // console.log("props test", props.locationData.attributes);
 
   return (
     <>
-      {props.locationData.attributes ? (
+      {props.locationData.attributes && props.thingsToDo.length ? (
         <section>
           <div>
             <h2 className="heading">{`Overview of Toronto`}</h2>
@@ -108,6 +108,7 @@ export default function CityDetails(props) {
               lat={props.locationData.attributes.latitude}
               long={props.locationData.attributes.longitude}
               location={props.locationData.attributes.long_name}
+              thingsToDo={props.thingsToDo}
             />
           </div>
         </section>

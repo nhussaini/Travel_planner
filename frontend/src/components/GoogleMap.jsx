@@ -18,35 +18,48 @@
 //   );
 // }
 
-import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
+import React from "react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
-const mapStyles = {
-  width: "100%",
-  height: "100%",
-};
+function GoogleMap(props) {
+  const containerStyle = {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  };
+  // const allMarkers = props.thingsTodo.map((thing, index) => {
+  //   return (
+  //     <Marker
+  //       key={index}
+  //       id={index}
+  //       position={thing.geometry.location}
+  //       onClick={() => console.log("Clicked")}
+  //     />
+  //   );
+  // });
 
-export class GoogleMap extends Component {
-  render() {
-    const containerStyle = {
-      position: "relative",
-      width: "100%",
-      height: "100%",
-    };
-    return (
-      <div id="mapContainer">
-        <Map
-          google={this.props.google}
-          zoom={14}
-          containerStyle={containerStyle}
-          initialCenter={{
-            lat: 37.09024,
-            lng: -95.712891,
+  console.log(props.thingsToDo);
+  return (
+    <div id="mapContainer">
+      <Map
+        google={props.google}
+        zoom={14}
+        containerStyle={containerStyle}
+        initialCenter={{
+          lat: 43.6532,
+          lng: -79.3832,
+        }}
+      >
+        <Marker
+          position={{
+            lat: 43.6532,
+            lng: -79.3832,
           }}
+          onClick={() => console.log("Clicked")}
         />
-      </div>
-    );
-  }
+      </Map>
+    </div>
+  );
 }
 
 export default GoogleApiWrapper({
