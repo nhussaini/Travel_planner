@@ -63,9 +63,10 @@ export default function GoogleMap(props) {
     },
     zoom: 12,
   };
+
   // const map;
   // Promise
-  console.log(props.thingsToDo[0].geometry.location);
+  console.log(props.thingsToDo[0]);
   useEffect(() => {
     loader
       .load()
@@ -75,11 +76,15 @@ export default function GoogleMap(props) {
           mapOptions
         );
 
-        props.thingsToDo.map((thing) => {
+        props.thingsToDo.map((thing, index) => {
           return new google.maps.Marker({
             position: thing.geometry.location,
             map,
+            label: `${index}`,
             title: "Hello World!",
+            animation: google.maps.Animation.DROP,
+          }).addListener("click", () => {
+            console.log(thing.name);
           });
         });
 
