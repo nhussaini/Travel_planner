@@ -1,67 +1,77 @@
-// import { useEffect } from "react";
-// import { Map, GoogleApiWrapper } from "google-maps-react";
+// import React from "react";
+// import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
-// export default function GoogleMap(props) {
+// function GoogleMap(props) {
+//   const containerStyle = {
+//     position: "relative",
+//     width: "100%",
+//     height: "100%",
+//   };
+//   // const allMarkers = props.thingsTodo.map((thing, index) => {
+//   //   return (
+//   //     <Marker
+//   //       key={index}
+//   //       id={index}
+//   //       position={thing.geometry.location}
+//   //       onClick={() => console.log("Clicked")}
+//   //     />
+//   //   );
+//   // });
+
+//   console.log(props.thingsToDo);
 //   return (
-//     <div>
-//       {/* {console.log(props.lat)}
-//       {console.log(props.long)}
-//       <iframe
-//         title="Map ot toronto"
-//         width="600"
-//         height="450"
-//         loading="lazy"
-//         allowFullScreen
-//         src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A&q=${props.location}`}
-//       ></iframe> */}
+//     <div id="mapContainer">
+//       <Map
+//         google={props.google}
+//         zoom={14}
+//         containerStyle={containerStyle}
+//         initialCenter={{
+//           lat: 43.6532,
+//           lng: -79.3832,
+//         }}
+//       >
+//         <Marker
+//           position={{
+//             lat: 43.6532,
+//             lng: -79.3832,
+//           }}
+//           onClick={() => console.log("Clicked")}
+//         />
+//       </Map>
 //     </div>
 //   );
 // }
 
-import React from "react";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+// export default GoogleApiWrapper({
+//   apiKey: "AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A",
+// })(GoogleMap);
 
-function GoogleMap(props) {
-  const containerStyle = {
-    position: "relative",
-    width: "100%",
-    height: "100%",
+import { Loader } from "@googlemaps/js-api-loader";
+
+export default function GoogleMap() {
+  const loader = new Loader({
+    apiKey: "AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A",
+    version: "weekly",
+    libraries: ["places"],
+  });
+
+  const mapOptions = {
+    center: {
+      lat: 43.6532,
+      lng: -79.3832,
+    },
+    zoom: 12,
   };
-  // const allMarkers = props.thingsTodo.map((thing, index) => {
-  //   return (
-  //     <Marker
-  //       key={index}
-  //       id={index}
-  //       position={thing.geometry.location}
-  //       onClick={() => console.log("Clicked")}
-  //     />
-  //   );
-  // });
 
-  console.log(props.thingsToDo);
-  return (
-    <div id="mapContainer">
-      <Map
-        google={props.google}
-        zoom={14}
-        containerStyle={containerStyle}
-        initialCenter={{
-          lat: 43.6532,
-          lng: -79.3832,
-        }}
-      >
-        <Marker
-          position={{
-            lat: 43.6532,
-            lng: -79.3832,
-          }}
-          onClick={() => console.log("Clicked")}
-        />
-      </Map>
-    </div>
-  );
+  // Promise
+  loader
+    .load()
+    .then((google) => {
+      new google.maps.Map(document.getElementById("map"), mapOptions);
+    })
+    .catch((e) => {
+      // do something
+      console.log("Something is Wrong");
+    });
+  return <div id="map"></div>;
 }
-
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A",
-})(GoogleMap);
