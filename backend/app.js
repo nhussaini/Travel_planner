@@ -7,6 +7,7 @@ const db = require("./db");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const loginRouter = require("./routes/login");
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter(db));
-app.use("/users-login", usersRouter(db));
+app.use("/users", loginRouter(db));
 app.use("/", indexRouter);
 // app.use('/users', usersRouter(dbHelpers));
 
