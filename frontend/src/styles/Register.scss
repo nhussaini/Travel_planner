@@ -1,50 +1,54 @@
-.register-bg {
-  background-image: url("bg-pic-4.jpg");
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: 100%;
-  min-height: 100%;
-  image-rendering: crisp-edges;
+body {
+  height: 100%;
+  margin: 0;
 
-  .top-div {
-    padding-top: 5em;
-    padding-bottom: 2.5em;
+  .register-bg {
+    background-image: url("bg-pic-4.jpg");
 
-    .register-box {
-      text-align: center;
-      border: 1px solid;
-      padding-bottom: 1.5em;
-      width: 35%;
-      margin: 0 auto;
-      border-radius: 20px;
-      background-color: rgb(0, 0, 0, 0.5);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering: crisp-edges;
 
-      .register-title {
-        font-size: 30px;
+    .top-div {
+      padding-top: 5em;
+      padding-bottom: 2.5em;
+
+      .register-box {
         text-align: center;
-        padding-top: 0.5em;
-        color: white;
-      }
+        border: 1px solid;
+        padding-bottom: 1.5em;
+        width: 35%;
+        margin: 0 auto;
+        border-radius: 20px;
+        background-color: rgb(0, 0, 0, 0.5);
 
-      .input-forms-register {
-        margin-top: 1.5em;
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-      }
+        .register-title {
+          font-size: 30px;
+          text-align: center;
+          padding-top: 0.5em;
+          color: white;
+        }
 
-      .label-name {
-        display: flex;
-        padding-bottom: 0.2rem;
-        color: white;
-      }
+        .input-forms-register {
+          margin-top: 1.5em;
+          width: 70%;
+          margin-left: auto;
+          margin-right: auto;
+        }
 
-      .form-control:valid {
-        background-color: rgb(0, 0, 0, 0.6) !important;
-        border: none !important;
-        color: white;
+        .label-name {
+          display: flex;
+          padding-bottom: 0.2rem;
+          color: white;
+        }
+
+        .form-control:valid {
+          background-color: rgb(0, 0, 0, 0.6) !important;
+          border: none !important;
+          color: white;
+        }
       }
     }
   }
