@@ -14,6 +14,10 @@ module.exports = (db) => {
       console.log("login query", data)
     );
     res.send("login post route");
+
+    router.get("/", (req, res) => {
+      res.send("login get route");
+    });
     return router;
   });
 };
