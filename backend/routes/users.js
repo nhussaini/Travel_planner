@@ -8,6 +8,8 @@ const router = express.Router();
 module.exports = (db) => {
 
 
+
+
   router.post('/', (req, res, next) => {
     const { firstName, lastName, email, password } = req.body
     const queryString = `INSERT INTO users (first_name, last_name, email, password)
@@ -15,9 +17,8 @@ module.exports = (db) => {
     RETURNING id;
   `
 
-    //db.query(`SELECT * FROM users`).then((data) => console.log("query data", data))
-    db.query(queryString, [firstName, lastName, email, password]).then((data) => console.log("query data", data))
-    //console.log("db", db)
+
+  db.query(queryString, [firstName, lastName, email, password]).then((data) => console.log("query data", data))
     res.send('post routeee');
   });
 
