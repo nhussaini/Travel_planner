@@ -11,6 +11,7 @@ export default function ThingToDo(props) {
       <p>{props.address}</p>
       <p>{props.rating}</p>
       <p>{props.reviewsCount}</p>
+      {/* <a href={props.urls}>{props.name}</a> */}
     </div>
   );
 }
