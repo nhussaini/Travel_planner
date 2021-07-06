@@ -17,8 +17,14 @@ export default function Login(props) {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("/users", { email: email, password: password })
-      .then((data) => console.log(data));
+      .post("/usersLogin", { email: email, password: password })
+      .then((data) => {
+        const user = data.data;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
