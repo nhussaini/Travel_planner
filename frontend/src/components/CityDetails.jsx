@@ -1,4 +1,4 @@
-import Map from "./Map";
+import GoogleMap from "./GoogleMap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -104,7 +104,11 @@ export default function CityDetails(props) {
                 </a>
               </p>
             </div>
-            <Map location={props.locationData.attributes.long_name} />
+            <GoogleMap
+              lat={props.locationData.attributes.latitude}
+              long={props.locationData.attributes.longitude}
+              location={props.locationData.attributes.long_name}
+            />
           </div>
         </section>
       ) : null}
