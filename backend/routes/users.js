@@ -1,16 +1,27 @@
+
+
 const express = require('express');
 const router = express.Router();
 
 /* GET users listing. */
-router.post('/', (req, res, next) => {
-  console.log("reqbody", req.body)
-  res.send('post routeee');
-});
 
-router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
-});
+module.exports = (db) => {
 
 
+  router.post('/', (req, res, next) => {
+    db.query(`SELECT * FROM users`).then((data) => console.log("query data", data))
+    //console.log("db", db)
+    res.send('post routeee');
+  });
 
-module.exports = router;
+  router.get('/', (req, res, next) => {
+    res.send('respond with a resource');
+  });
+  return router
+}
+
+
+
+
+
+
