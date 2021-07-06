@@ -108,7 +108,7 @@ export default function CityDetails(props) {
               lat={props.locationData.attributes.latitude}
               long={props.locationData.attributes.longitude}
               location={props.locationData.attributes.long_name}
-              thingsToDo={props.thingsToDo.slice(0, 5)}
+              thingsToDo={props.thingsToDo.slice(0, 10)}
             />
           </div>
         </section>
