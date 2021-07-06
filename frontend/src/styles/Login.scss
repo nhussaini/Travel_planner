@@ -6,16 +6,17 @@
   -o-background-size: cover;
   background-size: cover;
   image-rendering: crisp-edges;
+  height: fit-content;
 
   .top-div-login {
     padding-top: 7em;
-    padding-bottom: 11.6em;
+    padding-bottom: 8.3em;
 
     .login-box {
       text-align: center;
       border: 1px solid;
       padding-bottom: 2em;
-      width: 40%;
+      width: 35%;
       margin: 0 auto;
       border-radius: 20px;
       background-color: rgb(0, 0, 0, 0.5);
@@ -23,20 +24,20 @@
       .login-title {
         font-size: 30px;
         text-align: center;
-        padding-top: 1em;
+        padding-top: 0.5em;
         color: white;
       }
 
       .input-forms-login {
         margin-top: 1.5em;
-        width: 50%;
+        width: 70%;
         margin-left: auto;
         margin-right: auto;
       }
 
       .label-name {
         display: flex;
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.2rem;
         color: white;
       }
 

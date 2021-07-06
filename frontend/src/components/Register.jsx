@@ -52,7 +52,7 @@ export default function Register(props) {
                   className="input-form-register form-control"
                   id="exampleInputFirstName"
                   aria-describedby="nameHelp"
-                  placeholder="Name..."
+                  placeholder="First name..."
                   onChange={handleFirstNameChange}
                 />
               </div>
@@ -65,7 +65,7 @@ export default function Register(props) {
                   className="input-form-register form-control"
                   id="exampleInputLastName"
                   aria-describedby="nameHelp"
-                  placeholder="Name..."
+                  placeholder="Last name..."
                   onChange={handleLastNameChange}
                 />
               </div>
