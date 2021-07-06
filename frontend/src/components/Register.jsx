@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import "../styles/Register.scss";
 
@@ -20,49 +21,55 @@ export default function Register(props) {
     setPassword(e.target.value);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post("/users", {fullName:fullName, email:email, password:password})
+    .then((data) => console.log(data))
+  }
+
   return (
-    <body class="register-bg">
-      <div class="top-div">
-        <div class="register-box">
-          <div class="register-title">Register</div>
-          <div class="input-forms">
+    
+      <div className="top-div">
+        <div className="register-box">
+          <div className="register-title">Register</div>
+          <div className="input-forms">
             <form>
               <div className="mb-3">
-                <label for="exampleInputName" class="label-name">
+                <label htmlFor="exampleInputName" className="label-name">
                   Full Name
                 </label>
                 <input
                   type="text"
-                  class="input-form"
+                  className="input-form"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="exampleInputName"
                   aria-describedby="nameHelp"
                   placeholder="Name..."
                   onChange={handleNameChange}
                 />
               </div>
               <div className="mb-3 text-left">
-                <label for="exampleInputEmail1" class="label-name">
+                <label htmlFor="exampleInputEmail" className="label-name">
                   Email address
                 </label>
                 <input
                   type="email"
-                  class="input-form"
+                  className="input-form"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="exampleInputEmail"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
                   onChange={handleEmailChange}
                 />
               </div>
-              <div class="mb-3 text-left">
-                <label for="exampleInputPassword1" class="label-name">
+              <div className="mb-3 text-left">
+                <label htmlFor="exampleInputPassword" className="label-name">
                   Password
                 </label>
                 <input
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="exampleInputPassword"
                   placeholder="Password..."
                   onChange={handlePasswordChange}
                 />
@@ -75,6 +82,6 @@ export default function Register(props) {
           </div>
         </div>
       </div>
-    </body>
+    
   );
 }
