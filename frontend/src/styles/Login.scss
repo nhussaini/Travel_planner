@@ -1,5 +1,11 @@
 .login-bg {
-  background-image: url("login-bg.jpg");
+  background-image: url("register-page.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  image-rendering: crisp-edges;
 }
 
 .top-div-login {
