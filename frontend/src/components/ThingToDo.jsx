@@ -9,7 +9,7 @@ export default function ThingToDo(props) {
            &photoreference=${props.reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`}
         alt={props.name}
       />
-      <Rating />
+      <Rating rating={props.rating} />
       <p>{props.name}</p>
       <p>{props.address}</p>
       <p>{props.rating}</p>
