@@ -56,6 +56,7 @@ export default function CityDetails(props) {
                 <a
                   href={props.locationData.attributes.kayak_lodgings_url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faHotel} size="lg" />
                 </a>
@@ -65,6 +66,7 @@ export default function CityDetails(props) {
                 <a
                   href={props.locationData.attributes.google_events_url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faCalendarAlt} size="lg" />
                 </a>
@@ -74,6 +76,7 @@ export default function CityDetails(props) {
                 <a
                   href={props.locationData.attributes.alltrails_url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faHiking} size="lg" />
                 </a>
@@ -83,6 +86,7 @@ export default function CityDetails(props) {
                 <a
                   href={props.locationData.attributes.getyourguide_url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {" "}
                   <FontAwesomeIcon icon={faMapMarkedAlt} size="lg" />
@@ -93,6 +97,7 @@ export default function CityDetails(props) {
                 <a
                   href={props.locationData.attributes.kayak_car_rental_url}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {""}
                   <FontAwesomeIcon icon={faCar} size="lg" />
@@ -104,13 +109,5 @@ export default function CityDetails(props) {
         </section>
       ) : null}
     </>
-
-    // <div>
-    //   City Details
-    //   <p>
-    //     Where:
-    //     <span>{props.locationData.attributes?.population}</span>
-    //   </p>
-    // </div>
   );
 }

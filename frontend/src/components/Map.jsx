@@ -6,7 +6,7 @@ export default function Map(props) {
         width="600"
         height="450"
         loading="lazy"
-        allowfullscreen
+        allowFullScreen
         src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A&q=${props.location}`}
       ></iframe>
     </div>
