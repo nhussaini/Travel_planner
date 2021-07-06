@@ -1,12 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET users listing. */
-router.post('/', function (req, res, next) {
-  console.log("we are at this route")
+router.post('/', (req, res, next) => {
+  console.log("reqbody", req.body)
   res.send('post routeee');
 });
-router.get('/', function (req, res, next) {
+
+router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 

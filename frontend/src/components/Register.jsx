@@ -33,7 +33,7 @@ export default function Register(props) {
         <div className="register-box">
           <div className="register-title">Register</div>
           <div className="input-forms">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputName" className="label-name">
                   Full Name
