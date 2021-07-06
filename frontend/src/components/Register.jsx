@@ -3,9 +3,8 @@ import { useState } from "react";
 import "../styles/Register.scss";
 
 export default function Register(props) {
-
   const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState()
+  const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -27,16 +26,22 @@ export default function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("/users", {firstName:firstName, lastName:lastName, email:email, password:password})
-    .then((data) => console.log(data))
+    axios
+      .post("/users", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      })
+      .then((data) => console.log(data));
   }
 
   return (
-    
+    <div className="register-bg">
       <div className="top-div">
         <div className="register-box">
           <div className="register-title">Register</div>
-          <div className="input-forms">
+          <div className="input-forms-register">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputName" className="label-name">
@@ -44,11 +49,10 @@ export default function Register(props) {
                 </label>
                 <input
                   type="text"
-                  className="input-form"
-                  className="form-control"
+                  className="input-form-register form-control"
                   id="exampleInputFirstName"
                   aria-describedby="nameHelp"
-                  placeholder="Name..."
+                  placeholder="First name..."
                   onChange={handleFirstNameChange}
                 />
               </div>
@@ -58,11 +62,10 @@ export default function Register(props) {
                 </label>
                 <input
                   type="text"
-                  className="input-form"
-                  className="form-control"
+                  className="input-form-register form-control"
                   id="exampleInputLastName"
                   aria-describedby="nameHelp"
-                  placeholder="Name..."
+                  placeholder="Last name..."
                   onChange={handleLastNameChange}
                 />
               </div>
@@ -72,8 +75,7 @@ export default function Register(props) {
                 </label>
                 <input
                   type="email"
-                  className="input-form"
-                  className="form-control"
+                  className="input-form-register form-control"
                   id="exampleInputEmail"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
@@ -100,6 +102,6 @@ export default function Register(props) {
           </div>
         </div>
       </div>
-    
+    </div>
   );
 }

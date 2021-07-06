@@ -1,27 +1,53 @@
+import { useState } from "react";
+import axios from "axios";
 import "../styles/Login.scss";
 
 export default function Login(props) {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("/usersLogin", { email: email, password: password })
+      .then((data) => {
+        const user = data.data;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
-    <body class="login-bg">
-      <div class="top-div-login">
-        <div class="login-box">
-          <div class="login-title">Login</div>
-          <div class="input-forms">
-            <form>
+    <div className="login-bg">
+      <div className="top-div-login">
+        <div className="login-box">
+          <div className="login-title">Login</div>
+          <div className="input-forms-login">
+            <form onSubmit={handleSubmit}>
               <div className="mb-3 text-left">
                 <label for="exampleInputEmail1" class="label-name">
                   Email address
                 </label>
                 <input
                   type="email"
-                  class="input-form"
-                  className="form-control"
+                  className="input-form form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
+                  onChange={handleEmailChange}
                 />
               </div>
-              <div class="mb-3 text-left">
+              <div className="mb-3 text-left">
                 <label for="exampleInputPassword1" class="label-name">
                   Password
                 </label>
@@ -30,6 +56,7 @@ export default function Login(props) {
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password..."
+                  onChange={handlePasswordChange}
                 />
               </div>
 
@@ -40,6 +67,6 @@ export default function Login(props) {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 }

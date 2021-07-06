@@ -2,11 +2,12 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const db = require('./db');
+const db = require("./db");
 // const dbHelpers = require('./helpers/dbHelpers')(db);
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const loginRouter = require("./routes/login");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter(db));
+app.use("/usersLogin", loginRouter(db));
 app.use("/", indexRouter);
 // app.use('/users', usersRouter(dbHelpers));
 
