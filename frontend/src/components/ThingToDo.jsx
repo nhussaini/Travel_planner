@@ -1,3 +1,5 @@
+import Rating from "./Rating";
+
 export default function ThingToDo(props) {
   return (
     <div className="attraction-card card">
@@ -7,6 +9,10 @@ export default function ThingToDo(props) {
            &photoreference=${props.reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`}
         alt={props.name}
       />
+
+      <Rating rating={props.rating} />
+      {/* <p>{props.reviewsCount}</p> */}
+
       <p>{props.name}</p>
       <p>{props.address}</p>
       <p>{props.rating}</p>
