@@ -6,45 +6,45 @@
   -o-background-size: cover;
   background-size: cover;
   image-rendering: crisp-edges;
-}
 
-.top-div {
-  padding-top: 7em;
-  padding-bottom: 11.6em;
-}
+  .top-div {
+    padding-top: 7em;
+    padding-bottom: 11.6em;
 
-.register-box {
-  text-align: center;
-  border: 1px solid;
-  padding-bottom: 2em;
-  width: 40%;
-  margin: 0 auto;
-  border-radius: 20px;
-  background-color: rgb(0, 0, 0, 0.5);
-}
+    .register-box {
+      text-align: center;
+      border: 1px solid;
+      padding-bottom: 2em;
+      width: 40%;
+      margin: 0 auto;
+      border-radius: 20px;
+      background-color: rgb(0, 0, 0, 0.5);
 
-.register-title {
-  font-size: 30px;
-  text-align: center;
-  padding-top: 1em;
-  color: white;
-}
+      .register-title {
+        font-size: 30px;
+        text-align: center;
+        padding-top: 1em;
+        color: white;
+      }
 
-.input-forms-register {
-  margin-top: 1.5em;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
+      .input-forms-register {
+        margin-top: 1.5em;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-.label-name {
-  display: flex;
-  padding-bottom: 0.5rem;
-  color: white;
-}
+      .label-name {
+        display: flex;
+        padding-bottom: 0.5rem;
+        color: white;
+      }
 
-.form-control:valid {
-  background-color: rgb(0, 0, 0, 0.6) !important;
-  border: none !important;
-  color: white;
+      .form-control:valid {
+        background-color: rgb(0, 0, 0, 0.6) !important;
+        border: none !important;
+        color: white;
+      }
+    }
+  }
 }
