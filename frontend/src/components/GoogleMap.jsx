@@ -75,23 +75,55 @@ export default function GoogleMap(props) {
           document.getElementById("map"),
           mapOptions
         );
+        const infowindow = new google.maps.InfoWindow({
+          content: "Hiiii",
+        });
 
         props.thingsToDo.map((thing, index) => {
-          return new google.maps.Marker({
+          const marker = new google.maps.Marker({
             position: thing.geometry.location,
             map,
             label: `${index}`,
-            title: "Hello World!",
+            title: thing.name,
             animation: google.maps.Animation.DROP,
-          }).addListener("click", () => {
-            console.log(thing.name);
           });
+
+          marker.addListener("mouseover", () => {
+            infowindow.open({
+              anchor: marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+
+          return marker;
+          // return new google.maps.Marker({
+          //   position: thing.geometry.location,
+          //   map,
+          //   label: `${index}`,
+          //   title: thing.name,
+          //   animation: google.maps.Animation.DROP,
+          // }).addListener("click", () => {
+          //   // console.log(thing.name);
+          //   infowindow.open({
+          //     anchor: null,
+          //     map,
+          //     shouldFocus: false,
+          //   });
+          // });
         });
 
-        // new google.maps.Marker({
-        //   position: { lat: -25.363, lng: 131.044 },
+        // const marker = new google.maps.Marker({
+        //   position: { lat: props.lat, lng: props.long },
         //   map,
         //   title: "Hello World!",
+        // });
+        // marker.addListener("click", () => {
+        //   infowindow.open({
+        //     anchor: marker,
+        //     map,
+        //     shouldFocus: false,
+        //   });
         // });
       })
       .catch((e) => {
