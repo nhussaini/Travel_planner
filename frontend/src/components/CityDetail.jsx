@@ -4,7 +4,8 @@ import ImagesList from "./ImagesList";
 export default function locationDetail() {
   return (
     <div>
-      <ImagesList />
+      City Detail
+      {/* <ImagesList /> */}
     </div>
   );
 }
