@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  //justify-content: center;
   width: 60%;
   margin-left: 3em;
 
@@ -12,6 +11,26 @@
     margin-bottom: 2%;
     width: 30%;
     position: relative;
+
+    &:hover {
+      .city-name-user-profile {
+        transform: scale(1.2);
+        transition: all 300ms;
+      }
+
+      // .city-name-user-profile-title {
+      //   -webkit-transform: scale(1.2);
+      //   -ms-transform: scale(1.2);
+      //   transform: scale(1.2);
+      //   transition: all 300ms;
+      // }
+
+      .user-trip-img {
+        transform: scale(1.05);
+        transition: all 300ms;
+        border: solid springgreen;
+      }
+    }
 
     .city-name-user-profile {
       position: absolute;
@@ -30,10 +49,12 @@
       left: 1rem;
       color: white;
       font-weight: bold;
+      font-size: 20px;
     }
 
     .user-trip-img {
       border-radius: 15px;
+      transition: transform 0.5s ease;
       object-fit: cover;
       height: 38vh;
       width: 100%;
