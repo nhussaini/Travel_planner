@@ -14,7 +14,7 @@ function useCityData() {
     if (state.location) {
       axios
         .post("/cities/getCityData", { userInput: state.location })
-        .then((data) => console.log(data));
+        .then((data) => console.log(data.data));
     }
   });
 
