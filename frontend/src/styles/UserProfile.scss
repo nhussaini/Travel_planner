@@ -1,21 +1,28 @@
 .user-profile-container {
   display: flex;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
   justify-content: center;
-  width: 25%;
+  width: 50%;
 
   .user-trip-card {
+    border-radius: 15px;
+    margin: 0 0.5rem;
+    margin-bottom: 2%;
+    width: 30%;
+    position: relative;
+
     .user-trip-img {
       border-radius: 15px;
       object-fit: cover;
       height: 38vh;
       width: 100%;
       margin: 0 0.5rem;
+      margin-bottom: 1em;
     }
 
     .user-things {
       display: flex;
-      // flex-wrap: wrap;
+      //flex-wrap: wrap;
       // justify-content: center;
     }
   }
