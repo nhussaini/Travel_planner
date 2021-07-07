@@ -6,51 +6,51 @@ export default function UserProfile(props) {
       <h2>My Trips</h2>
       <div className="user-profile-container">
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile-title">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile">Attraction</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile">Restaurant</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile">Museum</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile">Restaurant</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name-user-profile">Paris</div>
+          <div className="city-name-user-profile">Attraction</div>
           <img
             className="user-trip-img"
             alt="city"
-            src={`https://images.unsplash.com/photo-1539577514938-c7363678474c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mjd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+            src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
           />
         </div>
       </div>
