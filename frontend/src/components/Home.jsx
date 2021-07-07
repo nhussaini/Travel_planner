@@ -56,7 +56,6 @@ export default function Home(props) {
       <ImagesList location={location} images={images} />
       <WeatherList location={location} weather={weather} />
       <TrendingCities />
-      <TrendingCity />
       {/* <FlightData /> */}
     </div>
   );

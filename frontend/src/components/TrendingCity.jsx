@@ -40,14 +40,19 @@ export const cityData = [
     img: "../styles/bg-pic-4.png",
   },
 ];
-
 export default function TrendingCity(props) {
+  // const allTrendingCities = cityData.map((city) => {
+  //   <p>City name: {city.name}</p>;
+  //   <img src={city.img} alt="cities" />;
+  //   return <TrendingCity />;
+  // });
+
   return (
     <div className="weather-container">
-      <p>City</p>
+      <p>City Name</p>
       <div>
         <img alt="city" src="../styles/bg-pic-4.png" />
-        <p>City Name</p>
+        {/* <p>{allTrendingCities}</p> */}
       </div>
     </div>
   );

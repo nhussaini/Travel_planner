@@ -1,4 +1,5 @@
 import TrendingCity from "./TrendingCity";
+import { cityData } from "./TrendingCity";
 
 export default function TrendingCities(props) {
   console.log("city props", props);
@@ -6,7 +7,11 @@ export default function TrendingCities(props) {
   //   return <TrendingCity city={city} />;
   // });
 
-  const allTrendingCities = TrendingCity.map((city) => {});
+  const allTrendingCities = cityData.map((city) => {
+    <p>City name: {city.name}</p>;
+    <img src={city.img} alt="cities" />;
+    return <TrendingCity />;
+  });
 
   return (
     <div>
@@ -14,7 +19,7 @@ export default function TrendingCities(props) {
         <h2 className="heading">Trending Destinations</h2>
       </div>
       <div className="d-flex flex-wrap justify-content-center">
-        {/* {allTrendingCities} */}
+        {allTrendingCities}
       </div>
     </div>
   );
