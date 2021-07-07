@@ -5,7 +5,7 @@ import "./styles/app.scss";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import LocationDetail from "./components/LocationDetail";
+import CityDetail from "./components/CityDetail";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             <Register />
           </Route>
           <Route path="/cities/:id">
-            <LocationDetail />
+            <CityDetail />
           </Route>
         </Switch>
       </Router>
