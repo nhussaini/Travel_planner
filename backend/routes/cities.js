@@ -14,10 +14,10 @@ module.exports = ({ getUsers, addCity, addImage, addAttraction }) => {
   };
 
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput || "Toronto";
+    const cityName = req.body.userInput || "Montreal";
     const allData = {};
     // saving all api quesries in variables
-    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=2&orientation=landscape`;
+    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
     // since Roaggoat data needs two api call, getting this data first before making calls to other api.
@@ -82,17 +82,21 @@ module.exports = ({ getUsers, addCity, addImage, addAttraction }) => {
         // res.send(allData);
       })
       .then((newCity) => {
-        // res.json(allData.imageData[0]);
-        // for (let item of allData.imageData) {
-        //   addImage(item.urls.regular, newCity.id);
-        // }
-        // res.json(allData["googleData"]);
+        // Save images to the image table
+        console.log(allData.imageData);
+        for (let item of allData.imageData) {
+          addImage(item.urls.regular, newCity.id);
+        }
+
+        // save attractions for a place in the attraction table
         for (let item of allData["googleData"]) {
           if (item.user_ratings_total > 100) {
+            // saving the variable
             const { name, formatted_address, rating, user_ratings_total } =
               item;
             const { lat, lng } = item.geometry.location;
             const photo_reference = item["photos"][0].photo_reference;
+            // saving each attraction in the db
             addAttraction(
               name,
               formatted_address,
