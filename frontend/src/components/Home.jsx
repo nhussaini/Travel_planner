@@ -6,7 +6,9 @@ import ImagesList from "./ImagesList";
 import CityDetails from "./CityDetails";
 import ThingsToDoList from "./ThingsToDoList";
 import FlightData from "./FlightData";
+import TrendingCities from "./TrendingCities";
 import axios from "axios";
+import TrendingCity from "./TrendingCity";
 
 export default function Home(props) {
   const [location, setLocation] = useState("");
@@ -53,6 +55,8 @@ export default function Home(props) {
       <ThingsToDoList location={location} thingsToDo={thingsToDo} />
       <ImagesList location={location} images={images} />
       <WeatherList location={location} weather={weather} />
+      <TrendingCities />
+      <TrendingCity />
       {/* <FlightData /> */}
     </div>
   );
