@@ -49,7 +49,7 @@ export default function TrendingCity(props) {
 
   return (
     <div className="weather-container">
-      <p>City Name</p>
+      <p>city name</p>
       <div>
         <img alt="city" src="../styles/bg-pic-4.png" />
         {/* <p>{allTrendingCities}</p> */}
