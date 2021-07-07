@@ -11,8 +11,14 @@
     width: 20%;
     height: 300px;
     overflow: hidden;
+    position: relative;
     &:hover {
       box-shadow: 10px 5px 14px -6px #8c7378;
+    }
+    .favorite-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
     }
 
     .card-img-top {

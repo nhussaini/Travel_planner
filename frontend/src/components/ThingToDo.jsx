@@ -11,8 +11,8 @@ export default function ThingToDo(props) {
            &photoreference=${props.reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`}
         alt={props.name}
       />
-      <div>
-        <FontAwesomeIcon icon={faHeart} size="lg" />
+      <div className="favorite-icon">
+        <FontAwesomeIcon icon={faHeart} size="lg" className="icon" inverse />
       </div>
 
       {/* <FontAwesomeIcon icon={faCheckSquare} size="lg" /> */}
