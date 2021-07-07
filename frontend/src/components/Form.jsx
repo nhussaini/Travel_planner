@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Form(props) {
   const [input, setInput] = useState(null);
@@ -10,6 +11,8 @@ export default function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.setLocationState(input);
+    // useHistory.push("/cities/5");
+    // window.location.href = `/cities/${input}`;
   }
 
   return (
