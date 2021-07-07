@@ -1,27 +1,27 @@
+/* eslint-disable camelcase */
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = ({ getUsers, addCity }) => {
+module.exports = ({ getUsers, addCity, addImage, addAttraction }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
-      username: "bc8bd73ed4416f3824623910174c4bcf",
-      password: "d7055907b51a5ece2b5e4c715fadd789",
+      username: "aee3dc619b9da58ca3a967b6cb7a4fc5",
+      password: "01f998155debd93205287912664cb75c",
     },
   };
 
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput;
+    const cityName = req.body.userInput || "Montreal";
     const allData = {};
-    // since Roaggoat data needs two api call, getting this data first before making calls to other api.
-    // first get the id of the location for further api calls
-
     // saving all api quesries in variables
-    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=8`;
+    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
+    // since Roaggoat data needs two api call, getting this data first before making calls to other api.
+    // first get the id of the location for further api calls
     axios
       .get(
         `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${cityName}`,
@@ -39,7 +39,7 @@ module.exports = ({ getUsers, addCity }) => {
             allData.cityData = data.data.data;
           });
       });
-
+    // Getting images and googleData
     Promise.all([
       axios.get(imageCall),
       // axios.get(weatherCall),
@@ -49,19 +49,68 @@ module.exports = ({ getUsers, addCity }) => {
         allData.imageData = all[0].data.results;
         allData.googleData = all[1].data.results;
         // console.log(all[0].data.results);
+
+        // extract the data coming from roadgoatApi and sav them in a variable
+        const {
+          short_name,
+          long_name,
+          population,
+          latitude,
+          longitude,
+          airbnb_url,
+          kayak_lodgings_url,
+          google_events_url,
+          alltrails_url,
+          getyourguide_url,
+          kayak_car_rental_url,
+        } = allData.cityData.attributes;
+
+        // add the city data to db
         return addCity(
-          "Toronto",
-          2600000,
-          "http://airbnb.com",
-          "http://hotel.com",
-          "http://events.com",
-          "http://nature.com",
-          "http://guides.com",
-          "http://rent_a_car.com"
+          short_name,
+          long_name,
+          population,
+          latitude,
+          longitude,
+          airbnb_url,
+          kayak_lodgings_url,
+          google_events_url,
+          alltrails_url,
+          getyourguide_url,
+          kayak_car_rental_url
         );
         // res.send(allData);
       })
-      .then((newCity) => res.json(newCity))
+      .then((newCity) => {
+        // Save images to the image table
+        console.log(allData.imageData);
+        for (let item of allData.imageData) {
+          addImage(item.urls.regular, newCity.id);
+        }
+
+        // save attractions for a place in the attraction table
+        for (let item of allData["googleData"]) {
+          if (item.user_ratings_total > 100) {
+            // saving the variable
+            const { name, formatted_address, rating, user_ratings_total } =
+              item;
+            const { lat, lng } = item.geometry.location;
+            const photo_reference = item["photos"][0].photo_reference;
+            // saving each attraction in the db
+            addAttraction(
+              name,
+              formatted_address,
+              lat,
+              lng,
+              rating,
+              user_ratings_total,
+              photo_reference,
+              newCity.id
+            );
+          }
+        }
+      })
+      .then((data) => res.json(data))
       .catch((err) =>
         res.json({
           error: err.message,
