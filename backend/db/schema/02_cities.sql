@@ -25,13 +25,12 @@ CREATE TABLE images (
 
 CREATE TABLE attractions (
   id SERIAL PRIMARY KEY NOT NULL,
-  lat decimal,
-  long decimal,
-  image_url VARCHAR(255),
   name VARCHAR(255),
-  address VARCHAR(255),
-  ratings decimal,
-  total_ratings INT,
+  formatted_address VARCHAR(255),
+  lat decimal,
+  lng decimal,
+  rating decimal,
+  user_ratings_total INT,
   photo_reference VARCHAR(255),
   city_id INT REFERENCES cities(id) ON DELETE CASCADE
 );

@@ -68,6 +68,42 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const addAttraction = (
+    name,
+    formatted_address,
+    lat,
+    lng,
+    rating,
+    user_ratings_total,
+    photo_reference,
+    city_id
+  ) => {
+    const query = {
+      text: `INSERT INTO attractions( name,
+        formatted_address,
+        lat,
+        lng,
+        rating,
+        user_ratings_total,
+        photo_reference,
+        city_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      values: [
+        name,
+        formatted_address,
+        lat,
+        lng,
+        rating,
+        user_ratings_total,
+        photo_reference,
+        city_id,
+      ],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
   const addUser = (firstName, lastName, email, password) => {
     const query = {
       text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`,
@@ -110,5 +146,6 @@ module.exports = (db) => {
     addCity,
     getCity,
     addImage,
+    addAttraction,
   };
 };

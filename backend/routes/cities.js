@@ -4,12 +4,12 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = ({ getUsers, addCity, addImage }) => {
+module.exports = ({ getUsers, addCity, addImage, addAttraction }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
-      username: "bc8bd73ed4416f3824623910174c4bcf",
-      password: "d7055907b51a5ece2b5e4c715fadd789",
+      username: "aee3dc619b9da58ca3a967b6cb7a4fc5",
+      password: "01f998155debd93205287912664cb75c",
     },
   };
 
@@ -83,10 +83,30 @@ module.exports = ({ getUsers, addCity, addImage }) => {
       })
       .then((newCity) => {
         // res.json(allData.imageData[0]);
-        for (let item of allData.imageData) {
-          addImage(item.urls.regular, newCity.id);
+        // for (let item of allData.imageData) {
+        //   addImage(item.urls.regular, newCity.id);
+        // }
+        // res.json(allData["googleData"]);
+        for (let item of allData["googleData"]) {
+          if (item.user_ratings_total > 100) {
+            const { name, formatted_address, rating, user_ratings_total } =
+              item;
+            const { lat, lng } = item.geometry.location;
+            const photo_reference = item["photos"][0].photo_reference;
+            addAttraction(
+              name,
+              formatted_address,
+              lat,
+              lng,
+              rating,
+              user_ratings_total,
+              photo_reference,
+              newCity.id
+            );
+          }
         }
       })
+      .then((data) => res.json(data))
       .catch((err) =>
         res.json({
           error: err.message,
