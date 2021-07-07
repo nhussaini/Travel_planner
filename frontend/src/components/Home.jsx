@@ -11,6 +11,7 @@ import FlightData from "./FlightData";
 import TrendingCities from "./TrendingCities";
 import axios from "axios";
 import TrendingCity from "./TrendingCity";
+import UserProfile from "./UserProfile";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
@@ -29,6 +30,7 @@ export default function Home(props) {
       <ImagesList location={state.location} images={state.images} />
       <WeatherList location={state.location} weather={state.weather} />
       <TrendingCities />
+      <UserProfile />
     </div>
   );
 }
