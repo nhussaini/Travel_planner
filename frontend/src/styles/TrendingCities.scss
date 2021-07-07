@@ -12,39 +12,29 @@
 
     &:hover {
       .city-name {
-        font-size: 25px;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
         transition: all 500ms;
       }
 
       .trending-city-img {
-        // transform: scale(1.05);
-        border: 2px solid red;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        transition: all 0.5s;
       }
     }
 
     .city-name {
       position: absolute;
+      z-index: 100;
+      transition: transform 0.5s ease;
       top: 1rem;
       left: 1rem;
       color: white;
       font-weight: bold;
     }
-    // .city-name:hover {
-    //   color: yellowgreen;
-    // }
-
-    // .city-name-hover {
-    //   position: absolute;
-    //   top: 1rem;
-    //   left: 1rem;
-    //   color: white;
-    //   font-weight: bold;
-    //   visibility: hidden;
-
-    //   :hover {
-    //     visibility: visible;
-    //   }
-    // }
 
     .trending-city-img {
       border-radius: 15px;
@@ -52,10 +42,6 @@
       object-fit: cover;
       height: 38vh;
       width: 100%;
-
-      // &:hover {
-      //   transform: scale(1.05);
-      // }
     }
   }
 }
