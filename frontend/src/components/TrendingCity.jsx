@@ -48,10 +48,11 @@ export default function TrendingCity(props) {
   // });
 
   return (
-    <div className="weather-container">
+    <div className="trending-city-card card">
       <p>{props.city}</p>
       <div>
         <img
+          className="trending-city-img"
           alt="city"
           src={`https://images.unsplash.com/photo-1486325212027-8081e485255e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80`}
         />
