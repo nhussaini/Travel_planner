@@ -4,8 +4,8 @@ import { cityData } from "./TrendingCity";
 export default function TrendingCities(props) {
   console.log("city props", props);
 
-  const allTrendingCities = cityData.map((city) => {
-    return <TrendingCity city={city.name} img={city.img} />;
+  const allTrendingCities = cityData.map((city, index) => {
+    return <TrendingCity key={index} city={city.name} img={city.img} />;
   });
 
   return (

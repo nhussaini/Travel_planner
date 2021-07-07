@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 export default function Form(props) {
   const [input, setInput] = useState(null);
 
-  console.log(props.setLocationState);
   function handleChange(e) {
     setInput(e.target.value);
   }
