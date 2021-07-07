@@ -49,9 +49,12 @@ export default function TrendingCity(props) {
 
   return (
     <div className="weather-container">
-      <p>city name</p>
+      <p>{props.city}</p>
       <div>
-        <img alt="city" src="../styles/bg-pic-4.png" />
+        <img
+          alt="city"
+          src={`https://images.unsplash.com/photo-1486325212027-8081e485255e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80`}
+        />
         {/* <p>{allTrendingCities}</p> */}
       </div>
     </div>

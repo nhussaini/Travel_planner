@@ -84,8 +84,20 @@ module.exports = (db) => {
   //       .catch((err) => err);
   //   };
 
+  const getCity = (name) => {
+    const query = {
+      text: `SELECT name from cities WHERE name = ${name}`,
+      values: [name],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
   return {
     getUsers,
     addCity,
+    getCity,
   };
 };

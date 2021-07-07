@@ -24,6 +24,7 @@ CREATE TABLE attractions (
   id SERIAL PRIMARY KEY NOT NULL,
   lat decimal,
   long decimal,
+  image_url VARCHAR(255),
   name VARCHAR(255),
   address VARCHAR(255),
   ratings decimal,
