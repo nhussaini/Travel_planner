@@ -5,7 +5,10 @@ DROP TABLE IF EXISTS attractions CASCADE;
 CREATE TABLE cities (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
+  long_name VARCHAR(255) NOT NULL,
   population INT NOT NULL,
+  lat decimal,
+  long decimal,
   airbnb VARCHAR(255),
   hotels VARCHAR(255),
   events VARCHAR(255),

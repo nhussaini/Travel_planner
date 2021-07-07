@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = (db) => {
   const getUsers = () => {
     const query = {
@@ -11,33 +12,43 @@ module.exports = (db) => {
   };
 
   const addCity = (
-    name,
+    short_name,
+    long_name,
     population,
-    airbnb,
-    hotels,
-    events,
-    nature,
-    guides,
-    rent_cars
+    latitude,
+    longitude,
+    airbnb_url,
+    kayak_lodgings_url,
+    google_events_url,
+    alltrails_url,
+    getyourguide_url,
+    kayak_car_rental_url
   ) => {
     const query = {
-      text: `INSERT INTO cities(name,
+      text: `INSERT INTO cities(
+        short_name,
+        long_name,
         population,
-        airbnb,
-        hotels,
-        events,
-        nature,
-        guides,
-        rent_cars) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+        latitude,
+        longitude,
+        airbnb_url,
+        kayak_lodgings_url,
+        google_events_url,
+        alltrails_url,
+        getyourguide_url,
+        kayak_car_rental_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`,
       values: [
-        name,
+        short_name,
+        long_name,
         population,
-        airbnb,
-        hotels,
-        events,
-        nature,
-        guides,
-        rent_cars,
+        latitude,
+        longitude,
+        airbnb_url,
+        kayak_lodgings_url,
+        google_events_url,
+        alltrails_url,
+        getyourguide_url,
+        kayak_car_rental_url,
       ],
     };
     return db

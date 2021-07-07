@@ -13,7 +13,7 @@ module.exports = ({ getUsers, addCity }) => {
   };
 
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput;
+    const cityName = req.body.userInput || "Toronto";
     const allData = {};
     // since Roaggoat data needs two api call, getting this data first before making calls to other api.
     // first get the id of the location for further api calls
@@ -44,29 +44,42 @@ module.exports = ({ getUsers, addCity }) => {
       axios.get(imageCall),
       // axios.get(weatherCall),
       axios.get(googleCall),
-    ])
-      .then((all) => {
-        allData.imageData = all[0].data.results;
-        allData.googleData = all[1].data.results;
-        // console.log(all[0].data.results);
-        return addCity(
-          "Toronto",
-          2600000,
-          "http://airbnb.com",
-          "http://hotel.com",
-          "http://events.com",
-          "http://nature.com",
-          "http://guides.com",
-          "http://rent_a_car.com"
-        );
-        // res.send(allData);
-      })
-      .then((newCity) => res.json(newCity))
-      .catch((err) =>
-        res.json({
-          error: err.message,
-        })
-      );
+    ]).then((all) => {
+      allData.imageData = all[0].data.results;
+      allData.googleData = all[1].data.results;
+      // console.log(all[0].data.results);
+      const {
+        short_name,
+        long_name,
+        population,
+        latitude,
+        longitude,
+        airbnb_url,
+        kayak_lodgings_url,
+        google_events_url,
+        alltrails_url,
+        getyourguide_url,
+        kayak_car_rental_url,
+      } = allData.cityData.attributes;
+      res.send(allData.cityData.attributes);
+      // return addCity(
+      //   "Toronto",
+      //   2600000,
+      //   "http://airbnb.com",
+      //   "http://hotel.com",
+      //   "http://events.com",
+      //   "http://nature.com",
+      //   "http://guides.com",
+      //   "http://rent_a_car.com"
+      // );
+      // res.send(allData);
+    });
+    // .then((newCity) => res.json(newCity))
+    // .catch((err) =>
+    //   res.json({
+    //     error: err.message,
+    //   })
+    // );
   });
 
   router.post("/users", (req, res) => {
