@@ -10,6 +10,42 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const addCity = (
+    name,
+    population,
+    airbnb,
+    hotels,
+    events,
+    nature,
+    guides,
+    rent_cars
+  ) => {
+    const query = {
+      text: `INSERT INTO cities(name,
+        population,
+        airbnb,
+        hotels,
+        events,
+        nature,
+        guides,
+        rent_cars) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      values: [
+        name,
+        population,
+        airbnb,
+        hotels,
+        events,
+        nature,
+        guides,
+        rent_cars,
+      ],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
   //   const getUserByEmail = (email) => {
   //     const query = {
   //       text: `SELECT * FROM users WHERE email = $1`,
@@ -22,17 +58,17 @@ module.exports = (db) => {
   //       .catch((err) => err);
   //   };
 
-  //   const addUser = (firstName, lastName, email, password) => {
-  //     const query = {
-  //       text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`,
-  //       values: [firstName, lastName, email, password],
-  //     };
+  const addUser = (firstName, lastName, email, password) => {
+    const query = {
+      text: `INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *`,
+      values: [firstName, lastName, email, password],
+    };
 
-  //     return db
-  //       .query(query)
-  //       .then((result) => result.rows[0])
-  //       .catch((err) => err);
-  //   };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
 
   //   const getUsersPosts = () => {
   //     const query = {
@@ -50,5 +86,6 @@ module.exports = (db) => {
 
   return {
     getUsers,
+    addCity,
   };
 };

@@ -8,10 +8,10 @@ CREATE TABLE cities (
   population INT NOT NULL,
   airbnb VARCHAR(255),
   hotels VARCHAR(255),
-  event VARCHAR(255),
+  events VARCHAR(255),
   nature VARCHAR(255),
   guides VARCHAR(255),
-  rent_a_car VARCHAR(255)
+  rent_cars VARCHAR(255)
 );
 
 CREATE TABLE images (

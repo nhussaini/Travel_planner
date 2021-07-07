@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = ({ getUsers }) => {
+module.exports = ({ getUsers, addCity }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
@@ -44,12 +44,29 @@ module.exports = ({ getUsers }) => {
       axios.get(imageCall),
       // axios.get(weatherCall),
       axios.get(googleCall),
-    ]).then((all) => {
-      allData.imageData = all[0].data.results;
-      allData.googleData = all[1].data.results;
-      // console.log(all[0].data.results);
-      res.send(allData);
-    });
+    ])
+      .then((all) => {
+        allData.imageData = all[0].data.results;
+        allData.googleData = all[1].data.results;
+        // console.log(all[0].data.results);
+        return addCity(
+          "Toronto",
+          2600000,
+          "http://airbnb.com",
+          "http://hotel.com",
+          "http://events.com",
+          "http://nature.com",
+          "http://guides.com",
+          "http://rent_a_car.com"
+        );
+        // res.send(allData);
+      })
+      .then((newCity) => res.json(newCity))
+      .catch((err) =>
+        res.json({
+          error: err.message,
+        })
+      );
   });
 
   router.post("/users", (req, res) => {
