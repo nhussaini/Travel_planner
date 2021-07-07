@@ -6,7 +6,7 @@ export default function UserProfile(props) {
       <h2>My Trips</h2>
       <div className="user-profile-container">
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
@@ -14,7 +14,7 @@ export default function UserProfile(props) {
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
@@ -22,7 +22,7 @@ export default function UserProfile(props) {
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
@@ -30,7 +30,7 @@ export default function UserProfile(props) {
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
@@ -38,7 +38,7 @@ export default function UserProfile(props) {
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"
@@ -46,7 +46,7 @@ export default function UserProfile(props) {
           />
         </div>
         <div className="user-trip-card card">
-          <div className="city-name">Paris</div>
+          <div className="city-name-user-profile">Paris</div>
           <img
             className="user-trip-img"
             alt="city"

@@ -12,19 +12,21 @@
     width: 30%;
     position: relative;
 
+    .city-name-user-profile {
+      position: absolute;
+      z-index: 100;
+      transition: transform 0.5s ease;
+      top: 1rem;
+      left: 1rem;
+      color: black;
+      font-weight: bold;
+    }
+
     .user-trip-img {
       border-radius: 15px;
       object-fit: cover;
       height: 38vh;
       width: 100%;
-      margin: 0 0.5rem;
-      margin-bottom: 1em;
-    }
-
-    .user-things {
-      display: flex;
-      //flex-wrap: wrap;
-      // justify-content: center;
     }
   }
 }
