@@ -8,7 +8,7 @@ const db = require("./db");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
-const cityRouter = require("./routes/city");
+const citiesRouter = require("./routes/cities");
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter(db));
 app.use("/usersLogin", loginRouter(db));
-app.use("/cities", cityRouter(db));
+app.use("/cities", citiesRouter(db));
 app.use("/", indexRouter);
 // app.use('/users', usersRouter(dbHelpers));
 
