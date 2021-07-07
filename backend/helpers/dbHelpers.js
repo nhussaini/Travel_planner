@@ -121,6 +121,37 @@ module.exports = (db) => {
       text: `SELECT * from cities WHERE short_name = ($1)`,
       values: [name],
     };
+
+    return db
+      .query(query)
+      .then((result) => (result.rows[0] ? result.rows[0] : null))
+      .catch((err) => err);
+  };
+
+  const getImages = (name) => {
+    const query = {
+      text: `SELECT cities.id, short_name, long_name, images.url
+      FROM cities
+      JOIN images ON images.city_id = cities.id
+      WHERE short_name = ($1)
+      GROUP BY cities.id, images.url;`,
+      values: [name],
+    };
+    return db
+      .query(query)
+      .then((result) => (result.rows[0] ? result.rows[0] : null))
+      .catch((err) => err);
+  };
+
+  const getAttractions = (name) => {
+    const query = {
+      text: `SELECT attractions.*, cities.id, cities.short_name
+      FROM attractions
+      JOIN cities ON attractions.city_id = cities.id
+      WHERE short_name = 'Toronto'
+      GROUP BY cities.id, attractions.id`,
+      values: [name],
+    };
     return db
       .query(query)
       .then((result) => (result.rows[0] ? result.rows[0] : null))
@@ -133,5 +164,7 @@ module.exports = (db) => {
     getCity,
     addImage,
     addAttraction,
+    getImages,
+    getAttractions,
   };
 };

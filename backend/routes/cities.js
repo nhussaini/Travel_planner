@@ -4,7 +4,15 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = ({ getUsers, getCity, addCity, addImage, addAttraction }) => {
+module.exports = ({
+  getUsers,
+  getCity,
+  addCity,
+  addImage,
+  addAttraction,
+  getImages,
+  getAttractions,
+}) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
@@ -21,9 +29,9 @@ module.exports = ({ getUsers, getCity, addCity, addImage, addAttraction }) => {
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
 
-    getCity("Chicago")
+    getCity("Toronto")
       .then((city) =>
-        city === null ? res.json("Sorry Cant find it") : res.json(city)
+        city === null ? res.json("Sorry Cant find") : res.json(city)
       )
       .catch((err) => res.json("count not find city"));
     // since Roaggoat data needs two api call, getting this data first before making calls to other api.
