@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = (db) => {
+module.exports = ({ getUsers }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
@@ -50,6 +50,16 @@ module.exports = (db) => {
       // console.log(all[0].data.results);
       res.send(allData);
     });
+  });
+
+  router.post("/users", (req, res) => {
+    getUsers()
+      .then((users) => res.json(users))
+      .catch((err) =>
+        res.json({
+          error: err.message,
+        })
+      );
   });
   return router;
 };

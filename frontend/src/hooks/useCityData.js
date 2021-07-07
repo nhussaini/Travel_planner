@@ -14,9 +14,16 @@ function useCityData() {
     if (state.location) {
       axios
         .post("/cities/getCityData", { userInput: state.location })
-        .then((data) => console.log(data.data));
+        .then((data) => {
+          // setState(() => ({
+          //   locationData: data.data.cityData,
+          //   images: data.data.imageData,
+          //   thingsTodo: data.data.googleData,
+          // }));
+          console.log(data.data);
+        });
     }
-  });
+  }, [state.location]);
 
   // useEffect(() => {
   //   //fetch images for specific location

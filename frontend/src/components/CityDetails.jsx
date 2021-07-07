@@ -13,7 +13,7 @@ library.add(fab);
 
 export default function CityDetails(props) {
   // console.log("props test", props.locationData.attributes);
-
+  console.log(props);
   return (
     <>
       {props.locationData.attributes && props.thingsToDo.length ? (
