@@ -50,6 +50,7 @@ export default function TrendingCity(props) {
   return (
     <div className="trending-city-card card">
       <div className="city-name">{props.city}</div>
+      {/* <div className="city-name-hover">{props.city}</div> */}
       <div>
         <img
           className="trending-city-img"

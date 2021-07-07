@@ -10,12 +10,41 @@
     width: 30%;
     position: relative;
 
+    &:hover {
+      .city-name {
+        font-size: 25px;
+        transition: all 500ms;
+      }
+
+      .trending-city-img {
+        // transform: scale(1.05);
+        border: 2px solid red;
+      }
+    }
+
     .city-name {
       position: absolute;
       top: 1rem;
       left: 1rem;
       color: white;
+      font-weight: bold;
     }
+    // .city-name:hover {
+    //   color: yellowgreen;
+    // }
+
+    // .city-name-hover {
+    //   position: absolute;
+    //   top: 1rem;
+    //   left: 1rem;
+    //   color: white;
+    //   font-weight: bold;
+    //   visibility: hidden;
+
+    //   :hover {
+    //     visibility: visible;
+    //   }
+    // }
 
     .trending-city-img {
       border-radius: 15px;
@@ -23,6 +52,10 @@
       object-fit: cover;
       height: 38vh;
       width: 100%;
+
+      // &:hover {
+      //   transform: scale(1.05);
+      // }
     }
   }
 }
