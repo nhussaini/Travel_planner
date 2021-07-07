@@ -3,7 +3,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   //justify-content: center;
-  width: 50%;
+  width: 60%;
+  margin-left: 3em;
 
   .user-trip-card {
     border-radius: 15px;
@@ -38,4 +39,14 @@
       width: 100%;
     }
   }
+}
+
+.to-do {
+  border: solid #bfbfbf;
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 30%;
+  float: right;
+  padding-bottom: 21.5em;
+  margin-right: 3em;
 }

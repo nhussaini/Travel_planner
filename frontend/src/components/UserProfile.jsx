@@ -4,6 +4,13 @@ export default function UserProfile(props) {
   return (
     <div>
       <h2>My Trips</h2>
+      <div className="to-do">
+        To do List
+        <p>
+          Here will be stuff that the user wants to do while on their trip.{" "}
+          <br></br>I put lots of padding in the meantime
+        </p>
+      </div>
       <div className="user-profile-container">
         <div className="user-trip-card card">
           <div className="city-name-user-profile-title">Paris</div>
