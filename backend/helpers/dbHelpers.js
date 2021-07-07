@@ -57,17 +57,16 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  //   const getUserByEmail = (email) => {
-  //     const query = {
-  //       text: `SELECT * FROM users WHERE email = $1`,
-  //       values: [email],
-  //     };
-
-  //     return db
-  //       .query(query)
-  //       .then((result) => result.rows[0])
-  //       .catch((err) => err);
-  //   };
+  const addImage = (url, city_id) => {
+    const query = {
+      text: `INSERT INTO images(url, city_id) VALUES ($1, $2) RETURNING *`,
+      values: [url, city_id],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
 
   const addUser = (firstName, lastName, email, password) => {
     const query = {
@@ -110,5 +109,6 @@ module.exports = (db) => {
     getUsers,
     addCity,
     getCity,
+    addImage,
   };
 };

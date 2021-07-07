@@ -4,7 +4,7 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-module.exports = ({ getUsers, addCity }) => {
+module.exports = ({ getUsers, addCity, addImage }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
     auth: {
@@ -16,13 +16,12 @@ module.exports = ({ getUsers, addCity }) => {
   router.post("/getCityData", (req, res) => {
     const cityName = req.body.userInput || "Toronto";
     const allData = {};
-    // since Roaggoat data needs two api call, getting this data first before making calls to other api.
-    // first get the id of the location for further api calls
-
     // saving all api quesries in variables
-    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=8`;
+    const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=2&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
+    // since Roaggoat data needs two api call, getting this data first before making calls to other api.
+    // first get the id of the location for further api calls
     axios
       .get(
         `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${cityName}`,
@@ -40,7 +39,7 @@ module.exports = ({ getUsers, addCity }) => {
             allData.cityData = data.data.data;
           });
       });
-
+    // Getting images and googleData
     Promise.all([
       axios.get(imageCall),
       // axios.get(weatherCall),
@@ -50,6 +49,8 @@ module.exports = ({ getUsers, addCity }) => {
         allData.imageData = all[0].data.results;
         allData.googleData = all[1].data.results;
         // console.log(all[0].data.results);
+
+        // extract the data coming from roadgoatApi and sav them in a variable
         const {
           short_name,
           long_name,
@@ -63,9 +64,8 @@ module.exports = ({ getUsers, addCity }) => {
           getyourguide_url,
           kayak_car_rental_url,
         } = allData.cityData.attributes;
-        // console.log(short_name);
-        // console.log(getyourguide_url);
-        // console.log(kayak_lodgings_url);
+
+        // add the city data to db
         return addCity(
           short_name,
           long_name,
@@ -81,7 +81,12 @@ module.exports = ({ getUsers, addCity }) => {
         );
         // res.send(allData);
       })
-      .then((newCity) => res.json(newCity))
+      .then((newCity) => {
+        // res.json(allData.imageData[0]);
+        for (let item of allData.imageData) {
+          addImage(item.urls.regular, newCity.id);
+        }
+      })
       .catch((err) =>
         res.json({
           error: err.message,
