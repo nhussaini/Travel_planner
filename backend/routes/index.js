@@ -90,6 +90,35 @@ router.post("/thingsToDo", (req, res) => {
     });
 });
 
+router.get("/testRoute", async (req, res) => {
+  // res.send("Reached ThingstoDo route");
+  console.log("Reached 3001");
+  const allData = {};
+  try {
+    const { data: googleData } = await axios.get(
+      `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+toronto&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`
+    );
+    allData.googleData = googleData;
+    // const { data: roadgoatData } = await axios.get(
+    //   `https://api.weatherbit.io/v2.0/forecast/daily?city=toronto&key=${process.env.weatherKEY}&days=7`
+    // );
+    console.log("google data---", googleData);
+    // console.log("roadGoatData---", roadgoatData);
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    const { data: weatherData } = await axios.get(
+      `https://api.weatherbit.io/v2.0/forecast/daily?city=toronto&key=${process.env.weatherKEY}&days=7`
+    );
+    console.log("Roadgoat Data----", weatherData);
+    allData.weatherData = weatherData;
+  } catch (error) {
+    console.log(error);
+  }
+  res.send(allData);
+});
+
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
