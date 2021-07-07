@@ -49,7 +49,7 @@ export default function TrendingCity(props) {
 
   return (
     <div className="trending-city-card card">
-      <p>{props.city}</p>
+      <div className="city-name">{props.city}</div>
       <div>
         <img
           className="trending-city-img"

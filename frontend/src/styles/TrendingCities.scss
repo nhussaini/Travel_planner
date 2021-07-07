@@ -4,20 +4,24 @@
   justify-content: center;
 
   .trending-city-card {
-    border-radius: 5px 5px;
+    border-radius: 15px;
     margin: 0 0.5rem;
     margin-bottom: 2%;
     width: 30%;
-    height: 200px;
-    overflow: hidden;
     position: relative;
-    background-color: yellowgreen;
+
+    .city-name {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: white;
+    }
 
     .trending-city-img {
-      // transition: transform 0.5s ease;
+      border-radius: 15px;
+      transition: transform 0.5s ease;
       object-fit: cover;
-      // min-height: 20%;
-      height: 50vh;
+      height: 38vh;
       width: 100%;
     }
   }
