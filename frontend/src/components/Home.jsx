@@ -15,36 +15,12 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
+import ToDoList from "./ToDoList";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
   // const { state } = useTest();
   console.log(state.location);
-
-  //these are for the todo list and can be moved later
-  const [todos, setTodos] = useState([
-    {
-      text: "Add to your ToDo List! Type your task and hit enter.",
-      isCompleted: false,
-    },
-  ]);
-
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
-    setTodos(newTodos);
-  };
-
-  const completeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
-  };
-
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
 
   return (
     <div>
@@ -60,19 +36,7 @@ export default function Home(props) {
       <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
       <UserProfile />
-      <div className="todo-border">
-        {todos.map((todo, index) => (
-          <ToDo
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
-
-        <ToDoForm addTodo={addTodo} />
-      </div>
+      <ToDoList />
       {/* <Footer /> */}
     </div>
   );
