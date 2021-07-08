@@ -26,17 +26,8 @@ export default function Home(props) {
       <Navbar />
       Home
       <Form setLocationState={setLocationState} />
-      {/* <CityDetails
-        locationData={state.locationData}
-        thingsToDo={state.thingsToDo}
-      />
-      <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
-      <ImagesList location={state.location} images={state.images} />
-      <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
-      <UserProfile />
-      <ToDoList />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
