@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-export default function ToDo({ addTodo }) {
+export default function ToDo({ addTodo, index, completeTodo, removeTodo }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -11,13 +11,15 @@ export default function ToDo({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="input"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </form>
+    </div>
   );
 }

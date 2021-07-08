@@ -1,4 +1,5 @@
 import { useCityData } from "../hooks/useCityData";
+import { React, useState } from "react";
 
 import Form from "./Form";
 import WeatherList from "./WeatherList";
@@ -19,6 +20,12 @@ export default function Home(props) {
   // const { state } = useTest();
   console.log(state.location);
 
+  const [todos, setTodos] = useState([
+    { text: "Learn about React" },
+    { text: "Meet friend for lunch" },
+    { text: "Build really cool todo app" },
+  ]);
+
   return (
     <div>
       <Navbar />
@@ -33,7 +40,8 @@ export default function Home(props) {
       <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
       <UserProfile />
-      <ToDo />
+      <ToDo key={index} index={index} todo={todo} />
+      <TodoForm addTodo={addTodo} />
       <Footer />
     </div>
   );
