@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 export default function Form(props) {
   let history = useHistory();
   const [input, setInput] = useState(null);
-  const [city, setCity] = useState(null);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -13,11 +12,10 @@ export default function Form(props) {
   function handleSubmit(e) {
     e.preventDefault();
     // props.setLocationState(input);
-    setCity(input);
     history.push({
-      pathname: "/cities/5",
+      pathname: `/cities/${input}`,
       state: {
-        key: city,
+        key: input,
       },
     });
     // window.location.href = `/cities/${input}`;
