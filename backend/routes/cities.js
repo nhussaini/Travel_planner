@@ -6,6 +6,7 @@ require("dotenv").config();
 
 module.exports = ({
   getUsers,
+  findCity,
   getCity,
   addCity,
   addImage,
@@ -20,10 +21,8 @@ module.exports = ({
       password: "01f998155debd93205287912664cb75c",
     },
   };
-
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput || "Chicago";
-    const allData = {};
+    const cityName = req.body.userInput || "Toronto";
     // saving all api quesries in variables
     const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
@@ -36,6 +35,7 @@ module.exports = ({
           return res.json("Sorry Cant find");
         }
         // if city exist, then grab all the data(details, images, attractions) for the city
+        const allData = {};
         Promise.all([
           getCity(cityName),
           getImages(cityName),
@@ -47,9 +47,9 @@ module.exports = ({
             allData.attractions = all[2];
             res.json(allData);
           })
-          .catch((err) => res.json(err));
+          .catch((err) => err);
       })
-      .catch((err) => res.json("count not find city"));
+      .catch((err) => res.json(err));
     // since Roaggoat data needs two api call, getting this data first before making calls to other api.
     // first get the id of the location for further api calls
     // axios
@@ -157,5 +157,18 @@ module.exports = ({
         })
       );
   });
+
+  // eslint-disable-next-line func-style
+  function getCityData(city) {
+    const allData = {};
+    Promise.all([getCity(city), getImages(city), getAttractions(city)])
+      .then((all) => {
+        allData.cityDetails = all[0];
+        allData.images = all[1];
+        allData.attractions = all[2];
+        allData;
+      })
+      .catch((err) => err);
+  }
   return router;
 };
