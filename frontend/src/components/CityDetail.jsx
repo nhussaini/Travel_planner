@@ -25,6 +25,7 @@ export default function CityDetail(props) {
     axios.get(`/cities/${id}`).then((data) => {
       const { images, cityDetails, attractions } = data.data;
       setState((prev) => ({
+        location: cityDetails.short_name,
         images: images,
         locationData: cityDetails,
         thingsToDo: attractions,
@@ -39,9 +40,9 @@ export default function CityDetail(props) {
         locationData={state.locationData}
         thingsToDo={state.thingsToDo}
       />
-      {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
+      {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} /> */}
       <ImagesList location={state.location} images={state.images} />
-      <WeatherList location={state.location} weather={state.weather} /> */}
+      {/* <WeatherList location={state.location} weather={state.weather} /> */}
     </div>
   );
 }
