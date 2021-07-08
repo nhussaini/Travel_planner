@@ -14,24 +14,17 @@ import UserProfile from "./UserProfile";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ToDo from "./ToDo";
-import TodoForm from "../ToDoForm";
+import ToDoForm from "./ToDoForm";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
   // const { state } = useTest();
   console.log(state.location);
 
+  //these are for the todo list and can be moved later
   const [todos, setTodos] = useState([
     {
-      text: "Learn about React",
-      isCompleted: false,
-    },
-    {
-      text: "Meet friend for lunch",
-      isCompleted: false,
-    },
-    {
-      text: "Build really cool todo app",
+      text: "Add to your ToDo List!",
       isCompleted: false,
     },
   ]);
@@ -78,7 +71,7 @@ export default function Home(props) {
           />
         ))}
 
-        <TodoForm addTodo={addTodo} />
+        <ToDoForm addTodo={addTodo} />
       </div>
       <Footer />
     </div>

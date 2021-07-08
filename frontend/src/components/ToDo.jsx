@@ -1,4 +1,5 @@
 import { React } from "react";
+import "../styles/ToDo.scss";
 
 export default function ToDo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -8,8 +9,15 @@ export default function ToDo({ todo, index, completeTodo, removeTodo }) {
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>x</button>
+        <button
+          className="todo-complete-btn"
+          onClick={() => completeTodo(index)}
+        >
+          ✓
+        </button>
+        <button className="todo-delete-btn" onClick={() => removeTodo(index)}>
+          x
+        </button>
       </div>
     </div>
   );

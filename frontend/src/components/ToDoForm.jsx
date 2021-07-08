@@ -1,6 +1,7 @@
 import { React, useState } from "react";
+import "../styles/ToDo.scss";
 
-export default function TodoForm({ addTodo }) {
+export default function ToDoForm({ addTodo }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,6 +17,7 @@ export default function TodoForm({ addTodo }) {
         type="text"
         className="input"
         value={value}
+        placeholder="Enter task..."
         onChange={(e) => setValue(e.target.value)}
       />
     </form>
