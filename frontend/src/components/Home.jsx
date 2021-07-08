@@ -11,6 +11,7 @@ import axios from "axios";
 import TrendingCity from "./TrendingCity";
 import UserProfile from "./UserProfile";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
@@ -31,6 +32,7 @@ export default function Home(props) {
       <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
       <UserProfile />
+      <Footer />
     </div>
   );
 }
