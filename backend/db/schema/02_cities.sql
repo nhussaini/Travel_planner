@@ -1,10 +1,10 @@
-DROP TABLE IF EXISTS cities CASCADE;
-DROP TABLE IF EXISTS images CASCADE;
-DROP TABLE IF EXISTS attractions CASCADE;
+DROP TABLE IF EXISTS city CASCADE;
+DROP TABLE IF EXISTS image CASCADE;
+DROP TABLE IF EXISTS attraction CASCADE;
 
-CREATE TABLE cities (
+CREATE TABLE city (
   id SERIAL PRIMARY KEY NOT NULL,
-  short_name VARCHAR(255) NOT NULL,
+  short_name VARCHAR(255) UNIQUE NOT NULL,
   long_name VARCHAR(255) NOT NULL,
   population INT NOT NULL,
   latitude decimal,
@@ -17,13 +17,13 @@ CREATE TABLE cities (
   kayak_car_rental_url VARCHAR(255)
 );
 
-CREATE TABLE images (
+CREATE TABLE image (
   id SERIAL PRIMARY KEY NOT NULL,
   url VARCHAR(255),
-  city_id INT REFERENCES cities(id) ON DELETE CASCADE
+  city_id INT REFERENCES city(id) ON DELETE CASCADE
 );
 
-CREATE TABLE attractions (
+CREATE TABLE attraction (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255),
   formatted_address VARCHAR(255),
@@ -32,5 +32,5 @@ CREATE TABLE attractions (
   rating decimal,
   user_ratings_total INT,
   photo_reference VARCHAR(255),
-  city_id INT REFERENCES cities(id) ON DELETE CASCADE
+  city_id INT REFERENCES city(id) ON DELETE CASCADE
 );

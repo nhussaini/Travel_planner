@@ -25,7 +25,7 @@ module.exports = (db) => {
     kayak_car_rental_url
   ) => {
     const query = {
-      text: `INSERT INTO cities(
+      text: `INSERT INTO city(
         short_name,
         long_name,
         population,
@@ -59,7 +59,7 @@ module.exports = (db) => {
 
   const addImage = (url, city_id) => {
     const query = {
-      text: `INSERT INTO images(url, city_id) VALUES ($1, $2) RETURNING *`,
+      text: `INSERT INTO image(url, city_id) VALUES ($1, $2) RETURNING *`,
       values: [url, city_id],
     };
     return db
@@ -79,7 +79,7 @@ module.exports = (db) => {
     city_id
   ) => {
     const query = {
-      text: `INSERT INTO attractions( name,
+      text: `INSERT INTO attraction( name,
         formatted_address,
         lat,
         lng,
@@ -118,7 +118,7 @@ module.exports = (db) => {
 
   const findCity = (name) => {
     const query = {
-      text: `SELECT * from cities WHERE short_name = ($1)`,
+      text: `SELECT * from city WHERE short_name = ($1)`,
       values: [name],
     };
 
@@ -130,7 +130,7 @@ module.exports = (db) => {
 
   const getCity = (name) => {
     const query = {
-      text: `SELECT * from cities WHERE short_name = ($1)`,
+      text: `SELECT * from city WHERE short_name = ($1)`,
       values: [name],
     };
 
@@ -142,11 +142,11 @@ module.exports = (db) => {
 
   const getImages = (name) => {
     const query = {
-      text: `SELECT cities.id, short_name, long_name, images.url
-      FROM cities
-      JOIN images ON images.city_id = cities.id
+      text: `SELECT city.id, short_name, long_name, image.url
+      FROM city
+      JOIN image ON image.city_id = city.id
       WHERE short_name = ($1)
-      GROUP BY cities.id, images.url;`,
+      GROUP BY city.id, image.url;`,
       values: [name],
     };
     return db
@@ -157,11 +157,11 @@ module.exports = (db) => {
 
   const getAttractions = (name) => {
     const query = {
-      text: `SELECT attractions.*, cities.id, cities.short_name
-      FROM attractions
-      JOIN cities ON attractions.city_id = cities.id
+      text: `SELECT attraction.*, city.id, city.short_name
+      FROM attraction
+      JOIN city ON attraction.city_id = city.id
       WHERE short_name = ($1)
-      GROUP BY cities.id, attractions.id`,
+      GROUP BY city.id, attraction.id`,
       values: [name],
     };
     return db
