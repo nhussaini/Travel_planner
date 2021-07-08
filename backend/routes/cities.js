@@ -124,7 +124,9 @@ module.exports = ({
               }
             }
           })
-          .then((data) => res.json(data))
+          .then(() => {
+            res.redirect(`/cities/${cityName}`);
+          })
           .catch((err) =>
             res.json({
               error: err.message,
@@ -136,6 +138,7 @@ module.exports = ({
 
   //Route for Individual City
   router.get("/:id", (req, res) => {
+    console.log("Line 139----", req.params.id);
     const cityName = req.params.id;
     getCity(cityName).then((city) => {
       // if city doesnt exist in DB return error
