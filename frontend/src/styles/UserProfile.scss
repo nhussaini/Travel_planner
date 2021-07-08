@@ -31,7 +31,7 @@
     }
     .name,
     .welcome {
-      transform: translateY(90px);
+      transform: translateY(-90px);
       transition: transform 0.25s;
     }
     &:hover {
@@ -41,6 +41,9 @@
       transform: translateY(0);
     }
   }
+}
+
+.no-trip-added {
 }
 .user-profile-container {
   display: flex;
