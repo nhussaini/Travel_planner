@@ -14,7 +14,9 @@ export default function CityDetail(props) {
 
   useEffect(() => {
     if (location.state.key) {
-      console.log(location.state.key);
+      axios
+        .post("/cities/getCityData", { userInput: location.state.key })
+        .then((data) => console.log(data));
     }
   }, [location.state.key]);
   return (

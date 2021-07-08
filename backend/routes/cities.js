@@ -22,14 +22,19 @@ module.exports = ({
     },
   };
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput || "Toronto";
+    const cityName = req.body.userInput || "Chicago";
     // saving all api quesries in variables
     const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
 
     // console.log(findCity(cityName));
-    findCity(cityName).then((data) => console.log(data));
+    findCity(cityName).then((data) => {
+      if (data) {
+        console.log("Redirecting----");
+        res.redirect(`/cities/${cityName}`);
+      }
+    });
     // getCity(cityName)
     //   .then((city) => {
     //     // if city doesnt exist in DB return error
@@ -160,6 +165,29 @@ module.exports = ({
       );
   });
 
+  router.get("/:id", (req, res) => {
+    const cityName = req.params.id;
+    getCity(cityName).then((city) => {
+      // if city doesnt exist in DB return error
+      if (city === null) {
+        return res.json("Sorry Cant find");
+      }
+      // if city exist, then grab all the data(details, images, attractions) for the city
+      const allData = {};
+      Promise.all([
+        getCity(cityName),
+        getImages(cityName),
+        getAttractions(cityName),
+      ])
+        .then((all) => {
+          allData.cityDetails = all[0];
+          allData.images = all[1];
+          allData.attractions = all[2];
+          res.json(allData);
+        })
+        .catch((err) => err);
+    });
+  });
   // eslint-disable-next-line func-style
   // function getCityData(city) {
   //   const allData = {};
