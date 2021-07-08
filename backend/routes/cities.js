@@ -22,7 +22,7 @@ module.exports = ({
     },
   };
   router.post("/getCityData", (req, res) => {
-    const cityName = req.body.userInput || "Chicago";
+    const cityName = req.body.userInput;
     // saving all api quesries in variables
     const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
