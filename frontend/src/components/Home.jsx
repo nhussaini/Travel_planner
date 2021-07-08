@@ -24,7 +24,7 @@ export default function Home(props) {
   //these are for the todo list and can be moved later
   const [todos, setTodos] = useState([
     {
-      text: "Add to your ToDo List!",
+      text: "Add to your ToDo List! Type your task and hit enter.",
       isCompleted: false,
     },
   ]);
