@@ -1,12 +1,18 @@
 .todo-list {
   background: #e8e8e8;
-  border-radius: 4px;
+  border-radius: 15px;
   width: 50%;
   padding: 5px;
 }
 
-.input {
+.todo-form {
   margin-bottom: 2em;
+
+  .input {
+    margin-bottom: 2em;
+    border-radius: 7px;
+    border-color: rgb(201, 201, 201);
+  }
 }
 
 .todo-complete-btn {
@@ -33,6 +39,8 @@
 
 .todo-border {
   border: solid springgreen;
+  width: 30%;
+  float: right;
 }
 
 .todo-container {
@@ -40,18 +48,16 @@
   align-items: center;
   justify-content: flex-end;
   margin-right: 2em;
+  margin-bottom: 2em;
 
   .todo {
     display: flex;
-    //align-items: center;
     background: rgb(202, 183, 183);
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     font-size: 12px;
-    //justify-content: flex-end;
     margin-bottom: 6px;
+    margin-top: 1em;
     padding: 3px 10px;
-    width: 30%;
-    //float: right;
   }
 }

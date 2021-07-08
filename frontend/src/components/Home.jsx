@@ -73,7 +73,7 @@ export default function Home(props) {
 
         <ToDoForm addTodo={addTodo} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
