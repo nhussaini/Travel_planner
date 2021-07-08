@@ -4,13 +4,19 @@ export default function Navbar() {
   return (
     <header>
       <div>
-        <a href="/" className="nav-title">
-          TREK
-        </a>
+        <div>
+          <a href="/" className="nav-title">
+            TREK
+          </a>
+        </div>
         <nav className="navbar-home">
           {/* <a></a> */}
-          <a href="/login">Login</a>
-          <a href="/register">Register</a>
+          <a href="/login" className="login-nav">
+            Login
+          </a>
+          <a href="/register" className="register-nav">
+            Register
+          </a>
         </nav>
       </div>
     </header>
