@@ -1,6 +1,6 @@
 import { useCityData } from "../hooks/useCityData";
 import { React, useState } from "react";
-
+import "../styles/ToDo.scss";
 import Form from "./Form";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
@@ -60,7 +60,7 @@ export default function Home(props) {
       <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
       <UserProfile />
-      <div>
+      <div className="todo-border">
         {todos.map((todo, index) => (
           <ToDo
             key={index}
