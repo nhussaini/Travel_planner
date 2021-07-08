@@ -6,8 +6,8 @@ JOIN image ON image.city_id = city.id
 WHERE short_name = 'Toronto'
 GROUP BY image.id, city.id;
 
--- SELECT attractions.*, cities.id, cities.short_name
--- FROM attractions
--- JOIN cities ON attractions.city_id = cities.id
+SELECT attraction.*, city.id as place_id, city.short_name
+FROM attraction
+JOIN city ON attraction.city_id = city.id
 -- WHERE short_name = 'Toronto'
--- GROUP BY cities.id, attractions.id
+GROUP BY city.id, attraction.id;

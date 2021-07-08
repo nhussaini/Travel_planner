@@ -157,7 +157,7 @@ module.exports = (db) => {
 
   const getAttractions = (name) => {
     const query = {
-      text: `SELECT attraction.*, city.id, city.short_name
+      text: `SELECT attraction.*, city.id AS place_id, city.short_name
       FROM attraction
       JOIN city ON attraction.city_id = city.id
       WHERE short_name = ($1)
