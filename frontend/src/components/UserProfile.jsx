@@ -3,6 +3,10 @@ import "../styles/UserProfile.scss";
 export default function UserProfile(props) {
   return (
     <div>
+      <div className="head">
+        <div className="head-background"></div>
+        <div className="user-name">Linda Guy</div>
+      </div>
       <h2>My Trips</h2>
       <div className="to-do">
         To do List
