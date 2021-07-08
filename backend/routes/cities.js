@@ -32,6 +32,7 @@ module.exports = ({
     findCity(cityName).then((city) => {
       if (city) {
         console.log("Reached IF---", cityName);
+        console.log("Redirecting From line 35-----");
         res.redirect(`/cities/${cityName}`);
       } else {
         console.log("Reached ELSE---", cityName);
@@ -125,6 +126,7 @@ module.exports = ({
             }
           })
           .then(() => {
+            //After Adding data to Db, redirecting to the get route for city which will send back data to front end
             res.redirect(`/cities/${cityName}`);
           })
           .catch((err) =>
@@ -156,6 +158,8 @@ module.exports = ({
           allData.cityDetails = all[0];
           allData.images = all[1];
           allData.attractions = all[2];
+          allData.test = "testing----";
+          console.log("Data sent from line 159-------");
           res.json(allData);
         })
         .catch((err) => err);
