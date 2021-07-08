@@ -10,6 +10,7 @@ import TrendingCities from "./TrendingCities";
 import axios from "axios";
 import TrendingCity from "./TrendingCity";
 import UserProfile from "./UserProfile";
+import Navbar from "./Navbar";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
@@ -18,6 +19,7 @@ export default function Home(props) {
 
   return (
     <div>
+      <Navbar />
       Home
       <Form setLocationState={setLocationState} />
       {/* <CityDetails
