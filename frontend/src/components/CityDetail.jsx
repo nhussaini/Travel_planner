@@ -9,32 +9,28 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 export default function CityDetail(props) {
+  const [state, setState] = useState({
+    // location: "",
+    images: [],
+    weather: [],
+    locationData: [],
+    thingsToDo: [],
+  });
+
   const location = useLocation();
-  const [status, setStatus] = useState(false);
-  const { state } = useCityData();
+  // const [status, setStatus] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`/cities/${id}`).then((data) => {
-      const fetchedData = data.data;
-      console.log("Line 22---", fetchedData);
+      const { images, cityDetails, attractions } = data.data;
+      setState((prev) => ({
+        images: images,
+        locationData: cityDetails,
+        thingsToDo: attractions,
+      }));
+      console.log("Line 22---", data.data);
     });
-    // if (location.state) {
-    //   axios
-    //     .post("/cities/getCityData", { userInput: location.state.key })
-    //     .then((data) => {
-    //       // We want to just send the post request to backend, where it will redirect to the get route for city, in that route we want to change the state based on the data returned from backend. at the moment we are haviong to do it after bot the post and get request.....
-    //       // console.log("Post done");
-    //       // setStatus(true);
-    //       const fetchedData = data.data;
-    //       console.log("From IF----", fetchedData);
-    //     });
-    // } else {
-    //   axios.get(`/cities/${id}`).then((data) => {
-    //     const fetchedData = data.data;
-    //     console.log("from Else---", fetchedData);
-    //   });
-    // }
   }, []);
   return (
     <div>
