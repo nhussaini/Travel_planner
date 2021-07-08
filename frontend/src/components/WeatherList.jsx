@@ -1,7 +1,9 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Weather from "./Weather";
 
 export default function WeatherList(props) {
-  const allWeather = props.weather.map((weather) => {
+  const allWeather = props.weatherData.map((weather) => {
     return (
       <Weather
         key={weather.datetime}
@@ -22,6 +24,7 @@ export default function WeatherList(props) {
         </h2>
       </div>
       <div className="d-flex flex-wrap justify-content-center">
+        {/* <p>I am should be here</p> */}
         {allWeather}
       </div>
     </div>
