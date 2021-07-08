@@ -8,7 +8,6 @@ export default function GoogleMap(props) {
     libraries: ["places"],
   });
 
-  console.log(props.thingsToDo);
   const mapOptions = {
     center: {
       lat: props.lat,

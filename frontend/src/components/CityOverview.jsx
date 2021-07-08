@@ -13,8 +13,6 @@ library.add(fab);
 
 export default function CityOverview(props) {
   // console.log("props test", props.locationData.attributes);
-  console.log(props.locationData);
-  console.log(props.locationData.latitude === "41.85003");
   return (
     <>
       {/* {props.locationData.attributes && props.thingsToDo.length ? ( */}

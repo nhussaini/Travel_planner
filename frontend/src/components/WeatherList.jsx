@@ -3,19 +3,14 @@ import { useState, useEffect } from "react";
 import Weather from "./Weather";
 
 export default function WeatherList(props) {
-  const allWeather = props.weatherData.map((weather) => {
-    return (
-      <Weather
-        key={weather.datetime}
-        date={weather.datetime}
-        temp={weather.temp}
-        minTemp={weather.min_temp}
-        maxTemp={weather.max_temp}
-        icon={weather.weather.icon}
-        description={weather.weather.description}
-      />
-    );
-  });
+  const [weatherData, setWeatherData] = useState([]);
+  useEffect(() => {
+    const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${props.location}&key=d3509fa02316452b83ce154197d1139b&days=7`;
+    axios.get(weatherCall).then((data) => {
+      setWeatherData(data.data.data);
+    });
+  }, [props.location]);
+
   return (
     <div>
       <div>
@@ -24,8 +19,21 @@ export default function WeatherList(props) {
         </h2>
       </div>
       <div className="d-flex flex-wrap justify-content-center">
-        {/* <p>I am should be here</p> */}
-        {allWeather}
+        {weatherData
+          ? weatherData.map((weather) => {
+              return (
+                <Weather
+                  key={weather.datetime}
+                  date={weather.datetime}
+                  temp={weather.temp}
+                  minTemp={weather.min_temp}
+                  maxTemp={weather.max_temp}
+                  icon={weather.weather.icon}
+                  description={weather.weather.description}
+                />
+              );
+            })
+          : null}
       </div>
     </div>
   );

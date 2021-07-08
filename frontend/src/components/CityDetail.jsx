@@ -12,7 +12,6 @@ export default function CityDetail(props) {
   const [state, setState] = useState({
     // location: "",
     images: [],
-    weatherData: [],
     locationData: [],
     thingsToDo: [],
   });
@@ -31,14 +30,6 @@ export default function CityDetail(props) {
         thingsToDo: attractions,
       }));
       // console.log("Line 22---", data.data);
-      const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${state.location}&key=d3509fa02316452b83ce154197d1139b&days=7`;
-      axios.get(weatherCall).then((data) => {
-        // console.log("After api call", data.data.data);
-        setState((prev) => ({
-          ...prev,
-          weatherData: data.data.data,
-        }));
-      });
     });
   }, [state.location]);
   return (
@@ -50,12 +41,7 @@ export default function CityDetail(props) {
       />
       {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} /> */}
       <ImagesList location={state.location} images={state.images} />
-      {state.weatherData ? (
-        <WeatherList
-          location={state.location}
-          weatherData={state.weatherData}
-        />
-      ) : null}
+      {state.location ? <WeatherList location={state.location} /> : null}
     </div>
   );
 }
