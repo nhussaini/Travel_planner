@@ -2,6 +2,12 @@
   display: flex;
   justify-content: flex-start;
   background-color: cadetblue;
+  font-size: 25px;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  margin-bottom: -2em;
+  padding-bottom: 0.7em;
+  color: white;
 }
 
 .navbar-home {
@@ -9,9 +15,16 @@
   display: flex;
   //flex-wrap: wrap;
   justify-content: flex-end;
-  align-items: flex-end;
+  //align-items: flex-end;
   //justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  background-color: cadetblue;
+  // padding-top: 0.5rem;
+  // padding-bottom: 0.5rem;
+  //background-color: cadetblue;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 3em;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
