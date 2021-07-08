@@ -9,7 +9,7 @@ export default function ToDo({ todo, index, completeTodo, removeTodo }) {
         style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
       >
         {todo.text}
-        <div>
+        <div className="todo-buttons">
           <button
             className="todo-complete-btn"
             onClick={() => completeTodo(index)}

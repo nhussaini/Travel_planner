@@ -15,25 +15,32 @@
   }
 }
 
-.todo-complete-btn {
-  border: none;
-  margin-right: 1em;
-  float: right;
+.todo-buttons {
+  //float: right;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.3em;
 
-  &:hover {
-    background-color: rgb(201, 201, 201);
+  .todo-complete-btn {
+    border: none;
+    margin-right: 1em;
+    float: right;
+
+    &:hover {
+      background-color: rgb(201, 201, 201);
+    }
   }
-}
 
-.todo-delete-btn {
-  border: none;
-  margin-right: 1em;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  float: right;
+  .todo-delete-btn {
+    border: none;
+    margin-right: 1em;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    float: right;
 
-  &:hover {
-    background-color: rgb(201, 201, 201);
+    &:hover {
+      background-color: rgb(201, 201, 201);
+    }
   }
 }
 
@@ -53,13 +60,12 @@
   margin-left: 1em;
 
   .todo {
-    display: flex;
+    //display: flex;
     background: rgb(202, 183, 183);
     border-radius: 3px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     font-size: 12px;
-
-    margin-top: 1em;
+    margin-top: 0.7em;
     padding: 3px 10px;
     width: 100%;
   }
