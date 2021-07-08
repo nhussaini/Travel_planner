@@ -14,6 +14,7 @@ import UserProfile from "./UserProfile";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ToDo from "./ToDo";
+import TodoForm from "../ToDoForm";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
@@ -21,10 +22,36 @@ export default function Home(props) {
   console.log(state.location);
 
   const [todos, setTodos] = useState([
-    { text: "Learn about React" },
-    { text: "Meet friend for lunch" },
-    { text: "Build really cool todo app" },
+    {
+      text: "Learn about React",
+      isCompleted: false,
+    },
+    {
+      text: "Meet friend for lunch",
+      isCompleted: false,
+    },
+    {
+      text: "Build really cool todo app",
+      isCompleted: false,
+    },
   ]);
+
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
   return (
     <div>
@@ -40,8 +67,19 @@ export default function Home(props) {
       <WeatherList location={state.location} weather={state.weather} /> */}
       <TrendingCities />
       <UserProfile />
-      <ToDo key={index} index={index} todo={todo} />
-      <TodoForm addTodo={addTodo} />
+      <div>
+        {todos.map((todo, index) => (
+          <ToDo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
+        ))}
+
+        <TodoForm addTodo={addTodo} />
+      </div>
       <Footer />
     </div>
   );

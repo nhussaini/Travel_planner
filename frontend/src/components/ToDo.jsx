@@ -1,25 +1,16 @@
-import { React, useState } from "react";
+import { React } from "react";
 
-export default function ToDo({ addTodo, index, completeTodo, removeTodo }) {
-  const [value, setValue] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
+export default function ToDo({ todo, index, completeTodo, removeTodo }) {
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="input"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </form>
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {todo.text}
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => removeTodo(index)}>x</button>
+      </div>
     </div>
   );
 }
