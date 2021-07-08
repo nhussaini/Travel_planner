@@ -28,28 +28,30 @@ module.exports = ({
     // const weatherCall = `https://api.weatherbit.io/v2.0/forecast/daily?city=${req.body.userInput}&key=${process.env.weatherKEY}&days=7`;
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
 
-    getCity(cityName)
-      .then((city) => {
-        // if city doesnt exist in DB return error
-        if (city === null) {
-          return res.json("Sorry Cant find");
-        }
-        // if city exist, then grab all the data(details, images, attractions) for the city
-        const allData = {};
-        Promise.all([
-          getCity(cityName),
-          getImages(cityName),
-          getAttractions(cityName),
-        ])
-          .then((all) => {
-            allData.cityDetails = all[0];
-            allData.images = all[1];
-            allData.attractions = all[2];
-            res.json(allData);
-          })
-          .catch((err) => err);
-      })
-      .catch((err) => res.json(err));
+    // console.log(findCity(cityName));
+    findCity(cityName).then((data) => console.log(data));
+    // getCity(cityName)
+    //   .then((city) => {
+    //     // if city doesnt exist in DB return error
+    //     if (city === null) {
+    //       return res.json("Sorry Cant find");
+    //     }
+    //     // if city exist, then grab all the data(details, images, attractions) for the city
+    //     const allData = {};
+    //     Promise.all([
+    //       getCity(cityName),
+    //       getImages(cityName),
+    //       getAttractions(cityName),
+    //     ])
+    //       .then((all) => {
+    //         allData.cityDetails = all[0];
+    //         allData.images = all[1];
+    //         allData.attractions = all[2];
+    //         res.json(allData);
+    //       })
+    //       .catch((err) => err);
+    //   })
+    //   .catch((err) => res.json(err));
     // since Roaggoat data needs two api call, getting this data first before making calls to other api.
     // first get the id of the location for further api calls
     // axios
@@ -159,16 +161,16 @@ module.exports = ({
   });
 
   // eslint-disable-next-line func-style
-  function getCityData(city) {
-    const allData = {};
-    Promise.all([getCity(city), getImages(city), getAttractions(city)])
-      .then((all) => {
-        allData.cityDetails = all[0];
-        allData.images = all[1];
-        allData.attractions = all[2];
-        allData;
-      })
-      .catch((err) => err);
-  }
+  // function getCityData(city) {
+  //   const allData = {};
+  //   Promise.all([getCity(city), getImages(city), getAttractions(city)])
+  //     .then((all) => {
+  //       allData.cityDetails = all[0];
+  //       allData.images = all[1];
+  //       allData.attractions = all[2];
+  //       allData;
+  //     })
+  //     .catch((err) => err);
+  // }
   return router;
 };

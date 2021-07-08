@@ -9,7 +9,6 @@ function useCityData() {
     locationData: [],
     thingsToDo: [],
   });
-
   // useEffect(() => {
   //   if (state.location) {
   //     axios
@@ -63,10 +62,11 @@ function useCityData() {
 
   function setLocationState(userInput) {
     console.log(userInput);
-    return setState((prev) => ({
+    setState((prev) => ({
       ...prev,
       location: userInput,
     }));
+    // window.location.href = `/cities/${userInput}`;
   }
 
   return { state, setLocationState };
