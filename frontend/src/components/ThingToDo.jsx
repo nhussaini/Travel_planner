@@ -5,12 +5,7 @@ import { faHeart, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 export default function ThingToDo(props) {
   return (
     <div className="attraction-card card">
-      <img
-        className="card-img-top"
-        src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=200
-           &photoreference=${props.reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`}
-        alt={props.name}
-      />
+      <img className="card-img-top" src={props.image_url} alt={props.name} />
       <div className="favorite-icon">
         <FontAwesomeIcon icon={faHeart} size="lg" className="icon" inverse />
       </div>
