@@ -11,12 +11,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 library.add(fab);
 
-export default function CityDetails(props) {
+export default function CityOverview(props) {
   // console.log("props test", props.locationData.attributes);
   console.log(props);
   return (
     <>
-      {props.locationData.attributes && props.thingsToDo.length ? (
+      {/* {props.locationData.attributes && props.thingsToDo.length ? ( */}
+      {props.locationData ? (
         <section>
           <div>
             <h2 className="heading">{`Overview of Toronto`}</h2>
@@ -26,35 +27,30 @@ export default function CityDetails(props) {
               City Details
               <p>
                 Where:
-                <span>{props.locationData.attributes.long_name}</span>
+                <span>{props.locationData.long_name}</span>
               </p>
               <div>
-                <h5>Keep in mind</h5>
+                {/* <h5>Keep in mind</h5>
                 <p>
                   safety:{" "}
                   <span>
-                    {
-                      props.locationData.attributes.safety[
-                        props.locationData.attributes.name
-                      ]?.text
-                    }
+                    {props.locationData.safety[props.locationData.name]?.text}
                   </span>
-                </p>
+                </p> */}
                 <p>
-                  population:{" "}
-                  <span>{props.locationData.attributes.population}</span>
+                  population: <span>{props.locationData.population}</span>
                 </p>
               </div>
               <p>
                 Checkout some Airbnb's{" "}
-                <a href={props.locationData.attributes.airbnb_url}>
+                <a href={props.locationData.airbnb_url}>
                   <FontAwesomeIcon icon={["fab", "airbnb"]} size="lg" />
                 </a>
               </p>
               <p>
                 Checkout some hotels{" "}
                 <a
-                  href={props.locationData.attributes.kayak_lodgings_url}
+                  href={props.locationData.kayak_lodgings_url}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -64,7 +60,7 @@ export default function CityDetails(props) {
               <p>
                 Upcoming events{" "}
                 <a
-                  href={props.locationData.attributes.google_events_url}
+                  href={props.locationData.google_events_url}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -74,7 +70,7 @@ export default function CityDetails(props) {
               <p>
                 Find where you can walk in the nature{" "}
                 <a
-                  href={props.locationData.attributes.alltrails_url}
+                  href={props.locationData.alltrails_url}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -84,7 +80,7 @@ export default function CityDetails(props) {
               <p>
                 Explore guides in the city{" "}
                 <a
-                  href={props.locationData.attributes.getyourguide_url}
+                  href={props.locationData.getyourguide_url}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -95,7 +91,7 @@ export default function CityDetails(props) {
               <p>
                 Rent a car{" "}
                 <a
-                  href={props.locationData.attributes.kayak_car_rental_url}
+                  href={props.locationData.kayak_car_rental_url}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -104,12 +100,12 @@ export default function CityDetails(props) {
                 </a>
               </p>
             </div>
-            <GoogleMap
+            {/* <GoogleMap
               lat={props.locationData.attributes.latitude}
               long={props.locationData.attributes.longitude}
               location={props.locationData.attributes.long_name}
               thingsToDo={props.thingsToDo.slice(0, 10)}
-            />
+            /> */}
           </div>
         </section>
       ) : null}

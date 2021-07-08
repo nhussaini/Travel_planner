@@ -2,7 +2,7 @@ import { useCityData } from "../hooks/useCityData";
 
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
-import CityDetails from "./CityDetails";
+import CityOverview from "./CityOverview";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -35,11 +35,11 @@ export default function CityDetail(props) {
   return (
     <div>
       City Detail
-      {/* <CityDetails
+      <CityOverview
         locationData={state.locationData}
-        thingsToDo={state.thingsToDo}
+        // thingsToDo={state.thingsToDo}
       />
-      <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
+      {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
       <ImagesList location={state.location} images={state.images} />
       <WeatherList location={state.location} weather={state.weather} /> */}
     </div>

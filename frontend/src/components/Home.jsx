@@ -3,7 +3,6 @@ import { useCityData } from "../hooks/useCityData";
 import Form from "./Form";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
-import CityDetails from "./CityDetails";
 import ThingsToDoList from "./ThingsToDoList";
 import FlightData from "./FlightData";
 import TrendingCities from "./TrendingCities";
