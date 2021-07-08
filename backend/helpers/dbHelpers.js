@@ -139,7 +139,7 @@ module.exports = (db) => {
     };
     return db
       .query(query)
-      .then((result) => (result.rows[0] ? result.rows[0] : null))
+      .then((result) => (result.rows.length ? result.rows : null))
       .catch((err) => err);
   };
 
@@ -148,13 +148,13 @@ module.exports = (db) => {
       text: `SELECT attractions.*, cities.id, cities.short_name
       FROM attractions
       JOIN cities ON attractions.city_id = cities.id
-      WHERE short_name = 'Toronto'
+      WHERE short_name = ($1)
       GROUP BY cities.id, attractions.id`,
       values: [name],
     };
     return db
       .query(query)
-      .then((result) => (result.rows[0] ? result.rows[0] : null))
+      .then((result) => (result.rows.length ? result.rows : null))
       .catch((err) => err);
   };
 
