@@ -5,7 +5,7 @@ CREATE TABLE trip(
   id SERIAL PRIMARY KEY NOT NULL,
   date date NOT NULL,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  city_id INT REFERENCES cities(id) ON DELETE CASCADE
+  city_id INT REFERENCES city(id) ON DELETE CASCADE
 );
 
 CREATE TABLE todo(
