@@ -1,3 +1,52 @@
+.head-background {
+  width: 100%;
+  background: url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=708&q=80)
+    no-repeat center center;
+  // background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 400px;
+  position: relative;
+  .user-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.6);
+    color: #d67e25;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+    .name {
+      margin-top: -0.6em;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .name,
+    .welcome {
+      transform: translateY(-90px);
+      transition: transform 0.25s;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &:hover > * {
+      transform: translateY(0);
+    }
+  }
+}
+
+.no-trip-added {
+  font-size: 1.2rem;
+  margin-top: 4rem;
+}
 .user-profile-container {
   display: flex;
   flex-direction: row;

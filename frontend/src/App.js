@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import CityDetail from "./components/CityDetail";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/cities/:id">
             <CityDetail />
+          </Route>
+          <Route path="/users/:id">
+            <UserProfile />
           </Route>
         </Switch>
       </Router>
