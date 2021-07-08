@@ -1,0 +1,46 @@
+.nav-title {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 25px;
+  padding-left: 2em;
+  padding-top: 0.7em;
+  margin-bottom: -2em;
+  padding-bottom: 0.7em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.navbar-home {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 3em;
+
+  .login-nav {
+    color: white;
+    padding-right: 1em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .register-nav {
+    color: white;
+    padding-right: 2em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+//input form styling
+.input {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  border: none;
+  border-bottom: 2px solid rgb(201, 201, 201);
+  font-size: 13px;
+}
+
+.todo-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.3em;
+
+  .todo-complete-btn {
+    border: none;
+    margin-right: 1em;
+    float: right;
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgb(201, 201, 201);
+    }
+  }
+
+  .todo-delete-btn {
+    border: none;
+    margin-right: 1em;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    float: right;
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgb(201, 201, 201);
+    }
+  }
+}
+
+//styling for the border
+.todo-border {
+  //border: solid rgb(192, 192, 192);
+  //background-color: rgb(247, 247, 247);
+  border-radius: 15px;
+  width: 30%;
+  float: right;
+  margin-right: 3em;
+  margin-bottom: 2em;
+}
+
+//styling for each task
+.todo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1em;
+  margin-left: 1em;
+
+  .todo {
+    background: rgb(235, 235, 235);
+    border-radius: 15px;
+    font-size: 12px;
+    margin-top: 0.7em;
+    padding: 3px 10px;
+    width: 100%;
+  }
+}
