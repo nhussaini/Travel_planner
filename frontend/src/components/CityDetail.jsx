@@ -12,10 +12,14 @@ export default function CityDetail(props) {
   const location = useLocation();
   const { state } = useCityData();
 
+  useEffect(() => {
+    if (location.state.key) {
+      console.log(location.state.key);
+    }
+  }, [location.state.key]);
   return (
     <div>
       City Detail
-      {console.log(location.state.key)}
       {/* <CityDetails
         locationData={state.locationData}
         thingsToDo={state.thingsToDo}
