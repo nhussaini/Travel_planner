@@ -37,7 +37,7 @@ export default function CityDetail(props) {
       City Detail
       <CityOverview
         locationData={state.locationData}
-        // thingsToDo={state.thingsToDo}
+        thingsToDo={state.thingsToDo}
       />
       {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
       <ImagesList location={state.location} images={state.images} />

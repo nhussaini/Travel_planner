@@ -13,11 +13,12 @@ library.add(fab);
 
 export default function CityOverview(props) {
   // console.log("props test", props.locationData.attributes);
-  console.log(props);
+  console.log(props.locationData);
+  console.log(props.locationData.latitude === "41.85003");
   return (
     <>
       {/* {props.locationData.attributes && props.thingsToDo.length ? ( */}
-      {props.locationData ? (
+      {props.locationData && props.thingsToDo.length ? (
         <section>
           <div>
             <h2 className="heading">{`Overview of Toronto`}</h2>
@@ -100,12 +101,12 @@ export default function CityOverview(props) {
                 </a>
               </p>
             </div>
-            {/* <GoogleMap
-              lat={props.locationData.attributes.latitude}
-              long={props.locationData.attributes.longitude}
-              location={props.locationData.attributes.long_name}
+            <GoogleMap
+              lat={Number(props.locationData.latitude)}
+              lng={Number(props.locationData.longitude)}
+              location={props.locationData.long_name}
               thingsToDo={props.thingsToDo.slice(0, 10)}
-            /> */}
+            />
           </div>
         </section>
       ) : null}

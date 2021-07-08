@@ -8,17 +8,18 @@ export default function GoogleMap(props) {
     libraries: ["places"],
   });
 
+  console.log(props.thingsToDo);
   const mapOptions = {
     center: {
       lat: props.lat,
-      lng: props.long,
+      lng: props.lng,
     },
     zoom: 12,
   };
 
   // const map;
   // Promise
-  console.log(props.thingsToDo[0]);
+  // console.log(props.thingsToDo[0]);
   useEffect(() => {
     loader
       .load()
@@ -36,7 +37,7 @@ export default function GoogleMap(props) {
             </div>`,
           });
           const marker = new google.maps.Marker({
-            position: thing.geometry.location,
+            position: { lat: Number(thing.lat), lng: Number(thing.lng) },
             map,
             label: `${index}`,
             title: thing.name,
