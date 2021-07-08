@@ -1,7 +1,7 @@
 import "../styles/UserProfile.scss";
 
 export default function UserProfile(props) {
-  const trip = [];
+  const trip = [1];
 
   return (
     <div>
