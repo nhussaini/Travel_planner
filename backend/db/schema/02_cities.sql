@@ -32,6 +32,6 @@ CREATE TABLE attraction (
   lng decimal,
   rating decimal,
   user_ratings_total INT,
-  photo_reference VARCHAR(255),
+  image_url VARCHAR(255),
   city_id INT REFERENCES city(id) ON DELETE CASCADE
 );

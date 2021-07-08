@@ -31,11 +31,11 @@ module.exports = ({
     // console.log(findCity(cityName));
     findCity(cityName).then((city) => {
       if (city) {
-        console.log("Reached IF---", cityName);
-        console.log("Redirecting From line 35-----");
+        // console.log("Reached IF---", cityName);
+        // console.log("Redirecting From line 35-----");
         res.redirect(`/cities/${cityName}`);
       } else {
-        console.log("Reached ELSE---", cityName);
+        // console.log("Reached ELSE---", cityName);
         const allData = {};
         axios
           .get(
@@ -96,23 +96,28 @@ module.exports = ({
             );
             // res.send(allData);
           })
-          .then((newCity) => {
+          .then(async (newCity) => {
             // Save images to the image table
             // console.log(allData.imageData);
             for (let item of allData.imageData) {
-              console.log(item.alt_description);
+              // console.log(item.alt_description);
               addImage(item.urls.regular, item.alt_description, newCity.id);
             }
 
-            // save attractions for a place in the attraction table
-            for (let item of allData["googleData"]) {
+            const promises = allData["googleData"].map(async (item) => {
               if (item.user_ratings_total > 100) {
                 // saving the variable
                 const { name, formatted_address, rating, user_ratings_total } =
                   item;
                 const { lat, lng } = item.geometry.location;
                 const photo_reference = item["photos"][0].photo_reference;
+                const response =
+                  await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=600
+                &photoreference=${photo_reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`);
                 // saving each attraction in the db
+                // console.log("Line 118---", response.request.res.responseUrl);
+                const imageUrl = response.request.res.responseUrl;
+
                 addAttraction(
                   name,
                   formatted_address,
@@ -120,11 +125,13 @@ module.exports = ({
                   lng,
                   rating,
                   user_ratings_total,
-                  photo_reference,
+                  imageUrl,
                   newCity.id
                 );
               }
-            }
+            });
+
+            await Promise.allSettled(promises);
           })
           .then(() => {
             //After Adding data to Db, redirecting to the get route for city which will send back data to front end
@@ -141,7 +148,6 @@ module.exports = ({
 
   //Route for Individual City
   router.get("/:id", (req, res) => {
-    console.log("Line 139----", req.params.id);
     const cityName = req.params.id;
     getCity(cityName).then((city) => {
       // if city doesnt exist in DB return error
@@ -158,10 +164,9 @@ module.exports = ({
         .then((all) => {
           allData.cityDetails = all[0];
           allData.images = all[1];
-          console.log("images----", allData.images);
+          // console.log("images----", allData.images);
           allData.attractions = all[2];
           allData.test = "testing----";
-          console.log("Data sent from line 159-------");
           res.json(allData);
         })
         .catch((err) => console.log(err));
