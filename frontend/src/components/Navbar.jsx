@@ -1,10 +1,14 @@
+import "../styles/Navbar.scss";
+
 export default function Navbar() {
   return (
     <header>
       <div>
-        {/* <a></a> */}
-        <nav className="nav">
-          <a href="/">TREK</a>
+        <a href="/" className="nav-title">
+          TREK
+        </a>
+        <nav className="navbar-home">
+          {/* <a></a> */}
           <a href="/login">Login</a>
           <a href="/register">Register</a>
         </nav>

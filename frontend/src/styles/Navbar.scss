@@ -1,0 +1,17 @@
+.nav-title {
+  display: flex;
+  justify-content: flex-start;
+  background-color: cadetblue;
+}
+
+.navbar-home {
+  position: relative;
+  display: flex;
+  //flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  //justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: cadetblue;
+}
