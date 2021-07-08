@@ -4,8 +4,12 @@ export default function UserProfile(props) {
   return (
     <div>
       <div className="head">
-        <div className="head-background"></div>
-        <div className="user-name">Linda Guy</div>
+        <div className="head-background">
+          <div className="user-name">
+            <p className="welcome">Welcome to Your Profile</p>
+            <p className="name">Linda Guy</p>
+          </div>
+        </div>
       </div>
       <h2>My Trips</h2>
       <div className="to-do">
