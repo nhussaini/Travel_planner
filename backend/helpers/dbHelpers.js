@@ -57,10 +57,10 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addImage = (url, city_id) => {
+  const addImage = (url, alt_description, city_id) => {
     const query = {
-      text: `INSERT INTO image(url, city_id) VALUES ($1, $2) RETURNING *`,
-      values: [url, city_id],
+      text: `INSERT INTO image(url, alt_description, city_id) VALUES ($1, $2, $3) RETURNING *`,
+      values: [url, alt_description, city_id],
     };
     return db
       .query(query)
@@ -142,11 +142,11 @@ module.exports = (db) => {
 
   const getImages = (name) => {
     const query = {
-      text: `SELECT city.id, short_name, long_name, image.url
+      text: `SELECT image.id, image.url, image.alt_description, city.id as city_id, short_name
       FROM city
       JOIN image ON image.city_id = city.id
       WHERE short_name = ($1)
-      GROUP BY city.id, image.url;`,
+      GROUP BY image.id, city.id;`,
       values: [name],
     };
     return db

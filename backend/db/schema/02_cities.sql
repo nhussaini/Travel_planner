@@ -19,7 +19,8 @@ CREATE TABLE city (
 
 CREATE TABLE image (
   id SERIAL PRIMARY KEY NOT NULL,
-  url VARCHAR(255),
+  url VARCHAR(255) NOT NULL,
+  alt_description VARCHAR(255),
   city_id INT REFERENCES city(id) ON DELETE CASCADE
 );
 

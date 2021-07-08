@@ -100,7 +100,8 @@ module.exports = ({
             // Save images to the image table
             // console.log(allData.imageData);
             for (let item of allData.imageData) {
-              addImage(item.urls.regular, newCity.id);
+              console.log(item.alt_description);
+              addImage(item.urls.regular, item.alt_description, newCity.id);
             }
 
             // save attractions for a place in the attraction table
@@ -157,12 +158,13 @@ module.exports = ({
         .then((all) => {
           allData.cityDetails = all[0];
           allData.images = all[1];
+          console.log("images----", allData.images);
           allData.attractions = all[2];
           allData.test = "testing----";
           console.log("Data sent from line 159-------");
           res.json(allData);
         })
-        .catch((err) => err);
+        .catch((err) => console.log(err));
     });
   });
   return router;
