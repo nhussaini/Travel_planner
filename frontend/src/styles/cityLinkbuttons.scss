@@ -28,10 +28,14 @@
   a {
     color: #2c9797;
     font-weight: 800;
+    display: flex;
     text-decoration: none;
     letter-spacing: 1px;
     position: relative;
     transition: all 0.25s ease-Out;
+    span {
+      margin-left: 10px;
+    }
     &:hover {
       color: #2d3142;
     }

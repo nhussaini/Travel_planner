@@ -1,4 +1,12 @@
 import "../styles/cityLinkbuttons.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCar,
+  faMapMarkedAlt,
+  faHiking,
+  faCalendarAlt,
+  faHotel,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function CityLinkButtons(props) {
   console.log(props);
@@ -13,21 +21,47 @@ export default function CityLinkButtons(props) {
 
   return (
     <section className="links-container">
-      <div className="button" id="button-3">
+      <div className="button">
         <div className="circle"></div>
-        <a href="#">Let's Go!</a>
+        <a href={airbnb_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={["fab", "airbnb"]} size="lg" />
+          <span>AirBNB</span>
+        </a>
       </div>
-      <div className="button" id="button-3">
+      <div className="button">
         <div className="circle"></div>
-        <a href="#">Let's Go!</a>
+        <a href={kayak_lodgings_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faHotel} size="lg" />
+          <span>Hotels</span>
+        </a>
       </div>
-      <div className="button" id="button-3">
+      <div className="button">
         <div className="circle"></div>
-        <a href="#">Let's Go!</a>
+        <a href={google_events_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faCalendarAlt} size="lg" />
+          <span>Events</span>
+        </a>
       </div>
-      <div className="button" id="button-3">
+      <div className="button">
         <div className="circle"></div>
-        <a href="#">Let's Go!</a>
+        <a href={alltrails_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faHiking} size="lg" />
+          <span>Hiking</span>
+        </a>
+      </div>
+      <div className="button">
+        <div className="circle"></div>
+        <a href={getyourguide_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faMapMarkedAlt} size="lg" />
+          <span>Guide</span>
+        </a>
+      </div>
+      <div className="button">
+        <div className="circle"></div>
+        <a href={kayak_car_rental_url} target="_blank" rel="noreferrer">
+          <FontAwesomeIcon icon={faCar} size="lg" />
+          <span>Rental</span>
+        </a>
       </div>
     </section>
   );
