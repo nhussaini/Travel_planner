@@ -3,7 +3,7 @@ import "../styles/imageList.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
 
 export default function ImagesList(props) {
   console.log("line 9---", props.images);
@@ -43,6 +43,12 @@ export default function ImagesList(props) {
             // alt={props.images[0].alt_description}
             src={`https://images.unsplash.com/photo-1622495727422-badb2c5a688b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MXwxfHNlYXJjaHwxfHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080`}
           />
+          <button
+            className=" btn btn-success overlay-button"
+            onClick={handleShow}
+          >
+            See All Images
+          </button>
         </div>
 
         <div className="nested-image-container">
@@ -61,13 +67,8 @@ export default function ImagesList(props) {
             />
           </div>
         </div>
-        {/* {allImages} */}
       </div>
       <section className="w-50"></section>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
       <Modal show={show} onHide={handleClose} dialogClassName="my-modal">
         <Modal.Header closeButton>
           <Modal.Title>{`Images of ${props.location}`}</Modal.Title>

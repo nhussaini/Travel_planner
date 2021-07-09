@@ -11,8 +11,21 @@
   width: 100%;
   border: 1px solid gray;
   .first-image {
+    position: relative;
     width: 50%;
     max-height: 400px;
+    button {
+      position: absolute;
+      bottom: 0;
+      left: 1%;
+      opacity: 0.6;
+      font-weight: 500;
+      &:hover {
+        opacity: 1;
+        color: #fff;
+        font-weight: 600;
+      }
+    }
   }
   .nested-image-container {
     margin-left: 2px;
@@ -26,11 +39,8 @@
   }
 }
 
-// #carouselExampleCaptions {
-//   width: 50%;
-// }
 .my-modal {
-  width: 50vw; /* Occupy the 90% of the screen width */
+  width: 65vw; /* Occupy 65% of the screen width */
   max-width: 70vw;
   height: 200px;
 }
@@ -39,23 +49,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  // max-height: 200px;
-  // max-width: 300px;
 }
 .image-legend {
-  transition: all 0.5s ease-in-out;
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   left: 50%;
   margin-left: -45%;
   width: 90%;
   border-radius: 10px;
   background: #000;
   color: #fff;
-  padding: 5px;
+  padding: 2px;
   font-size: 1.5rem;
   text-align: center;
   opacity: 0.5;
   text-transform: capitalize;
-  transition: opacity 0.35s ease-in-out;
 }
