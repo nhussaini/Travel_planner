@@ -1,4 +1,5 @@
 import Image from "./Image";
+import "../styles/imageList.scss";
 
 export default function ImagesList(props) {
   const allImages = props.images.map((image) => {
@@ -11,7 +12,8 @@ export default function ImagesList(props) {
           {props.images.length ? `images of ${props.location}` : ""}
         </h2>
       </div>
-      <div className="d-flex flex-wrap justify-content-center">{allImages}</div>
+      <div className="image-container">{allImages}</div>
+      <section></section>
     </div>
   );
 }
