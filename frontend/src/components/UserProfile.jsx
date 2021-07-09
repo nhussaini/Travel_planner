@@ -1,6 +1,7 @@
 import "../styles/UserProfile.scss";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
 export default function UserProfile(props) {
   const [user, setUser] = useState();
@@ -25,6 +26,7 @@ export default function UserProfile(props) {
 
   return (
     <div>
+      <Navbar />
       <div className="head">
         <div className="head-background">
           <div className="user-name">

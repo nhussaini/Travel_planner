@@ -6,6 +6,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
+    console.log("******", req.body);
     const queryString = `
       INSERT INTO users (first_name, last_name, email, password)
       VALUES ($1, $2, $3, $4)

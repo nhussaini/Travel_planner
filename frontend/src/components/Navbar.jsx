@@ -1,24 +1,45 @@
 import "../styles/Navbar.scss";
 
 export default function Navbar() {
-  return (
-    <header>
-      <div>
+  const isLoggedIn = window.localStorage.getItem("user") ? true : false;
+  //console.log(localStorage.getItem("user"));
+
+  if (!localStorage.getItem("user")) {
+    return (
+      <header>
         <div>
-          <a href="/" className="nav-title">
-            TREK
-          </a>
+          <div>
+            <a href="/" className="nav-title">
+              TREK
+            </a>
+          </div>
+          <nav className="navbar-home" isLoggedIn={isLoggedIn}>
+            <a href="/login" className="login-nav">
+              Login
+            </a>
+            <a href="/register" className="register-nav">
+              Register
+            </a>
+          </nav>
         </div>
-        <nav className="navbar-home">
-          {/* <a></a> */}
-          <a href="/login" className="login-nav">
-            Login
-          </a>
-          <a href="/register" className="register-nav">
-            Register
-          </a>
-        </nav>
-      </div>
-    </header>
-  );
+      </header>
+    );
+  } else {
+    return (
+      <header>
+        <div>
+          <div>
+            <a href="/" className="nav-title">
+              TREK
+            </a>
+          </div>
+          <nav className="navbar-home" isLoggedIn={isLoggedIn}>
+            <a href="/" className="login-nav">
+              Logout
+            </a>
+          </nav>
+        </div>
+      </header>
+    );
+  }
 }
