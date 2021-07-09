@@ -10,6 +10,18 @@
   // max-height: 300px;
   width: 100%;
   border: 1px solid gray;
+
+  .image-res {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   .first-image {
     position: relative;
     width: 50%;
