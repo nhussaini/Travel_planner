@@ -119,3 +119,17 @@
   padding-bottom: 21.5em;
   margin-right: 3em;
 }
+
+.trip-container {
+  max-width: 60%;
+  position: relative;
+  img {
+    width: 90%;
+    max-height: 50%;
+  }
+  .trip-city-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

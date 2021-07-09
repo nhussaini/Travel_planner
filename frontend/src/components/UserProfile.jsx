@@ -45,6 +45,16 @@ export default function UserProfile(props) {
                 src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
               />
             </div>
+          </div>
+          {/* <div className="user-profile-container">
+            <div className="user-trip-card card">
+              <div className="city-name-user-profile-title">Paris</div>
+              <img
+                className="user-trip-img"
+                alt="city"
+                src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+              />
+            </div>
             <div className="user-trip-card card">
               <div className="city-name-user-profile">Attraction</div>
               <img
@@ -85,7 +95,7 @@ export default function UserProfile(props) {
                 src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
               />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>
