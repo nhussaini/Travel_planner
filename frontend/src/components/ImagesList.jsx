@@ -7,9 +7,19 @@ import { Button, Modal } from "react-bootstrap";
 
 export default function ImagesList(props) {
   console.log("line 9---", props.images);
+  // const allImages = props.images.slice(0, 10).map((image) => {
+  //   return <Image key={image.id} alt={image.alt_description} src={image.url} />;
+  // });
+
   const allImages = props.images.slice(0, 10).map((image) => {
-    return <Image key={image.id} alt={image.alt_description} src={image.url} />;
+    return (
+      <div key={image.id}>
+        <img src={image.url} alt={image.alt_description} />
+        <p className="image-legend">{image.alt_description}</p>
+      </div>
+    );
   });
+
   const [image1, image2, image3] = props.images;
   // console.log("line 13---", image1);
   // console.log("line 13---", image2);
@@ -60,18 +70,11 @@ export default function ImagesList(props) {
 
       <Modal show={show} onHide={handleClose} dialogClassName="my-modal">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{`Images of ${props.location}`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Carousel autoPlay="true" width="75">
-            <div>
-              <img src="https://images.unsplash.com/photo-1622495727422-badb2c5a688b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MXwxfHNlYXJjaHwxfHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080" />
-              <p className="legend">Legend 1</p>
-            </div>
-            <div>
-              <img src="https://images.unsplash.com/photo-1581373449483-37449f962b6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHw0fHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080" />
-              <p className="legend">Legend 2</p>
-            </div>
+          <Carousel autoPlay="true" width="100">
+            {allImages}
           </Carousel>
         </Modal.Body>
       </Modal>

@@ -29,11 +29,11 @@
 // #carouselExampleCaptions {
 //   width: 50%;
 // }
-// .my-modal {
-//   width: 50vw; /* Occupy the 90% of the screen width */
-//   max-width: 70vw;
-//   height: 200px;
-// }
+.my-modal {
+  width: 50vw; /* Occupy the 90% of the screen width */
+  max-width: 70vw;
+  height: 200px;
+}
 
 .image-res {
   width: 100%;
@@ -41,4 +41,21 @@
   object-fit: cover;
   // max-height: 200px;
   // max-width: 300px;
+}
+.image-legend {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -45%;
+  width: 90%;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  opacity: 0.5;
+  text-transform: capitalize;
+  transition: opacity 0.35s ease-in-out;
 }
