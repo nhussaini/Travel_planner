@@ -29,9 +29,9 @@ export default function ToDoList() {
     setTodos(newTodos);
   };
 
-  function toDoStorage() {
-    axios.post();
-  }
+  // function toDoStorage() {
+  //   axios.post();
+  // }
 
   return (
     <div className="todo-border">
