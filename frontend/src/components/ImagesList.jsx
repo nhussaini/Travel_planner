@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
 export default function ImagesList(props) {
-  console.log("line 9---", props.images);
+  // console.log("line 9---", props.images);
   // const allImages = props.images.slice(0, 10).map((image) => {
   //   return <Image key={image.id} alt={image.alt_description} src={image.url} />;
   // });

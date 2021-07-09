@@ -38,7 +38,7 @@ export default function CityDetail(props) {
     <div>
       City Detail
       <Navbar />
-      <CityLinkButtons />
+      <CityLinkButtons locationData={state.locationData} />
       <ImagesList location={state.location} images={state.images} />
       <CityOverview
         locationData={state.locationData}
