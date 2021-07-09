@@ -31,17 +31,12 @@ export default function ImagesList(props) {
 
   return (
     <div>
-      <div>
-        <h2 className="heading">
-          {props.images.length ? `images of ${props.location}` : ""}
-        </h2>
-      </div>
       <div className="image-container">
         <div className="first-image">
           <Image
             // key={props.images[0]}
             // alt={props.images[0].alt_description}
-            src={`https://images.unsplash.com/photo-1622495727422-badb2c5a688b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MXwxfHNlYXJjaHwxfHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080`}
+            src={`https://images.unsplash.com/photo-1507992781348-310259076fe0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80`}
           />
           <button
             className=" btn btn-success overlay-button"

@@ -3,10 +3,12 @@ import { useCityData } from "../hooks/useCityData";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import CityOverview from "./CityOverview";
+import Navbar from "./Navbar";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import CityLinkButtons from "./CityLinkButtons";
 
 export default function CityDetail(props) {
   const [state, setState] = useState({
@@ -35,6 +37,8 @@ export default function CityDetail(props) {
   return (
     <div>
       City Detail
+      <Navbar />
+      <CityLinkButtons />
       <ImagesList location={state.location} images={state.images} />
       <CityOverview
         locationData={state.locationData}
