@@ -44,7 +44,7 @@ export default function CityDetail(props) {
         locationData={state.locationData}
         thingsToDo={state.thingsToDo}
       />
-      {/* <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} /> */}
+      <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
       {state.location ? <WeatherList location={state.location} /> : null}
     </div>
   );
