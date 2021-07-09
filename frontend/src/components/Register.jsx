@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../styles/Register.scss";
 
 export default function Register(props) {
+  let history = useHistory();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -33,7 +35,13 @@ export default function Register(props) {
         email: email,
         password: password,
       })
-      .then((data) => console.log(data));
+      .then((data) => {
+        const user = data.data;
+        localStorage.setItem("user", JSON.stringify(user));
+        history.push(`/`);
+
+        console.log(data);
+      });
   }
 
   return (
