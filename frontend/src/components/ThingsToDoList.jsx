@@ -20,11 +20,6 @@ export default function ThingsToDoList(props) {
   });
   return (
     <div>
-      <div>
-        <h2 className="heading">
-          {props.location ? `Top Attractions in ${props.location}` : ""}
-        </h2>
-      </div>
       <div className="things-to-do-container">{allThingsToDo}</div>
     </div>
   );
