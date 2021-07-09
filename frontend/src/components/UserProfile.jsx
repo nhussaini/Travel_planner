@@ -1,7 +1,27 @@
 import "../styles/UserProfile.scss";
+import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function UserProfile(props) {
+  const [user, setUser] = useState();
   const trip = [1];
+  let history = useHistory();
+
+  useEffect(() => {
+    // Update the document title using the browser API
+
+    // localStorage.clear();
+    let userData = localStorage.getItem("user");
+    console.log("----------------->", userData);
+
+    userData = JSON.parse(userData);
+    setUser(userData);
+    console.log("----------------->", userData);
+  }, []);
+
+  // if (!userData) {
+  //   history.push("/login");
+  // }
 
   return (
     <div>
@@ -10,6 +30,7 @@ export default function UserProfile(props) {
           <div className="user-name">
             <p className="welcome">Welcome to Your Profile</p>
             <p className="name">Linda Guy</p>
+            <p>{!user ? null : user.email}</p>
           </div>
         </div>
       </div>

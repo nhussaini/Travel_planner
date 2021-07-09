@@ -1,10 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
 import "../styles/Login.scss";
+import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
+  let history = useHistory();
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState({});
+
+  // const user = {};
+  // user.name = "Bob";
+  // user.id = 1;
+  // user.email = "bob@gmail.com";
+
+  // localStorage.setItem("user", JSON.stringify(user));
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -17,9 +26,12 @@ export default function Login(props) {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("/usersLogin", { email: email, password: password })
+      .post("/userslogin", { email: email, password: password })
       .then((data) => {
         const user = data.data;
+        localStorage.setItem("user", JSON.stringify(user));
+        history.push(`/users/${user.id}`);
+
         console.log(user);
       })
       .catch((error) => {
