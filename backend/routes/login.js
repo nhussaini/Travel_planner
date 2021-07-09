@@ -4,6 +4,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.post("/", (req, res) => {
     const { email, password } = req.body;
+    console.log("----->", req.body);
 
     const queryString = `
       SELECT *
@@ -25,6 +26,7 @@ module.exports = (db) => {
           .status(400)
           .send({ message: "Invalid password", status: "error" });
       }
+      delete user.password;
       return res.status(200).send(user);
     });
   });
