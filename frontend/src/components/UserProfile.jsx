@@ -55,16 +55,31 @@ export default function UserProfile(props) {
               />
               <div className="trip-city-name">Paris</div>
             </div>
+
             <div className="attractions-container">
               <div className="attractions-img-container">
                 <img
                   className="attractions-img"
-                  src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+                  src={`https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60`}
                   alt="attraction"
                 />
-                <div className="attractions-detail">
-                  <p>Eiffel Tower</p>
-                </div>
+                <span className="attractions-detail">Eiffel Tower</span>
+              </div>
+              <div className="attractions-remove">
+                <p>Remove</p>
+              </div>
+            </div>
+            <div className="attractions-container">
+              <div className="attractions-img-container">
+                <img
+                  className="attractions-img"
+                  src={`https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60`}
+                  alt="attraction"
+                />
+                <span className="attractions-detail">Eiffel Tower</span>
+              </div>
+              <div className="attractions-remove">
+                <p>Remove</p>
               </div>
             </div>
           </div>
