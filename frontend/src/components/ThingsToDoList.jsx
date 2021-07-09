@@ -18,9 +18,5 @@ export default function ThingsToDoList(props) {
       />
     );
   });
-  return (
-    <div>
-      <div className="things-to-do-container">{allThingsToDo}</div>
-    </div>
-  );
+  return <div className="things-to-do-container">{allThingsToDo}</div>;
 }

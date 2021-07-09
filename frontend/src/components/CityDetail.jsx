@@ -49,15 +49,15 @@ export default function CityDetail(props) {
           </h2>
         </div>
         <section className="map-attraction">
+          <ThingsToDoList
+            location={state.location}
+            thingsToDo={state.thingsToDo}
+          />
           <GoogleMap
             lat={Number(state.locationData.latitude)}
             lng={Number(state.locationData.longitude)}
             location={state.locationData.long_name}
             thingsToDo={state.thingsToDo.slice(0, 10)}
-          />
-          <ThingsToDoList
-            location={state.location}
-            thingsToDo={state.thingsToDo}
           />
         </section>
       </main>
