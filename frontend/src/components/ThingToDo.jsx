@@ -19,7 +19,7 @@ export default function ThingToDo(props) {
       {/* <p>{props.reviewsCount}</p> */}
       <p>{props.name}</p>
       {/* <p>{props.address}</p> */}
-      <p>{props.rating}</p>
+      <div className="user-rating">{props.rating}</div>
       <p>{props.reviewsCount}</p>
       {/* <a href={props.urls}>{props.name}</a> */}
     </div>
