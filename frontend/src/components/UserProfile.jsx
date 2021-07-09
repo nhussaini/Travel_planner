@@ -36,7 +36,7 @@ export default function UserProfile(props) {
               <br></br>I put lots of padding in the meantime
             </p>
           </div>
-          <div className="user-profile-container">
+          {/* <div className="user-profile-container">
             <div className="user-trip-card card">
               <div className="city-name-user-profile-title">Paris</div>
               <img
@@ -44,6 +44,28 @@ export default function UserProfile(props) {
                 alt="city"
                 src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
               />
+            </div>
+          </div> */}
+          <div className="trip-container">
+            <div className="trip-city-img-container">
+              <img
+                className="city-image"
+                src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+                alt="city"
+              />
+              <div className="trip-city-name">Paris</div>
+            </div>
+            <div className="attractions-container">
+              <div className="attractions-img-container">
+                <img
+                  className="attractions-img"
+                  src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+                  alt="attraction"
+                />
+                <div className="attractions-detail">
+                  <p>Eiffel Tower</p>
+                </div>
+              </div>
             </div>
           </div>
           {/* <div className="user-profile-container">

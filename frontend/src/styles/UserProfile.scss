@@ -121,15 +121,12 @@
 }
 
 .trip-container {
-  max-width: 60%;
-  position: relative;
-  img {
-    width: 90%;
-    max-height: 50%;
-  }
-  .trip-city-name {
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 60px;
+  .trip-city-img-container {
+    img {
+      width: 500px;
+      border-radius: 0.5rem;
+      margin-left: 1rem;
+    }
   }
 }
