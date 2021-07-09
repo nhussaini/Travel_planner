@@ -11,6 +11,7 @@ const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const citiesRouter = require("./routes/cities");
 const logoutRouter = require("./routes/index");
+const todoRouter = require("./routes/todo");
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/userslogin", loginRouter(db));
 app.use("/cities", citiesRouter(dbHelpers));
 app.use("/", indexRouter);
 app.use("/", logoutRouter(db));
+app.use("/todo", todoRouter(db));
 // app.use('/users', usersRouter(dbHelpers));
 
 module.exports = app;
