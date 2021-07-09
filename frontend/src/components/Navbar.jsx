@@ -11,7 +11,8 @@ export default function Navbar() {
             TREK
           </a>
         </div>
-        <nav className="navbar-home">
+        <nav className="navbar-home" isLoggedIn={false}>
+          {/* <a href="/" className="login-nav">Logout</a> */}
           <a href="/login" className="login-nav">
             Login
           </a>
