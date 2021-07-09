@@ -63,6 +63,10 @@ export default function Login(props) {
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>
+              {/* for now, i just put a link to the homepage because the submit was not redirecting */}
+              <a href="/" className="btn btn-light">
+                Submit
+              </a>
             </form>
           </div>
         </div>
