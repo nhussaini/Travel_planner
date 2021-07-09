@@ -27,7 +27,7 @@ export default function ImagesList(props) {
         </h2>
       </div>
       <div className="image-container">
-        {/* <div className="first-image">
+        <div className="first-image">
           <Image
             // key={props.images[0]}
             // alt={props.images[0].alt_description}
@@ -36,18 +36,22 @@ export default function ImagesList(props) {
         </div>
 
         <div className="nested-image-container">
-          <Image
-            // key={props.images[1]}
-            // alt={props.images[1].alt_description}
-            src={`https://images.unsplash.com/photo-1494522855154-9297ac14b55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHwzfHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080`}
-          />
-          <Image
-            // key={props.images[2]}
-            // alt={props.images[2].alt_description}
-            src={`https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHwyfHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080`}
-          />
-        </div> */}
-        {allImages}
+          <div className="nested-image">
+            <Image
+              // key={props.images[1]}
+              // alt={props.images[1].alt_description}
+              src={`https://images.unsplash.com/photo-1581373449483-37449f962b6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHw0fHxDaGljYWdvfGVufDB8MHx8fDE2MjU3NjYxNjk&ixlib=rb-1.2.1&q=80&w=1080`}
+            />
+          </div>
+          <div className="nested-image">
+            <Image
+              // key={props.images[2]}
+              // alt={props.images[2].alt_description}
+              src={`https://www.ctvnews.ca/polopoly_fs/1.5448259.1622323481!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg`}
+            />
+          </div>
+        </div>
+        {/* {allImages} */}
       </div>
       <section className="w-50"></section>
       <Button variant="primary" onClick={handleShow}>

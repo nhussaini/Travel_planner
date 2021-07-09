@@ -35,13 +35,13 @@ export default function CityDetail(props) {
   return (
     <div>
       City Detail
-      <CityOverview
+      {/* <CityOverview
         locationData={state.locationData}
         thingsToDo={state.thingsToDo}
       />
-      <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} />
+      <ThingsToDoList location={state.location} thingsToDo={state.thingsToDo} /> */}
       <ImagesList location={state.location} images={state.images} />
-      {state.location ? <WeatherList location={state.location} /> : null}
+      {/* {state.location ? <WeatherList location={state.location} /> : null} */}
     </div>
   );
 }
