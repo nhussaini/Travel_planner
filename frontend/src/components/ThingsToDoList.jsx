@@ -5,7 +5,7 @@ export default function ThingsToDoList(props) {
   console.log(props.thingsToDo);
   const sortedArray = [...props.thingsToDo]
     .sort((a, b) => b.user_ratings_total - a.user_ratings_total)
-    .slice(0, 10);
+    .slice(0, 12);
   const allThingsToDo = sortedArray.map((thing) => {
     return (
       <ThingToDo

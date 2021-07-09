@@ -16,6 +16,21 @@
       box-shadow: 10px 5px 14px -6px #8c7378;
     }
 
+    .attraction-summary {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      // p {
+      //   margin-bottom: 0;
+      // }
+      div {
+        display: flex;
+        align-items: center;
+        .rating-count {
+          margin-left: 10px;
+        }
+      }
+    }
     .user-rating {
       background-color: rgb(230, 162, 162);
       width: 15%;
@@ -34,8 +49,8 @@
 
     .card-img-top {
       transition: transform 0.5s ease;
-      min-height: 60%;
-      height: 60%;
+      min-height: 70%;
+      height: 70%;
 
       &:hover {
         opacity: 0.8;

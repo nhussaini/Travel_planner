@@ -15,12 +15,20 @@ export default function ThingToDo(props) {
 
       {/* <FontAwesomeIcon icon={faCar} size="lg" /> */}
       {/* <FontAwesomeIcon icon="fa-light fa-heart" /> */}
-      <Rating rating={props.rating} />
       {/* <p>{props.reviewsCount}</p> */}
-      <p>{props.name}</p>
-      {/* <p>{props.address}</p> */}
       <div className="user-rating">{props.rating}</div>
-      <p>{props.reviewsCount}</p>
+      <div className="attraction-summary">
+        <div>
+          <Rating rating={props.rating} />{" "}
+          <span class="rating-count">({props.reviewsCount})</span>
+        </div>
+
+        <p>{props.name}</p>
+        <p></p>
+      </div>
+
+      {/* <p>{props.address}</p> */}
+
       {/* <a href={props.urls}>{props.name}</a> */}
     </div>
   );
