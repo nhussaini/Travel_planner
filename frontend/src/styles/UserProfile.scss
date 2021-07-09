@@ -119,3 +119,36 @@
   padding-bottom: 21.5em;
   margin-right: 3em;
 }
+
+.trip-container {
+  // width: 60px;
+  .trip-city-img-container {
+    img {
+      width: 500px;
+      border-radius: 0.5rem;
+    }
+    .trip-city-name {
+      margin-left: 1rem;
+    }
+  }
+  .attractions-container {
+    display: flex;
+    margin-left: 1rem;
+    width: 500px;
+    margin: 0 auto;
+    justify-content: space-between;
+    background-color: #f3f4f5;
+    margin-bottom: 1rem;
+    // width: 100%;
+    .attractions-img-container {
+      img {
+        width: 100px;
+        border-radius: 5rem;
+      }
+    }
+    .attractions-remove {
+      margin-top: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+}

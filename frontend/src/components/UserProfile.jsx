@@ -36,7 +36,54 @@ export default function UserProfile(props) {
               <br></br>I put lots of padding in the meantime
             </p>
           </div>
-          <div className="user-profile-container">
+          {/* <div className="user-profile-container">
+            <div className="user-trip-card card">
+              <div className="city-name-user-profile-title">Paris</div>
+              <img
+                className="user-trip-img"
+                alt="city"
+                src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+              />
+            </div>
+          </div> */}
+          <div className="trip-container">
+            <div className="trip-city-img-container">
+              <img
+                className="city-image"
+                src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
+                alt="city"
+              />
+              <div className="trip-city-name">Paris</div>
+            </div>
+
+            <div className="attractions-container">
+              <div className="attractions-img-container">
+                <img
+                  className="attractions-img"
+                  src={`https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60`}
+                  alt="attraction"
+                />
+                <span className="attractions-detail">Eiffel Tower</span>
+              </div>
+              <div className="attractions-remove">
+                <p>Remove</p>
+              </div>
+            </div>
+            <div className="attractions-container">
+              <div className="attractions-img-container">
+                <img
+                  className="attractions-img"
+                  src={`https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60`}
+                  alt="attraction"
+                />
+                <span className="attractions-detail">Eiffel Tower</span>
+              </div>
+              <div className="attractions-remove">
+                <p>Remove</p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="user-profile-container">
             <div className="user-trip-card card">
               <div className="city-name-user-profile-title">Paris</div>
               <img
@@ -85,7 +132,7 @@ export default function UserProfile(props) {
                 src={`https://images.unsplash.com/photo-1499174549139-68d3f37243b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60`}
               />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>
