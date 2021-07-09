@@ -18,13 +18,11 @@ export default function ThingToDo(props) {
       {/* <p>{props.reviewsCount}</p> */}
       <div className="user-rating">{props.rating}</div>
       <div className="attraction-summary">
+        <p>{props.name}</p>
         <div>
           <Rating rating={props.rating} />{" "}
           <span class="rating-count">({props.reviewsCount})</span>
         </div>
-
-        <p>{props.name}</p>
-        <p></p>
       </div>
 
       {/* <p>{props.address}</p> */}
