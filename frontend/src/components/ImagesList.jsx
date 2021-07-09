@@ -39,6 +39,7 @@ export default function ImagesList(props) {
           </Carousel>
         ) : null}
       </section>
+      <section></section>
     </div>
   );
 }
