@@ -10,22 +10,13 @@ export default function TripPlanner(props) {
   const locationData = location.state.locationData;
   console.log("locationdata****", location.state);
   const attractions = location.state.attractions;
+
+  //get the logged in userdata from local storge
   let userData = localStorage.getItem("user");
   userData = JSON.parse(userData);
+  //get the user id
   const id = userData.id;
-  console.log("user id===>", id);
-  // useEffect(() => {
 
-  //   // localStorage.clear();
-  //   let userData = localStorage.getItem("user");
-  //   console.log("----------------->", userData);
-
-  //   userData = JSON.parse(userData);
-  //   setUser(userData);
-  //   console.log("----------------->", userData);
-  // }, []);
-
-  // console.log("attractions", attractions);
   return (
     <div>
       Choose an attraction
@@ -33,7 +24,7 @@ export default function TripPlanner(props) {
         <img src={locationData.image_url} alt="city" />
       </div>
       <div className="map-attraction-container">
-        <ToDoList />
+        <ToDoList userId={id} />
         <section className="map-attraction">
           <ThingsToDoList
             location={location.state.id}
