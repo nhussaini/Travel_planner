@@ -12,24 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &:hover {
-      .city-name {
-        -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        transform: scale(1.2);
-        transition: all 300ms;
-        opacity: 0;
-      }
-
-      .trending-city-img {
-        -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-        transform: scale(1.05);
-        transition: all 300ms;
-      }
-    }
-
     .city-name {
       position: absolute;
       z-index: 100;
@@ -47,9 +29,13 @@
       color: white;
       font-weight: bold;
       font-size: 1.5rem;
+      opacity: 0;
       p {
         padding: 0;
         margin: 0;
+      }
+      &:hover {
+        cursor: pointer;
       }
     }
 
@@ -59,6 +45,31 @@
       object-fit: cover;
       height: 38vh;
       width: 100%;
+    }
+
+    &:hover {
+      .city-name {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        transition: all 300ms;
+        opacity: 0;
+      }
+
+      .trending-city-img {
+        -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+        transform: scale(1.02);
+        transition: all 200ms;
+      }
+
+      .city-summary {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        transition: all 300ms;
+        opacity: 1;
+      }
     }
   }
 }
