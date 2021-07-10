@@ -1,5 +1,4 @@
 export default function TrendingCity(props) {
-  console.log(props);
   return (
     <div className="trending-city-card card">
       <div className="city-name">{props.short_name}</div>

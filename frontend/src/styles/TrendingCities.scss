@@ -73,3 +73,22 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .trending-cities-container {
+    .trending-city-card {
+      width: 45%;
+      .city-summary {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trending-cities-container {
+    .trending-city-card {
+      width: 100%;
+    }
+  }
+}
