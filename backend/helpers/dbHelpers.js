@@ -170,6 +170,16 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const addToDo =(description) => {
+    const query = {
+      text :  `INSERT INTO trip(description) values ($1) RETURNING *`, values: [description],
+    };
+    return db
+    .query(query)
+    .then((result) => result.rows[0])
+    .catch((err) => err);
+  };
+
   return {
     getUsers,
     addCity,
@@ -179,5 +189,6 @@ module.exports = (db) => {
     addAttraction,
     getImages,
     getAttractions,
+    addToDo
   };
 };

@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = (db) => {
+module.exports = ({addToDo}) => {
+
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
     console.log("******", req.body);
@@ -22,6 +23,10 @@ module.exports = (db) => {
   router.get("/", (req, res, next) => {
     res.send("respond with a resource");
   });
+
+  router.post("/todo", (req, res) => {
+    console.log("----> ", req.body);
+  })
 
   return router;
 };

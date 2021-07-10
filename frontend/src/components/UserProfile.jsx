@@ -2,6 +2,7 @@ import "../styles/UserProfile.scss";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import ToDoList from "./ToDoList";
 
 export default function UserProfile(props) {
   const [user, setUser] = useState();
@@ -52,12 +53,13 @@ export default function UserProfile(props) {
         <div>
           {" "}
           <h2>Your Trips</h2>
-          <div className="to-do">
-            To do List
+          <div>
+            {/* To do List
             <p>
               Here will be stuff that the user wants to do while on their trip.{" "}
               <br></br>I put lots of padding in the meantime
-            </p>
+            </p> */}
+            <ToDoList />
           </div>
           {/* <div className="user-profile-container">
             <div className="user-trip-card card">

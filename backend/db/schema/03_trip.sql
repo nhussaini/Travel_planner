@@ -10,8 +10,8 @@ CREATE TABLE trip(
 
 CREATE TABLE todo(
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255),
-  trip_id INT REFERENCES trip(id) ON DELETE CASCADE
+  description VARCHAR(255)
+  -- trip_id INT REFERENCES trip(id) ON DELETE CASCADE
 )
 
 
