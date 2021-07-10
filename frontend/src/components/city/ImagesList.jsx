@@ -6,11 +6,6 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
 export default function ImagesList(props) {
-  // console.log("line 9---", props.images);
-  // const allImages = props.images.slice(0, 10).map((image) => {
-  //   return <Image key={image.id} alt={image.alt_description} src={image.url} />;
-  // });
-
   const allImages = props.images.slice(0, 10).map((image) => {
     return (
       <div key={image.id}>
@@ -21,10 +16,6 @@ export default function ImagesList(props) {
   });
 
   const [image1, image2, image3] = props.images;
-  console.log(image1);
-  image1 && console.log("line 25---", image1.url);
-  // // console.log("line 13---", image2);
-  // // console.log("line 13---", image3);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
