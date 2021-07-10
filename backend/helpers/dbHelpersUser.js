@@ -22,9 +22,20 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const removeToDo = (id) => {
+    const query = {
+      text : `DELETE FROM todo WHERE id = ($1) RETURNING *`,
+      values: [id]
+    };
+    return db
+    .query(query)
+    .then((result) => result.rows[0])
+    .catch((err) => err);
+  }
+
   const getToDos = () => {
     const query = {
-      text: `SELECT description from todo`,
+      text: `SELECT id, description from todo`,
     };
     return db
       .query(query)
@@ -50,5 +61,6 @@ module.exports = (db) => {
     addToDo,
     registerUser,
     getToDos,
+    removeToDo
   };
 };

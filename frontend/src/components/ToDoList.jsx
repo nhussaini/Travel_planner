@@ -12,29 +12,12 @@ export default function ToDoList() {
   //   },
   // ]);
 
+  //state for todos
   const [state, setState] = useState({
     todos: [],
   });
 
-  // const addTodo = (text) => {
-  //   const newTodos = [...todos, { text }];
-  //   setTodos(newTodos);
-  // };
-
-  // const addTodo = (text) => {
-  //   const newTodos = [...todos, { text }];
-  //   setTodos((prev) => ({
-  //     ...prev,
-  //     newTodos,
-  //   }));
-  // };
-
-  // const completeTodo = (index) => {
-  //   const newTodos = [...todos];
-  //   newTodos[index].isCompleted = true;
-  //   setTodos(newTodos);
-  // };
-  console.log("state.todos=>", ...state.todos);
+  //add todo in the frontend
   const addTodo = (text) => {
     const newTodos = [...state.todos, { description: text }];
     setState((prev) => ({
@@ -43,7 +26,12 @@ export default function ToDoList() {
     }));
   };
 
-  const removeTodo = (index) => {
+  //remove a todo
+  const removeTodo = (id, index) => {
+    axios
+      .delete(`/users/todo/${id}`)
+      .then((data) => console.log("data after deletion", data));
+
     const newTodos = [...state.todos];
     newTodos.splice(index, 1);
     // setTodos(newTodos);
@@ -54,6 +42,8 @@ export default function ToDoList() {
     }));
     console.log("index==>", index);
   };
+
+  //fetch todos from the backend
   useEffect(() => {
     // Update the document title using the browser API
     axios.get("/users/todo").then((data) => {

@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({ addToDo, registerUser, getToDos }) => {
+module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
     registerUser(firstName, lastName, email, password).then((data) =>
@@ -23,6 +23,15 @@ module.exports = ({ addToDo, registerUser, getToDos }) => {
   router.get("/todo", (req, res) => {
     getToDos().then((data) => res.send(data));
   });
+  
+  router.delete("/todo/:id", (req, res) => {
+    console.log("req====>",req.params.id);
+    const id = req.params.id;
+    
+    // console.log("req.param.id===>", index);
+    removeToDo(id);
+
+  })
 
   return router;
 };

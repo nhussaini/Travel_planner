@@ -12,11 +12,14 @@ export default function ToDo({ todo, index, completeTodo, removeTodo }) {
         <div className="todo-buttons">
           <button
             className="todo-complete-btn"
-            onClick={() => completeTodo(index)}
+            onClick={() => completeTodo(todo.id, index)}
           >
             ✓
           </button>
-          <button className="todo-delete-btn" onClick={() => removeTodo(index)}>
+          <button
+            className="todo-delete-btn"
+            onClick={() => removeTodo(todo.id, index)}
+          >
             x
           </button>
         </div>
