@@ -12,10 +12,10 @@ CREATE TABLE trip(
 
 CREATE TABLE todo(
   id SERIAL PRIMARY KEY NOT NULL,
-  description VARCHAR(255)
+  description VARCHAR(255),
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   trip_id INT REFERENCES trip(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE trip_attraction(
   id SERIAL PRIMARY KEY NOT NULL,

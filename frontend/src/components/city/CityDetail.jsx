@@ -8,10 +8,11 @@ import Navbar from "../Navbar";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useHistory } from "react-router-dom";
 import CityLinkButtons from "./CityLinkButtons";
 
 export default function CityDetail(props) {
+  let history = useHistory();
   const [state, setState] = useState({
     // location: "",
     images: [],
@@ -22,6 +23,15 @@ export default function CityDetail(props) {
   const location = useLocation();
   // const [status, setStatus] = useState(false);
   const { id } = useParams();
+
+  function handleClick(e) {
+    history.push({
+      pathname: `/trip/new`,
+      state: {
+        key: id,
+      },
+    });
+  }
 
   useEffect(() => {
     axios.get(`/cities/${id}`).then((data) => {
@@ -39,6 +49,9 @@ export default function CityDetail(props) {
     <div>
       City Detail
       <Navbar />
+      <button className="btn btn-primary" onClick={handleClick}>
+        Add Trip
+      </button>
       <CityLinkButtons locationData={state.locationData} />
       <ImagesList location={state.location} images={state.images} />
       <main className="map-attraction-container">
