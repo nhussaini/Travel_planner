@@ -13,13 +13,15 @@ export default function TripPlanner(props) {
   console.log("attractions", attractions);
   return (
     <div>
-      {" "}
       Choose an attraction
+      <div className="w-100">
+        <img src={locationData.image_url} alt="city" />
+      </div>
       <div className="map-attraction-container">
         <section className="map-attraction">
           <ThingsToDoList
             location={location.state.id}
-            thingsToDo={attractions}
+            thingsToDo={attractions.slice(0, 3)}
           />
           <GoogleMap
             lat={Number(locationData.latitude)}
