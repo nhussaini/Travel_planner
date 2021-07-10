@@ -15,10 +15,6 @@ export default function GoogleMap(props) {
     },
     zoom: 12,
   };
-
-  // const map;
-  // Promise
-  // console.log(props.thingsToDo[0]);
   useEffect(() => {
     loader
       .load()
