@@ -61,7 +61,7 @@ export default function CityDetail(props) {
           />
         </section>
       </main>
-      {state.location ? <WeatherList location={state.location} /> : null}
+      {/* {state.location ? <WeatherList location={state.location} /> : null} */}
     </div>
   );
 }

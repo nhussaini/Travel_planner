@@ -9,6 +9,9 @@
     margin-bottom: 2%;
     width: 30%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       .city-name {
@@ -16,6 +19,7 @@
         -ms-transform: scale(1.2);
         transform: scale(1.2);
         transition: all 300ms;
+        opacity: 0;
       }
 
       .trending-city-img {
@@ -34,6 +38,19 @@
       left: 1rem;
       color: white;
       font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .city-summary {
+      position: absolute;
+      z-index: 100;
+      transition: transform 0.5s ease;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      p {
+        padding: 0;
+        margin: 0;
+      }
     }
 
     .trending-city-img {
