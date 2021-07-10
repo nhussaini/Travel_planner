@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 require("dotenv").config();
 
-module.exports = (dbHelpers) => {
-  router.get("/trending", (req, res) => {
+module.exports = ({ getTopCity }) => {
+  router.get("/trending", async (req, res) => {
     console.log("Reached Here");
-    res.send("Reached /back route");
+    const topCities = await getTopCity();
+    res.send(topCities);
   });
   return router;
 };

@@ -150,14 +150,29 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addVisit = (city_id) => {
+  const addVisit = (city_id, city_name) => {
     const query = {
-      text: `Insert INTO visit (city_id) VALUES ($1) RETURNING *`,
-      values: [city_id],
+      text: `Insert INTO visit (city_id, city_name) VALUES ($1, $2) RETURNING *`,
+      values: [city_id, city_name],
     };
     return db
       .query(query)
       .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
+  const getTopCity = () => {
+    const query = {
+      text: `SELECT city.id, short_name, long_name, image_url, population, COUNT(visit.*) as total_visit
+      FROM city
+      JOIN visit on city.id = visit.city_id
+      GROUP BY city.id
+      ORDER BY total_visit DESC
+      LIMIT 12;`,
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows)
       .catch((err) => err);
   };
 
@@ -170,5 +185,6 @@ module.exports = (db) => {
     getImages,
     getAttractions,
     addVisit,
+    getTopCity,
   };
 };

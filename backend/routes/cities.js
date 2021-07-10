@@ -5,7 +5,6 @@ const axios = require("axios");
 require("dotenv").config();
 
 module.exports = ({
-  getUsers,
   findCity,
   getCity,
   addCity,
@@ -165,7 +164,7 @@ module.exports = ({
         getCity(cityName),
         getImages(cityName),
         getAttractions(cityName),
-        addVisit(city.id),
+        addVisit(city.id, cityName),
       ])
         .then((all) => {
           allData.cityDetails = all[0];
