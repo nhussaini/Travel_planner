@@ -3,21 +3,12 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({addToDo}) => {
+module.exports = ({addToDo, registerUser}) => {
 
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
-    console.log("******", req.body);
-    const queryString = `
-      INSERT INTO users (first_name, last_name, email, password)
-      VALUES ($1, $2, $3, $4)
-      RETURNING id;
-  `;
-
-    db.query(queryString, [firstName, lastName, email, password]).then((data) =>
-      console.log("query data", data)
-    );
-    res.send("post routeee");
+    registerUser(firstName,lastName,email, password).then((data)=>console.log("register data====>", data));
+   
   });
 
   router.get("/", (req, res, next) => {

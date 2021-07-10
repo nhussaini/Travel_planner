@@ -119,9 +119,7 @@ router.get("/testRoute", async (req, res) => {
   res.send(allData);
 });
 
-router.post("/users/todo", (req, res) => {
-  console.log("----> ", req.body);
-})
+
 
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
