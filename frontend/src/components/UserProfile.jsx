@@ -2,6 +2,7 @@ import "../styles/UserProfile.scss";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import ToDoList from "./ToDoList";
 
 export default function UserProfile(props) {
   const [user, setUser] = useState();
@@ -156,6 +157,7 @@ export default function UserProfile(props) {
               />
             </div>
           </div> */}
+          <ToDoList />
         </div>
       )}
     </div>
