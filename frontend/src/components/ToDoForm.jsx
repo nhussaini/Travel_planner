@@ -1,3 +1,4 @@
+import axios from "axios";
 import { React, useState } from "react";
 import "../styles/ToDo.scss";
 
@@ -6,6 +7,9 @@ export default function ToDoForm({ addTodo }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.post("/users/todo", { userInput: value }).then((data) => {
+      console.log(data);
+    });
     if (!value) return;
     addTodo(value);
     setValue("");

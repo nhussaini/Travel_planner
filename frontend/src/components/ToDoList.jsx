@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/ToDo.scss";
 import ToDo from "./ToDo";
@@ -12,10 +12,22 @@ export default function ToDoList() {
     },
   ]);
 
+  const [state, setState] = useState({
+    todos: [],
+  });
+
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
+
+  // const addTodo = (text) => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos((prev) => ({
+  //     ...prev,
+  //     newTodos,
+  //   }));
+  // };
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
@@ -24,10 +36,37 @@ export default function ToDoList() {
   };
 
   const removeTodo = (index) => {
-    const newTodos = [...todos];
+    const newTodos = [...state.todos];
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    // setTodos(newTodos);
+    console.log("deleting a todo=>", newTodos);
+    setState((prev) => ({
+      ...prev,
+      todos: newTodos,
+    }));
+    console.log("index==>", index);
   };
+  useEffect(() => {
+    // Update the document title using the browser API
+    axios.get("/users/todo").then((data) => {
+      setState((prev) => ({
+        ...prev,
+        todos: data.data,
+      }));
+      // for (let todo of data.data) {
+      //   console.log("todo=>", todo);
+      //   addTodo(todo.description);
+      // }
+      // const newTodos = [...todos, { text: data.data[0].description }];
+      // setTodos(newTodos);
+
+      // const newArr = ["hi", "bye", "cate"];
+      // const newTodos = [...todos, newArr];
+      // setTodos(newTodos);
+
+      console.log("todo data=>", data.data);
+    });
+  }, []);
 
   // function toDoStorage() {
   //   axios.post();
@@ -35,7 +74,7 @@ export default function ToDoList() {
 
   return (
     <div className="todo-border">
-      {todos.map((todo, index) => (
+      {state.todos.map((todo, index) => (
         <ToDo
           key={index}
           index={index}
