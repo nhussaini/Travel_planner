@@ -13,6 +13,7 @@ module.exports = ({
   addAttraction,
   getImages,
   getAttractions,
+  addVisit,
 }) => {
   //roadGhoat Credentials
   const roadGoatApiAuth = {
@@ -164,11 +165,11 @@ module.exports = ({
         getCity(cityName),
         getImages(cityName),
         getAttractions(cityName),
+        addVisit(city.id),
       ])
         .then((all) => {
           allData.cityDetails = all[0];
           allData.images = all[1];
-          // console.log("images----", allData.images);
           allData.attractions = all[2];
           allData.test = "testing----";
           res.json(allData);

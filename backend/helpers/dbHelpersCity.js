@@ -150,6 +150,17 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const addVisit = (city_id) => {
+    const query = {
+      text: `Insert INTO visit (city_id) VALUES ($1) RETURNING *`,
+      values: [city_id],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
   return {
     addCity,
     findCity,
@@ -158,5 +169,6 @@ module.exports = (db) => {
     addAttraction,
     getImages,
     getAttractions,
+    addVisit,
   };
 };

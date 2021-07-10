@@ -15,3 +15,5 @@
 -- SELECT city.id, short_name, image.url as alt
 -- FROM city
 -- GROUP BY city.id, image.url;
+
+Insert INTO visit (city_id) VALUES (1) RETURNING *;

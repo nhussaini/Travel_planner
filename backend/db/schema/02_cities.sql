@@ -41,6 +41,5 @@ CREATE TABLE attraction (
 CREATE TABLE visit (
   id SERIAL PRIMARY KEY NOT NULL,
   city_id INT REFERENCES city(id) ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   visited_at TIMESTAMP DEFAULT now()
 )
