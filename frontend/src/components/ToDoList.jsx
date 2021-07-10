@@ -53,24 +53,10 @@ export default function ToDoList() {
         ...prev,
         todos: data.data,
       }));
-      // for (let todo of data.data) {
-      //   console.log("todo=>", todo);
-      //   addTodo(todo.description);
-      // }
-      // const newTodos = [...todos, { text: data.data[0].description }];
-      // setTodos(newTodos);
-
-      // const newArr = ["hi", "bye", "cate"];
-      // const newTodos = [...todos, newArr];
-      // setTodos(newTodos);
 
       console.log("todo data=>", data.data);
     });
   }, []);
-
-  // function toDoStorage() {
-  //   axios.post();
-  // }
 
   return (
     <div className="todo-border">
