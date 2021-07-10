@@ -1,4 +1,4 @@
-import "../styles/weather.scss";
+import "styles/weather.scss";
 
 import axios from "axios";
 import { useState, useEffect } from "react";

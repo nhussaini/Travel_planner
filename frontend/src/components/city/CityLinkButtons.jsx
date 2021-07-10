@@ -1,4 +1,4 @@
-import "../styles/cityLinkbuttons.scss";
+import "styles/cityLinkbuttons.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCar,

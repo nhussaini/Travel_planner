@@ -1,4 +1,4 @@
-import convertDate from "../helpers/helper";
+import convertDate from "../../helpers/helper";
 export default function Weather(props) {
   return (
     // <div className="border m-2">

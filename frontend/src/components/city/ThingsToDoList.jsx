@@ -1,5 +1,5 @@
 import ThingToDo from "./ThingToDo";
-import "../styles/cityDetail.scss";
+import "styles/cityDetail.scss";
 
 export default function ThingsToDoList(props) {
   console.log(props.thingsToDo);

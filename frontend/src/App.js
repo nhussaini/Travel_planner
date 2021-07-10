@@ -5,7 +5,7 @@ import "./styles/app.scss";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import CityDetail from "./components/CityDetail";
+import CityDetail from "./components/city/CityDetail";
 import UserProfile from "./components/UserProfile";
 
 function App() {

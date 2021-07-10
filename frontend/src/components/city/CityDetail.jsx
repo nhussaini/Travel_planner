@@ -1,11 +1,10 @@
-import { useCityData } from "../hooks/useCityData";
+import { useCityData } from "../../hooks/useCityData";
 
-import "../styles/cityDetail.scss";
+import "styles/app.scss";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
-import CityOverview from "./CityOverview";
 import GoogleMap from "./GoogleMap";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -61,7 +60,7 @@ export default function CityDetail(props) {
           />
         </section>
       </main>
-      {/* {state.location ? <WeatherList location={state.location} /> : null} */}
+      {state.location ? <WeatherList location={state.location} /> : null}
     </div>
   );
 }
