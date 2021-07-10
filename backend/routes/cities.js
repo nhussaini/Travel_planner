@@ -80,11 +80,14 @@ module.exports = ({
               kayak_car_rental_url,
             } = allData.cityData.attributes;
 
+            const random = Math.floor(Math.random() * 9 + 1);
+            const image_url = allData.imageData[random].urls.regular;
             // add the city data to db
             return addCity(
               short_name,
               long_name,
               population,
+              image_url,
               latitude,
               longitude,
               airbnb_url,

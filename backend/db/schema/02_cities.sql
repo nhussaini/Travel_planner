@@ -6,6 +6,7 @@ CREATE TABLE city (
   id SERIAL PRIMARY KEY NOT NULL,
   short_name VARCHAR(255) UNIQUE NOT NULL,
   long_name VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255),
   population INT NOT NULL,
   latitude decimal,
   longitude decimal,
