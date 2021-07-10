@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 require("dotenv").config();
 const db = require("./db");
-const dbHelpers = require("./helpers/dbHelpers")(db);
+const dbHelpersUser = require("./helpers/dbHelpersUser")(db);
 const dbHelpersCity = require("./helpers/dbHelpersCity")(db);
 
 const indexRouter = require("./routes/index");
@@ -23,9 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/users", usersRouter(dbHelpers));
+app.use("/users", usersRouter(dbHelpersUser));
 app.use("/back/cities", backCitiesRouter(dbHelpersCity));
-app.use("/users", usersRouter(db));
+// app.use("/users", usersRouter(db));
 app.use("/userslogin", loginRouter(db));
 app.use("/cities", citiesRouter(dbHelpersCity));
 app.use("/", indexRouter);
