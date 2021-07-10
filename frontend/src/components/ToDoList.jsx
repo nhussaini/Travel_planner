@@ -5,21 +5,21 @@ import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 
 export default function ToDoList() {
-  const [todos, setTodos] = useState([
-    {
-      text: "Add to your ToDo List - type your task and hit enter.",
-      isCompleted: false,
-    },
-  ]);
+  // const [todos, setTodos] = useState([
+  //   {
+  //     text: "Add to your ToDo List - type your task and hit enter.",
+  //     isCompleted: false,
+  //   },
+  // ]);
 
   const [state, setState] = useState({
     todos: [],
   });
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
-    setTodos(newTodos);
-  };
+  // const addTodo = (text) => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos(newTodos);
+  // };
 
   // const addTodo = (text) => {
   //   const newTodos = [...todos, { text }];
@@ -29,10 +29,18 @@ export default function ToDoList() {
   //   }));
   // };
 
-  const completeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
+  // const completeTodo = (index) => {
+  //   const newTodos = [...todos];
+  //   newTodos[index].isCompleted = true;
+  //   setTodos(newTodos);
+  // };
+  console.log("state.todos=>", ...state.todos);
+  const addTodo = (text) => {
+    const newTodos = [...state.todos, { description: text }];
+    setState((prev) => ({
+      ...prev,
+      todos: newTodos,
+    }));
   };
 
   const removeTodo = (index) => {
@@ -65,7 +73,7 @@ export default function ToDoList() {
           key={index}
           index={index}
           todo={todo}
-          completeTodo={completeTodo}
+          // completeTodo={completeTodo}
           removeTodo={removeTodo}
         />
       ))}
