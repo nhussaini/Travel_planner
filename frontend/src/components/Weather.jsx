@@ -1,5 +1,3 @@
-import "../styles/weather.scss";
-
 import convertDate from "../helpers/helper";
 export default function Weather(props) {
   return (

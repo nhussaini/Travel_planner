@@ -1,3 +1,5 @@
+import "../styles/weather.scss";
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Weather from "./Weather";
@@ -18,7 +20,7 @@ export default function WeatherList(props) {
           {props.location ? `7 Day forecast for  ${props.location}` : ""}
         </h2>
       </div>
-      <div className="d-flex flex-wrap justify-content-center">
+      <div className="weather-data-container">
         {weatherData
           ? weatherData.map((weather) => {
               return (
