@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({addToDo, registerUser}) => {
+module.exports = ({addToDo, registerUser,getToDos}) => {
 
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
@@ -16,10 +16,12 @@ module.exports = ({addToDo, registerUser}) => {
   });
 
   router.post("/todo", (req, res) => {
-    console.log("----> ", req.body);
     const todo = req.body.userInput;
     addToDo(todo).then((data)=> console.log("data=>>>", data) );
   })
+  router.get("/todo" ,(req,res) => {
+    getToDos().then((data) => res.send(data));
+  } )
 
   return router;
 };

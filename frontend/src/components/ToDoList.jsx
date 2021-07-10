@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/ToDo.scss";
 import ToDo from "./ToDo";
@@ -28,6 +28,9 @@ export default function ToDoList() {
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
+  useEffect(() => {
+    // Update the document title using the browser API
+  }, []);
 
   // function toDoStorage() {
   //   axios.post();

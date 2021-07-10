@@ -180,6 +180,16 @@ module.exports = (db) => {
     .catch((err) => err);
   };
 
+  const getToDos = () => {
+    const query = {
+    text: `SELECT description from todo`,
+    };
+    return db
+    .query(query)
+    .then((result) => result.rows)
+    .catch((err) => err);
+  };
+
   const registerUser = (firstName, lastName, email, password ) => {
     const query = {
       text : ` INSERT INTO users (first_name, last_name, email, password)
@@ -202,6 +212,7 @@ module.exports = (db) => {
     getImages,
     getAttractions,
     addToDo,
-    registerUser
+    registerUser,
+    getToDos
   };
 };

@@ -4,7 +4,6 @@ const router = express.Router();
 module.exports = (db) => {
   router.post("/", (req, res) => {
     const { email, password } = req.body;
-    console.log("----->", req.body);
 
     const queryString = `
       SELECT *
@@ -13,7 +12,6 @@ module.exports = (db) => {
     `;
 
     db.query(queryString, [email]).then((data) => {
-      console.log("login query", data.rows);
       if (data.rows.length === 0) {
         return res
           .status(400)
