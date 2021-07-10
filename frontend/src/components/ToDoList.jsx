@@ -12,18 +12,22 @@ export default function ToDoList() {
     },
   ]);
 
-  // const addTodo = (text) => {
-  //   const newTodos = [...todos, { text }];
-  //   setTodos(newTodos);
-  // };
+  const [state, setState] = useState({
+    todos: [],
+  });
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
-    setTodos((prev) => ({
-      ...prev,
-      newTodos,
-    }));
+    setTodos(newTodos);
   };
+
+  // const addTodo = (text) => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos((prev) => ({
+  //     ...prev,
+  //     newTodos,
+  //   }));
+  // };
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
@@ -39,10 +43,19 @@ export default function ToDoList() {
   useEffect(() => {
     // Update the document title using the browser API
     axios.get("/users/todo").then((data) => {
-      for (let todo of data.data) {
-        addTodo(todo.description);
-      }
+      setState((prev) => ({
+        ...prev,
+        todos: data.data,
+      }));
+      // for (let todo of data.data) {
+      //   console.log("todo=>", todo);
+      //   addTodo(todo.description);
+      // }
       // const newTodos = [...todos, { text: data.data[0].description }];
+      // setTodos(newTodos);
+
+      // const newArr = ["hi", "bye", "cate"];
+      // const newTodos = [...todos, newArr];
       // setTodos(newTodos);
 
       console.log("todo data=>", data.data);
@@ -55,7 +68,7 @@ export default function ToDoList() {
 
   return (
     <div className="todo-border">
-      {todos.map((todo, index) => (
+      {state.todos.map((todo, index) => (
         <ToDo
           key={index}
           index={index}
