@@ -12,8 +12,6 @@
 -- -- WHERE short_name = 'Toronto'
 -- GROUP BY city.id, attraction.id;
 
-SELECT city.id, short_name, image.url as alt
-FROM city
-join image
-ON city.id = image.city_id 
-GROUP BY city.id, image.url;
+-- SELECT city.id, short_name, image.url as alt
+-- FROM city
+-- GROUP BY city.id, image.url;

@@ -80,6 +80,7 @@ module.exports = ({
               kayak_car_rental_url,
             } = allData.cityData.attributes;
 
+            //Choose a Random no between 0 and 9 and choose a image of city based on that.
             const random = Math.floor(Math.random() * 9 + 1);
             const image_url = allData.imageData[random].urls.regular;
             // add the city data to db
