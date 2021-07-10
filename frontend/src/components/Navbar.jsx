@@ -1,4 +1,5 @@
-import "../styles/Navbar.scss";
+import "styles/Navbar.scss";
+import Button from "react-bootstrap/Button";
 
 export default function Navbar() {
   const isLoggedIn = window.localStorage.getItem("user") ? true : false;
@@ -6,22 +7,26 @@ export default function Navbar() {
 
   if (!localStorage.getItem("user")) {
     return (
-      <header>
+      <header className="nav-container">
         <div>
-          <div>
-            <a href="/" className="nav-title">
-              TREK
-            </a>
-          </div>
-          <nav className="navbar-home" isLoggedIn={isLoggedIn}>
-            <a href="/login" className="login-nav">
+          <a href="/" className="nav-title">
+            TREK
+          </a>
+        </div>
+        <nav className="navbar-links" isLoggedIn={isLoggedIn}>
+          <Button href="/login" variant="primary">
+            Login
+          </Button>
+          <Button href="/register" variant="success">
+            Register
+          </Button>
+          {/* <a href="/login" className="login-nav">
               Login
             </a>
             <a href="/register" className="register-nav">
               Register
-            </a>
-          </nav>
-        </div>
+            </a> */}
+        </nav>
       </header>
     );
   } else {
