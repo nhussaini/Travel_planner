@@ -26,6 +26,8 @@ module.exports = ({addToDo}) => {
 
   router.post("/todo", (req, res) => {
     console.log("----> ", req.body);
+    const todo = req.body.userInput;
+    addToDo(todo).then((data)=> console.log("data=>>>", data) );
   })
 
   return router;

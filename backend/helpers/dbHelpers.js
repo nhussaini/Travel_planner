@@ -172,7 +172,7 @@ module.exports = (db) => {
 
   const addToDo =(description) => {
     const query = {
-      text :  `INSERT INTO trip(description) values ($1) RETURNING *`, values: [description],
+      text :  `INSERT INTO todo(description) values ($1) RETURNING *`, values: [description],
     };
     return db
     .query(query)
