@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import CityDetail from "./components/city/CityDetail";
 import UserProfile from "./components/UserProfile";
+import TripPlanner from "./components/TripPlanner";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/users/:id">
             <UserProfile />
+          </Route>
+          <Route path="trip/new">
+            <TripPlanner />
           </Route>
         </Switch>
       </Router>

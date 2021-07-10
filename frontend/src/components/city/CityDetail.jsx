@@ -29,6 +29,7 @@ export default function CityDetail(props) {
       pathname: `/trip/new`,
       state: {
         key: id,
+        attractions: state.thingsToDo,
       },
     });
   }
