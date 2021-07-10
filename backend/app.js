@@ -10,6 +10,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const citiesRouter = require("./routes/cities");
+const backCitiesRouter = require("./routes/backCities");
 const logoutRouter = require("./routes/index");
 //const todoRouter = require("./routes/todo");
 
@@ -21,12 +22,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/back/cities", backCitiesRouter(dbHelpers));
 app.use("/users", usersRouter(db));
 app.use("/userslogin", loginRouter(db));
 app.use("/cities", citiesRouter(dbHelpers));
 app.use("/", indexRouter);
-//app.use("/", logoutRouter(db));
-//app.use("/todo", todoRouter(db));
+// app.use("/", logoutRouter(db));
+// app.use("/todo", todoRouter(db));
 // app.use('/users', usersRouter(dbHelpers));
 
 module.exports = app;
