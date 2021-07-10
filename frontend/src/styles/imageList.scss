@@ -77,3 +77,14 @@
   opacity: 0.5;
   text-transform: capitalize;
 }
+
+@media screen and (max-width: 768px) {
+  .image-legend {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 568px) {
+  .image-legend {
+    display: none;
+  }
+}

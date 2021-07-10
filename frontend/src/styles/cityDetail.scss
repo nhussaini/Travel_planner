@@ -8,7 +8,7 @@
       width: 30%;
       height: auto;
       margin-right: 1%;
-      border: 1px solid red;
+      border: 1px solid #eeeef5;
     }
   }
 
@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 70%;
-    border: 1px solid blue;
+    border: 1px solid #eeeef5;
     padding: 0 0;
     margin: 0 0;
 
@@ -110,6 +110,10 @@
 
 @media screen and (max-width: 792px) {
   .map-attraction-container {
+    .map-attraction {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .things-to-do-container {
       width: 100%;
       .attraction-card {
@@ -118,8 +122,11 @@
     }
     .map-attraction {
       #map {
-        width: 50%;
-        display: none;
+        width: 99%;
+        order: -1;
+        height: 300px;
+        margin-bottom: 1%;
+        margin-right: 0;
       }
     }
   }
