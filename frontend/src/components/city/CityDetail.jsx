@@ -30,6 +30,7 @@ export default function CityDetail(props) {
       state: {
         key: id,
         attractions: state.thingsToDo,
+        locationData: state.locationData,
       },
     });
   }
