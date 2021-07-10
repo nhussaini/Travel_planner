@@ -48,7 +48,7 @@ export default function CityDetail(props) {
             {state.location ? `Top Attractions in ${state.location}` : ""}
           </h2>
         </div>
-        {/* <section className="map-attraction">
+        <section className="map-attraction">
           <ThingsToDoList
             location={state.location}
             thingsToDo={state.thingsToDo}
@@ -59,7 +59,7 @@ export default function CityDetail(props) {
             location={state.locationData.long_name}
             thingsToDo={state.thingsToDo.slice(0, 10)}
           />
-        </section> */}
+        </section>
       </main>
       {state.location ? <WeatherList location={state.location} /> : null}
     </div>
