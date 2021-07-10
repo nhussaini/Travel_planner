@@ -19,6 +19,7 @@ module.exports = ({addToDo, registerUser,getToDos}) => {
     const todo = req.body.userInput;
     addToDo(todo).then((data)=> console.log("data=>>>", data) );
   })
+  
   router.get("/todo" ,(req,res) => {
     getToDos().then((data) => res.send(data));
   } )

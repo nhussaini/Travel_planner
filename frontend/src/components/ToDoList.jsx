@@ -12,9 +12,17 @@ export default function ToDoList() {
     },
   ]);
 
+  // const addTodo = (text) => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos(newTodos);
+  // };
+
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
-    setTodos(newTodos);
+    setTodos((prev) => ({
+      ...prev,
+      newTodos,
+    }));
   };
 
   const completeTodo = (index) => {
@@ -30,6 +38,15 @@ export default function ToDoList() {
   };
   useEffect(() => {
     // Update the document title using the browser API
+    axios.get("/users/todo").then((data) => {
+      for (let todo of data.data) {
+        addTodo(todo.description);
+      }
+      // const newTodos = [...todos, { text: data.data[0].description }];
+      // setTodos(newTodos);
+
+      console.log("todo data=>", data.data);
+    });
   }, []);
 
   // function toDoStorage() {
