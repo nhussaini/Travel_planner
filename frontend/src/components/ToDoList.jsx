@@ -36,9 +36,15 @@ export default function ToDoList() {
   };
 
   const removeTodo = (index) => {
-    const newTodos = [...todos];
+    const newTodos = [...state.todos];
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    // setTodos(newTodos);
+    console.log("deleting a todo=>", newTodos);
+    setState((prev) => ({
+      ...prev,
+      todos: newTodos,
+    }));
+    console.log("index==>", index);
   };
   useEffect(() => {
     // Update the document title using the browser API
