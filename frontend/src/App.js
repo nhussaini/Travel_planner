@@ -29,7 +29,7 @@ function App() {
           <Route path="/users/:id">
             <UserProfile />
           </Route>
-          <Route path="trip/new">
+          <Route path="/trip/new">
             <TripPlanner />
           </Route>
         </Switch>
