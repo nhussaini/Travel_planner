@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 export default function TripPlanner(props) {
   const [cityInfo, setCityInfo] = useState({});
   const [cityAttractions, setCityAttractions] = useState([]);
+  const [attractions, setAttractions] = useState(false);
 
   const location = useLocation();
   const { city } = useParams();
@@ -27,6 +28,10 @@ export default function TripPlanner(props) {
   userData = JSON.parse(userData);
   //get the user id
   const id = userData ? userData.id : null;
+
+  const handleClick = () => {
+    setAttractions(true);
+  };
   return (
     <div>
       <Navbar />
@@ -36,21 +41,27 @@ export default function TripPlanner(props) {
           <p>Welcome</p>
         </div>
       </div>
-      <div className="map-attraction-container">
-        <ToDoList userId={id} />
-        <section className="map-attraction">
-          <ThingsToDoList
-            location={cityInfo.short_name}
-            thingsToDo={cityAttractions.slice(0, 3)}
-          />
-          <GoogleMap
-            lat={Number(cityInfo.latitude)}
-            lng={Number(cityInfo.longitude)}
-            location={cityInfo.long_name}
-            thingsToDo={cityAttractions.slice(0, 10)}
-          />
-        </section>
-      </div>
+      {attractions ? (
+        <div className="map-attraction-container">
+          <ToDoList userId={id} />
+          <section className="map-attraction">
+            <ThingsToDoList
+              location={cityInfo.short_name}
+              thingsToDo={cityAttractions.slice(0, 3)}
+            />
+            <GoogleMap
+              lat={Number(cityInfo.latitude)}
+              lng={Number(cityInfo.longitude)}
+              location={cityInfo.long_name}
+              thingsToDo={cityAttractions.slice(0, 10)}
+            />
+          </section>
+        </div>
+      ) : (
+        <button className="btn btn-primary" onClick={handleClick}>
+          see attractions!
+        </button>
+      )}
     </div>
   );
 }
