@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../styles/Login.scss";
 import { useHistory } from "react-router-dom";
+import NavBar from "components/NavBar";
 
 export default function Login(props) {
   let history = useHistory();
@@ -42,6 +43,7 @@ export default function Login(props) {
 
   return (
     <div className="login-bg">
+      <NavBar />
       <div className="top-div-login">
         <div className="login-box">
           <div className="login-title">Login</div>

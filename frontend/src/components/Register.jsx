@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import NavBar from "components/NavBar";
 import "../styles/Register.scss";
 
 export default function Register(props) {
@@ -46,6 +47,7 @@ export default function Register(props) {
 
   return (
     <div className="register-bg">
+      <NavBar />
       <div className="top-div">
         <div className="register-box">
           <div className="register-title">Register</div>
