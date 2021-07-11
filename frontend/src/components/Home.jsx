@@ -1,5 +1,6 @@
 import { useCityData } from "../hooks/useCityData";
 import "../styles/ToDo.scss";
+import "../styles/home.scss";
 import Form from "./Form";
 import TrendingCities from "./TrendingCities";
 import Navbar from "./Navbar";
@@ -12,7 +13,14 @@ export default function Home(props) {
 
   return (
     <div>
-      <Navbar />
+      <div className="home-img-div">
+        <Navbar />
+        <img
+          src="https://images.unsplash.com/photo-1524174491029-6388265feb4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt="homepage"
+          className="homepage-img"
+        />
+      </div>
       Home
       <Form setLocationState={setLocationState} />
       <TrendingCities />

@@ -13,21 +13,23 @@ export default function Navbar() {
 
   if (!localStorage.getItem("user")) {
     return (
-      <header className="nav-container">
-        <div>
-          <a href="/" className="nav-title">
-            TREK
-          </a>
-        </div>
-        <nav className="navbar-links" isLoggedIn={isLoggedIn}>
-          <Button href="/login" className="btn btn-light">
-            Login
-          </Button>
-          <Button href="/register" className="btn btn-light">
-            Register
-          </Button>
-        </nav>
-      </header>
+      <div className=".sticky">
+        <header className="nav-container">
+          <div>
+            <a href="/" className="nav-title">
+              TREK
+            </a>
+          </div>
+          <nav className="navbar-links" isLoggedIn={isLoggedIn}>
+            <Button href="/login" className="btn btn-light">
+              Login
+            </Button>
+            <Button href="/register" className="btn btn-light">
+              Register
+            </Button>
+          </nav>
+        </header>
+      </div>
     );
   } else {
     return (
