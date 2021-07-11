@@ -8,25 +8,22 @@ import Navbar from "../Navbar";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import CityLinkButtons from "./CityLinkButtons";
 
 export default function CityDetail(props) {
   let history = useHistory();
   const [state, setState] = useState({
-    // location: "",
+    location: "",
     images: [],
     locationData: [],
     thingsToDo: [],
   });
 
-  const location = useLocation();
-  // const [status, setStatus] = useState(false);
   const { id } = useParams();
-
   function handleClick(e) {
     history.push({
-      pathname: `/trip/new`,
+      pathname: `/trip/${id}/new`,
       state: {
         key: id,
         attractions: state.thingsToDo,
@@ -44,7 +41,6 @@ export default function CityDetail(props) {
         locationData: cityDetails,
         thingsToDo: attractions,
       }));
-      // console.log("Line 22---", data.data);
     });
   }, [state.location]);
   return (
