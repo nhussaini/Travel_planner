@@ -20,39 +20,28 @@ export default function Navbar() {
           </a>
         </div>
         <nav className="navbar-links" isLoggedIn={isLoggedIn}>
-          <Button href="/login" variant="primary">
+          <Button href="/login" className="btn btn-light">
             Login
           </Button>
-          <Button href="/register" variant="success">
+          <Button href="/register" className="btn btn-light">
             Register
           </Button>
-          {/* <a href="/login" className="login-nav">
-              Login
-            </a>
-            <a href="/register" className="register-nav">
-              Register
-            </a> */}
         </nav>
       </header>
     );
   } else {
     return (
-      <header>
+      <header className="nav-container">
         <div>
-          <div>
-            <a href="/" className="nav-title">
-              TREK
-            </a>
-          </div>
-          <nav className="navbar-home" isLoggedIn={isLoggedIn}>
-            {/* <a href="/" className="login-nav">
-              Logout
-            </a> */}
-            <button class="btn btn-danger" onClick={handleLogout}>
-              Logout
-            </button>
-          </nav>
+          <a href="/" className="nav-title">
+            TREK
+          </a>
         </div>
+        <nav className="navbar-links" isLoggedIn={isLoggedIn}>
+          <button className="btn btn-light" onClick={handleLogout}>
+            Logout
+          </button>
+        </nav>
       </header>
     );
   }
