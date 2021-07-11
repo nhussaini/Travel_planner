@@ -20,7 +20,7 @@
   font-size: 2rem;
   span {
     &:hover {
-      color: #3cd2ff;
+      color: #7a91ce;
     }
   }
 }
@@ -34,8 +34,9 @@
     margin-right: 0.5em;
     min-width: 25%;
     &:hover {
-      background-color: #3cd2ff;
+      background-color: #7a91ce;
       border: none;
+      color: white;
     }
   }
 }

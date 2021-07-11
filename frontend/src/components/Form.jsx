@@ -38,14 +38,14 @@ export default function Form(props) {
           className="form-control"
           id="inputLocation"
           aria-describedby="emailHelp"
-          placeholder="Choose a City"
+          placeholder="Enter a city name..."
           onChange={handleChange}
         />
       </div>
       {!input && error ? (
         <div className="error-message">Please Type a City!</div>
       ) : null}
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-light">
         Submit
       </button>
     </form>
