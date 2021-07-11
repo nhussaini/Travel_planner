@@ -10,8 +10,22 @@
   }
 
   .overlay-trip {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    transition: opacity 0.25s;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 1;
+      background: rgba($color: #000000, $alpha: 0.6);
+    }
   }
 }
