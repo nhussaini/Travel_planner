@@ -37,6 +37,33 @@
     width: 70%;
     border: 1px solid black;
   }
+
+  .cities-attractions {
+    .chosen-attractions {
+      .chosen-attractions-list {
+        border: 1px solid blueviolet;
+        border-radius: 10px;
+        list-style-type: none;
+        display: flex;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        .img-chosen-div {
+          display: flex;
+          width: 30%;
+          margin-right: 0.5rem;
+        }
+
+        img {
+          width: 100%;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
   .cities-todo {
     width: 30%;
     border: 1px solid red;

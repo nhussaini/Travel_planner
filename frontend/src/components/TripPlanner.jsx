@@ -46,9 +46,11 @@ export default function TripPlanner(props) {
   console.log("attractionsstate=====>", attractions);
   const attractionsToVisit = attractions.map((attraction) => {
     return (
-      <li>
+      <li className="chosen-attractions-list">
+        <div className="img-chosen-div">
+          <img src={attraction.img_url} alt={attraction.attractionName} />
+        </div>
         <p>{attraction.attractionName}</p>
-        <img src={attraction.img_url} alt={attraction.attractionName} />
       </li>
     );
   });
@@ -71,7 +73,7 @@ export default function TripPlanner(props) {
             //   thingsToDo={cityAttractions.slice(0, 3)}
             //   addAttraction={addAttraction}
             // />
-            <div>{attractionsToVisit}</div>
+            <div className="chosen-attractions">{attractionsToVisit}</div>
           )}
         </div>
         <div className="cities-todo">
