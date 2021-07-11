@@ -11,10 +11,10 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addToDo = (description) => {
+  const addToDo = (description, userId) => {
     const query = {
-      text: `INSERT INTO todo(description) values ($1) RETURNING *`,
-      values: [description],
+      text: `INSERT INTO todo(description, user_id) values ($1,$2) RETURNING *`,
+      values: [description, userId],
     };
     return db
       .query(query)

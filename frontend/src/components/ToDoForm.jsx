@@ -2,14 +2,16 @@ import axios from "axios";
 import { React, useState } from "react";
 import "../styles/ToDo.scss";
 
-export default function ToDoForm({ addTodo }) {
+export default function ToDoForm({ addTodo, userId }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/users/todo", { userInput: value }).then((data) => {
-      console.log(data);
-    });
+    axios
+      .post("/users/todo", { userInput: value, userId: userId })
+      .then((data) => {
+        console.log(data);
+      });
     if (!value) return;
     addTodo(value);
     setValue("");
