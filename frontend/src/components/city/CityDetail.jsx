@@ -1,6 +1,5 @@
 import { useCityData } from "../../hooks/useCityData";
 
-import "styles/app.scss";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import GoogleMap from "./GoogleMap";
@@ -10,6 +9,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import CityLinkButtons from "./CityLinkButtons";
+import "styles/cityDetail.scss";
 
 export default function CityDetail(props) {
   let history = useHistory();
@@ -44,9 +44,11 @@ export default function CityDetail(props) {
     });
   }, [state.location]);
   return (
-    <div>
-      City Detail
+    <main>
       <Navbar />
+      <div className="heading">
+        <h2>Explore {state.location}!</h2>
+      </div>
       <button className="btn btn-primary" onClick={handleClick}>
         Add Trip
       </button>
@@ -72,6 +74,6 @@ export default function CityDetail(props) {
         </section>
       </main>
       {state.location ? <WeatherList location={state.location} /> : null}
-    </div>
+    </main>
   );
 }

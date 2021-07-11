@@ -2,6 +2,7 @@ import { useLocation, useParams } from "react-router-dom";
 import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
+import Navbar from "components/Navbar";
 import "styles/cityDetail.scss";
 import "styles/TripPlanner.scss";
 import axios from "axios";
@@ -12,7 +13,6 @@ export default function TripPlanner(props) {
   const [cityAttractions, setCityAttractions] = useState([]);
 
   const location = useLocation();
-
   const { city } = useParams();
 
   useEffect(() => {
@@ -22,10 +22,6 @@ export default function TripPlanner(props) {
       console.log(data.data);
     });
   }, []);
-  const locationData = location.state.locationData;
-  console.log("locationdata****", location.state);
-  const attractions = location.state.attractions;
-
   //get the logged in userdata from local storge
   let userData = localStorage.getItem("user");
   userData = JSON.parse(userData);
@@ -33,13 +29,9 @@ export default function TripPlanner(props) {
   const id = userData ? userData.id : null;
   return (
     <div>
-      Choose an attraction
+      <Navbar />
       <div className="trip-header">
-        <img
-          src={locationData.image_url}
-          alt="city"
-          className="img-header-trip"
-        />
+        <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">
           <p>Welcome</p>
         </div>
@@ -48,14 +40,14 @@ export default function TripPlanner(props) {
         <ToDoList userId={id} />
         <section className="map-attraction">
           <ThingsToDoList
-            location={location.state.id}
-            thingsToDo={attractions.slice(0, 3)}
+            location={cityInfo.short_name}
+            thingsToDo={cityAttractions.slice(0, 3)}
           />
           <GoogleMap
-            lat={Number(locationData.latitude)}
-            lng={Number(locationData.longitude)}
-            location={locationData.long_name}
-            thingsToDo={attractions.slice(0, 10)}
+            lat={Number(cityInfo.latitude)}
+            lng={Number(cityInfo.longitude)}
+            location={cityInfo.long_name}
+            thingsToDo={cityAttractions.slice(0, 10)}
           />
         </section>
       </div>

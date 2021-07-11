@@ -17,7 +17,7 @@ export default function ShowMessage(props) {
         Hi {props.first_name} {props.last_name}
       </p>
       <p>{`You don't have any plan for ${props.location} Let's create one!`}</p>
-      <Button onClick={handleClick} />
+      <Button href={`/trip/${props.location}/new`} />
     </div>
   );
 }
