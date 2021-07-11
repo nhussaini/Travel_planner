@@ -21,7 +21,14 @@ export default function TripPlanner(props) {
     <div>
       Choose an attraction
       <div className="trip-header">
-        <img src={locationData.image_url} alt="city" />
+        <img
+          src={locationData.image_url}
+          alt="city"
+          className="img-header-trip"
+        />
+        <div className="overlay-trip">
+          <p>Welcome</p>
+        </div>
       </div>
       <div className="map-attraction-container">
         <ToDoList userId={id} />
