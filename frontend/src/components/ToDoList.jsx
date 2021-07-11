@@ -4,7 +4,7 @@ import "../styles/ToDo.scss";
 import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 
-export default function ToDoList({ userId }) {
+export default function ToDoList() {
   // const [todos, setTodos] = useState([
   //   {
   //     text: "Add to your ToDo List - type your task and hit enter.",
@@ -68,7 +68,7 @@ export default function ToDoList({ userId }) {
         />
       ))}
 
-      <ToDoForm addTodo={addTodo} userId={userId} />
+      <ToDoForm addTodo={addTodo} />
     </div>
   );
 }
