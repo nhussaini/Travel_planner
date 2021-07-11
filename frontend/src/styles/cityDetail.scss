@@ -24,21 +24,22 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 70%;
-    border: 1px solid #eeeef5;
+    //border: 1px solid #eeeef5;
     padding: 0 0;
     margin: 0 0;
 
     .attraction-card {
-      // border: 1px solid grey;
-      border-radius: 5px 5px;
+      border: 1px solid rgb(241, 241, 241);
+      border-radius: 10px 10px;
       margin: 0 0.5rem;
       margin-bottom: 2%;
       width: 30%;
       height: 300px;
       overflow: hidden;
       position: relative;
+      //background-color: rgb(252, 252, 252);
       &:hover {
-        box-shadow: 10px 5px 14px -6px #8c7378;
+        box-shadow: 10px 5px 14px -6px #d6d6d6;
       }
 
       .attraction-summary {
@@ -69,18 +70,20 @@ main {
         }
       }
       .user-rating {
-        background-color: rgb(230, 162, 162);
-        width: 15%;
+        background-color: rgba(231, 191, 57, 1);
+        width: 22%;
         position: absolute;
         top: 0;
         opacity: 0.9;
-        color: rgb(59, 55, 55);
+        color: rgb(255, 255, 255);
+        padding-left: 0.2em;
+        padding-right: 0.2em;
         font-weight: 600;
         border-radius: 0 5px 5px 0;
       }
       .favorite-icon {
         position: absolute;
-        top: 0;
+        top: 0.2rem;
         right: 0.2rem;
 
         .icon-holder {
@@ -98,6 +101,7 @@ main {
         transition: transform 0.5s ease;
         min-height: 65%;
         height: 65%;
+        object-fit: cover;
 
         &:hover {
           opacity: 0.8;

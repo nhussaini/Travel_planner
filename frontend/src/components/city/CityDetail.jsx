@@ -49,7 +49,7 @@ export default function CityDetail(props) {
       <div className="heading">
         <h2>Explore {state.location}!</h2>
       </div>
-      <button className="btn btn-primary" onClick={handleClick}>
+      <button className="btn btn-dark" onClick={handleClick}>
         Add Trip
       </button>
       <CityLinkButtons locationData={state.locationData} />

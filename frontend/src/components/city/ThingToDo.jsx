@@ -23,7 +23,7 @@ export default function ThingToDo(props) {
     props.addAttraction(elementRef.current.innerHTML, props.image_url);
   };
   return (
-    <div className="attraction-card card">
+    <div className="attraction-card">
       <img className="card-img-top" src={props.image_url} alt={props.name} />
       <div className="favorite-icon">
         <button className="icon-holder" onClick={handleClick}>
@@ -36,7 +36,7 @@ export default function ThingToDo(props) {
         <p ref={elementRef}>{props.name}</p>
         <div>
           {/* <Rating rating={props.rating} />{" "} */}
-          <span className="rating-count">({props.reviewsCount})</span>
+          <span className="rating-count">({props.reviewsCount} Reviews)</span>
         </div>
       </div>
       <Modal show={show} onHide={handleClose} dialogClassName="my-modal">

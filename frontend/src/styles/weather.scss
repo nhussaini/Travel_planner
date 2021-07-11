@@ -5,20 +5,36 @@
 }
 
 .weather-container {
-  border: 2px solid rgb(228, 228, 233);
+  //border: 2px solid rgb(228, 228, 233);
+  background-color: rgb(247, 247, 247);
   margin: 0 3px;
   width: 13%;
+  margin-bottom: 2em;
+  border-radius: 10px;
+
+  .numeric-date {
+    color: rgb(151, 151, 151);
+  }
+
+  .current-temp {
+    font-weight: bold;
+  }
   p {
     margin-bottom: 2px;
+    font-size: 13px;
   }
   .weather-card {
     img {
       width: 55px;
     }
-    display: flex;
-    justify-content: space-around;
+    //display: flex;
+    //justify-content: space-around;
     align-items: center;
     // padding: 0 15%;
+  }
+
+  .min-max-temp {
+    color: rgb(151, 151, 151);
   }
 }
 
