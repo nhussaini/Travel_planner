@@ -14,7 +14,7 @@ export default function TripPlanner(props) {
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
 
-  console.log("cityAttractions=>", cityAttractions[0]);
+  // console.log("cityAttractions=>", cityAttractions[0]);
 
   // const location = useLocation();
   const { city } = useParams();
@@ -23,7 +23,6 @@ export default function TripPlanner(props) {
     axios.post("/back/cities/new-trip", { city: city }).then((data) => {
       setCityInfo(data.data.cityInfo);
       setCityAttractions(data.data.cityAttractions);
-      console.log(data.data);
     });
   }, []);
   //get the logged in userdata from local storge
@@ -37,29 +36,14 @@ export default function TripPlanner(props) {
     setShow(true);
   };
   const addAttraction = (attractionName, img_url) => {
-    // const newAttraction = {
-    //   // id: 75, name: "FlyView® Paris", formatted_address: "30 Rue du 4 septembre, 75002 Paris, France", lat: "48.8703568", lng: "2.333327", …}
-    //   city_id: 5,
-    //   formatted_address: "30 Rue du 4 septembre, 75002 Paris, France",
-    //   id: 75,
-    //   image_url:
-    //     "https://lh3.googleusercontent.com/p/AF1QipOPmPk0exin0nd4LTOzLHYKQ07ydFd6F-hZicpL=s1600-w600",
-    //   lat: "48.8703568",
-    //   lng: "2.333327",
-    //   name: "FlyView® Paris",
-    //   place_id: 5,
-    //   rating: "4.2",
-    //   short_name: "Paris",
-    //   user_ratings_total: 2147,
-    // };
-    console.log("attractionName====>", attractionName);
-    console.log("imgage_url====>", img_url);
     // setAttractions([...attractions, newAttraction]);
-    setAttractions((prev) => ({
-      ...prev,
-    }));
+    const newAttraction = [...attractions, { attractionName, img_url }];
+    // setAttractions((prev) => ({
+    //   newAttraction,
+    // }));
+    setAttractions(newAttraction);
   };
-  // console.log("attractionsstate=====>", attractions);
+  console.log("attractionsstate=====>", attractions);
   return (
     <div>
       <Navbar />
@@ -74,11 +58,12 @@ export default function TripPlanner(props) {
           {!attractions.length ? (
             <p>add the places you wanna visit in here</p>
           ) : (
-            <ThingsToDoList
-              location={cityInfo.short_name}
-              thingsToDo={cityAttractions.slice(0, 3)}
-              addAttraction={addAttraction}
-            />
+            // <ThingsToDoList
+            //   location={cityInfo.short_name}
+            //   thingsToDo={cityAttractions.slice(0, 3)}
+            //   addAttraction={addAttraction}
+            // />
+            <p>hi</p>
           )}
         </div>
         <div className="cities-todo">
