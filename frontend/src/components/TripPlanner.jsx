@@ -14,6 +14,8 @@ export default function TripPlanner(props) {
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
 
+  console.log("cityAttractions=>", cityAttractions[0]);
+
   // const location = useLocation();
   const { city } = useParams();
 
@@ -34,11 +36,30 @@ export default function TripPlanner(props) {
   const handleClick = () => {
     setShow(true);
   };
-  const addAttraction = (attractionName) => {
+  const addAttraction = (attractionName, img_url) => {
+    // const newAttraction = {
+    //   // id: 75, name: "FlyView® Paris", formatted_address: "30 Rue du 4 septembre, 75002 Paris, France", lat: "48.8703568", lng: "2.333327", …}
+    //   city_id: 5,
+    //   formatted_address: "30 Rue du 4 septembre, 75002 Paris, France",
+    //   id: 75,
+    //   image_url:
+    //     "https://lh3.googleusercontent.com/p/AF1QipOPmPk0exin0nd4LTOzLHYKQ07ydFd6F-hZicpL=s1600-w600",
+    //   lat: "48.8703568",
+    //   lng: "2.333327",
+    //   name: "FlyView® Paris",
+    //   place_id: 5,
+    //   rating: "4.2",
+    //   short_name: "Paris",
+    //   user_ratings_total: 2147,
+    // };
     console.log("attractionName====>", attractionName);
-    setAttractions([...attractions, attractionName]);
+    console.log("imgage_url====>", img_url);
+    // setAttractions([...attractions, newAttraction]);
+    setAttractions((prev) => ({
+      ...prev,
+    }));
   };
-  console.log("attractionsstate=====>", attractions);
+  // console.log("attractionsstate=====>", attractions);
   return (
     <div>
       <Navbar />
@@ -50,7 +71,15 @@ export default function TripPlanner(props) {
       </div>
       <div className="attractions-todo">
         <div className="cities-attractions">
-          <p>add the places you wanna visit in here:</p>
+          {!attractions.length ? (
+            <p>add the places you wanna visit in here</p>
+          ) : (
+            <ThingsToDoList
+              location={cityInfo.short_name}
+              thingsToDo={cityAttractions.slice(0, 3)}
+              addAttraction={addAttraction}
+            />
+          )}
         </div>
         <div className="cities-todo">
           <ToDoList userId={id} />

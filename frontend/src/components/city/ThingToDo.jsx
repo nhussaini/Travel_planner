@@ -20,7 +20,7 @@ export default function ThingToDo(props) {
     console.log("element ref***", elementRef);
     // handleShow();
     // console.log("element.html=>", elementRef.current.innerHTML);
-    props.addAttraction(elementRef.current.innerHTML);
+    props.addAttraction(elementRef.current.innerHTML, props.image_url);
   };
   return (
     <div className="attraction-card card">
