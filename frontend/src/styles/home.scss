@@ -26,6 +26,17 @@
   }
 }
 
+.input-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    // margin-bottom: 20px;
+  }
+}
+
 .error-message {
   color: red;
   font-weight: 600;
