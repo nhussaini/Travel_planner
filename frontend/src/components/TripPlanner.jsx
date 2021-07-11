@@ -15,7 +15,7 @@ export default function TripPlanner(props) {
   let userData = localStorage.getItem("user");
   userData = JSON.parse(userData);
   //get the user id
-  const id = userData.id;
+  const id = userData ? userData.id : null;
 
   return (
     <div>
