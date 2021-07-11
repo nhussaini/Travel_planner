@@ -9,10 +9,11 @@ module.exports = ({ getTopCity, getCity, getAttractions }) => {
   });
 
   router.post("/new-trip", async (req, res) => {
-    console.log("Reached here", req.body.city);
+    const { city } = req.body;
     const cityData = {};
-    cityData.cityInfo = await getCity();
+    cityData.cityInfo = await getCity(city);
+    cityData.cityAttractions = await getAttractions(city);
+    res.send(cityData);
   });
-
   return router;
 };

@@ -5,17 +5,23 @@ import ToDoList from "./ToDoList";
 import "styles/cityDetail.scss";
 import "styles/TripPlanner.scss";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function TripPlanner(props) {
+  const [cityInfo, setCityInfo] = useState({});
+  const [cityAttractions, setCityAttractions] = useState([]);
+
   const location = useLocation();
 
   const { city } = useParams();
+
   useEffect(() => {
-    axios
-      .post("/back/cities/new-trip", { city: city })
-      .then((data) => console.log(data.data));
-  });
+    axios.post("/back/cities/new-trip", { city: city }).then((data) => {
+      setCityInfo(data.data.cityInfo);
+      setCityAttractions(data.data.cityAttractions);
+      console.log(data.data);
+    });
+  }, []);
   const locationData = location.state.locationData;
   console.log("locationdata****", location.state);
   const attractions = location.state.attractions;
