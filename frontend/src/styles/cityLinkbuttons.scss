@@ -25,8 +25,9 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  border-radius: 15px;
   a {
-    color: #2c9797;
+    color: #7a91ce;
     font-weight: 800;
     display: flex;
     text-decoration: none;
@@ -46,7 +47,7 @@
     opacity: 2;
     line-height: 40px;
     border-radius: 50%;
-    background: #bfc0c0;
+    background: #ececec;
     position: absolute;
     transition: all 0.5s ease-Out;
     top: 20px;
