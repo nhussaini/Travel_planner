@@ -3,7 +3,7 @@ import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
 import "styles/cityDetail.scss";
-//import "styles/TripPlanner.scss";
+import "styles/TripPlanner.scss";
 
 export default function TripPlanner(props) {
   const location = useLocation();
@@ -20,7 +20,7 @@ export default function TripPlanner(props) {
   return (
     <div>
       Choose an attraction
-      <div className="w-100">
+      <div className="trip-header">
         <img src={locationData.image_url} alt="city" />
       </div>
       <div className="map-attraction-container">

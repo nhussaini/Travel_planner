@@ -1,7 +1,13 @@
 import "styles/Navbar.scss";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 export default function Navbar() {
+  let history = useHistory();
+  function handleLogout() {
+    localStorage.clear();
+    history.push("/login");
+  }
   const isLoggedIn = window.localStorage.getItem("user") ? true : false;
   //console.log(localStorage.getItem("user"));
 
@@ -39,9 +45,12 @@ export default function Navbar() {
             </a>
           </div>
           <nav className="navbar-home" isLoggedIn={isLoggedIn}>
-            <a href="/" className="login-nav">
+            {/* <a href="/" className="login-nav">
               Logout
-            </a>
+            </a> */}
+            <button class="btn btn-danger" onClick={handleLogout}>
+              Logout
+            </button>
           </nav>
         </div>
       </header>

@@ -18,7 +18,6 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
   router.post("/todo", (req, res) => {
     const todo = req.body.userInput;
     const userId = req.body.userId;
-    // console.log("userId = ===>", userId);
     addToDo(todo, userId).then((data) => console.log("data=>>>", data));
   });
 

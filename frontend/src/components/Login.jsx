@@ -30,7 +30,8 @@ export default function Login(props) {
       .then((data) => {
         const user = data.data;
         localStorage.setItem("user", JSON.stringify(user));
-        history.push(`/users/${user.id}`);
+        // history.push(`/users/${user.id}`);
+        history.push("/");
 
         console.log(user);
       })
