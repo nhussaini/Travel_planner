@@ -31,16 +31,14 @@
   }
 }
 
-.map-attraction-container {
-  .attractions-todo {
-    display: flex;
-    .cities-attractions {
-      width: 70%;
-      border: 1px solid black;
-    }
-    .cities-todo {
-      width: 30%;
-      border: 1px solid red;
-    }
+.attractions-todo {
+  display: flex;
+  .cities-attractions {
+    width: 70%;
+    border: 1px solid black;
+  }
+  .cities-todo {
+    width: 30%;
+    border: 1px solid red;
   }
 }

@@ -41,16 +41,16 @@ export default function TripPlanner(props) {
           <p>Welcome</p>
         </div>
       </div>
+      <div className="attractions-todo">
+        <div className="cities-attractions">
+          <p>add the places you wanna visit in here:</p>
+        </div>
+        <div className="cities-todo">
+          <ToDoList userId={id} />
+        </div>
+      </div>
       {attractions ? (
         <div className="map-attraction-container">
-          <div className="attractions-todo">
-            <div className="cities-attractions">
-              <p>add the places you wanna visit in here:</p>
-            </div>
-            <div className="cities-todo">
-              <ToDoList userId={id} />
-            </div>
-          </div>
           <p>Top attractions in {cityInfo.short_name}</p>
           <section className="map-attraction">
             <ThingsToDoList

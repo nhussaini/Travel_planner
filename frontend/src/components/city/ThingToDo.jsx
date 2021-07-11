@@ -18,7 +18,7 @@ export default function ThingToDo(props) {
   const handleClick = (e, data) => {
     console.log(elementRef.current);
     console.log("element ref***", elementRef);
-    handleShow();
+    // handleShow();
   };
   return (
     <div className="attraction-card card">
