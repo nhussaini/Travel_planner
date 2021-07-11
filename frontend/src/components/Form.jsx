@@ -1,32 +1,30 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import "styles/home.scss";
 
 export default function Form(props) {
   let history = useHistory();
   const [input, setInput] = useState(null);
+  const [error, setError] = useState(false);
 
   function handleChange(e) {
     setInput(e.target.value);
+    setError(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    // props.setLocationState(input);
-    axios.post("/cities/getCityData", { userInput: input }).then((data) => {
-      // We want to just send the post request to backend, where it will redirect to the get route for city, in that route we want to change the state based on the data returned from backend. at the moment we are haviong to do it after bot the post and get request.....
-      // console.log("Post done");
-      // setStatus(true);
-      // const fetchedData = data.data;
-      console.log("Redirecting----");
-      history.push({
-        pathname: `/cities/${input}`,
-        // state: {
-        //   key: input,
-        // },
+    if (!input) {
+      setError(true);
+    }
+    if (input && !error) {
+      axios.post("/cities/getCityData", { userInput: input }).then((data) => {
+        history.push({
+          pathname: `/cities/${input}`,
+        });
       });
-    });
-    // window.location.href = `/cities/${input}`;
+    }
   }
 
   return (
@@ -45,6 +43,10 @@ export default function Form(props) {
             onChange={handleChange}
           />
         </div>
+        {!input && error ? (
+          <div className="error-message">Please Type a City!</div>
+        ) : null}
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
