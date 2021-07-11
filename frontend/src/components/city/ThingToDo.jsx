@@ -19,6 +19,8 @@ export default function ThingToDo(props) {
     console.log(elementRef.current);
     console.log("element ref***", elementRef);
     // handleShow();
+    // console.log("element.html=>", elementRef.current.innerHTML);
+    props.addAttraction(elementRef.current.innerHTML);
   };
   return (
     <div className="attraction-card card">

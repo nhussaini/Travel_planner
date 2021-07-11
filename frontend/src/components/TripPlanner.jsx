@@ -11,9 +11,10 @@ import { useEffect, useState } from "react";
 export default function TripPlanner(props) {
   const [cityInfo, setCityInfo] = useState({});
   const [cityAttractions, setCityAttractions] = useState([]);
-  const [attractions, setAttractions] = useState(false);
+  const [show, setShow] = useState(false);
+  const [attractions, setAttractions] = useState([]);
 
-  const location = useLocation();
+  // const location = useLocation();
   const { city } = useParams();
 
   useEffect(() => {
@@ -29,9 +30,15 @@ export default function TripPlanner(props) {
   //get the user id
   const id = userData ? userData.id : null;
 
+  //diplay the content conditionally
   const handleClick = () => {
-    setAttractions(true);
+    setShow(true);
   };
+  const addAttraction = (attractionName) => {
+    console.log("attractionName====>", attractionName);
+    setAttractions([...attractions, attractionName]);
+  };
+  console.log("attractionsstate=====>", attractions);
   return (
     <div>
       <Navbar />
@@ -49,13 +56,14 @@ export default function TripPlanner(props) {
           <ToDoList userId={id} />
         </div>
       </div>
-      {attractions ? (
+      {show ? (
         <div className="map-attraction-container">
           <p>Top attractions in {cityInfo.short_name}</p>
           <section className="map-attraction">
             <ThingsToDoList
               location={cityInfo.short_name}
               thingsToDo={cityAttractions.slice(0, 3)}
+              addAttraction={addAttraction}
             />
             <GoogleMap
               lat={Number(cityInfo.latitude)}

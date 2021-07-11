@@ -15,6 +15,7 @@ export default function ThingsToDoList(props) {
         rating={thing.rating}
         reviewsCount={thing.user_ratings_total}
         image_url={thing.image_url}
+        addAttraction={props.addAttraction}
       />
     );
   });
