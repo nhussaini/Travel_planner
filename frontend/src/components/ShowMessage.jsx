@@ -2,14 +2,14 @@ import { Button } from "react-bootstrap";
 
 export default function ShowMessage(props) {
   function handleClick(e) {
-    history.push({
-      pathname: `/trip/${id}/new`,
-      state: {
-        key: id,
-        attractions: state.thingsToDo,
-        locationData: state.locationData,
-      },
-    });
+    // history.push({
+    //   pathname: `/trip/${id}/new`,
+    //   state: {
+    //     key: id,
+    //     attractions: state.thingsToDo,
+    //     locationData: state.locationData,
+    //   },
+    // });
   }
   return (
     <div>

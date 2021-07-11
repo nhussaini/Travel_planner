@@ -1,12 +1,21 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
 import "styles/cityDetail.scss";
 import "styles/TripPlanner.scss";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function TripPlanner(props) {
   const location = useLocation();
+
+  const { city } = useParams();
+  useEffect(() => {
+    axios
+      .post("/back/cities/new-trip", { city: city })
+      .then((data) => console.log(data.data));
+  });
   const locationData = location.state.locationData;
   console.log("locationdata****", location.state);
   const attractions = location.state.attractions;
@@ -16,7 +25,6 @@ export default function TripPlanner(props) {
   userData = JSON.parse(userData);
   //get the user id
   const id = userData ? userData.id : null;
-
   return (
     <div>
       Choose an attraction
