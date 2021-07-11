@@ -3,7 +3,7 @@ import { useCityData } from "../../hooks/useCityData";
 import WeatherList from "./WeatherList";
 import ImagesList from "./ImagesList";
 import GoogleMap from "./GoogleMap";
-import Navbar from "../Navbar";
+import NavBar from "../NavBar";
 import ThingsToDoList from "./ThingsToDoList";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -45,7 +45,7 @@ export default function CityDetail(props) {
   }, [state.location]);
   return (
     <main>
-      <Navbar />
+      <NavBar />
       <div className="heading">
         <h2>Explore {state.location}!</h2>
       </div>

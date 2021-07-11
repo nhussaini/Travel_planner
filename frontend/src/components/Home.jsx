@@ -3,8 +3,9 @@ import "../styles/ToDo.scss";
 import "../styles/home.scss";
 import Form from "./Form";
 import TrendingCities from "./TrendingCities";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar-OLD";
 import Footer from "./Footer";
+import NavBar from "./NavBar";
 
 export default function Home(props) {
   const { state, setLocationState } = useCityData();
@@ -13,8 +14,8 @@ export default function Home(props) {
 
   return (
     <div>
+      <NavBar />
       <div className="home-img-div">
-        <Navbar />
         <div className="home-img-text">Plan your trips with ease.</div>
         <Form setLocationState={setLocationState} />
       </div>

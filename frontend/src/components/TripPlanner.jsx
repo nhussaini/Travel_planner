@@ -2,7 +2,7 @@ import { useLocation, useParams } from "react-router-dom";
 import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
-import Navbar from "components/Navbar";
+import NavBar from "components/NavBar";
 import "styles/cityDetail.scss";
 import "styles/TripPlanner.scss";
 import axios from "axios";
@@ -29,7 +29,7 @@ export default function TripPlanner(props) {
   const id = userData ? userData.id : null;
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <div className="trip-header">
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">

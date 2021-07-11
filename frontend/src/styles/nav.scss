@@ -1,13 +1,13 @@
 .nav-container {
   display: flex;
-  flex-direction: row;
-  background-color: rgba($color: #000000, $alpha: 0.6);
+  // flex-direction: row;
+  // background-color: rgba($color: #000000, $alpha: 0.6);
   justify-content: space-between;
-  min-height: 75px;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  // min-height: 75px;
+  // align-items: center;
+  // position: absolute;
+  // top: 0;
+  // width: 100%;
 }
 
 .nav-title {
@@ -18,9 +18,10 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 2rem;
-
-  &:hover {
-    color: rgb(60, 210, 255);
+  span {
+    &:hover {
+      color: #3cd2ff;
+    }
   }
 }
 
@@ -28,9 +29,13 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 1.2em;
-  min-width: 40%;
+  min-width: 30%;
   a {
     margin-right: 0.5em;
     min-width: 25%;
+    &:hover {
+      background-color: #3cd2ff;
+      border: none;
+    }
   }
 }
