@@ -5,13 +5,6 @@ import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 
 export default function ToDoList() {
-  // const [todos, setTodos] = useState([
-  //   {
-  //     text: "Add to your ToDo List - type your task and hit enter.",
-  //     isCompleted: false,
-  //   },
-  // ]);
-
   //state for todos
   const [state, setState] = useState({
     todos: [],

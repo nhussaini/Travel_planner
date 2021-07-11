@@ -16,8 +16,8 @@ export default function Home(props) {
       <div className="home-img-div">
         <Navbar />
         <div className="home-img-text">Plan your trips with ease.</div>
+        <Form setLocationState={setLocationState} />
       </div>
-      <Form setLocationState={setLocationState} />
       <TrendingCities />
       <Footer />
     </div>
