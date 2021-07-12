@@ -66,23 +66,31 @@ export default function TripPlanner(props) {
       <div className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
-            <p>add the places you wanna visit in here</p>
+            <p className="text-display-choosing-attractions">
+              Choose some attractions you want to see! They will appear here.
+            </p>
           ) : (
             // <ThingsToDoList
             //   location={cityInfo.short_name}
             //   thingsToDo={cityAttractions.slice(0, 3)}
             //   addAttraction={addAttraction}
             // />
-            <div className="chosen-attractions">{attractionsToVisit}</div>
+            <div className="chosen-attractions">
+              <h5>My Activties</h5>
+              {attractionsToVisit}
+            </div>
           )}
         </div>
         <div className="cities-todo">
+          <h5 className="chosen-attractions-todo">To-do List</h5>
           <ToDoList userId={id} />
         </div>
       </div>
       {show ? (
         <div className="map-attraction-container">
-          <p>Top attractions in {cityInfo.short_name}</p>
+          <h5 className="title-trip-planner">
+            Top attractions in {cityInfo.short_name}
+          </h5>
           <section className="map-attraction">
             <ThingsToDoList
               location={cityInfo.short_name}
@@ -98,8 +106,11 @@ export default function TripPlanner(props) {
           </section>
         </div>
       ) : (
-        <button className="btn btn-primary" onClick={handleClick}>
-          see attractions!
+        <button
+          className="btn btn-dark chosen-attrac-btn"
+          onClick={handleClick}
+        >
+          Attractions
         </button>
       )}
     </div>

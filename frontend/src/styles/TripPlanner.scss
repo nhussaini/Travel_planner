@@ -35,17 +35,22 @@
   display: flex;
   .cities-attractions {
     width: 70%;
-    border: 1px solid black;
+    //border: 1px solid black;
   }
 
   .cities-attractions {
+    .text-display-choosing-attractions {
+      margin-top: 5.5em;
+    }
     .chosen-attractions {
+      margin-top: 1em;
       .chosen-attractions-list {
-        border: 1px solid blueviolet;
+        //border: 1px solid blueviolet;
+        background-color: rgb(247, 247, 247);
         border-radius: 10px;
         list-style-type: none;
         display: flex;
-        margin-top: 0.5rem;
+        margin-top: 0.7rem;
         margin-left: 1rem;
         margin-right: 1rem;
 
@@ -66,6 +71,19 @@
   }
   .cities-todo {
     width: 30%;
-    border: 1px solid red;
+
+    .chosen-attractions-todo {
+      margin-top: 1em;
+    }
   }
+}
+
+.map-attraction-container {
+  .title-trip-planner {
+    margin-top: 2em;
+  }
+}
+
+.chosen-attrac-btn {
+  margin-bottom: 2em;
 }
