@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({addTrip, addTripAttractions}) => {
+module.exports = ({addTrip, addTripAttractions, addTripTodos}) => {
   router.post("/", async(req, res) => {
 
     const {userId, cityId, attractions, todos} = req.body;
@@ -16,9 +16,12 @@ module.exports = ({addTrip, addTripAttractions}) => {
       addTripAttractions(newTrip.id, attraction.id)      
     });
 
-    // const promisesTodos = todos.amp
+    const promisesTodos = todos.map((todo) => {
+      addTripTodos(todo.description, userId,newTrip.id);
+    })
     
-    await Promise.all(promisesAttractions);
+    await Promise.all(promisesAttractions, promisesTodos);
+    
   
   });
   return router;

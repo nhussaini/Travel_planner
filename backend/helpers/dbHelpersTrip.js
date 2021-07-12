@@ -43,7 +43,8 @@ module.exports = (db) => {
 
   return {
     addTrip,
-    addTripAttractions
+    addTripAttractions,
+    addTripTodos
   
   };
 };

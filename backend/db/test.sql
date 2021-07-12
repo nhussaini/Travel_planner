@@ -22,3 +22,8 @@
 -- GROUP BY city.id
 -- ORDER BY total_visit DESC
 -- LIMIT 12;
+
+SELECT trip_attraction.id, attraction.name
+FROM trip_attraction
+JOIN attraction on trip_attraction.attraction_id = attraction.id
+WHERE trip_attraction.trip_id = 13;
