@@ -33,7 +33,7 @@ export default function CityDetail(props) {
   }
 
   useEffect(() => {
-    axios.get(`/cities/${id}`).then((data) => {
+    axios.get(`/api/cities/${id}`).then((data) => {
       const { images, cityDetails, attractions } = data.data;
       setState((prev) => ({
         location: cityDetails.short_name,

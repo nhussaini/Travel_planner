@@ -139,7 +139,7 @@ module.exports = ({
           })
           .then(() => {
             //After Adding data to Db, redirecting to the get route for city which will send back data to front end
-            res.redirect(`/cities/${cityName}`);
+            res.redirect(`/api/cities/${cityName}`);
           })
           .catch((err) =>
             res.json({

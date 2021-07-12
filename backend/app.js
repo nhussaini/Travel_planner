@@ -27,7 +27,7 @@ app.use("/users", usersRouter(dbHelpersUser));
 app.use("/back/cities", backCitiesRouter(dbHelpersCity));
 // app.use("/users", usersRouter(db));
 app.use("/userslogin", loginRouter(db));
-app.use("/cities", citiesRouter(dbHelpersCity));
+app.use("/api/cities", citiesRouter(dbHelpersCity));
 app.use("/", indexRouter);
 // app.use("/", logoutRouter(db));
 // app.use("/todo", todoRouter(db));
