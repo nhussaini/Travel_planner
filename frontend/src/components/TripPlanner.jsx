@@ -13,6 +13,36 @@ export default function TripPlanner(props) {
   const [cityAttractions, setCityAttractions] = useState([]);
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
+  //state for todos
+  const [state, setState] = useState({
+    todos: [],
+  });
+
+  //add a todo
+  const addTodo = (text) => {
+    const newTodos = [...state.todos, { description: text }];
+    setState((prev) => ({
+      ...prev,
+      todos: newTodos,
+    }));
+  };
+
+  //remove a todo
+  const removeTodo = (id, index) => {
+    axios
+      .delete(`/users/todo/${id}`)
+      .then((data) => console.log("data after deletion", data));
+
+    const newTodos = [...state.todos];
+    newTodos.splice(index, 1);
+    // setTodos(newTodos);
+    console.log("deleting a todo=>", newTodos);
+    setState((prev) => ({
+      ...prev,
+      todos: newTodos,
+    }));
+    console.log("index==>", index);
+  };
 
   // const location = useLocation();
   const { city } = useParams();
@@ -108,7 +138,12 @@ export default function TripPlanner(props) {
         </div>
         <div className="cities-todo">
           <h5 className="chosen-attractions-todo">To-do List</h5>
-          {/* <ToDoList userId={id} /> */}
+          <ToDoList
+            userId={id}
+            addTodo={addTodo}
+            removeTodo={removeTodo}
+            todos={state.todos}
+          />
         </div>
       </div>
       {show ? (
