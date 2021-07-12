@@ -4,7 +4,7 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 export default function NavBar() {
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="nav-container">
+      <Navbar bg="dark" variant="dark" className="nav-container" sticky="top">
         <Navbar.Brand href="/" className="nav-title">
           <span>TREK</span>
         </Navbar.Brand>
