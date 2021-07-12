@@ -9,6 +9,7 @@ export default function ThingsToDoList(props) {
     return (
       <ThingToDo
         key={thing.id}
+        attractionId={thing.id}
         location={props.location}
         name={thing.name}
         address={thing.formatted_address}

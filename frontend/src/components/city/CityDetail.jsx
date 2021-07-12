@@ -38,11 +38,11 @@ export default function CityDetail(props) {
 
   //to handle the click event to create a new trip
   function handleClick(e) {
-    axios
-      .post("/api/trip/create-trip", { userId: userId, cityId: cityId })
-      .then((data) => {
-        console.log(data);
-      });
+    // axios
+    //   .post("/api/trip/create-trip", { userId: userId, cityId: cityId })
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
     history.push({
       pathname: `/trip/${id}/new`,
       state: {

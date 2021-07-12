@@ -16,7 +16,7 @@ export default function TripPlanner(props) {
 
   // const location = useLocation();
   const { city } = useParams();
-  console.log("city info===>", cityInfo);
+  // console.log("city info===>", cityInfo);
 
   //to fetch data from db for city and city attractions
   useEffect(() => {
@@ -36,6 +36,8 @@ export default function TripPlanner(props) {
   const handleClick = () => {
     setShow(true);
   };
+
+  //update the state for attractions
   const addAttraction = (attractionName, img_url) => {
     // setAttractions([...attractions, newAttraction]);
     const newAttraction = [...attractions, { attractionName, img_url }];
@@ -80,7 +82,7 @@ export default function TripPlanner(props) {
               <div className="chosen-attractions">
                 {attractionsToVisit}
                 <div className="add-to-profile-btn-div">
-                  <button className="add-to-profile-btn">Add to Profile</button>
+                  <button className="add-to-profile-btn">Save Your Trip</button>
                 </div>
               </div>
             </div>
@@ -88,7 +90,7 @@ export default function TripPlanner(props) {
         </div>
         <div className="cities-todo">
           <h5 className="chosen-attractions-todo">To-do List</h5>
-          <ToDoList userId={id} />
+          {/* <ToDoList userId={id} /> */}
         </div>
       </div>
       {show ? (

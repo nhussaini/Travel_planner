@@ -8,6 +8,8 @@ import StarRatings from "react-star-ratings";
 
 export default function ThingToDo(props) {
   const [show, setShow] = useState(false);
+  console.log("props in ThingToDo cmp line 11==>", props);
+  console.log("thing to do id:=====>", props.attractionId);
 
   //get the logged in userdata from local storge
   let user = JSON.parse(localStorage.getItem("user"));
@@ -16,6 +18,8 @@ export default function ThingToDo(props) {
   const elementRef = useRef();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  //passes attraction to TripPlanner comp
   const handleClick = (e, data) => {
     console.log(elementRef.current);
     console.log("element ref***", elementRef);
