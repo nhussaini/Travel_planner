@@ -27,8 +27,9 @@ export default function TrendingCities(props) {
 
   return (
     <div>
-      <div>
+      <div className="parent-trending-cities">
         <h2 className="heading">Trending Destinations</h2>
+        <hr className="hr" />
       </div>
       <div className="trending-cities-container">{allTrendingCities}</div>
     </div>

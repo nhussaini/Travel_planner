@@ -68,14 +68,14 @@ export default function TripPlanner(props) {
       <div className="trip-header">
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">
-          <p>Welcome</p>
+          <p>Plan your trip here.</p>
         </div>
       </div>
       <div className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
             <p className="text-display-choosing-attractions">
-              Choose some attractions you want to see! They will appear here.
+              Choose attractions you want to visit by clicking the heart icon.
             </p>
           ) : (
             // <ThingsToDoList
@@ -83,11 +83,13 @@ export default function TripPlanner(props) {
             //   thingsToDo={cityAttractions.slice(0, 3)}
             //   addAttraction={addAttraction}
             // />
-            <div className="chosen-attractions">
-              <h5>My Activties</h5>
-              {attractionsToVisit}
-              <div className="add-to-profile-btn-div">
-                <button className="add-to-profile-btn">Add to Profile</button>
+            <div className="chosen-attractions-parent">
+              <h5 className="chosen-attractions-title">My Activties</h5>
+              <div className="chosen-attractions">
+                {attractionsToVisit}
+                <div className="add-to-profile-btn-div">
+                  <button className="add-to-profile-btn">Add to Profile</button>
+                </div>
               </div>
             </div>
           )}
@@ -99,9 +101,10 @@ export default function TripPlanner(props) {
       </div>
       {show ? (
         <div className="map-attraction-container">
-          <h5 className="title-trip-planner">
-            Top attractions in {cityInfo.short_name}
-          </h5>
+          <h4 className="title-trip-planner">
+            Top Attractions in {cityInfo.short_name}
+            <hr className="hr-trip-planner" />
+          </h4>
           <section className="map-attraction">
             <ThingsToDoList
               location={cityInfo.short_name}

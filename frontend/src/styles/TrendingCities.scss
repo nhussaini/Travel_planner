@@ -1,3 +1,13 @@
+.parent-trending-cities {
+  .hr {
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    color: rgb(109, 109, 109);
+  }
+}
+
 .trending-cities-container {
   display: flex;
   flex-wrap: wrap;
