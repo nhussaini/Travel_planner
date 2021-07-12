@@ -13,7 +13,7 @@ export default function Error404() {
           <img src={ErrorImage} alt="404 Not Found" />
         </div>
         <div className="message-container-404">
-          <span>On No, You're lost.</span>
+          <span>Oh No, You're lost.</span>
           <span>
             Don't worry though, our world with amazing cities still waiting for
             you!

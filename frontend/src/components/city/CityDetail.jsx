@@ -23,7 +23,10 @@ export default function CityDetail(props) {
   });
 
   const { id } = useParams();
+  console.log("id from line 26=> ", id);
+  //to handle the click event to create a new trip
   function handleClick(e) {
+    // axios.post("/new-trip", { userId: userId });
     history.push({
       pathname: `/trip/${id}/new`,
       state: {
