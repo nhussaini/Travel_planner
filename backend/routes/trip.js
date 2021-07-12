@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = () => {
+module.exports = ({addTrip}) => {
   
 
   router.post("/create-trip", (req, res) => {
@@ -12,6 +12,10 @@ module.exports = () => {
     const {userId, cityId} = req.body;
     // console.log("userid",userId);
     // console.log("cityid",cityId);
+    addTrip(userId,cityId).then((data)=>{
+      console.log("data added to db successfully");
+      console.log("new trip data=> ", data);
+    })
    
   });
 

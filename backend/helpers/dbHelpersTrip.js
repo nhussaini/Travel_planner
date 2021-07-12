@@ -2,10 +2,10 @@
 module.exports = (db) => {
 
 
-  const addToDo = (description, userId) => {
+  const addTrip = (userId, cityId) => {
     const query = {
-      text: `INSERT INTO todo(description, user_id) values ($1,$2) RETURNING *`,
-      values: [description, userId],
+      text: `INSERT INTO trip(user_id, city_id) values ($1,$2) RETURNING *`,
+      values: [userId, cityId],
     };
     return db
       .query(query)
@@ -16,7 +16,7 @@ module.exports = (db) => {
 
 
   return {
-    getUsers,
+    addTrip
   
   };
 };

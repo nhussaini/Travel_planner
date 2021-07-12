@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS trip_attraction CASCADE;
 
 CREATE TABLE trip(
   id SERIAL PRIMARY KEY NOT NULL,
-  date date NOT NULL,
+  date date,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  city_id INT REFERENCES city(id) ON DELETE CASCADE,
+  city_id INT REFERENCES city(id) ON DELETE CASCADE
   -- attraction_id INT REFERENCES attraction(id) ON DELETE CASCADE
 );
 
