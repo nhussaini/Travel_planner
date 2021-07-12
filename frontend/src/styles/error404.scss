@@ -1,0 +1,33 @@
+.container-404 {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-start;
+  .image-container-404 {
+    min-width: 100%;
+    img {
+      width: 100vw;
+      max-height: 600px;
+      object-fit: cover;
+    }
+  }
+
+  .message-container-404 {
+    position: absolute;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span:first-child {
+      font-size: 2.5rem;
+      text-transform: capitalize;
+    }
+    span {
+      font-size: 1.2rem;
+    }
+    a {
+      margin-top: 2%;
+      max-width: 50%;
+    }
+  }
+}

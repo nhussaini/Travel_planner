@@ -1,7 +1,8 @@
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
 import Button from "react-bootstrap/Button";
-import "styles/home.scss";
+import "styles/error404.scss";
+import ErrorImage from "assets/images/error-404.jpeg";
 
 export default function Error404() {
   return (
@@ -9,13 +10,18 @@ export default function Error404() {
       <NavBar />
       <section className="container-404">
         <div className="image-container-404">
-          <img
-            src="https://images.unsplash.com/photo-1510133768164-a8f7e4d4e3dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80"
-            alt="404 Not Found"
-          />
+          <img src={ErrorImage} alt="404 Not Found" />
         </div>
-        <div>Sorry We could not find the page you were Liooking For!</div>
-        <Button href="/">go Back to homepage</Button>
+        <div className="message-container-404">
+          <span>On No, You're lost.</span>
+          <span>
+            Don't worry though, our world with amazing cities still waiting for
+            you!
+          </span>
+          <Button href="/" variant="success">
+            Back to Home!
+          </Button>
+        </div>
       </section>
       <Footer />
     </main>
