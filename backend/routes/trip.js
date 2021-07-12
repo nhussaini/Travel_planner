@@ -6,11 +6,12 @@ const router = express.Router();
 module.exports = ({addTrip}) => {
   
 
-  router.post("/create-trip", (req, res) => {
+  router.post("/", (req, res) => {
     // console.log("reached this route");
     // console.log("req.body from line 11->",req.body);
     const {userId, cityId} = req.body;
-    // console.log("userid",userId);
+
+    console.log("req.body from backend",req.body);
     // console.log("cityid",cityId);
     addTrip(userId,cityId).then((data)=>{
       console.log("data added to db successfully");

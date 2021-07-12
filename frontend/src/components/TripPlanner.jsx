@@ -36,15 +36,20 @@ export default function TripPlanner(props) {
   const handleClick = () => {
     setShow(true);
   };
-  console.log("city id", cityInfo.id);
+  // console.log("city id", cityInfo.id);
 
   const saveTrip = () => {
     console.log("saveTrip function is called");
-    // axios
-    //   .post("/api/trip", { userId: userId, cityId: cityId })
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
+
+    axios
+      .post("/api/trip", {
+        userId: id,
+        cityId: cityInfo.id,
+        attractions: attractions,
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   //update the state for attractions
