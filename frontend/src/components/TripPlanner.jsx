@@ -14,17 +14,18 @@ export default function TripPlanner(props) {
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
 
-  // console.log("cityAttractions=>", cityAttractions[0]);
-
   // const location = useLocation();
   const { city } = useParams();
+  console.log("city info===>", cityInfo);
 
+  //to fetch data from db for city and city attractions
   useEffect(() => {
     axios.post("/back/cities/new-trip", { city: city }).then((data) => {
       setCityInfo(data.data.cityInfo);
       setCityAttractions(data.data.cityAttractions);
     });
   }, []);
+
   //get the logged in userdata from local storge
   let userData = localStorage.getItem("user");
   userData = JSON.parse(userData);
@@ -38,12 +39,9 @@ export default function TripPlanner(props) {
   const addAttraction = (attractionName, img_url) => {
     // setAttractions([...attractions, newAttraction]);
     const newAttraction = [...attractions, { attractionName, img_url }];
-    // setAttractions((prev) => ({
-    //   newAttraction,
-    // }));
+
     setAttractions(newAttraction);
   };
-  console.log("attractionsstate=====>", attractions);
   const attractionsToVisit = attractions.map((attraction) => {
     return (
       <li className="chosen-attractions-list">
@@ -77,11 +75,6 @@ export default function TripPlanner(props) {
               Choose attractions you want to visit by clicking the heart icon.
             </p>
           ) : (
-            // <ThingsToDoList
-            //   location={cityInfo.short_name}
-            //   thingsToDo={cityAttractions.slice(0, 3)}
-            //   addAttraction={addAttraction}
-            // />
             <div className="chosen-attractions-parent">
               <h5 className="chosen-attractions-title">My Activties</h5>
               <div className="chosen-attractions">
