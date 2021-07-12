@@ -5,6 +5,7 @@ import ImagesList from "./ImagesList";
 import GoogleMap from "./GoogleMap";
 import NavBar from "../NavBar";
 import ThingsToDoList from "./ThingsToDoList";
+import Error404 from "components/Error404";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
@@ -32,7 +33,6 @@ export default function CityDetail(props) {
       },
     });
   }
-
   useEffect(() => {
     axios.get(`/api/cities/${id}`).then((data) => {
       if (!data.data) {
@@ -86,6 +86,6 @@ export default function CityDetail(props) {
       {state.location ? <WeatherList location={state.location} /> : null}
     </main>
   ) : (
-    <h1>404 Error</h1>
+    <Error404 />
   );
 }
