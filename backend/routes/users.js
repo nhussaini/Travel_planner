@@ -21,6 +21,12 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
     addToDo(todo, userId).then((data) => console.log("data=>>>", data));
   });
 
+  router.post("/user-trip",(req,res) => {
+    console.log("this route is reached");
+    console.log("req.body from user-trip",req.body);
+
+  })
+
   router.get("/todo", (req, res) => {
     getToDos().then((data) => res.send(data));
   });

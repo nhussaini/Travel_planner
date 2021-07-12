@@ -56,6 +56,16 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const getUserTripInfo = () => {
+    const query = {
+      text: `SELECT id, description from todo`,
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
+
   return {
     getUsers,
     addToDo,
