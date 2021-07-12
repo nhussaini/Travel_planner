@@ -18,7 +18,7 @@ export default function Home(props) {
       <NavBar />
       <div className="home-img-div">
         <div className="home-img-text">Plan your trips with ease.</div>
-        <Form setLocationState={setLocationState} />
+        <Form fetchCity={setLocationState} />
         {/* <div>
           <Spinner animation="border" role="status" variant="primary"></Spinner>
           <div>Loading.....</div>

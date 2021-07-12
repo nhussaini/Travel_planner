@@ -10,7 +10,7 @@ export default function Form(props) {
   let history = useHistory();
   const [input, setInput] = useState(null);
   const [error, setError] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -34,7 +34,9 @@ export default function Form(props) {
   }
   return loader ? (
     <div className="spinner">
-      <Spinner animation="border" role="status" variant="success"></Spinner>
+      <Spinner animation="grow" variant="dark" />
+      <Spinner animation="grow" variant="dark" />
+      <Spinner animation="grow" variant="dark" />
       <div>Loading.....</div>
     </div>
   ) : (
