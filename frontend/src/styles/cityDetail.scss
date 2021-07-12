@@ -96,6 +96,8 @@ main {
           align-items: center;
           .rating-count {
             margin-left: 10px;
+            padding-top: 3px;
+            font-size: 0.9rem;
           }
         }
       }
@@ -159,7 +161,7 @@ main {
   }
 }
 
-@media screen and (max-width: 792px) {
+@media screen and (max-width: 848px) {
   .map-attraction-container {
     .map-attraction {
       flex-wrap: wrap;
@@ -190,11 +192,5 @@ main {
         width: 100%;
       }
     }
-    // .map-attraction {
-    //   #map {
-    //     width: 50%;
-    //     display: none;
-    //   }
-    // }
   }
 }

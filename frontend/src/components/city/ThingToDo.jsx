@@ -4,6 +4,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import ShowMessage from "components/ShowMessage";
+import StarRatings from "react-star-ratings";
 
 export default function ThingToDo(props) {
   const [show, setShow] = useState(false);
@@ -34,9 +35,17 @@ export default function ThingToDo(props) {
       <div className="user-rating">{props.rating}</div>
       <div className="attraction-summary">
         <p ref={elementRef}>{props.name}</p>
-        <div>
+        <div className="rating-container">
           {/* <Rating rating={props.rating} />{" "} */}
-          <span className="rating-count">({props.reviewsCount} Reviews)</span>
+          <StarRatings
+            rating={Number(props.rating)}
+            starRatedColor="#e7bf39"
+            starDimension="20px"
+            starSpacing="2px"
+            numberOfStars={5}
+            name="rating"
+          />
+          <span className="rating-count">({props.reviewsCount})</span>
         </div>
       </div>
       <Modal show={show} onHide={handleClose} dialogClassName="my-modal">
