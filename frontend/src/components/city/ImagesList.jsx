@@ -20,16 +20,15 @@ export default function ImagesList(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   return (
     <div>
       <div className="image-container">
         <div className="first-image">
           {image1 && (
             <Image
-              key={image1.id}
               alt={image1.alt_description}
               src={image1.url}
+              onClick={handleShow}
             />
           )}
           <button
@@ -44,18 +43,18 @@ export default function ImagesList(props) {
           <div className="nested-image">
             {image2 && (
               <Image
-                key={image2.id}
                 alt={image2.alt_description}
                 src={image2.url}
+                onClick={handleShow}
               />
             )}
           </div>
           <div className="nested-image">
             {image3 && (
               <Image
-                key={image3.id}
                 alt={image3.alt_description}
                 src={image3.url}
+                onClick={handleShow}
               />
             )}
           </div>
