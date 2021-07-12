@@ -22,11 +22,25 @@ export default function CityDetail(props) {
     thingsToDo: [],
   });
 
+  //id is the name of the city below
   const { id } = useParams();
-  console.log("id from line 26=> ", id);
+
+  //get the logged in userdata from local storge
+  let userData = localStorage.getItem("user");
+  userData = JSON.parse(userData);
+  //get the user id
+  const userId = userData ? userData.id : null;
+  console.log("userId from line 33=>", userId);
+
+  //get city id to store in trip table
+  const cityId = state.locationData.id;
+  console.log("cityid: ", cityId);
+
   //to handle the click event to create a new trip
   function handleClick(e) {
-    // axios.post("/new-trip", { userId: userId });
+    axios.post("/new-trip", { userId: userId, cityId: cityId }).then((data) => {
+      console.log(data);
+    });
     history.push({
       pathname: `/trip/${id}/new`,
       state: {
