@@ -42,12 +42,12 @@ export default function Form(props) {
           onChange={handleChange}
         />
       </div>
-      {!input && error ? (
-        <div className="error-message">Please Type a City!</div>
-      ) : null}
       <button type="submit" className="btn btn-light">
         Submit
       </button>
+      <div className="error-message">
+        {!input && error ? `Please type a city name!` : null}
+      </div>
     </form>
   );
 }
