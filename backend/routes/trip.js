@@ -3,13 +3,12 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({}) => {
+module.exports = () => {
   
 
-  router.post("/todo", (req, res) => {
-    const todo = req.body.userInput;
-    const userId = req.body.userId;
-    addToDo(todo, userId).then((data) => console.log("data=>>>", data));
+  router.post("/create-trip", (req, res) => {
+    console.log("reached this route");
+  
   });
 
 

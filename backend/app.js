@@ -30,7 +30,7 @@ app.use("/back/cities", backCitiesRouter(dbHelpersCity));
 app.use("/userslogin", loginRouter(db));
 app.use("/api/cities", citiesRouter(dbHelpersCity));
 app.use("/", indexRouter);
-app.use("/api/trip",tripRouter(db))
+app.use("/api/trip", tripRouter());
 // app.use("/", logoutRouter(db));
 // app.use("/todo", todoRouter(db));
 // app.use('/users', usersRouter(dbHelpers));
