@@ -48,6 +48,7 @@ export default function CityDetail(props) {
       <NavBar />
       <div className="heading">
         <h2>Explore {state.location}!</h2>
+        <hr />
       </div>
       <button className="btn btn-dark" onClick={handleClick}>
         Add Trip
