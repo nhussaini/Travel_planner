@@ -23,7 +23,7 @@ export default function ToDoForm({ addTodo, userId }) {
         type="text"
         className="input"
         value={value}
-        placeholder="Enter task..."
+        placeholder="Enter a task..."
         onChange={(e) => setValue(e.target.value)}
       />
     </form>

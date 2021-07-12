@@ -73,8 +73,9 @@
         //margin-top: 0.7rem;
         margin-left: 1rem;
         //margin-right: 1rem;
-        width: 40%;
+        width: 47%;
         margin-bottom: 0.5em;
+        position: relative;
 
         .img-chosen-div {
           display: flex;
@@ -86,21 +87,21 @@
           margin-top: 3em;
         }
 
-        .remove-att-div {
-          //background-color: burlywood;
+        .chosen-attraction-delete {
+          position: absolute;
+          border: none;
+          top: 0;
+          right: 0;
+          padding-left: 0.6rem;
+          padding-right: 0.6rem;
+          padding-bottom: 0.2rem;
+          float: right;
+          background-color: rgb(212, 150, 150);
+          border-radius: 5px;
+          color: white;
 
-          .chosen-attraction-delete {
-            border: none;
-            margin-right: 1em;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            float: right;
-            background-color: rgb(235, 235, 235);
-            border-radius: 5px;
-
-            &:hover {
-              background-color: rgb(201, 201, 201);
-            }
+          &:hover {
+            background-color: rgb(214, 114, 114);
           }
         }
 
@@ -124,7 +125,7 @@
 
 .map-attraction-container {
   .title-trip-planner {
-    //margin-top: 2em;
+    margin-top: 1em;
   }
 
   .hr-trip-planner {

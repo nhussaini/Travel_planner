@@ -51,14 +51,13 @@ export default function TripPlanner(props) {
           <img src={attraction.img_url} alt={attraction.attractionName} />
         </div>
         <p className="chosen-attraction-name">{attraction.attractionName}</p>
-        <div className="remove-att-div">
-          <button
-            className="chosen-attraction-delete"
-            // onClick={}
-          >
-            x
-          </button>
-        </div>
+        <button
+          className="chosen-attraction-delete"
+          // onClick={}
+        >
+          x
+        </button>
+        <div className="remove-att-div"></div>
       </li>
     );
   });

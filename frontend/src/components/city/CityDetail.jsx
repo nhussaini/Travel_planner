@@ -50,11 +50,11 @@ export default function CityDetail(props) {
         <h2>Explore {state.location}!</h2>
         <hr className="hr" />
       </div>
-      <button className="btn btn-dark" onClick={handleClick}>
-        Add Trip
-      </button>
       <CityLinkButtons locationData={state.locationData} />
       <ImagesList location={state.location} images={state.images} />
+      <button className="add-trip-btn" onClick={handleClick}>
+        Create Trip
+      </button>
       <main className="map-attraction-container">
         <div>
           <h2 className="heading">
