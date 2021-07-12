@@ -24,6 +24,18 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const addTripTodos = (description, userId, tripId) => {
+    const query = {
+      text: `INSERT INTO todo(description,user_id, trip_id) values ($1,$2,$3) RETURNING *`,
+      values: [description, userId, tripId],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+
+  };
+
   
 
 

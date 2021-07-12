@@ -76,6 +76,7 @@ export default function TripPlanner(props) {
         userId: id,
         cityId: cityInfo.id,
         attractions: attractions,
+        todos: state.todos,
       })
       .then((data) => {
         console.log(data);
