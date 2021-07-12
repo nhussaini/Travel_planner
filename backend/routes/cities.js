@@ -30,12 +30,10 @@ module.exports = ({
 
     // console.log(findCity(cityName));
     findCity(cityName).then((city) => {
+      // if city exist redirect to the route which will fetch existign data from db
       if (city) {
-        // console.log("Reached IF---", cityName);
-        // console.log("Redirecting From line 35-----");
-        res.redirect(`/cities/${cityName}`);
+        res.redirect(`/api/cities/${cityName}`);
       } else {
-        // console.log("Reached ELSE---", cityName);
         const allData = {};
         axios
           .get(
@@ -151,30 +149,54 @@ module.exports = ({
   });
 
   //Route for Individual City
-  router.get("/:id", (req, res) => {
+  router.get("/:id", async (req, res) => {
     const cityName = req.params.id;
-    getCity(cityName).then((city) => {
-      // if city doesnt exist in DB return error
-      if (city === null) {
-        return res.json("Sorry Cant find");
-      }
-      // if city exist, then grab all the data(details, images, attractions) for the city
-      const allData = {};
-      Promise.all([
-        getCity(cityName),
-        getImages(cityName),
-        getAttractions(cityName),
-        addVisit(city.id, cityName),
-      ])
-        .then((all) => {
-          allData.cityDetails = all[0];
-          allData.images = all[1];
-          allData.attractions = all[2];
-          allData.test = "testing----";
-          res.json(allData);
-        })
-        .catch((err) => console.log(err));
-    });
+    const matchedCity = await getCity(cityName);
+    // if city doesnt exist in DB return error
+    if (matchedCity === null) {
+      return res.json("Sorry Cant find");
+    }
+    // if city exist, then grab all the data(details, images, attractions) for the city
+    const allData = {};
+    const fetchedData = await Promise.all([
+      getCity(cityName),
+      getImages(cityName),
+      getAttractions(cityName),
+      addVisit(matchedCity.id, cityName),
+    ]);
+
+    allData.cityDetails = fetchedData[0];
+    allData.images = fetchedData[1];
+    allData.attractions = fetchedData[2];
+    allData.test = "testing----";
+    res.json(allData);
   });
+
+  // //Route for Individual City
+  // router.get("/:id", (req, res) => {
+  //   const cityName = req.params.id;
+  //   getCity(cityName).then((city) => {
+  //     // if city doesnt exist in DB return error
+  //     if (city === null) {
+  //       return res.json("Sorry Cant find");
+  //     }
+  //     // if city exist, then grab all the data(details, images, attractions) for the city
+  //     const allData = {};
+  //     Promise.all([
+  //       getCity(cityName),
+  //       getImages(cityName),
+  //       getAttractions(cityName),
+  //       addVisit(city.id, cityName),
+  //     ])
+  //       .then((all) => {
+  //         allData.cityDetails = all[0];
+  //         allData.images = all[1];
+  //         allData.attractions = all[2];
+  //         allData.test = "testing----";
+  //         res.json(allData);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   });
+  // });
   return router;
 };
