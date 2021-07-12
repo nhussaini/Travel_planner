@@ -14,6 +14,7 @@ import "styles/cityDetail.scss";
 export default function CityDetail(props) {
   let history = useHistory();
   const [state, setState] = useState({
+    404: false,
     location: "",
     images: [],
     locationData: [],
@@ -34,16 +35,23 @@ export default function CityDetail(props) {
 
   useEffect(() => {
     axios.get(`/api/cities/${id}`).then((data) => {
-      const { images, cityDetails, attractions } = data.data;
-      setState((prev) => ({
-        location: cityDetails.short_name,
-        images: images,
-        locationData: cityDetails,
-        thingsToDo: attractions,
-      }));
+      if (!data.data) {
+        setState((prev) => ({
+          ...prev,
+          404: true,
+        }));
+      } else {
+        const { images, cityDetails, attractions } = data.data;
+        setState((prev) => ({
+          location: cityDetails.short_name,
+          images: images,
+          locationData: cityDetails,
+          thingsToDo: attractions,
+        }));
+      }
     });
   }, [state.location]);
-  return (
+  return !404 ? (
     <main>
       <NavBar />
       <div className="heading">
@@ -77,5 +85,7 @@ export default function CityDetail(props) {
       </main>
       {state.location ? <WeatherList location={state.location} /> : null}
     </main>
+  ) : (
+    <h1>404 Error</h1>
   );
 }

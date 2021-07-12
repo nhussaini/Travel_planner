@@ -154,7 +154,8 @@ module.exports = ({
     const matchedCity = await getCity(cityName);
     // if city doesnt exist in DB return error
     if (matchedCity === null) {
-      return res.json("Sorry Cant find");
+      console.log("Sending NULL");
+      return res.json(null);
     }
     // if city exist, then grab all the data(details, images, attractions) for the city
     const allData = {};
