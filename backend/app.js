@@ -6,6 +6,8 @@ require("dotenv").config();
 const db = require("./db");
 const dbHelpersUser = require("./helpers/dbHelpersUser")(db);
 const dbHelpersCity = require("./helpers/dbHelpersCity")(db);
+const dbHelpersTrip = require("./helpers/dbHelpersTrip")(db);
+
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -30,7 +32,7 @@ app.use("/back/cities", backCitiesRouter(dbHelpersCity));
 app.use("/userslogin", loginRouter(db));
 app.use("/api/cities", citiesRouter(dbHelpersCity));
 app.use("/", indexRouter);
-app.use("/api/trip", tripRouter());
+app.use("/api/trip", tripRouter(dbHelpersTrip));
 // app.use("/", logoutRouter(db));
 // app.use("/todo", todoRouter(db));
 // app.use('/users', usersRouter(dbHelpers));

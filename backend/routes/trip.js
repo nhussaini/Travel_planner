@@ -7,8 +7,12 @@ module.exports = () => {
   
 
   router.post("/create-trip", (req, res) => {
-    console.log("reached this route");
-  
+    // console.log("reached this route");
+    // console.log("req.body from line 11->",req.body);
+    const {userId, cityId} = req.body;
+    // console.log("userid",userId);
+    // console.log("cityid",cityId);
+   
   });
 
 
