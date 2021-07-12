@@ -1,7 +1,8 @@
 import { useCityData } from "../hooks/useCityData";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../styles/ToDo.scss";
+
+// import "../styles/ToDo.scss";
 import "../styles/home.scss";
 import Form from "./Form";
 import TrendingCities from "./TrendingCities";
