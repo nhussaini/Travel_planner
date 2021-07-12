@@ -45,6 +45,17 @@
     .chosen-attractions {
       margin-top: 1em;
 
+      .add-to-profile-btn-div {
+        //background-color: cadetblue;
+        margin-top: 3em;
+        display: flex;
+        //margin-left: 5%;
+
+        .add-to-profile-btn {
+          margin-left: 60%;
+        }
+      }
+
       .chosen-attractions-list {
         //border: 1px solid blueviolet;
         background-color: rgb(247, 247, 247);

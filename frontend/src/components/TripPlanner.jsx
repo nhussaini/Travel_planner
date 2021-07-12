@@ -86,7 +86,9 @@ export default function TripPlanner(props) {
             <div className="chosen-attractions">
               <h5>My Activties</h5>
               {attractionsToVisit}
-              <button>Add to Profile</button>
+              <div className="add-to-profile-btn-div">
+                <button className="add-to-profile-btn">Add to Profile</button>
+              </div>
             </div>
           )}
         </div>
