@@ -96,7 +96,7 @@ main {
           align-items: center;
           .rating-count {
             margin-left: 10px;
-            padding-top: 3px;
+            padding-top: 5px;
             font-size: 0.9rem;
           }
         }
@@ -161,7 +161,7 @@ main {
   }
 }
 
-@media screen and (max-width: 848px) {
+@media screen and (max-width: 892px) {
   .map-attraction-container {
     .map-attraction {
       flex-wrap: wrap;
