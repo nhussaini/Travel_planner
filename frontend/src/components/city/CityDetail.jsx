@@ -15,7 +15,7 @@ import "styles/cityDetail.scss";
 export default function CityDetail(props) {
   let history = useHistory();
   const [state, setState] = useState({
-    404: false,
+    error404: false,
     location: "",
     images: [],
     locationData: [],
@@ -38,7 +38,7 @@ export default function CityDetail(props) {
       if (!data.data) {
         setState((prev) => ({
           ...prev,
-          404: true,
+          error404: true,
         }));
       } else {
         const { images, cityDetails, attractions } = data.data;
@@ -51,7 +51,8 @@ export default function CityDetail(props) {
       }
     });
   }, [state.location]);
-  return !404 ? (
+
+  return !state.error404 ? (
     <main>
       <NavBar />
       <div className="heading">
