@@ -44,6 +44,7 @@
     }
     .chosen-attractions {
       margin-top: 1em;
+
       .chosen-attractions-list {
         //border: 1px solid blueviolet;
         background-color: rgb(247, 247, 247);
@@ -58,6 +59,28 @@
           display: flex;
           width: 30%;
           margin-right: 0.5rem;
+        }
+
+        .chosen-attraction-name {
+          margin-top: 2em;
+        }
+
+        .remove-att-div {
+          background-color: burlywood;
+
+          .chosen-attraction-delete {
+            border: none;
+            margin-right: 1em;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            float: right;
+            background-color: rgb(235, 235, 235);
+            border-radius: 5px;
+
+            &:hover {
+              background-color: rgb(201, 201, 201);
+            }
+          }
         }
 
         img {
