@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import CityDetail from "./components/city/CityDetail";
 import UserProfile from "./components/UserProfile";
 import TripPlanner from "./components/TripPlanner";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/trip/:city/new">
             <TripPlanner />
+          </Route>
+          <Route path="/:id">
+            <Error404 />
           </Route>
         </Switch>
       </Router>
