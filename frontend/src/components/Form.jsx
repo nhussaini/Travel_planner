@@ -23,14 +23,21 @@ export default function Form(props) {
       setError(true);
     }
     if (input && !error) {
+      setLoader(true);
       axios.post("/cities/getCityData", { userInput: input }).then((data) => {
+        setLoader(false);
         history.push({
           pathname: `/cities/${input}`,
         });
       });
     }
   }
-  return (
+  return loader ? (
+    <div className="spinner">
+      <Spinner animation="border" role="status" variant="success"></Spinner>
+      <div>Loading.....</div>
+    </div>
+  ) : (
     <form className="input-form" onSubmit={handleSubmit}>
       <div>
         <input
