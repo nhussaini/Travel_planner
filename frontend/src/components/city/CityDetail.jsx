@@ -48,7 +48,7 @@ export default function CityDetail(props) {
       <NavBar />
       <div className="heading">
         <h2>Explore {state.location}!</h2>
-        <hr />
+        <hr className="hr" />
       </div>
       <button className="btn btn-dark" onClick={handleClick}>
         Add Trip
@@ -60,6 +60,7 @@ export default function CityDetail(props) {
           <h2 className="heading">
             {state.location ? `Top Attractions in ${state.location}` : ""}
           </h2>
+          <hr className="hr" />
         </div>
         <section className="map-attraction">
           <ThingsToDoList

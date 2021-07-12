@@ -4,6 +4,19 @@ main {
     background-color: brown;
     font-size: 2rem;
   }
+
+  .heading {
+    margin: 0;
+    margin-top: 0.5em;
+  }
+
+  .hr {
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    color: rgb(109, 109, 109);
+  }
 }
 .map-attraction-container {
   display: flex;
