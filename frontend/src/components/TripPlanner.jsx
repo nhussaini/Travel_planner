@@ -36,6 +36,16 @@ export default function TripPlanner(props) {
   const handleClick = () => {
     setShow(true);
   };
+  console.log("city id", cityInfo.id);
+
+  const saveTrip = () => {
+    console.log("saveTrip function is called");
+    // axios
+    //   .post("/api/trip", { userId: userId, cityId: cityId })
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
+  };
 
   //update the state for attractions
   const addAttraction = (attractionName, img_url) => {
@@ -82,7 +92,10 @@ export default function TripPlanner(props) {
               <div className="chosen-attractions">
                 {attractionsToVisit}
                 <div className="add-to-profile-btn-div">
-                  <button className="add-to-profile-btn">Save Your Trip</button>
+                  <button className="add-to-profile-btn" onClick={saveTrip}>
+                    Save Your Trip
+                  </button>
+                  <button>Cancel Your Trip</button>
                 </div>
               </div>
             </div>
