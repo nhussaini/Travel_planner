@@ -3,25 +3,21 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({addTrip}) => {
+module.exports = ({addTrip, addTripAttractions}) => {
   
 
-  router.post("/", (req, res) => {
-    // console.log("reached this route");
-    // console.log("req.body from line 11->",req.body);
-    const {userId, cityId} = req.body;
+  router.post("/", async(req, res) => {
 
     console.log("req.body from backend",req.body);
-    // console.log("cityid",cityId);
-    addTrip(userId,cityId).then((data)=>{
-      console.log("data added to db successfully");
-      console.log("new trip data=> ", data);
-    })
-   
+    const {userId, cityId, attractions} = req.body;
+
+    const newTrip = await addTrip(userId,cityId)
+    // console.log("newtrip form line 20==>", newTrip);
+    
+    const promises = attractions.map((attraction)=> {
+      addTripAttractions(newTrip.id, attraction.id)      
+    });
+    await Promise.all(promises)
   });
-
-
-
-
   return router;
 };

@@ -53,9 +53,9 @@ export default function TripPlanner(props) {
   };
 
   //update the state for attractions
-  const addAttraction = (attractionName, img_url) => {
+  const addAttraction = (name, img_url, id) => {
     // setAttractions([...attractions, newAttraction]);
-    const newAttraction = [...attractions, { attractionName, img_url }];
+    const newAttraction = [...attractions, { name, img_url, id }];
 
     setAttractions(newAttraction);
   };
