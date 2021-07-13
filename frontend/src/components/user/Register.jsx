@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import NavBar from "components/NavBar";
-import "../styles/Register.scss";
+import "styles/Register.scss";
 
 export default function Register(props) {
   let history = useHistory();

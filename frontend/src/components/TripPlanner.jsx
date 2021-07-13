@@ -131,12 +131,7 @@ export default function TripPlanner(props) {
               <h5 className="chosen-attractions-title">My Activties</h5>
               <div className="chosen-attractions">
                 {attractionsToVisit}
-                <div className="add-to-profile-btn-div">
-                  <button className="add-to-profile-btn" onClick={saveTrip}>
-                    Save Your Trip
-                  </button>
-                  <button>Cancel Your Trip</button>
-                </div>
+                <div className="add-to-profile-btn-div"></div>
               </div>
             </div>
           )}
@@ -150,6 +145,10 @@ export default function TripPlanner(props) {
             todos={todos}
           />
         </div>
+        <button className="add-to-profile-btn" onClick={saveTrip}>
+          Save Your Trip
+        </button>
+        <button>Cancel Your Trip</button>
       </div>
       {show ? (
         <div className="map-attraction-container">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "../styles/Login.scss";
+import "styles/Login.scss";
 import { useHistory } from "react-router-dom";
 import NavBar from "components/NavBar";
 import Alert from "react-bootstrap/Alert";

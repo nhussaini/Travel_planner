@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, { useState } from "react";
 
 import "./styles/app.scss";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./components/user/Register";
+import Login from "components/user/Login";
 import Home from "./components/Home";
 import CityDetail from "./components/city/CityDetail";
-import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/user/UserProfile";
 import TripPlanner from "./components/TripPlanner";
 import Error404 from "./components/Error404";
 
