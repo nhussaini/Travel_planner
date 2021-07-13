@@ -54,24 +54,32 @@
 --   WHERE users.id = 3;
 
 
--- Getting all user trip
+-- -- Getting all user trip
 
-SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
-FROM trip
-JOIN city ON trip.city_id = city.id
-WHERE trip.user_id = '1';
+-- SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
+-- FROM trip
+-- JOIN city ON trip.city_id = city.id
+-- WHERE trip.user_id = '1';
 
--- Get Attraction
-SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
-FROM trip
-JOIN trip_attraction ON trip.id = trip_attraction.trip_id
-JOIN attraction ON trip_attraction.attraction_id = attraction.id
-JOIN todo ON todo.trip_id = trip.id
-WHERE trip.id = 1;
+-- -- Get Attraction
+-- SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
+-- FROM trip
+-- JOIN trip_attraction ON trip.id = trip_attraction.trip_id
+-- JOIN attraction ON trip_attraction.attraction_id = attraction.id
+-- JOIN todo ON todo.trip_id = trip.id
+-- WHERE trip.id = 1;
 
--- Get Todo
+-- -- Get Todo
 
-SELECT trip.id, todo.id, todo.description
-FROM trip
-JOIN todo ON trip.id = todo.trip_id
-WHERE trip.id = 1
+-- SELECT trip.id, todo.id, todo.description as todo
+-- FROM trip
+-- JOIN todo ON trip.id = todo.trip_id
+-- WHERE trip.id = 1
+
+
+-- SELECT DISTINCT trip.id as trip_id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description as todo
+-- FROM trip
+-- JOIN todo ON trip.id = todo.trip_id
+-- JOIN trip_attraction ON trip.id = trip_attraction.trip_id
+-- JOIN attraction ON trip_attraction.attraction_id = attraction.id
+-- WHERE trip.id = '2';

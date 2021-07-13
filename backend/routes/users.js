@@ -8,6 +8,7 @@ module.exports = ({
   registerUser,
   getToDos,
   removeToDo,
+  getUserTrip,
   getUserTripInfo,
   getUserTripTodo,
 }) => {
@@ -37,10 +38,11 @@ module.exports = ({
     console.log("req.body from user-trip", req.body);
     //This object stores tripInfo for a user
     const userTripInformation = {};
-    userTripInformation.attractions = await getUserTripInfo(userId);
-    userTripInformation.todos = await getUserTripTodo(userId);
+    const trips = await getUserTrip(userId);
+    // userTripInformation.attractions = await getUserTripInfo(userId);
+    // userTripInformation.todos = await getUserTripTodo(userId);
 
-    res.send(userTripInformation);
+    res.send(trips);
   });
 
   router.get("/todo", (req, res) => {

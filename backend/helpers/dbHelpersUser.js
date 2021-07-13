@@ -58,7 +58,7 @@ module.exports = (db) => {
 
   //get user's Trip
 
-  const getUserItrip = (userId) => {
+  const getUserTrip = (userId) => {
     const query = {
       text: `SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
       FROM trip
@@ -68,20 +68,20 @@ module.exports = (db) => {
     };
     return db
       .query(query)
-      .then((result) => result.rows[0])
+      .then((result) => result.rows)
       .catch((err) => err);
   };
 
   //get the city and attractions of the city for a user's trip
-  const getUserTripInfo = (userId) => {
+  const getUserTripAttractions = (trip_id) => {
     const query = {
       text: ` SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
       FROM trip
       JOIN trip_attraction ON trip.id = trip_attraction.trip_id
       JOIN attraction ON trip_attraction.attraction_id = attraction.id
       JOIN todo ON todo.trip_id = trip.id
-      WHERE trip.id = 1;`,
-      values: [userId],
+      WHERE trip.id = $1;`,
+      values: [trip_id],
     };
     // const query = {
     //   text: ` SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
@@ -98,14 +98,14 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const getUserTripTodo = (userId) => {
+  const getUserTripTodo = (trip_id) => {
     const query = {
       text: `SELECT trip.id, todo.id, todo.description
       FROM trip
       JOIN todo ON trip.id = todo.trip_id
-      WHERE trip.id = 1
+      WHERE trip.id = $1
       `,
-      values: [userId],
+      values: [trip_id],
     };
     // const query = {
     //   text: `SELECT trip.id as trip_id, city.short_name, todo.description
@@ -128,7 +128,8 @@ module.exports = (db) => {
     registerUser,
     getToDos,
     removeToDo,
-    getUserTripInfo,
+    getUserTrip,
+    getUserTripAttractions,
     getUserTripTodo,
   };
 };
