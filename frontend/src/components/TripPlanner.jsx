@@ -77,6 +77,7 @@ export default function TripPlanner(props) {
     newAttractions.splice(index, 1);
     setAttractions(newAttractions);
   };
+  console.log("city infor from line 80==>", cityInfo);
 
   const attractionsToVisit = attractions.map((attraction, index) => {
     return (
@@ -103,7 +104,9 @@ export default function TripPlanner(props) {
       <div className="trip-header">
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">
-          <p>Plan your trip here.</p>
+          <p>
+            Plan your trip to <i>{cityInfo.short_name}</i> here.
+          </p>
         </div>
       </div>
       <div className="attractions-todo">
