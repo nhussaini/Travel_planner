@@ -168,31 +168,5 @@ module.exports = ({
     res.json(allData);
   });
 
-  // //Route for Individual City
-  // router.get("/:id", (req, res) => {
-  //   const cityName = req.params.id;
-  //   getCity(cityName).then((city) => {
-  //     // if city doesnt exist in DB return error
-  //     if (city === null) {
-  //       return res.json("Sorry Cant find");
-  //     }
-  //     // if city exist, then grab all the data(details, images, attractions) for the city
-  //     const allData = {};
-  //     Promise.all([
-  //       getCity(cityName),
-  //       getImages(cityName),
-  //       getAttractions(cityName),
-  //       addVisit(city.id, cityName),
-  //     ])
-  //       .then((all) => {
-  //         allData.cityDetails = all[0];
-  //         allData.images = all[1];
-  //         allData.attractions = all[2];
-  //         allData.test = "testing----";
-  //         res.json(allData);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   });
-  // });
   return router;
 };
