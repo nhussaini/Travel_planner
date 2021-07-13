@@ -55,7 +55,7 @@ export default function UserProfile(props) {
       <div className="head">
         <div className="head-background">
           <div className="user-name">
-            <p className="welcome">Welcome to Your Profile</p>
+            <p className="welcome">Welcome to Your Profile,</p>
             <p className="name">{!user ? null : user.first_name}</p>
           </div>
         </div>
