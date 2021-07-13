@@ -19,38 +19,20 @@ export default function TripPlanner(props) {
   const addTodo = (text) => {
     setTodos([...todos, text]);
   };
-  console.log("todos form line 22=>", todos);
 
   //remove a todo
   const removeTodo = (index) => {
-    // axios
-    //   .delete(`/users/todo/${id}`)
-    //   .then((data) => console.log("data after deletion", data));
-    console.log("todo index from line 29******", index);
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
-    console.log("todos state after removing a todo from line 33==>", todos);
-
-    // const newTodos = [...todos.todos];
-    // newTodos.splice(index, 1);
-    // // setTodos(newTodos);
-    // console.log("deleting a todo=>", newTodos);
-    // setTodos((prev) => ({
-    //   ...prev,
-    //   todos: newTodos,
-    // }));
-    // console.log("index==>", index);
   };
 
   // const location = useLocation();
   const { city } = useParams();
-  // console.log("city info===>", cityInfo);
 
   //to fetch data from db for city and city attractions
   useEffect(() => {
     axios.post("/back/cities/new-trip", { city: city }).then((data) => {
-      console.log("data from line 47->", data);
       setCityInfo(data.data.cityInfo);
       setCityAttractions(data.data.cityAttractions);
     });
@@ -77,7 +59,7 @@ export default function TripPlanner(props) {
         todos: todos,
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
   };
 
