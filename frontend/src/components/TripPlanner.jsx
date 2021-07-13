@@ -117,10 +117,10 @@ export default function TripPlanner(props) {
       <div className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
-            <div>
+            <div className="attractions-message">
               <p className="text-display-choosing-attractions">
                 Choose attractions you want to visit in
-                <i> {cityInfo.short_name}</i> by clicking the heart icon.
+                <i> {cityInfo.short_name}</i>.
               </p>
               <button
                 className="btn btn-dark chosen-attrac-btn"
@@ -140,7 +140,7 @@ export default function TripPlanner(props) {
           )}
         </div>
         <div className="cities-todo">
-          <h5 className="chosen-attractions-todo">To-do List</h5>
+          <h5 className="chosen-attractions-todo">Your notes for this trip</h5>
           <ToDoList
             userId={id}
             addTodo={addTodo}
@@ -148,14 +148,17 @@ export default function TripPlanner(props) {
             todos={todos}
           />
         </div>
-        <button
-          className="add-to-profile-btn btn btn-primary"
-          onClick={saveTrip}
-        >
-          Save Trip
-        </button>
-        <button className="btn btn-danger">Cancel Trip</button>
+        <div className="save-cancel-trip">
+          <button
+            className="add-to-profile-btn btn btn-primary"
+            onClick={saveTrip}
+          >
+            Save Trip
+          </button>
+          <button className="btn btn-danger">Cancel Trip</button>
+        </div>
       </div>
+
       {show ? (
         <div className="map-attraction-container">
           <h4 className="title-trip-planner">
