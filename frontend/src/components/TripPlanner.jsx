@@ -70,10 +70,10 @@ export default function TripPlanner(props) {
   const handleClick = () => {
     setShow(true);
   };
-  // console.log("city id", cityInfo.id);
 
+  //save a trip to db
   const saveTrip = () => {
-    console.log("saveTrip function is called");
+    // console.log("saveTrip function is called");
 
     axios
       .post("/api/trip", {
@@ -87,16 +87,22 @@ export default function TripPlanner(props) {
       });
   };
 
-  //update the state for attractions
+  //add chosed attraction to the state attraction
   const addAttraction = (name, img_url, id) => {
     // setAttractions([...attractions, newAttraction]);
     const newAttraction = [...attractions, { name, img_url, id }];
 
     setAttractions(newAttraction);
   };
-  console.log("attractions state line 97->", attractions);
+  console.log("attraction state from line 97=>", attractions);
 
-  const attractionsToVisit = attractions.map((attraction) => {
+  //remove an attraction from state
+  const handleRemoveAttraction = (index) => {
+    //remove attraction from the state
+    console.log("attraction index from handleRemoveAttraction=>", index);
+  };
+
+  const attractionsToVisit = attractions.map((attraction, index) => {
     return (
       <li className="chosen-attractions-list">
         <div className="img-chosen-div">
@@ -105,7 +111,9 @@ export default function TripPlanner(props) {
         <p className="chosen-attraction-name">{attraction.name}</p>
         <button
           className="chosen-attraction-delete"
-          // onClick={}
+          onClick={() => {
+            handleRemoveAttraction(index);
+          }}
         >
           x
         </button>
