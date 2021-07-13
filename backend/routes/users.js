@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
+module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo }) => {
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
     registerUser(firstName, lastName, email, password).then((data) =>
@@ -23,7 +23,11 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
 
   router.post("/user-trip",(req,res) => {
     console.log("this route is reached");
-    console.log("req.body from user-trip",req.body);
+    const {userId} = req.body
+    console.log("userId from /user-trip route",userId);
+    getUserTripInfo(userId).then((data) =>{
+      console.log("userTripInfo from /user-trip", data);
+    })
 
   })
 
@@ -32,7 +36,6 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo }) => {
   });
   
   router.delete("/todo/:id", (req, res) => {
-    console.log("req====>",req.params.id);
     const id = req.params.id;
     
     // console.log("req.param.id===>", index);

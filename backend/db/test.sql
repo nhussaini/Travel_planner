@@ -34,7 +34,7 @@
   JOIN users on trip.user_id = users.id
   JOIN trip_attraction on trip_attraction.trip_id = trip.id
   JOIN attraction on trip_attraction.attraction_id = attraction.id
-  WHERE user_id = 3;
+  WHERE users.id = 3;
 
   SELECT trip.id as trip_id, city.short_name, todo.description
   FROM city
