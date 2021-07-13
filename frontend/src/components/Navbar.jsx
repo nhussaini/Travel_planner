@@ -2,10 +2,6 @@ import "styles/nav.scss";
 import { Navbar, Nav, Button } from "react-bootstrap";
 
 export default function NavBar() {
-  console.log("current user******", localStorage.getItem("user"));
-  const isLoggedIn = window.localStorage.getItem("user") ? true : false;
-  //const logout = window.localStorage.removeItem("user");
-
   function logout() {
     localStorage.clear();
   }
@@ -30,7 +26,6 @@ export default function NavBar() {
       </>
     );
   } else {
-    //sessionStorage.clear();
     return (
       <>
         <Navbar bg="dark" variant="dark" className="nav-container" sticky="top">
