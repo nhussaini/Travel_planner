@@ -56,6 +56,7 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  //get the city and attractions of the city for a user's trip
   const getUserTripInfo = (userId) => {
     const query = {
       text: ` SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
@@ -72,10 +73,23 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  // const query = {
-  //   text: `SELECT * from city WHERE short_name = ($1)`,
-  //   values: [name],
-  // };
+  const getUserTripTodo = (userId) =>{
+    const query = {
+      text: `SELECT trip.id as trip_id, city.short_name, todo.description
+      FROM city
+      JOIN trip on trip.city_id = city.id
+      JOIN users on trip.user_id = users.id
+      JOIN todo on todo.trip_id = trip.id
+      WHERE users.id = ($1)`,
+      values: [userId]
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+
+  }
+ 
 
   return {
     getUsers,

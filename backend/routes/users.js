@@ -22,9 +22,7 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo
   });
 
   router.post("/user-trip",(req,res) => {
-    console.log("this route is reached");
     const {userId} = req.body
-    console.log("userId from /user-trip route",userId);
     getUserTripInfo(userId).then((data) =>{
       console.log("userTripInfo from /user-trip", data);
     })
