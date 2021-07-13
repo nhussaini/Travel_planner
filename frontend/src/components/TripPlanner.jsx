@@ -94,13 +94,15 @@ export default function TripPlanner(props) {
 
     setAttractions(newAttraction);
   };
+  console.log("attractions state line 97->", attractions);
+
   const attractionsToVisit = attractions.map((attraction) => {
     return (
       <li className="chosen-attractions-list">
         <div className="img-chosen-div">
           <img src={attraction.img_url} alt={attraction.attractionName} />
         </div>
-        <p className="chosen-attraction-name">{attraction.attractionName}</p>
+        <p className="chosen-attraction-name">{attraction.name}</p>
         <button
           className="chosen-attraction-delete"
           // onClick={}
