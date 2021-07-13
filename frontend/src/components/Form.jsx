@@ -11,8 +11,9 @@ export default function Form(props) {
   }
 
   function handleSubmit(e) {
-    setError(false);
     e.preventDefault();
+    setError(false);
+    props.resetError();
     if (!input) {
       setError(true);
     }
@@ -46,3 +47,6 @@ export default function Form(props) {
     </form>
   );
 }
+
+// empty form gives error: error true
+// wrong city give error, error: false, props.error true

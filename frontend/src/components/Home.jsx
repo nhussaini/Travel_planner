@@ -19,6 +19,8 @@ export default function Home(props) {
   let history = useHistory();
   // const { state } = useTest();
 
+  const resetError = () => setCitySearchError(false);
+
   function fetchCity(city) {
     setLoader(true);
     setLocation(city);
@@ -50,6 +52,7 @@ export default function Home(props) {
             <Form
               fetchCity={fetchCity}
               error={citySearchError ? location : null}
+              resetError={resetError}
             />
           </div>
         )}
