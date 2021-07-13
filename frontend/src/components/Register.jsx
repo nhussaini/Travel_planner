@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import NavBar from "components/NavBar";
@@ -56,6 +56,16 @@ export default function Register(props) {
         .catch((err) => setAlert(true));
     }
   }
+
+  useEffect(() => {
+    //get the logged in userdata from local storge
+    let userData = localStorage.getItem("user");
+    userData = JSON.parse(userData);
+    //get the user id
+    if (userData) {
+      history.push("/");
+    }
+  });
 
   return (
     <div className="register-bg">

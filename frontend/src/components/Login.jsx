@@ -4,6 +4,7 @@ import "../styles/Login.scss";
 import { useHistory } from "react-router-dom";
 import NavBar from "components/NavBar";
 import Alert from "react-bootstrap/Alert";
+import { useEffect } from "react";
 
 export default function Login(props) {
   let history = useHistory();
@@ -11,13 +12,6 @@ export default function Login(props) {
   const [password, setPassword] = useState({});
   const [error, setError] = useState(false);
   const [alert, setAlert] = useState(false);
-
-  // const user = {};
-  // user.name = "Bob";
-  // user.id = 1;
-  // user.email = "bob@gmail.com";
-
-  // localStorage.setItem("user", JSON.stringify(user));
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -52,6 +46,15 @@ export default function Login(props) {
         });
     }
   }
+  useEffect(() => {
+    //get the logged in userdata from local storge
+    let userData = localStorage.getItem("user");
+    userData = JSON.parse(userData);
+    //get the user id
+    if (userData) {
+      history.push("/");
+    }
+  });
 
   return (
     <div className="login-bg">
