@@ -38,3 +38,18 @@
 
 SELECT long_name FROM "city"
 WHERE short_name ILIKE 'dhak%';
+  SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
+  FROM city
+  JOIN trip on trip.city_id = city.id
+  JOIN users on trip.user_id = users.id
+  JOIN trip_attraction on trip_attraction.trip_id = trip.id
+  JOIN attraction on trip_attraction.attraction_id = attraction.id
+  WHERE users.id = 3;
+
+  SELECT trip.id as trip_id, city.short_name, todo.description
+  FROM city
+  JOIN trip on trip.city_id = city.id
+  JOIN users on trip.user_id = users.id
+  JOIN todo on todo.trip_id = trip.id
+  WHERE users.id = 3;
+
