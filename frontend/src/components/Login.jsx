@@ -51,9 +51,6 @@ export default function Login(props) {
           }
         });
     }
-    // .catch((error) => {
-    //   console.log(error);
-    // });
   }
 
   return (

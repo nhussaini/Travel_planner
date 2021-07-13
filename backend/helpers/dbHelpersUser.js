@@ -24,14 +24,14 @@ module.exports = (db) => {
 
   const removeToDo = (id) => {
     const query = {
-      text : `DELETE FROM todo WHERE id = ($1) RETURNING *`,
-      values: [id]
+      text: `DELETE FROM todo WHERE id = ($1) RETURNING *`,
+      values: [id],
     };
     return db
-    .query(query)
-    .then((result) => result.rows[0])
-    .catch((err) => err);
-  }
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
 
   const getToDos = () => {
     const query = {
@@ -71,6 +71,6 @@ module.exports = (db) => {
     addToDo,
     registerUser,
     getToDos,
-    removeToDo
+    removeToDo,
   };
 };

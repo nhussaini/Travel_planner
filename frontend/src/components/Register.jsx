@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
 import NavBar from "components/NavBar";
 import "../styles/Register.scss";
 
@@ -10,44 +11,62 @@ export default function Register(props) {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
+    setError(false);
   }
 
   function handleLastNameChange(e) {
     setLastName(e.target.value);
+    setError(false);
   }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
+    setError(false);
   }
 
   function handlePasswordChange(e) {
     setPassword(e.target.value);
+    setError(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios
-      .post("/users", {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-      })
-      .then((data) => {
-        const user = data.data;
-        localStorage.setItem("user", JSON.stringify(user));
-        history.push(`/`);
+    if (!firstName || !lastName || !email || !password) {
+      setError(true);
+    } else {
+      axios
+        .post("/users", {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password,
+        })
+        .then((data) => {
+          const user = data.data;
+          localStorage.setItem("user", JSON.stringify(user));
+          history.push(`/`);
 
-        console.log(data);
-      });
+          console.log(data);
+        })
+        .catch((err) => setAlert(true));
+    }
   }
 
   return (
     <div className="register-bg">
       <NavBar />
+      <Alert
+        className={alert || error ? "login-error-show" : "login-error-hide"}
+        variant="danger"
+      >
+        <span>{alert ? `Sorry, Try again!` : null}</span>
+        <span>{error ? `Fill up the Form please!` : null}</span>
+      </Alert>
       <div className="top-div">
         <div className="register-box col-md-6 col-sm-9">
           <div className="register-title">Register</div>
