@@ -14,17 +14,23 @@ import axios from "axios";
 
 export default function Home(props) {
   const [loader, setLoader] = useState(false);
+  const [location, setLocation] = useState("");
+  const [citySearchError, setCitySearchError] = useState(false);
   let history = useHistory();
   // const { state } = useTest();
 
   function fetchCity(city) {
     setLoader(true);
+    setLocation(city);
     axios.post("/api/cities/getCityData", { userInput: city }).then((data) => {
-      console.log("line 23----", data.data);
       setLoader(false);
-      history.push({
-        pathname: `/cities/${city}`,
-      });
+      if (!data.data) {
+        setCitySearchError(true);
+      } else {
+        history.push({
+          pathname: `/cities/${city}`,
+        });
+      }
     });
   }
   return (
@@ -40,7 +46,12 @@ export default function Home(props) {
             <div>Loading.....</div>
           </div>
         ) : (
-          <Form fetchCity={fetchCity} />
+          <div className="form-container">
+            <Form
+              fetchCity={fetchCity}
+              error={citySearchError ? location : null}
+            />
+          </div>
         )}
       </section>
       <TrendingCities />

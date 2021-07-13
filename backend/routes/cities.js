@@ -41,7 +41,9 @@ module.exports = ({
         roadGoatApiAuth
       );
       // Do Error handling if City not found here----
-
+      if (!locationId.data.data.length) {
+        return res.send(null);
+      }
       const fetchedCityData = await axios.get(
         `https://api.roadgoat.com/api/v2/destinations/${locationId.data.data[0].id}`,
         roadGoatApiAuth

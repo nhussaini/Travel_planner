@@ -18,6 +18,10 @@
     font-size: 2rem;
     padding-bottom: 100px;
   }
+
+  .form-container {
+    align-self: flex-end;
+  }
 }
 
 .input-form {
@@ -27,7 +31,6 @@
   justify-content: center;
   min-width: 45vw;
   // max-width: 50vw;
-  align-self: flex-end;
   padding-bottom: 50px;
   div {
     min-width: 30vw;
@@ -38,7 +41,7 @@
 }
 
 .error-message {
-  color: #f70707;
+  color: #f15b5b;
   font-weight: 600;
   font-size: 1.2rem;
   margin-top: 1%;

@@ -11,6 +11,7 @@ export default function Form(props) {
   }
 
   function handleSubmit(e) {
+    setError(false);
     e.preventDefault();
     if (!input) {
       setError(true);
@@ -20,6 +21,7 @@ export default function Form(props) {
       props.fetchCity(cityCapitalized);
     }
   }
+  console.log(props.error);
   return (
     <form className="input-form" onSubmit={handleSubmit}>
       <div>
@@ -36,7 +38,10 @@ export default function Form(props) {
         Submit
       </button>
       <div className="error-message">
-        {!input && error ? `Please type a city name!` : null}
+        {error ? `Please type a city name!` : null}
+        {!error && props.error
+          ? `Sorry, we couldn't find "${props.error}" worldwide, try a different city. `
+          : null}
       </div>
     </form>
   );
