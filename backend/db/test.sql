@@ -62,11 +62,16 @@
 -- WHERE trip.user_id = '1';
 
 -- -- Get Attraction
-SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
+-- SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
+-- FROM trip
+-- JOIN trip_attraction ON trip.id = trip_attraction.trip_id
+-- JOIN attraction ON trip_attraction.attraction_id = attraction.id
+-- JOIN todo ON todo.trip_id = trip.id
+-- WHERE trip.id = 2;
+SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating
 FROM trip
 JOIN trip_attraction ON trip.id = trip_attraction.trip_id
 JOIN attraction ON trip_attraction.attraction_id = attraction.id
-JOIN todo ON todo.trip_id = trip.id
 WHERE trip.id = 2;
 
 -- -- Get Todo
