@@ -20,11 +20,12 @@ module.exports = (db) => {
 
       const user = data.rows[0];
       if (user.password !== password) {
-        return res
-          .status(400)
-          .send({ message: "Invalid password", status: "error" });
+        return res.send(null);
       }
+      console.log("Before---", user);
       delete user.password;
+      console.log("its a Match!!!!");
+      console.log(user);
       return res.status(200).send(user);
     });
   });

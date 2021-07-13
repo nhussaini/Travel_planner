@@ -59,3 +59,15 @@
     }
   }
 }
+
+.login-error-hide {
+  min-height: 60px;
+  display: block;
+  border: none;
+  background-color: transparent;
+}
+
+.login-error-show {
+  min-height: 60px;
+  display: block;
+}

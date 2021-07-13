@@ -3,11 +3,13 @@ import axios from "axios";
 import "../styles/Login.scss";
 import { useHistory } from "react-router-dom";
 import NavBar from "components/NavBar";
+import Alert from "react-bootstrap/Alert";
 
 export default function Login(props) {
   let history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState({});
+  const [alert, setAlert] = useState(false);
 
   // const user = {};
   // user.name = "Bob";
@@ -18,10 +20,12 @@ export default function Login(props) {
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
+    setAlert(false);
   }
 
   function handlePasswordChange(e) {
     setPassword(e.target.value);
+    setAlert(false);
   }
 
   function handleSubmit(e) {
@@ -29,21 +33,31 @@ export default function Login(props) {
     axios
       .post("/userslogin", { email: email, password: password })
       .then((data) => {
-        const user = data.data;
-        localStorage.setItem("user", JSON.stringify(user));
-        // history.push(`/users/${user.id}`);
-        history.push("/");
-
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error);
+        // console.log("if no match", data.data);
+        if (!data.data) {
+          setAlert(true);
+        } else {
+          const user = data.data;
+          localStorage.setItem("user", JSON.stringify(user));
+          // history.push(`/users/${user.id}`);
+          history.push("/");
+          console.log(user);
+        }
       });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   }
 
   return (
     <div className="login-bg">
       <NavBar />
+      <Alert
+        className={alert ? "login-error-show" : "login-error-hide"}
+        variant="danger"
+      >
+        <span>{alert ? `Wrong Credentials, Try Again!` : null}</span>
+      </Alert>
       <div className="top-div-login">
         <div className="login-box">
           <div className="login-title">Login</div>
