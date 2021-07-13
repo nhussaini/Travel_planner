@@ -9,20 +9,30 @@ export default function UserProfile(props) {
   // const [user, setUser] = useState();
   // const trip = [1];
   // let history = useHistory();
+  // const [userTripInfo, setUserTripInfo] = useState({
+  //   userAttractions: [],
+  //   userTodos: [],
+  // });
+  const [userTripAttractions, setUserTripAttractions] = useState([]);
+  const [userTripTodos, setUserTripTodos] = useState([]);
 
   // localStorage.clear();
   let userData = localStorage.getItem("user");
-  console.log("----------------->", userData);
+  // console.log("----------------->", userData);
 
   userData = JSON.parse(userData);
   // setUser(userData);
-  console.log("userData----------------->", userData);
+  // console.log("userData----------------->", userData);
 
   useEffect(() => {
     axios.post("/users/user-trip", { userId: userData.id }).then((data) => {
       console.log("userProfile trip: ", data);
+      setUserTripAttractions(data.data.attractions);
+      setUserTripTodos(data.data.todos);
     });
   }, []);
+  console.log("userTripAttractions==>", userTripAttractions);
+  console.log("userTripTodos==>", userTripTodos);
 
   // if (!userData) {
   //   history.push("/login");
