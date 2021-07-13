@@ -16,7 +16,8 @@ export default function Form(props) {
       setError(true);
     }
     if (input && !error) {
-      props.fetchCity(input);
+      const cityCapitalized = input.charAt(0).toUpperCase() + input.slice(1);
+      props.fetchCity(cityCapitalized);
     }
   }
   return (
