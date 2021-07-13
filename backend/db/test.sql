@@ -56,10 +56,10 @@
 
 -- Getting all user trip
 
--- SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
--- FROM trip
--- JOIN city ON trip.city_id = city.id
--- WHERE trip.user_id = '1';
+SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
+FROM trip
+JOIN city ON trip.city_id = city.id
+WHERE trip.user_id = '1';
 
 -- Get Attraction
 SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
