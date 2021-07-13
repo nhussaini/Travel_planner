@@ -1,22 +1,9 @@
 import "styles/nav.scss";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
 export default function NavBar() {
   let history = useHistory();
-  //console.log("USER ID >>>>>>", localStorage.getItem("user"));
-  //const getUserID = localStorage.getItem("user");
-  //console.log(getUserID.id);
-  // const id = JSON.stringify(getUserID);
-  // //console.log("ID >>>", id);
-
-  //function getUserID(user) {
-  // const obj = JSON.parse(localStorage.getItem("user"));
-  // console.log("json id>>>>>>", obj.id);
-  // const userProfile = `/users/${obj.id}`;
-  // console.log("user prof", userProfile);
-  // }
 
   function handleClick(e) {
     e.preventDefault();
