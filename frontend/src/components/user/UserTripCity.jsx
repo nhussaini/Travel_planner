@@ -1,4 +1,3 @@
-import { propTypes } from "react-bootstrap/esm/Image";
 import Button from "react-bootstrap/Button";
 
 export default function userProfileCity(props) {
