@@ -25,10 +25,10 @@ export default function NavBar() {
             <span>TREK</span>
           </Navbar.Brand>
           <Nav className="mr-auto navbar-links">
-            <Button href="/login" className="btn btn-light">
+            <Button href="/login" className="btn btn-light btn-sm">
               Login
             </Button>
-            <Button href="/register" className="btn btn-light">
+            <Button href="/register" className="btn btn-light btn-sm">
               Register
             </Button>
           </Nav>
@@ -43,12 +43,12 @@ export default function NavBar() {
             <span>TREK</span>
           </Navbar.Brand>
           <Nav className="mr-auto navbar-links">
-            <Button className="btn btn-light mx-2" onClick={handleClick}>
+            <Button className="btn btn-light mx-2 btn-sm" onClick={handleClick}>
               Your Profile
             </Button>
             <Button
               href="/login"
-              className="btn btn-secondary"
+              className="btn btn-secondary btn-sm"
               onClick={logout}
             >
               Logout

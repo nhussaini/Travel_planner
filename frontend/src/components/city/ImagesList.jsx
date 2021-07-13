@@ -32,7 +32,7 @@ export default function ImagesList(props) {
             />
           )}
           <button
-            className=" btn btn-success overlay-button"
+            className=" btn btn-success overlay-button btn-sm"
             onClick={handleShow}
           >
             See All Images
