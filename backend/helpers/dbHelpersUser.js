@@ -75,7 +75,7 @@ module.exports = (db) => {
   //get the city and attractions of the city for a user's trip
   const getUserTripAttractions = (trip_id) => {
     const query = {
-      text: ` SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating
+      text: ` SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.image_url, attraction.rating
       FROM trip
       JOIN trip_attraction ON trip.id = trip_attraction.trip_id
       JOIN attraction ON trip_attraction.attraction_id = attraction.id
