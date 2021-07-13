@@ -3,26 +3,23 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({addTrip, addTripAttractions, addTripTodos}) => {
-  router.post("/", async(req, res) => {
-
-    const {userId, cityId, attractions, todos} = req.body;
-    
+module.exports = ({ addTrip, addTripAttractions, addTripTodos }) => {
+  router.post("/", async (req, res) => {
+    const { userId, cityId, attractions, todos } = req.body;
+    console.log(req.body);
     //add a new trip to db
-    const newTrip = await addTrip(userId,cityId)
-    
-    const promisesAttractions = attractions.map((attraction)=> {
+    const newTrip = await addTrip(userId, cityId);
+
+    const promisesAttractions = attractions.map((attraction) => {
       //add attractions of a trip to db
-      addTripAttractions(newTrip.id, attraction.id)      
+      addTripAttractions(newTrip.id, attraction.id);
     });
 
     const promisesTodos = todos.map((todo) => {
-      addTripTodos(todo.description, userId,newTrip.id);
-    })
-    
+      addTripTodos(todo.description, userId, newTrip.id);
+    });
+
     await Promise.all(promisesAttractions, promisesTodos);
-    
-  
   });
   return router;
 };

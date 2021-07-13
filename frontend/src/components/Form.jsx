@@ -47,6 +47,3 @@ export default function Form(props) {
     </form>
   );
 }
-
-// empty form gives error: error true
-// wrong city give error, error: false, props.error true

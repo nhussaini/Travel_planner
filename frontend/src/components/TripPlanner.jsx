@@ -14,35 +14,39 @@ export default function TripPlanner(props) {
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
   //state for todos
-  const [state, setState] = useState({
-    todos: [],
-  });
+  // const [state, setState] = useState({
+  //   todos: [],
+  // });
+  const [todos, setTodos] = useState([]);
 
   //add a todo
+  // const addTodo = (text) => {
+  //   const newTodos = [...state.todos, { description: text }];
+  //   setState((prev) => ({
+  //     ...prev,
+  //     todos: newTodos,
+  //   }));
+  // };
   const addTodo = (text) => {
-    const newTodos = [...state.todos, { description: text }];
-    setState((prev) => ({
-      ...prev,
-      todos: newTodos,
-    }));
+    setTodos([...todos, text]);
   };
 
   //remove a todo
-  const removeTodo = (id, index) => {
-    axios
-      .delete(`/users/todo/${id}`)
-      .then((data) => console.log("data after deletion", data));
+  // const removeTodo = (id, index) => {
+  //   axios
+  //     .delete(`/users/todo/${id}`)
+  //     .then((data) => console.log("data after deletion", data));
 
-    const newTodos = [...state.todos];
-    newTodos.splice(index, 1);
-    // setTodos(newTodos);
-    console.log("deleting a todo=>", newTodos);
-    setState((prev) => ({
-      ...prev,
-      todos: newTodos,
-    }));
-    console.log("index==>", index);
-  };
+  //   const newTodos = [...state.todos];
+  //   newTodos.splice(index, 1);
+  //   // setTodos(newTodos);
+  //   console.log("deleting a todo=>", newTodos);
+  //   setState((prev) => ({
+  //     ...prev,
+  //     todos: newTodos,
+  //   }));
+  //   console.log("index==>", index);
+  // };
 
   // const location = useLocation();
   const { city } = useParams();
@@ -76,7 +80,7 @@ export default function TripPlanner(props) {
         userId: id,
         cityId: cityInfo.id,
         attractions: attractions,
-        todos: state.todos,
+        todos: todos,
       })
       .then((data) => {
         console.log(data);
@@ -142,8 +146,8 @@ export default function TripPlanner(props) {
           <ToDoList
             userId={id}
             addTodo={addTodo}
-            removeTodo={removeTodo}
-            todos={state.todos}
+            // removeTodo={removeTodo}
+            todos={todos}
           />
         </div>
       </div>

@@ -57,7 +57,7 @@ export default function ToDoList(props) {
           index={index}
           todo={todo}
           // completeTodo={completeTodo}
-          removeTodo={props.removeTodo}
+          // removeTodo={props.removeTodo}
         />
       ))}
 
