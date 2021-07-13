@@ -36,20 +36,42 @@
 -- WHERE user_id = 3
 -- GROUP By trip.trip_id;
 
-SELECT long_name FROM "city"
-WHERE short_name ILIKE 'dhak%';
-  SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
-  FROM city
-  JOIN trip on trip.city_id = city.id
-  JOIN users on trip.user_id = users.id
-  JOIN trip_attraction on trip_attraction.trip_id = trip.id
-  JOIN attraction on trip_attraction.attraction_id = attraction.id
-  WHERE users.id = 3;
+-- SELECT long_name FROM "city"
+-- WHERE short_name ILIKE 'dhak%';
+--   SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
+--   FROM city
+--   JOIN trip on trip.city_id = city.id
+--   JOIN users on trip.user_id = users.id
+--   JOIN trip_attraction on trip_attraction.trip_id = trip.id
+--   JOIN attraction on trip_attraction.attraction_id = attraction.id
+--   WHERE users.id = 3;
 
-  SELECT trip.id as trip_id, city.short_name, todo.description
-  FROM city
-  JOIN trip on trip.city_id = city.id
-  JOIN users on trip.user_id = users.id
-  JOIN todo on todo.trip_id = trip.id
-  WHERE users.id = 3;
+--   SELECT trip.id as trip_id, city.short_name, todo.description
+--   FROM city
+--   JOIN trip on trip.city_id = city.id
+--   JOIN users on trip.user_id = users.id
+--   JOIN todo on todo.trip_id = trip.id
+--   WHERE users.id = 3;
 
+
+-- Getting all user trip
+
+-- SELECT trip.id, trip.user_id, city.short_name, city.image_url, city.long_name 
+-- FROM trip
+-- JOIN city ON trip.city_id = city.id
+-- WHERE trip.user_id = '1';
+
+-- Get Attraction
+SELECT trip.id, trip.user_id , trip_attraction.attraction_id as attraction_id, attraction.name, attraction.rating, todo.description
+FROM trip
+JOIN trip_attraction ON trip.id = trip_attraction.trip_id
+JOIN attraction ON trip_attraction.attraction_id = attraction.id
+JOIN todo ON todo.trip_id = trip.id
+WHERE trip.id = 1;
+
+-- Get Todo
+
+SELECT trip.id, todo.id, todo.description
+FROM trip
+JOIN todo ON trip.id = todo.trip_id
+WHERE trip.id = 1
