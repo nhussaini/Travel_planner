@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import ToDoList from "./ToDoList";
+import userProfileCity from "./userProfileCity";
+
 import axios from "axios";
 
 export default function UserProfile(props) {
@@ -29,10 +31,6 @@ export default function UserProfile(props) {
   console.log("userTripAttractions==>", userTripAttractions);
   console.log("userTripTodos==>", userTripTodos);
 
-  // if (!userData) {
-  //   history.push("/login");
-  // }
-
   return (
     // <div>user Profile</div>
     <div>
@@ -42,10 +40,23 @@ export default function UserProfile(props) {
           <div className="user-name">
             <p className="welcome">Welcome to Your Profile</p>
             <p className="name">{!user ? null : user.first_name}</p>
-            {/* <p>{!user ? null : user.email}</p> */}
           </div>
         </div>
       </div>
+      <userProfileCity />
+      {/* <div className="card">
+        <img className="card-img-top" src="..." alt="Card image cap" />
+        <div className="card-body">
+          <h5 className="card-title">Card title</h5>
+          <p className="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">
+            Go somewhere
+          </a>
+        </div>
+      </div> */}
     </div>
   );
 }
