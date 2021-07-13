@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
@@ -15,6 +15,10 @@ export default function TripPlanner(props) {
   const [attractions, setAttractions] = useState([]);
   const [todos, setTodos] = useState([]);
 
+  // if (!attractions.length) {
+  //   setShow(false);
+  // }
+
   //add a new todo
   const addTodo = (text) => {
     setTodos([...todos, text]);
@@ -27,7 +31,6 @@ export default function TripPlanner(props) {
     setTodos(newTodos);
   };
 
-  // const location = useLocation();
   const { city } = useParams();
 
   //to fetch data from db for city and city attractions
@@ -45,7 +48,7 @@ export default function TripPlanner(props) {
   const id = userData ? userData.id : null;
 
   //diplay the content conditionally
-  const handleClick = () => {
+  const handleDisplayAttraction = () => {
     setShow(true);
   };
 
@@ -76,12 +79,14 @@ export default function TripPlanner(props) {
     const newAttractions = [...attractions];
     newAttractions.splice(index, 1);
     setAttractions(newAttractions);
+    if (newAttractions.length === 0) {
+      setShow(false);
+    }
   };
-  console.log("city infor from line 80==>", cityInfo);
 
   const attractionsToVisit = attractions.map((attraction, index) => {
     return (
-      <li className="chosen-attractions-list">
+      <li className="chosen-attractions-list" key={index}>
         <div className="img-chosen-div">
           <img src={attraction.img_url} alt={attraction.attractionName} />
         </div>
@@ -112,9 +117,18 @@ export default function TripPlanner(props) {
       <div className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
-            <p className="text-display-choosing-attractions">
-              Choose attractions you want to visit by clicking the heart icon.
-            </p>
+            <div>
+              <p className="text-display-choosing-attractions">
+                Choose attractions you want to visit in
+                <i> {cityInfo.short_name}</i> by clicking the heart icon.
+              </p>
+              <button
+                className="btn btn-dark chosen-attrac-btn"
+                onClick={handleDisplayAttraction}
+              >
+                Attractions
+              </button>
+            </div>
           ) : (
             <div className="chosen-attractions-parent">
               <h5 className="chosen-attractions-title">My Activties</h5>
@@ -134,10 +148,13 @@ export default function TripPlanner(props) {
             todos={todos}
           />
         </div>
-        <button className="add-to-profile-btn" onClick={saveTrip}>
-          Save Your Trip
+        <button
+          className="add-to-profile-btn btn btn-primary"
+          onClick={saveTrip}
+        >
+          Save Trip
         </button>
-        <button>Cancel Your Trip</button>
+        <button className="btn btn-danger">Cancel Trip</button>
       </div>
       {show ? (
         <div className="map-attraction-container">
@@ -159,14 +176,7 @@ export default function TripPlanner(props) {
             />
           </section>
         </div>
-      ) : (
-        <button
-          className="btn btn-dark chosen-attrac-btn"
-          onClick={handleClick}
-        >
-          Attractions
-        </button>
-      )}
+      ) : null}
     </div>
   );
 }
