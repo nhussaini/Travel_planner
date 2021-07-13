@@ -49,7 +49,7 @@ export default function Register(props) {
     <div className="register-bg">
       <NavBar />
       <div className="top-div">
-        <div className="register-box">
+        <div className="register-box col-md-6 col-sm-9">
           <div className="register-title">Register</div>
           <div className="input-forms-register">
             <form onSubmit={handleSubmit}>
