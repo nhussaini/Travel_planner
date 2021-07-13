@@ -100,6 +100,10 @@ export default function TripPlanner(props) {
   const handleRemoveAttraction = (index) => {
     //remove attraction from the state
     console.log("attraction index from handleRemoveAttraction=>", index);
+    const newAttractions = [...attractions];
+    console.log("new Attractions array", newAttractions);
+    newAttractions.splice(index, 1);
+    setAttractions(newAttractions);
   };
 
   const attractionsToVisit = attractions.map((attraction, index) => {
