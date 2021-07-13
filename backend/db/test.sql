@@ -28,10 +28,14 @@
 -- JOIN attraction on trip_attraction.attraction_id = attraction.id
 -- WHERE trip_attraction.trip_id = 13;
 
-SELECT city.short_name, attraction.name, attraction.image_url
-FROM attraction
-JOIN trip_attraction on trip_attraction.attraction_id = attraction.id
-JOIN  trip on trip_attraction.trip.id = trip.id
-JOIN users on trip.user_id = users.id
-WHERE user_id = 3
-GROUP By trip.trip_id;
+  SELECT city.short_name, attraction.name, attraction.image_url
+  FROM city
+  JOIN trip on trip.city_id = city.id
+  JOIN users on trip.user_id = users.id
+  JOIN trip_attraction on trip_attraction.trip_id = trip.id
+  JOIN attraction on trip_attraction.attraction_id = attraction.id
+  WHERE user_id = 3;
+
+  SELECT city.short_name as city-name
+  FROM city
+  JOIN
