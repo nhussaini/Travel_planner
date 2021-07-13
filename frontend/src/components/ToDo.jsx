@@ -16,10 +16,7 @@ export default function ToDo({ todo, index, completeTodo, removeTodo }) {
           >
             ✓
           </button>
-          <button
-            className="todo-delete-btn"
-            onClick={() => removeTodo(todo.id, index)}
-          >
+          <button className="todo-delete-btn" onClick={() => removeTodo(index)}>
             x
           </button>
         </div>

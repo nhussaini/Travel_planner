@@ -13,40 +13,35 @@ export default function TripPlanner(props) {
   const [cityAttractions, setCityAttractions] = useState([]);
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
-  //state for todos
-  // const [state, setState] = useState({
-  //   todos: [],
-  // });
   const [todos, setTodos] = useState([]);
 
-  //add a todo
-  // const addTodo = (text) => {
-  //   const newTodos = [...state.todos, { description: text }];
-  //   setState((prev) => ({
-  //     ...prev,
-  //     todos: newTodos,
-  //   }));
-  // };
+  //add a new todo
   const addTodo = (text) => {
     setTodos([...todos, text]);
   };
+  console.log("todos form line 22=>", todos);
 
   //remove a todo
-  // const removeTodo = (id, index) => {
-  //   axios
-  //     .delete(`/users/todo/${id}`)
-  //     .then((data) => console.log("data after deletion", data));
+  const removeTodo = (index) => {
+    // axios
+    //   .delete(`/users/todo/${id}`)
+    //   .then((data) => console.log("data after deletion", data));
+    console.log("todo index from line 29******", index);
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+    console.log("todos state after removing a todo from line 33==>", todos);
 
-  //   const newTodos = [...state.todos];
-  //   newTodos.splice(index, 1);
-  //   // setTodos(newTodos);
-  //   console.log("deleting a todo=>", newTodos);
-  //   setState((prev) => ({
-  //     ...prev,
-  //     todos: newTodos,
-  //   }));
-  //   console.log("index==>", index);
-  // };
+    // const newTodos = [...todos.todos];
+    // newTodos.splice(index, 1);
+    // // setTodos(newTodos);
+    // console.log("deleting a todo=>", newTodos);
+    // setTodos((prev) => ({
+    //   ...prev,
+    //   todos: newTodos,
+    // }));
+    // console.log("index==>", index);
+  };
 
   // const location = useLocation();
   const { city } = useParams();
@@ -55,6 +50,7 @@ export default function TripPlanner(props) {
   //to fetch data from db for city and city attractions
   useEffect(() => {
     axios.post("/back/cities/new-trip", { city: city }).then((data) => {
+      console.log("data from line 47->", data);
       setCityInfo(data.data.cityInfo);
       setCityAttractions(data.data.cityAttractions);
     });
@@ -71,10 +67,8 @@ export default function TripPlanner(props) {
     setShow(true);
   };
 
-  //save a trip to db
+  //save a trip for a user to db
   const saveTrip = () => {
-    // console.log("saveTrip function is called");
-
     axios
       .post("/api/trip", {
         userId: id,
@@ -94,14 +88,10 @@ export default function TripPlanner(props) {
 
     setAttractions(newAttraction);
   };
-  console.log("attraction state from line 97=>", attractions);
 
   //remove an attraction from state
   const handleRemoveAttraction = (index) => {
-    //remove attraction from the state
-    console.log("attraction index from handleRemoveAttraction=>", index);
     const newAttractions = [...attractions];
-    console.log("new Attractions array", newAttractions);
     newAttractions.splice(index, 1);
     setAttractions(newAttractions);
   };
@@ -155,7 +145,7 @@ export default function TripPlanner(props) {
           <ToDoList
             userId={id}
             addTodo={addTodo}
-            // removeTodo={removeTodo}
+            removeTodo={removeTodo}
             todos={todos}
           />
         </div>
