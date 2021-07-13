@@ -33,6 +33,10 @@ main {
       rgba(242, 152, 152, 1) 100%,
       rgba(0, 212, 255, 1) 100%
     );
+    &:hover {
+      //color: #000000;
+      background: #292b2c;
+    }
   }
 }
 .map-attraction-container {

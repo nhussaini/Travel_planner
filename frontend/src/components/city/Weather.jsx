@@ -28,7 +28,7 @@ export default function Weather(props) {
       </div>
       <p className="text-wrap p-2">{props.description}</p>
       <p className="min-max-temp">
-        Max:{Math.round(props.maxTemp)} Min:{Math.round(props.minTemp)}
+        High:{Math.round(props.maxTemp)} Low:{Math.round(props.minTemp)}
       </p>
     </div>
 
