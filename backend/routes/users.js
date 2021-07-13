@@ -9,7 +9,7 @@ module.exports = ({
   getToDos,
   removeToDo,
   getUserTrip,
-  getUserTripInfo,
+  getUserTripAttractions,
   getUserTripTodo,
 }) => {
   router.post("/", (req, res, next) => {
@@ -43,6 +43,15 @@ module.exports = ({
     // userTripInformation.todos = await getUserTripTodo(userId);
 
     res.send(trips);
+  });
+
+  // Get trip attractions and todos
+  router.post("/trip-data", async (req, res) => {
+    const { trip_id } = req.body;
+    const tripData = {};
+    tripData.attractions = await getUserTripAttractions(trip_id);
+    tripData.todos = await getUserTripTodo(trip_id);
+    res.send(tripData);
   });
 
   router.get("/todo", (req, res) => {

@@ -1,11 +1,10 @@
 import "../styles/UserProfile.scss";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import ToDoList from "./ToDoList";
-import userProfileCity from "./userProfileCity";
-
-import axios from "axios";
+import UserTripCity from "./UserTripCity";
 
 export default function UserProfile(props) {
   const [user, setUser] = useState();
@@ -13,6 +12,7 @@ export default function UserProfile(props) {
   // let history = useHistory();
   // const [userTripInfo, setUserTripInfo] = useState({
   // });
+  const [allTrips, setAllTrips] = useState([]);
   const [userTripAttractions, setUserTripAttractions] = useState([]);
   const [userTripTodos, setUserTripTodos] = useState([]);
 
@@ -23,13 +23,26 @@ export default function UserProfile(props) {
     setUser(userData);
 
     axios.post("/users/user-trip", { userId: userData.id }).then((data) => {
-      console.log("userProfile trip: ", data);
-      setUserTripAttractions(data.data.attractions);
-      setUserTripTodos(data.data.todos);
+      // console.log("userProfile trip: ", data.data);
+      // console.log(data.data);
+      setAllTrips(data.data);
+      // setUserTripAttractions(data.data.attractions);
+      // setUserTripTodos(data.data.todos);
     });
   }, []);
-  console.log("userTripAttractions==>", userTripAttractions);
-  console.log("userTripTodos==>", userTripTodos);
+  // console.log("userTripAttractions==>", userTripAttractions);
+  // console.log("userTripTodos==>", userTripTodos);
+  console.log("Line 35---", allTrips);
+
+  function getTripData(trip_id) {
+    axios
+      .post("/users/trip-data", { trip_id: trip_id })
+      .then((data) => console.log(data.data));
+  }
+
+  const userTrips = allTrips.map((trip) => {
+    return <UserTripCity key={trip.id} {...trip} getTripData={getTripData} />;
+  });
 
   return (
     // <div>user Profile</div>
@@ -43,7 +56,13 @@ export default function UserProfile(props) {
           </div>
         </div>
       </div>
-      <userProfileCity />
+      <div className="trip-container">
+        <div className="heading">
+          <h2>Your Trips</h2>
+          <hr className="hr" />
+        </div>
+        {userTrips}
+      </div>
       {/* <div className="card">
         <img className="card-img-top" src="..." alt="Card image cap" />
         <div className="card-body">
@@ -60,3 +79,15 @@ export default function UserProfile(props) {
     </div>
   );
 }
+
+// {
+//   montreal: {
+//     attractions = [];
+//     todos = [];
+//   }
+
+//   Toronto: {
+//     attractions = [];
+//     todos = [];
+//   }
+// }

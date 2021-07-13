@@ -1,3 +1,11 @@
+@mixin hr {
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  color: rgb(109, 109, 109);
+}
+
 body {
   font-family: "Raleway", sans-serif;
 }
