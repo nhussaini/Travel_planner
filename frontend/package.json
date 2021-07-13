@@ -31,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "cypress open -P ."
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^7.7.0",
     "sass": "^1.35.1"
   },
   "jest": {
@@ -59,6 +61,6 @@
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
     ],
-    "testURL":"http://localhost:3001"
+    "testURL": "http://localhost:3001"
   }
 }
