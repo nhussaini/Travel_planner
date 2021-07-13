@@ -15,13 +15,11 @@ export default function UserProfile(props) {
   const [userTripTodos, setUserTripTodos] = useState([]);
 
   useEffect(() => {
-    // localStorage.clear();
+    //get the userinfo from localStorage and store it into state
     let userData = localStorage.getItem("user");
-    // console.log("----------------->", userData);
-
     userData = JSON.parse(userData);
     setUser(userData);
-    // console.log("userData----------------->", userData);
+
     axios.post("/users/user-trip", { userId: userData.id }).then((data) => {
       console.log("userProfile trip: ", data);
       setUserTripAttractions(data.data.attractions);
@@ -43,8 +41,8 @@ export default function UserProfile(props) {
         <div className="head-background">
           <div className="user-name">
             <p className="welcome">Welcome to Your Profile</p>
-            <p className="name">Linda Guy</p>
-            <p>{!user ? null : user.email}</p>
+            <p className="name">{!user ? null : user.first_name}</p>
+            {/* <p>{!user ? null : user.email}</p> */}
           </div>
         </div>
       </div>
