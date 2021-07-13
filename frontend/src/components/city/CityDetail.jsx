@@ -34,7 +34,6 @@ export default function CityDetail(props) {
 
   //get city id to store in trip table
   const cityId = state.locationData.id;
-  console.log("cityid: ", cityId);
 
   //to handle the click event to create a new trip
   function handleClick(e) {
@@ -61,6 +60,7 @@ export default function CityDetail(props) {
         }));
       } else {
         const { images, cityDetails, attractions } = data.data;
+        console.log("inside useEffect", attractions);
         setState((prev) => ({
           location: cityDetails.short_name,
           images: images,
