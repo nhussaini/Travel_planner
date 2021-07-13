@@ -28,7 +28,7 @@
 -- JOIN attraction on trip_attraction.attraction_id = attraction.id
 -- WHERE trip_attraction.trip_id = 13;
 
-  SELECT city.short_name, attraction.name, attraction.image_url
+  SELECT city.short_name as city_name, city.image_url as city_url, attraction.name as attraction_name, attraction.image_url as attraction_url
   FROM city
   JOIN trip on trip.city_id = city.id
   JOIN users on trip.user_id = users.id
@@ -36,6 +36,10 @@
   JOIN attraction on trip_attraction.attraction_id = attraction.id
   WHERE user_id = 3;
 
-  SELECT city.short_name as city-name
+  SELECT trip.id as trip_id, city.short_name, todo.description
   FROM city
-  JOIN
+  JOIN trip on trip.city_id = city.id
+  JOIN users on trip.user_id = users.id
+  JOIN todo on todo.trip_id = trip.id
+  WHERE users.id = 3;
+
