@@ -9,6 +9,7 @@ export default function Login(props) {
   let history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState({});
+  const [error, setError] = useState(false);
   const [alert, setAlert] = useState(false);
 
   // const user = {};
@@ -21,29 +22,35 @@ export default function Login(props) {
   function handleEmailChange(e) {
     setEmail(e.target.value);
     setAlert(false);
+    setError(false);
   }
 
   function handlePasswordChange(e) {
     setPassword(e.target.value);
     setAlert(false);
+    setError(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios
-      .post("/userslogin", { email: email, password: password })
-      .then((data) => {
-        // console.log("if no match", data.data);
-        if (!data.data) {
-          setAlert(true);
-        } else {
-          const user = data.data;
-          localStorage.setItem("user", JSON.stringify(user));
-          // history.push(`/users/${user.id}`);
-          history.push("/");
-          console.log(user);
-        }
-      });
+    if (!email || !password) {
+      setError(true);
+    } else {
+      axios
+        .post("/userslogin", { email: email, password: password })
+        .then((data) => {
+          // console.log("if no match", data.data);
+          if (!data.data) {
+            setAlert(true);
+          } else {
+            const user = data.data;
+            localStorage.setItem("user", JSON.stringify(user));
+            // history.push(`/users/${user.id}`);
+            history.push("/");
+            console.log(user);
+          }
+        });
+    }
     // .catch((error) => {
     //   console.log(error);
     // });
@@ -53,13 +60,14 @@ export default function Login(props) {
     <div className="login-bg">
       <NavBar />
       <Alert
-        className={alert ? "login-error-show" : "login-error-hide"}
+        className={alert || error ? "login-error-show" : "login-error-hide"}
         variant="danger"
       >
         <span>{alert ? `Wrong Credentials, Try Again!` : null}</span>
+        <span>{error ? `Fill up the Form please!` : null}</span>
       </Alert>
       <div className="top-div-login">
-        <div className="login-box">
+        <div className="login-box col-md-6 col-sm-9">
           <div className="login-title">Login</div>
           <div className="input-forms-login">
             <form onSubmit={handleSubmit}>
