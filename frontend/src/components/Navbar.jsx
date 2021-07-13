@@ -36,7 +36,11 @@ export default function NavBar() {
             <Button href="/login" className="btn btn-light">
               Your Profile
             </Button>
-            <Button href="/login" className="btn btn-light" onClick={logout}>
+            <Button
+              href="/login"
+              className="btn btn-secondary"
+              onClick={logout}
+            >
               Logout
             </Button>
           </Nav>
