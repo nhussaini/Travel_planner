@@ -148,6 +148,49 @@ export default function TripPlanner(props) {
             todos={todos}
           />
         </div>
+        {/* <div className="save-cancel-trip">
+          <button
+            className="add-to-profile-btn btn btn-primary"
+            onClick={saveTrip}
+          >
+            Save Trip
+          </button>
+          <button className="btn btn-danger">Cancel Trip</button>
+        </div> */}
+      </div>
+
+      {show ? (
+        <dive>
+          <div className="save-cancel-trip">
+            <button
+              className="add-to-profile-btn btn btn-primary"
+              onClick={saveTrip}
+            >
+              Save Trip
+            </button>
+            <button className="btn btn-danger">Cancel Trip</button>
+          </div>
+          <div className="map-attraction-container">
+            <h4 className="title-trip-planner">
+              Top Attractions in {cityInfo.short_name}
+              <hr className="hr-trip-planner" />
+            </h4>
+            <section className="map-attraction">
+              <ThingsToDoList
+                location={cityInfo.short_name}
+                thingsToDo={cityAttractions.slice(0, 3)}
+                addAttraction={addAttraction}
+              />
+              <GoogleMap
+                lat={Number(cityInfo.latitude)}
+                lng={Number(cityInfo.longitude)}
+                location={cityInfo.long_name}
+                thingsToDo={cityAttractions.slice(0, 10)}
+              />
+            </section>
+          </div>
+        </dive>
+      ) : (
         <div className="save-cancel-trip">
           <button
             className="add-to-profile-btn btn btn-primary"
@@ -157,29 +200,7 @@ export default function TripPlanner(props) {
           </button>
           <button className="btn btn-danger">Cancel Trip</button>
         </div>
-      </div>
-
-      {show ? (
-        <div className="map-attraction-container">
-          <h4 className="title-trip-planner">
-            Top Attractions in {cityInfo.short_name}
-            <hr className="hr-trip-planner" />
-          </h4>
-          <section className="map-attraction">
-            <ThingsToDoList
-              location={cityInfo.short_name}
-              thingsToDo={cityAttractions.slice(0, 3)}
-              addAttraction={addAttraction}
-            />
-            <GoogleMap
-              lat={Number(cityInfo.latitude)}
-              lng={Number(cityInfo.longitude)}
-              location={cityInfo.long_name}
-              thingsToDo={cityAttractions.slice(0, 10)}
-            />
-          </section>
-        </div>
-      ) : null}
+      )}
     </div>
   );
 }
