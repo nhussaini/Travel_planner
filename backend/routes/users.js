@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* insert users into database */
 
-module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo }) => {
+module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo, getUserTripTodo }) => {
   router.post("/", (req, res, next) => {
     const { firstName, lastName, email, password } = req.body;
     registerUser(firstName, lastName, email, password).then((data) =>
@@ -21,11 +21,18 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo
     addToDo(todo, userId).then((data) => console.log("data=>>>", data));
   });
 
-  router.post("/user-trip",(req,res) => {
+  router.post("/user-trip", async(req,res) => {
     const {userId} = req.body
-    getUserTripInfo(userId).then((data) =>{
-      console.log("userTripInfo from /user-trip", data);
-    })
+    // getUserTripInfo(userId).then((data) =>{
+    //   console.log("userTripInfo from /user-trip", data);
+    // })
+    const userTripInformation = {};
+    userTripInformation.attractions = await getUserTripInfo(userId);
+    // console.log("userTripInformation===========>", userTripInformation);
+    userTripInformation.todos = await getUserTripTodo(userId);
+
+    res.send(userTripInformation);
+
 
   })
 

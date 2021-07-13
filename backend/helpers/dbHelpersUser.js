@@ -97,6 +97,7 @@ module.exports = (db) => {
     registerUser,
     getToDos,
     removeToDo,
-    getUserTripInfo
+    getUserTripInfo,
+    getUserTripTodo
   };
 };
