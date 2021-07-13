@@ -56,7 +56,7 @@ export default function NavBar() {
             <span>TREK</span>
           </Navbar.Brand>
           <Nav className="mr-auto navbar-links">
-            <Button className="btn btn-light" onClick={handleClick}>
+            <Button className="btn btn-light mx-2" onClick={handleClick}>
               Your Profile
             </Button>
             <Button
