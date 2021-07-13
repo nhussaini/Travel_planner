@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 // import ToDoList from "../ToDoList";
 import UserTripCity from "./UserTripCity";
 import NavBar from "components/NavBar";
+import Footer from "components/Footer";
 import UserTripAttraction from "./UserTripAttraction";
 import UserTripTodo from "./UserTripTodo";
 
@@ -100,6 +101,7 @@ export default function UserProfile(props) {
           {/* <UserTripTodo /> */}
         </section>
       )}
+      <Footer />
     </div>
   );
 }

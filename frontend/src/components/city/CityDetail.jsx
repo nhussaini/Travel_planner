@@ -1,6 +1,7 @@
 import { useCityData } from "../../hooks/useCityData";
 
 import WeatherList from "./WeatherList";
+import Footer from "components/Footer";
 import ImagesList from "./ImagesList";
 import GoogleMap from "./GoogleMap";
 import NavBar from "../NavBar";
@@ -104,6 +105,7 @@ export default function CityDetail(props) {
         </section>
       </main>
       {state.location ? <WeatherList location={state.location} /> : null}
+      <Footer />
     </main>
   ) : (
     <Error404 />

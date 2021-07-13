@@ -16,7 +16,7 @@ export default function Weather(props) {
     // </div>
 
     <div className="weather-container">
-      <p>{convertDate(props.date)}</p>
+      <p className="alph-date">{convertDate(props.date)}</p>
       <p className="numeric-date">{props.date}</p>
       <p className="current-temp">{Math.round(props.temp)}°C</p>
       <div className="weather-card">

@@ -17,7 +17,7 @@ export default function WeatherList(props) {
     <div>
       <div>
         <h2 className="heading">
-          {props.location ? `7 Day Forecast in ${props.location}` : ""}
+          {props.location ? `7 Day Weather Forecast in ${props.location}` : ""}
         </h2>
         <hr className="hr" />
       </div>
