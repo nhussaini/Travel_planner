@@ -32,6 +32,7 @@ module.exports = ({
     findCity(cityName).then((city) => {
       // if city exist redirect to the route which will fetch existign data from db
       if (city) {
+        console.log("Found your city----", cityName);
         res.redirect(`/api/cities/${cityName}`);
       } else {
         const allData = {};
@@ -152,12 +153,15 @@ module.exports = ({
   router.get("/:id", async (req, res) => {
     const cityName = req.params.id;
     const matchedCity = await getCity(cityName);
+    console.log("found your match as well---");
     // if city doesnt exist in DB return error
     if (matchedCity === null) {
+      console.log("COULD NOT FIND CITY", matchedCity);
       console.log("Sending NULL");
       return res.json(null);
     }
     // if city exist, then grab all the data(details, images, attractions) for the city
+    console.log("Coming Here after finding city", cityName);
     const allData = {};
     const fetchedData = await Promise.all([
       getCity(cityName),
@@ -165,11 +169,12 @@ module.exports = ({
       getAttractions(cityName),
       addVisit(matchedCity.id, cityName),
     ]);
-
+    console.log(fetchedData);
     allData.cityDetails = fetchedData[0];
     allData.images = fetchedData[1];
     allData.attractions = fetchedData[2];
     allData.test = "testing----";
+    // console.log(allData);
     res.json(allData);
   });
 

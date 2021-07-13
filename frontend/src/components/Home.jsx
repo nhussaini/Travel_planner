@@ -20,6 +20,7 @@ export default function Home(props) {
   function fetchCity(city) {
     setLoader(true);
     axios.post("/api/cities/getCityData", { userInput: city }).then((data) => {
+      console.log("line 23----", data.data);
       setLoader(false);
       history.push({
         pathname: `/cities/${city}`,

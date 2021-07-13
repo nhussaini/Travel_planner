@@ -98,7 +98,7 @@ module.exports = (db) => {
 
   const findCity = (name) => {
     const query = {
-      text: `SELECT * from city WHERE short_name = ($1)`,
+      text: `SELECT * from city WHERE short_name ILIKE ($1)`,
       values: [name],
     };
 
@@ -110,7 +110,7 @@ module.exports = (db) => {
 
   const getCity = (name) => {
     const query = {
-      text: `SELECT * from city WHERE short_name = ($1)`,
+      text: `SELECT * from city WHERE short_name ILIKE ($1)`,
       values: [name],
     };
 
@@ -125,7 +125,7 @@ module.exports = (db) => {
       text: `SELECT image.id, image.url, image.alt_description, city.id as city_id, short_name
       FROM city
       JOIN image ON image.city_id = city.id
-      WHERE short_name = ($1)
+      WHERE short_name ILIKE ($1)
       GROUP BY image.id, city.id;`,
       values: [name],
     };
@@ -140,7 +140,7 @@ module.exports = (db) => {
       text: `SELECT attraction.*, city.id AS place_id, city.short_name
       FROM attraction
       JOIN city ON attraction.city_id = city.id
-      WHERE short_name = ($1)
+      WHERE short_name ILIKE ($1)
       GROUP BY city.id, attraction.id`,
       values: [name],
     };
