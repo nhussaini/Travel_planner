@@ -21,7 +21,8 @@ module.exports = ({
       password: "01f998155debd93205287912664cb75c",
     },
   };
-  router.post("/getCityData", (req, res) => {
+
+  router.post("/getCityData", async (req, res) => {
     const cityName = req.body.userInput;
     // saving all api quesries in variables
     const imageCall = `https://api.unsplash.com/search/photos?page=1&query=${cityName}&client_id=${process.env.imageKEY}&per_page=10&orientation=landscape`;
@@ -29,120 +30,100 @@ module.exports = ({
     const googleCall = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+${cityName}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`;
 
     // console.log(findCity(cityName));
-    findCity(cityName).then((city) => {
-      // if city exist redirect to the route which will fetch existign data from db
-      if (city) {
-        res.redirect(`/api/cities/${cityName}`);
-      } else {
-        const allData = {};
-        axios
-          .get(
-            `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${cityName}`,
-            roadGoatApiAuth
-          )
-          .then((data) => {
-            const locationId = data.data.data[0].id;
-            // api call to get location data using the location id from previous call
-            axios
-              .get(
-                `https://api.roadgoat.com/api/v2/destinations/${locationId}`,
-                roadGoatApiAuth
-              )
-              .then((data) => {
-                allData.cityData = data.data.data;
-              });
-          });
-        // Getting images and googleData
-        Promise.all([
-          axios.get(imageCall),
-          // axios.get(weatherCall),
-          axios.get(googleCall),
-        ])
-          .then((all) => {
-            allData.imageData = all[0].data.results;
-            allData.googleData = all[1].data.results;
-            // console.log(all[0].data.results);
+    const matchedCity = await findCity(cityName);
+    // if city exist redirect to the route which will fetch existign data from db
+    if (matchedCity) {
+      res.redirect(`/api/cities/${cityName}`);
+    } else {
+      const allData = {};
+      const locationId = await axios.get(
+        `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${cityName}`,
+        roadGoatApiAuth
+      );
+      // Do Error handling if City not found here----
 
-            // extract the data coming from roadgoatApi and sav them in a variable
-            const {
-              short_name,
-              long_name,
-              population,
-              latitude,
-              longitude,
-              airbnb_url,
-              kayak_lodgings_url,
-              google_events_url,
-              alltrails_url,
-              getyourguide_url,
-              kayak_car_rental_url,
-            } = allData.cityData.attributes;
+      const fetchedCityData = await axios.get(
+        `https://api.roadgoat.com/api/v2/destinations/${locationId.data.data[0].id}`,
+        roadGoatApiAuth
+      );
+      allData.cityData = fetchedCityData.data.data;
+      // Getting images and googleData
+      const unsplashGoogleData = await Promise.all([
+        axios.get(imageCall),
+        axios.get(googleCall),
+      ]);
 
-            //Choose a Random no between 0 and 9 and choose a image of city based on that.
-            const random = Math.floor(Math.random() * 9 + 1);
-            const image_url = allData.imageData[random].urls.regular;
-            // add the city data to db
-            return addCity(
-              short_name,
-              long_name,
-              population,
-              image_url,
-              latitude,
-              longitude,
-              airbnb_url,
-              kayak_lodgings_url,
-              google_events_url,
-              alltrails_url,
-              getyourguide_url,
-              kayak_car_rental_url
-            );
-            // res.send(allData);
-          })
-          .then(async (newCity) => {
-            // Save images to the image table
-            for (let item of allData.imageData) {
-              addImage(item.urls.regular, item.alt_description, newCity.id);
-            }
+      // Saving fetched data using api to allData Object
+      allData.imageData = unsplashGoogleData[0].data.results;
+      allData.googleData = unsplashGoogleData[1].data.results;
+      // destructing properties for adding them to db
+      const {
+        short_name,
+        long_name,
+        population,
+        latitude,
+        longitude,
+        airbnb_url,
+        kayak_lodgings_url,
+        google_events_url,
+        alltrails_url,
+        getyourguide_url,
+        kayak_car_rental_url,
+      } = allData.cityData.attributes;
 
-            const promises = allData["googleData"].map(async (item) => {
-              if (item.user_ratings_total > 100) {
-                // saving the variable
-                const { name, formatted_address, rating, user_ratings_total } =
-                  item;
-                const { lat, lng } = item.geometry.location;
-                const photo_reference = item["photos"][0].photo_reference;
-                const response =
-                  await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=600
-                &photoreference=${photo_reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`);
-                // saving each attraction in the db
-                const imageUrl = response.request.res.responseUrl;
+      //Choose a Random no between 0 and 9 and choose a image of city based on that.
+      const random = Math.floor(Math.random() * 9 + 1);
+      const image_url = allData.imageData[random].urls.regular;
+      // add the city data to db
+      const addedCity = await addCity(
+        short_name,
+        long_name,
+        population,
+        image_url,
+        latitude,
+        longitude,
+        airbnb_url,
+        kayak_lodgings_url,
+        google_events_url,
+        alltrails_url,
+        getyourguide_url,
+        kayak_car_rental_url
+      );
+      // Save images to the image table
+      const imagePromises = allData.imageData.map(async (item) => {
+        await addImage(item.urls.regular, item.alt_description, addedCity.id);
+      });
 
-                addAttraction(
-                  name,
-                  formatted_address,
-                  lat,
-                  lng,
-                  rating,
-                  user_ratings_total,
-                  imageUrl,
-                  newCity.id
-                );
-              }
-            });
+      // creating array of promises to call together using Promise.all later
+      const attractionPromises = allData["googleData"].map(async (item) => {
+        if (item.user_ratings_total > 100) {
+          // saving the variable
+          const { name, formatted_address, rating, user_ratings_total } = item;
+          const { lat, lng } = item.geometry.location;
+          const photo_reference = item["photos"][0].photo_reference;
+          const response =
+            await axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=600
+                  &photoreference=${photo_reference}&key=AIzaSyD6Gw9uN4YpFcH4cIjRbYbWKPl_vGQs0R0`);
+          // saving each attraction in the db
+          const imageUrl = response.request.res.responseUrl;
 
-            await Promise.allSettled(promises);
-          })
-          .then(() => {
-            //After Adding data to Db, redirecting to the get route for city which will send back data to front end
-            res.redirect(`/api/cities/${cityName}`);
-          })
-          .catch((err) =>
-            res.json({
-              error: err.message,
-            })
+          addAttraction(
+            name,
+            formatted_address,
+            lat,
+            lng,
+            rating,
+            user_ratings_total,
+            imageUrl,
+            addedCity.id
           );
-      }
-    });
+        }
+      });
+      // Saving all the images andf attraction to the DB
+      await Promise.allSettled(imagePromises);
+      await Promise.allSettled(attractionPromises);
+      res.redirect(`/api/cities/${cityName}`);
+    }
   });
 
   //Route for Individual City
