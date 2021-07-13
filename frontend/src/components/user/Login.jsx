@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "styles/Login.scss";
 import { useHistory } from "react-router-dom";
-import NavBar from "components/NavBar";
+import NavSticky from "components/NavSticky";
 import Alert from "react-bootstrap/Alert";
 import { useEffect } from "react";
 
@@ -58,7 +58,7 @@ export default function Login(props) {
 
   return (
     <div className="login-bg">
-      <NavBar />
+      <NavSticky />
       <Alert
         className={alert || error ? "login-error-show" : "login-error-hide"}
         variant="danger"

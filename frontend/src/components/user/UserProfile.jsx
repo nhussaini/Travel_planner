@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 // import NavBar from "components/NavBar";
 // import ToDoList from "../ToDoList";
 import UserTripCity from "./UserTripCity";
-import NavBar from "components/NavBar";
+import NavSticky from "components/NavSticky";
 import Footer from "components/Footer";
 import UserTripAttraction from "./UserTripAttraction";
 import UserTripTodo from "./UserTripTodo";
@@ -52,7 +52,7 @@ export default function UserProfile(props) {
   return (
     // <div>user Profile</div>
     <div>
-      <NavBar />
+      <NavSticky />
       <div className="head">
         <div className="head-background">
           <div className="user-name">

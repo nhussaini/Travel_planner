@@ -4,7 +4,7 @@ import WeatherList from "./WeatherList";
 import Footer from "components/Footer";
 import ImagesList from "./ImagesList";
 import GoogleMap from "./GoogleMap";
-import NavBar from "../NavBar";
+import NavSticky from "../NavSticky";
 import ThingsToDoList from "./ThingsToDoList";
 import Error404 from "components/Error404";
 import axios from "axios";
@@ -74,7 +74,7 @@ export default function CityDetail(props) {
 
   return !state.error404 ? (
     <main>
-      <NavBar />
+      <NavSticky />
       <div className="heading">
         <h2>Explore {state.location}!</h2>
         <hr className="hr" />

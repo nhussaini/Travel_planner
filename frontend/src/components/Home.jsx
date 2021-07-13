@@ -8,7 +8,7 @@ import Form from "./Form";
 import TrendingCities from "./TrendingCities";
 // import Navbar from "./Navbar-OLD";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import NavSticky from "./NavSticky";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 
@@ -37,7 +37,7 @@ export default function Home(props) {
   }
   return (
     <div>
-      <NavBar />
+      <NavSticky />
       <section className="home-img-div">
         <div className="home-img-text">Plan your trips with ease.</div>
         {loader ? (

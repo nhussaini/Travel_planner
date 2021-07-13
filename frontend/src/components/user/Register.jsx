@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
-import NavBar from "components/NavBar";
+import NavSticky from "components/NavSticky";
 import "styles/Register.scss";
 
 export default function Register(props) {
@@ -69,7 +69,7 @@ export default function Register(props) {
 
   return (
     <div className="register-bg">
-      <NavBar />
+      <NavSticky />
       <Alert
         className={alert || error ? "login-error-show" : "login-error-hide"}
         variant="danger"

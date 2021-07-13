@@ -1,5 +1,5 @@
 import Footer from "components/Footer";
-import NavBar from "components/NavBar";
+import NavSticky from "components/NavSticky";
 import Button from "react-bootstrap/Button";
 import "styles/error404.scss";
 import ErrorImage from "assets/images/error-404.jpeg";
@@ -7,7 +7,7 @@ import ErrorImage from "assets/images/error-404.jpeg";
 export default function Error404() {
   return (
     <main>
-      <NavBar />
+      <NavSticky />
       <section className="container-404">
         <div className="image-container-404">
           <img src={ErrorImage} alt="404 Not Found" />

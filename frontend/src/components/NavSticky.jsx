@@ -2,7 +2,7 @@ import "styles/nav.scss";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavSticky() {
   let history = useHistory();
 
   function handleClick(e) {
