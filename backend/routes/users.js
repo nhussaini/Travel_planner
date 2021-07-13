@@ -21,19 +21,15 @@ module.exports = ({ addToDo, registerUser, getToDos, removeToDo, getUserTripInfo
     addToDo(todo, userId).then((data) => console.log("data=>>>", data));
   });
 
-  router.post("/user-trip", async(req,res) => {
+  router.post("/user-trip", async(req, res) => {
     const {userId} = req.body
-    // getUserTripInfo(userId).then((data) =>{
-    //   console.log("userTripInfo from /user-trip", data);
-    // })
+    
+    //This object stores tripInfo for a user
     const userTripInformation = {};
     userTripInformation.attractions = await getUserTripInfo(userId);
-    // console.log("userTripInformation===========>", userTripInformation);
     userTripInformation.todos = await getUserTripTodo(userId);
 
     res.send(userTripInformation);
-
-
   })
 
   router.get("/todo", (req, res) => {
