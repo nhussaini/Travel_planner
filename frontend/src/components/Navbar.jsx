@@ -1,5 +1,5 @@
 import "styles/nav.scss";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 
 export default function NavBar() {
   console.log("current user******", localStorage.getItem("user"));
@@ -24,6 +24,8 @@ export default function NavBar() {
       </>
     );
   } else {
+    //localStorage.clear();
+    sessionStorage.clear();
     return (
       <>
         <Navbar bg="dark" variant="dark" className="nav-container" sticky="top">

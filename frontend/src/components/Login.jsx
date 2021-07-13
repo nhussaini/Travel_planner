@@ -55,7 +55,7 @@ export default function Login(props) {
                 </label>
                 <input
                   type="email"
-                  className="input-form form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
