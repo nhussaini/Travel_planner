@@ -1,5 +1,4 @@
 import TrendingCity from "./TrendingCity";
-import { cityData } from "./TrendingCity";
 import "../styles/TrendingCities.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
