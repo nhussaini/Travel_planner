@@ -72,26 +72,26 @@ export default function Login(props) {
           <div className="input-forms-login">
             <form onSubmit={handleSubmit}>
               <div className="mb-3 text-left">
-                <label for="exampleInputEmail1" class="label-name">
+                <label for="input-email" class="label-name">
                   Email address
                 </label>
                 <input
                   type="email"
                   className="form-control"
-                  id="exampleInputEmail1"
+                  id="input-email"
                   aria-describedby="emailHelp"
                   placeholder="Email..."
                   onChange={handleEmailChange}
                 />
               </div>
               <div className="mb-3 text-left">
-                <label for="exampleInputPassword1" class="label-name">
+                <label for="input-password" class="label-name">
                   Password
                 </label>
                 <input
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="input-password"
                   placeholder="Password..."
                   onChange={handlePasswordChange}
                 />

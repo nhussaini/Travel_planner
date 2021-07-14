@@ -25,7 +25,7 @@ export default function CityLinkButtons(props) {
         <div className="circle"></div>
         <a href={airbnb_url} target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faBed} size="lg" />
-          <span>AirBNB</span>
+          <span>Airbnb</span>
         </a>
       </div>
       <div className="button">
