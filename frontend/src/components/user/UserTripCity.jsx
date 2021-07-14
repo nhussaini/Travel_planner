@@ -1,11 +1,16 @@
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-export default function userProfileCity(props) {
+export default function UserTripCity(props) {
+  const [clicked, setClicked] = useState(false);
+
   function handleClick(e) {
-    props.getTripData(props.id);
+    console.log(clicked);
+    props.getTripData(props.id, props.short_name);
+    // setClicked((prev) => !prev);
   }
   return (
-    <div className="trip">
+    <div className={clicked ? "trip clicked-trip" : "trip"}>
       <button as="href" onClick={handleClick}>
         <img src={props.image_url} alt="" />
         <h2>{props.short_name}</h2>

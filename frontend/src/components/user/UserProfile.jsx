@@ -20,13 +20,16 @@ export default function UserProfile(props) {
   const [allTrips, setAllTrips] = useState([]);
   const [userTripAttractions, setUserTripAttractions] = useState([]);
   const [userTripTodos, setUserTripTodos] = useState([]);
+  const [tripCity, setTripCity] = useState("");
 
-  function getTripData(trip_id) {
+  function getTripData(trip_id, trip_city) {
     setUserTripAttractions([]);
     setUserTripTodos([]);
+    setTripCity("");
     axios.post("/users/trip-data", { trip_id: trip_id }).then((data) => {
       setUserTripAttractions(data.data.attractions);
       setUserTripTodos(data.data.todos);
+      setTripCity(trip_city);
     });
   }
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function UserProfile(props) {
       {userTripAttractions.length && (
         <section className="w-100">
           <div className="heading">
-            <h2>Your Attractions List & todos</h2>
+            <h2>{`Attractions List & Todos for ${tripCity}`}</h2>
             <hr className="hr" />
           </div>
           <div className="attraction-todo-container">
