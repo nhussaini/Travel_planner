@@ -70,8 +70,11 @@ export default function TripPlanner(props) {
   //add chosen attraction to the state attraction
   const addAttraction = (name, img_url, id) => {
     // setAttractions([...attractions, newAttraction]);
-    const newAttraction = [...attractions, { name, img_url, id }];
-    setAttractions(newAttraction);
+    const filterItems = attractions.filter((item) => item.name === name);
+    if (!filterItems.length) {
+      const newAttraction = [...attractions, { name, img_url, id }];
+      setAttractions(newAttraction);
+    }
   };
 
   //remove an attraction from state
@@ -104,7 +107,7 @@ export default function TripPlanner(props) {
     );
   });
   return (
-    <div>
+    <main>
       <NavSticky />
       <div className="trip-header">
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
@@ -114,7 +117,7 @@ export default function TripPlanner(props) {
           </p>
         </div>
       </div>
-      <div className="attractions-todo">
+      <section className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
             <div className="attractions-message">
@@ -148,17 +151,9 @@ export default function TripPlanner(props) {
             todos={todos}
           />
         </div>
-        {/* <div className="save-cancel-trip">
-          <button
-            className="add-to-profile-btn btn btn-primary"
-            onClick={saveTrip}
-          >
-            Save Trip
-          </button>
-          <button className="btn btn-danger">Cancel Trip</button>
-        </div> */}
-      </div>
-      <div className="save-cancel-trip">
+      </section>
+
+      <section className="save-cancel-trip">
         <button
           className="add-to-profile-btn btn btn-primary"
           onClick={saveTrip}
@@ -166,52 +161,32 @@ export default function TripPlanner(props) {
           Save Trip
         </button>
         <button className="btn btn-danger">Cancel Trip</button>
-      </div>
+      </section>
 
-      {
-        show ? (
-          <div>
-            {/* <div className="save-cancel-trip">
-            <button
-              className="add-to-profile-btn btn btn-primary"
-              onClick={saveTrip}
-            >
-              Save Trip
-            </button>
-            <button className="btn btn-danger">Cancel Trip</button>
-          </div> */}
-            <div className="map-attraction-container">
-              <h4 className="title-trip-planner">
-                Top Attractions in {cityInfo.short_name}
-                <hr className="hr-trip-planner" />
-              </h4>
-              <section className="map-attraction">
-                <ThingsToDoList
-                  location={cityInfo.short_name}
-                  thingsToDo={cityAttractions.slice(0, 3)}
-                  addAttraction={addAttraction}
-                />
-                <GoogleMap
-                  lat={Number(cityInfo.latitude)}
-                  lng={Number(cityInfo.longitude)}
-                  location={cityInfo.long_name}
-                  thingsToDo={cityAttractions.slice(0, 10)}
-                />
-              </section>
-            </div>
+      {/* Show atttraction and map if user wants to see them and add them to their list */}
+      {show ? (
+        <section>
+          <div className="map-attraction-container">
+            <h4 className="title-trip-planner">
+              Top Attractions in {cityInfo.short_name}
+              <hr className="hr-trip-planner" />
+            </h4>
+            <section className="map-attraction">
+              <ThingsToDoList
+                location={cityInfo.short_name}
+                thingsToDo={cityAttractions.slice(0, 3)}
+                addAttraction={addAttraction}
+              />
+              <GoogleMap
+                lat={Number(cityInfo.latitude)}
+                lng={Number(cityInfo.longitude)}
+                location={cityInfo.long_name}
+                thingsToDo={cityAttractions.slice(0, 10)}
+              />
+            </section>
           </div>
-        ) : null
-
-        // <div className="save-cancel-trip">
-        //   <button
-        //     className="add-to-profile-btn btn btn-primary"
-        //     onClick={saveTrip}
-        //   >
-        //     Save Trip
-        //   </button>
-        //   <button className="btn btn-danger">Cancel Trip</button>
-        // </div>
-      }
-    </div>
+        </section>
+      ) : null}
+    </main>
   );
 }
