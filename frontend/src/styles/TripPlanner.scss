@@ -39,9 +39,14 @@
   }
 
   .cities-attractions {
-    .text-display-choosing-attractions {
-      margin-top: 5.5em;
+    // .text-display-choosing-attractions {
+    // margin-top: 5.5em;
+    .attractions-message {
+      p {
+        margin-top: 20px;
+      }
     }
+    // }
 
     .chosen-attractions-title {
       margin-top: 1em;
@@ -58,10 +63,6 @@
         //display: flex;
         margin: 0 auto;
         //margin-left: 5%;
-
-        .add-to-profile-btn {
-          //margin-left: 60%;
-        }
       }
 
       .chosen-attractions-list {

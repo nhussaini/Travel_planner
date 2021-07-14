@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ThingsToDoList from "./city/ThingsToDoList";
 import GoogleMap from "./city/GoogleMap";
 import ToDoList from "./ToDoList";
@@ -13,44 +13,26 @@ export default function TripPlanner(props) {
   const [cityAttractions, setCityAttractions] = useState([]);
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
-  //state for todos
-  // const [state, setState] = useState({
-  //   todos: [],
-  // });
   const [todos, setTodos] = useState([]);
+  const [saveStatus, setSaveStatus] = useState(false);
 
-  //add a todo
-  // const addTodo = (text) => {
-  //   const newTodos = [...state.todos, { description: text }];
-  //   setState((prev) => ({
-  //     ...prev,
-  //     todos: newTodos,
-  //   }));
-  // };
+  // if (!attractions.length) {
+  //   setShow(false);
+  // }
+
+  //add a new todo
   const addTodo = (text) => {
     setTodos([...todos, text]);
   };
 
   //remove a todo
-  // const removeTodo = (id, index) => {
-  //   axios
-  //     .delete(`/users/todo/${id}`)
-  //     .then((data) => console.log("data after deletion", data));
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
-  //   const newTodos = [...state.todos];
-  //   newTodos.splice(index, 1);
-  //   // setTodos(newTodos);
-  //   console.log("deleting a todo=>", newTodos);
-  //   setState((prev) => ({
-  //     ...prev,
-  //     todos: newTodos,
-  //   }));
-  //   console.log("index==>", index);
-  // };
-
-  // const location = useLocation();
   const { city } = useParams();
-  // console.log("city info===>", cityInfo);
 
   //to fetch data from db for city and city attractions
   useEffect(() => {
@@ -67,14 +49,12 @@ export default function TripPlanner(props) {
   const id = userData ? userData.id : null;
 
   //diplay the content conditionally
-  const handleClick = () => {
+  const handleDisplayAttraction = () => {
     setShow(true);
   };
-  // console.log("city id", cityInfo.id);
 
+  //save a trip for a user to db
   const saveTrip = () => {
-    console.log("saveTrip function is called");
-
     axios
       .post("/api/trip", {
         userId: id,
@@ -83,27 +63,39 @@ export default function TripPlanner(props) {
         todos: todos,
       })
       .then((data) => {
-        console.log(data);
+        console.log("data coming back from backend", data.data);
       });
   };
 
-  //update the state for attractions
+  //add chosen attraction to the state attraction
   const addAttraction = (name, img_url, id) => {
     // setAttractions([...attractions, newAttraction]);
     const newAttraction = [...attractions, { name, img_url, id }];
-
     setAttractions(newAttraction);
   };
-  const attractionsToVisit = attractions.map((attraction) => {
+
+  //remove an attraction from state
+  const handleRemoveAttraction = (index) => {
+    const newAttractions = [...attractions];
+    newAttractions.splice(index, 1);
+    setAttractions(newAttractions);
+    if (newAttractions.length === 0) {
+      setShow(false);
+    }
+  };
+
+  const attractionsToVisit = attractions.map((attraction, index) => {
     return (
-      <li className="chosen-attractions-list">
+      <li className="chosen-attractions-list" key={index}>
         <div className="img-chosen-div">
           <img src={attraction.img_url} alt={attraction.attractionName} />
         </div>
-        <p className="chosen-attraction-name">{attraction.attractionName}</p>
+        <p className="chosen-attraction-name">{attraction.name}</p>
         <button
           className="chosen-attraction-delete"
-          // onClick={}
+          onClick={() => {
+            handleRemoveAttraction(index);
+          }}
         >
           x
         </button>
@@ -117,15 +109,26 @@ export default function TripPlanner(props) {
       <div className="trip-header">
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">
-          <p>Plan your trip here.</p>
+          <p>
+            Plan your trip to <i>{cityInfo.short_name}</i> here.
+          </p>
         </div>
       </div>
       <div className="attractions-todo">
         <div className="cities-attractions">
           {!attractions.length ? (
-            <p className="text-display-choosing-attractions">
-              Choose attractions you want to visit by clicking the heart icon.
-            </p>
+            <div className="attractions-message">
+              <p className="text-display-choosing-attractions">
+                Choose attractions you want to visit in
+                <i> {cityInfo.short_name}</i>.
+              </p>
+              <button
+                className="btn btn-dark chosen-attrac-btn"
+                onClick={handleDisplayAttraction}
+              >
+                Attractions
+              </button>
+            </div>
           ) : (
             <div className="chosen-attractions-parent">
               <h5 className="chosen-attractions-title">My Activties</h5>
@@ -137,47 +140,78 @@ export default function TripPlanner(props) {
           )}
         </div>
         <div className="cities-todo">
-          <h5 className="chosen-attractions-todo">To-do List</h5>
+          <h5 className="chosen-attractions-todo">Your notes for this trip</h5>
           <ToDoList
             userId={id}
             addTodo={addTodo}
-            // removeTodo={removeTodo}
+            removeTodo={removeTodo}
             todos={todos}
           />
         </div>
-        <button className="add-to-profile-btn" onClick={saveTrip}>
-          Save Your Trip
-        </button>
-        <button>Cancel Your Trip</button>
+        {/* <div className="save-cancel-trip">
+          <button
+            className="add-to-profile-btn btn btn-primary"
+            onClick={saveTrip}
+          >
+            Save Trip
+          </button>
+          <button className="btn btn-danger">Cancel Trip</button>
+        </div> */}
       </div>
-      {show ? (
-        <div className="map-attraction-container">
-          <h4 className="title-trip-planner">
-            Top Attractions in {cityInfo.short_name}
-            <hr className="hr-trip-planner" />
-          </h4>
-          <section className="map-attraction">
-            <ThingsToDoList
-              location={cityInfo.short_name}
-              thingsToDo={cityAttractions.slice(0, 3)}
-              addAttraction={addAttraction}
-            />
-            <GoogleMap
-              lat={Number(cityInfo.latitude)}
-              lng={Number(cityInfo.longitude)}
-              location={cityInfo.long_name}
-              thingsToDo={cityAttractions.slice(0, 10)}
-            />
-          </section>
-        </div>
-      ) : (
+      <div className="save-cancel-trip">
         <button
-          className="btn btn-dark chosen-attrac-btn"
-          onClick={handleClick}
+          className="add-to-profile-btn btn btn-primary"
+          onClick={saveTrip}
         >
-          Attractions
+          Save Trip
         </button>
-      )}
+        <button className="btn btn-danger">Cancel Trip</button>
+      </div>
+
+      {
+        show ? (
+          <div>
+            {/* <div className="save-cancel-trip">
+            <button
+              className="add-to-profile-btn btn btn-primary"
+              onClick={saveTrip}
+            >
+              Save Trip
+            </button>
+            <button className="btn btn-danger">Cancel Trip</button>
+          </div> */}
+            <div className="map-attraction-container">
+              <h4 className="title-trip-planner">
+                Top Attractions in {cityInfo.short_name}
+                <hr className="hr-trip-planner" />
+              </h4>
+              <section className="map-attraction">
+                <ThingsToDoList
+                  location={cityInfo.short_name}
+                  thingsToDo={cityAttractions.slice(0, 3)}
+                  addAttraction={addAttraction}
+                />
+                <GoogleMap
+                  lat={Number(cityInfo.latitude)}
+                  lng={Number(cityInfo.longitude)}
+                  location={cityInfo.long_name}
+                  thingsToDo={cityAttractions.slice(0, 10)}
+                />
+              </section>
+            </div>
+          </div>
+        ) : null
+
+        // <div className="save-cancel-trip">
+        //   <button
+        //     className="add-to-profile-btn btn btn-primary"
+        //     onClick={saveTrip}
+        //   >
+        //     Save Trip
+        //   </button>
+        //   <button className="btn btn-danger">Cancel Trip</button>
+        // </div>
+      }
     </div>
   );
 }

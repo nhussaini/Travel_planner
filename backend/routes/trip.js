@@ -6,7 +6,6 @@ const router = express.Router();
 module.exports = ({ addTrip, addTripAttractions, addTripTodos }) => {
   router.post("/", async (req, res) => {
     const { userId, cityId, attractions, todos } = req.body;
-    console.log("Line 9----", req.body);
     //add a new trip to db
     const newTrip = await addTrip(userId, cityId);
 
@@ -19,7 +18,10 @@ module.exports = ({ addTrip, addTripAttractions, addTripTodos }) => {
       addTripTodos(todo, userId, newTrip.id);
     });
 
-    await Promise.all(promisesAttractions, promisesTodos);
+    // await Promise.all(promisesAttractions, promisesTodos);
+  
+      await Promise.all(promisesAttractions, promisesTodos);
+      res.send('ok');
   });
   return router;
 };
