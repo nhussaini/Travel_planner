@@ -17,8 +17,6 @@ module.exports = ({ addTrip, addTripAttractions, addTripTodos }) => {
     const promisesTodos = todos.map((todo) => {
       addTripTodos(todo, userId, newTrip.id);
     });
-
-    // await Promise.all(promisesAttractions, promisesTodos);
   
       await Promise.all(promisesAttractions, promisesTodos);
       res.send('ok');

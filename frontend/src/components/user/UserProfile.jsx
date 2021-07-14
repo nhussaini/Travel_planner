@@ -89,7 +89,6 @@ export default function UserProfile(props) {
                 : null}
             </div>
           </div>
-          {/* <UserTripTodo /> */}
         </section>
       )}
       <Footer />

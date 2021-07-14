@@ -29,19 +29,11 @@ module.exports = ({
     addToDo(todo, userId).then((data) => console.log("data=>>>", data));
   });
 
-  // router.post("/user-trip", (req, res) => {
-  //   console.log("this route is reached");
-  //   console.log("req.body from user-trip", req.body);
-  // });
   router.post("/user-trip", async (req, res) => {
     const { userId } = req.body;
-    console.log("req.body from user-trip", req.body);
     //This object stores tripInfo for a user
-    const userTripInformation = {};
+    // const userTripInformation = {};
     const trips = await getUserTrip(userId);
-    // userTripInformation.attractions = await getUserTripInfo(userId);
-    // userTripInformation.todos = await getUserTripTodo(userId);
-
     res.send(trips);
   });
 
@@ -59,10 +51,7 @@ module.exports = ({
   });
 
   router.delete("/todo/:id", (req, res) => {
-    console.log("req====>", req.params.id);
     const id = req.params.id;
-
-    // console.log("req.param.id===>", index);
     removeToDo(id);
   });
 

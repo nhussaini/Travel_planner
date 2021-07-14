@@ -13,7 +13,6 @@ module.exports = (db) => {
 
     db.query(queryString, [email]).then((data) => {
       if (data.rows.length === 0) {
-        console.log("Do not Exist");
         return res.send(null);
       }
       const user = data.rows[0];
