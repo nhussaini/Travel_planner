@@ -63,7 +63,10 @@ export default function TripPlanner(props) {
         todos: todos,
       })
       .then((data) => {
-        console.log("data coming back from backend", data.data);
+        if (data.data === "ok") {
+          console.log("line 67-----", data.data);
+          setSaveStatus(true);
+        }
       });
   };
 
@@ -153,14 +156,30 @@ export default function TripPlanner(props) {
         </div>
       </section>
 
-      <section className="save-cancel-trip">
-        <button
-          className="add-to-profile-btn btn btn-primary"
-          onClick={saveTrip}
-        >
-          Save Trip
-        </button>
-        <button className="btn btn-danger">Cancel Trip</button>
+      {/* All Our Buttons */}
+      <section className="button-container">
+        {!saveStatus ? (
+          <div>
+            <button
+              className="add-to-profile-btn btn btn-primary mx-2"
+              onClick={saveTrip}
+            >
+              Save Trip
+            </button>
+            <button className="btn btn-danger">Cancel Trip</button>
+          </div>
+        ) : (
+          <div>
+            <a href={`/cities/${city}`}>
+              <button className="add-to-profile-btn btn btn-info mx-2">
+                Back to City!
+              </button>
+            </a>
+            <a href={`/users/${id}`}>
+              <button className="btn btn-success">Check your Trips</button>
+            </a>
+          </div>
+        )}
       </section>
 
       {/* Show atttraction and map if user wants to see them and add them to their list */}

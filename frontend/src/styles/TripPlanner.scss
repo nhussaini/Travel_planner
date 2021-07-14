@@ -1,11 +1,16 @@
+@mixin image-responsive {
+  width: 100%;
+  object-fit: cover;
+}
+$padding: 0.6rem;
+
 .trip-header {
   width: 100%;
   max-height: 400px;
   position: relative;
 
   .img-header-trip {
-    width: 100%;
-    object-fit: cover;
+    @include image-responsive;
     max-height: 275px;
   }
 
@@ -93,8 +98,8 @@
           border: none;
           top: 0;
           right: 0;
-          padding-left: 0.6rem;
-          padding-right: 0.6rem;
+          padding-left: $padding;
+          padding-right: $padding;
           padding-bottom: 0.2rem;
           float: right;
           background-color: rgb(212, 150, 150);
@@ -107,9 +112,8 @@
         }
 
         img {
-          width: 100%;
+          @include image-responsive;
           height: 120px;
-          object-fit: cover;
           border-radius: 10px;
         }
       }
