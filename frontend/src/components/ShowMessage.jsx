@@ -7,7 +7,10 @@ export default function ShowMessage(props) {
         Hi {props.first_name} {props.last_name}
       </p>
       <p>{`You don't have any plan for ${props.location} Let's create one!`}</p>
-      <Button href={`/trip/${props.location}/new`} />
+      <Button href={`/trip/${props.location}/new`}>
+        {" "}
+        {`Create a Plan for ${props.location}`}{" "}
+      </Button>
     </div>
   );
 }
