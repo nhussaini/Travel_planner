@@ -188,7 +188,7 @@ export default function TripPlanner(props) {
             <section className="map-attraction">
               <ThingsToDoList
                 location={cityInfo.short_name}
-                thingsToDo={cityAttractions.slice(0, 3)}
+                thingsToDo={cityAttractions}
                 addAttraction={addAttraction}
               />
               <GoogleMap
