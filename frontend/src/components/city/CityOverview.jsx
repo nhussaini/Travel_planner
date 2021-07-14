@@ -12,10 +12,8 @@ import {
 library.add(fab);
 
 export default function CityOverview(props) {
-  // console.log("props test", props.locationData.attributes);
   return (
     <>
-      {/* {props.locationData.attributes && props.thingsToDo.length ? ( */}
       {props.locationData && props.thingsToDo.length ? (
         <section>
           <div>
@@ -29,13 +27,6 @@ export default function CityOverview(props) {
                 <span>{props.locationData.long_name}</span>
               </p>
               <div>
-                {/* <h5>Keep in mind</h5>
-                <p>
-                  safety:{" "}
-                  <span>
-                    {props.locationData.safety[props.locationData.name]?.text}
-                  </span>
-                </p> */}
                 <p>
                   population: <span>{props.locationData.population}</span>
                 </p>

@@ -9,15 +9,12 @@ import { useLocation } from "react-router-dom";
 export default function ThingToDo(props) {
   const location = useLocation();
   const [show, setShow] = useState(false);
-  // console.log("props in ThingToDo cmp line 11==>", props);
-  // console.log("thing to do id:=====>", props.attractionId);
 
   //get the logged in userdata from local storge
   let user = JSON.parse(localStorage.getItem("user"));
 
   const elementRef = useRef();
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   // return boolean if current url is trip creation page or not
   const getUrl = () => {
@@ -27,14 +24,9 @@ export default function ThingToDo(props) {
 
   //passes attraction to TripPlanner comp
   const handleClick = (e, data) => {
-    // console.log(elementRef.current);
-    // console.log("element ref***", elementRef);
-    // handleShow();
-    // console.log("element.html=>", elementRef.current.innerHTML);
     if (!getUrl()) {
       setShow(true);
     } else {
-      console.log(getUrl());
       props.addAttraction(
         elementRef.current.innerHTML,
         props.image_url,
@@ -51,12 +43,10 @@ export default function ThingToDo(props) {
           <FontAwesomeIcon icon={faHeart} className="highlight" inverse />
         </button>
       </div>
-      {/* <FontAwesomeIcon icon={["far", faHeart]} /> */}
       <div className="user-rating">{props.rating}</div>
       <div className="attraction-summary">
         <p ref={elementRef}>{props.name}</p>
         <div className="rating-container">
-          {/* <Rating rating={props.rating} />{" "} */}
           <StarRatings
             rating={Number(props.rating)}
             starRatedColor="#e7bf39"

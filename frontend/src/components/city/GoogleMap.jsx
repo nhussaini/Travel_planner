@@ -55,7 +55,6 @@ export default function GoogleMap(props) {
       })
       .catch((e) => {
         // do something
-        console.log("Something is Wrong---", e);
       });
   });
 

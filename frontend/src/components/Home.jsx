@@ -1,12 +1,9 @@
-import { useCityData } from "../hooks/useCityData";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-// import "../styles/ToDo.scss";
 import "../styles/home.scss";
 import Form from "./Form";
 import TrendingCities from "./TrendingCities";
-// import Navbar from "./Navbar-OLD";
 import Footer from "./Footer";
 import NavSticky from "./NavSticky";
 import Spinner from "react-bootstrap/Spinner";
@@ -17,7 +14,6 @@ export default function Home(props) {
   const [location, setLocation] = useState("");
   const [citySearchError, setCitySearchError] = useState(false);
   let history = useHistory();
-  // const { state } = useTest();
 
   const resetError = () => setCitySearchError(false);
 

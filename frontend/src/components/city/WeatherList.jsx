@@ -40,9 +40,4 @@ export default function WeatherList(props) {
       </div>
     </div>
   );
-  // return (
-  //   <div className="d-flex justify-content-center">
-  //     <Weather />
-  //   </div>
-  // );
 }

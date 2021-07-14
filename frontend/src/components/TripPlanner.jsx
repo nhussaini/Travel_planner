@@ -57,7 +57,6 @@ export default function TripPlanner(props) {
       })
       .then((data) => {
         if (data.data === "ok") {
-          console.log("line 67-----", data.data);
           setSaveStatus(true);
         }
       });
@@ -65,7 +64,6 @@ export default function TripPlanner(props) {
 
   //add chosen attraction to the state attraction
   const addAttraction = (name, img_url, id) => {
-    // setAttractions([...attractions, newAttraction]);
     const filterItems = attractions.filter((item) => item.name === name);
     if (!filterItems.length) {
       const newAttraction = [...attractions, { name, img_url, id }];

@@ -7,7 +7,6 @@ export default function Weather(props) {
       <p className="current-temp">{Math.round(props.temp)}°C</p>
       <div className="weather-card">
         <img
-          // className="w-50"
           alt={props.description}
           src={`https://www.weatherbit.io/static/img/icons/${props.icon}.png`}
         />
