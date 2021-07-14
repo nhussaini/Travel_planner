@@ -75,22 +75,32 @@ $padding: 0.6rem;
         background-color: rgb(247, 247, 247);
         border-radius: 10px;
         list-style-type: none;
-        display: flex;
+        //display: flex;
         //margin-top: 0.7rem;
         margin-left: 1rem;
         //margin-right: 1rem;
-        width: 47%;
+        width: 30%;
         margin-bottom: 0.5em;
         position: relative;
 
         .img-chosen-div {
           display: flex;
-          width: 40%;
+          width: 100%;
           margin-right: 0.5rem;
         }
 
         .chosen-attraction-name {
-          margin-top: 3em;
+          margin-top: 1em;
+          position: absolute;
+          bottom: 0;
+          left: 50;
+          color: #fff;
+          font-weight: 400;
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 100%;
+          margin-bottom: 0;
+          padding: 10px 0;
+          border-radius: 0px 0px 10px 10px;
         }
 
         .chosen-attraction-delete {
@@ -102,19 +112,20 @@ $padding: 0.6rem;
           padding-right: $padding;
           padding-bottom: 0.2rem;
           float: right;
-          background-color: rgb(212, 150, 150);
+          background-color: rgb(217, 83, 79);
           border-radius: 5px;
           color: white;
 
           &:hover {
-            background-color: rgb(214, 114, 114);
+            background-color: rgb(209, 115, 112);
           }
         }
 
         img {
           @include image-responsive;
-          height: 120px;
+          height: 190px;
           border-radius: 10px;
+          position: relative;
         }
       }
     }
