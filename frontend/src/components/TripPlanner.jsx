@@ -161,7 +161,7 @@ export default function TripPlanner(props) {
         {!saveStatus ? (
           <div>
             <button
-              className="add-to-profile-btn btn btn-primary mx-2"
+              className="add-to-profile-btn btn btn-dark mx-2"
               onClick={saveTrip}
             >
               Save Trip
@@ -176,7 +176,7 @@ export default function TripPlanner(props) {
               </button>
             </a>
             <a href={`/users/${id}`}>
-              <button className="btn btn-success">Check your Trips</button>
+              <button className="btn btn-primary">Check your Trips</button>
             </a>
           </div>
         )}
