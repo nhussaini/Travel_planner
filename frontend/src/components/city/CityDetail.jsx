@@ -5,6 +5,7 @@ import GoogleMap from "./GoogleMap";
 import NavSticky from "../NavSticky";
 import ThingsToDoList from "./ThingsToDoList";
 import Error404 from "components/Error404";
+import { getUser } from "helpers/helper";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
@@ -24,20 +25,11 @@ export default function CityDetail(props) {
   //id is the name of the city below
   const { id } = useParams();
 
-  //get the logged in userdata from local storge
-  let userData = localStorage.getItem("user");
-  userData = JSON.parse(userData);
-  //get the user id
-  const userId = userData ? userData.id : null;
+  const userId = getUser();
   console.log("userId from line 33=>", userId);
 
   //to handle the click event to create a new trip
   function handleClick(e) {
-    // axios
-    //   .post("/api/trip/create-trip", { userId: userId, cityId: cityId })
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
     history.push({
       pathname: `/trip/${id}/new`,
       state: {
@@ -65,7 +57,7 @@ export default function CityDetail(props) {
         }));
       }
     });
-  }, [state.location]);
+  }, [id]);
 
   return !state.error404 ? (
     <main>

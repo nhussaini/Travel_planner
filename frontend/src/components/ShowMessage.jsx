@@ -1,16 +1,21 @@
 import { Button } from "react-bootstrap";
 
-export default function ShowMessage(props) {
+export default function ShowMessage({ first_name, last_name, id, location }) {
   return (
-    <div>
-      <p>
-        Hi {props.first_name} {props.last_name}
-      </p>
-      <p>{`You don't have any plan for ${props.location} Let's create one!`}</p>
-      <Button href={`/trip/${props.location}/new`}>
-        {" "}
-        {`Create a Plan for ${props.location}`}{" "}
-      </Button>
+    <div className="text-center">
+      {id ? (
+        <div>
+          <p>{` Hi ${first_name} ${last_name}`}</p>
+          <p>{`Are you excited about making a plan for ${location}?`}</p>
+          <Button href={`/trip/${location}/new`}>{`Let's Go`}</Button>
+        </div>
+      ) : (
+        <div>
+          <p>{` Hi ${first_name} ${last_name}`}</p>
+          <p>{`Are you excited about making a plan for ${location}?`}</p>
+          <Button href={`/trip/${location}/new`}>{`Let's Go`}</Button>
+        </div>
+      )}
     </div>
   );
 }

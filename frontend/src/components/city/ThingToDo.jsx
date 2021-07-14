@@ -14,8 +14,7 @@ export default function ThingToDo(props) {
 
   //get the logged in userdata from local storge
   let user = JSON.parse(localStorage.getItem("user"));
-  //get the user id
-  const id = user ? user.id : null;
+
   const elementRef = useRef();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -69,12 +68,17 @@ export default function ThingToDo(props) {
           <span className="rating-count">({props.reviewsCount})</span>
         </div>
       </div>
-      <Modal show={show} onHide={handleClose} dialogClassName="my-modal">
+      <Modal show={show} onHide={handleClose} dialogClassName="my-modal w-25">
         <Modal.Header closeButton>
-          <Modal.Title>{`Let's Create a Plan for your ${props.location} Trip`}</Modal.Title>
+          <Modal.Title>{`Create a Plan for your ${props.location} Trip`}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {user ? <ShowMessage location={props.location} {...user} /> : null}
+          <ShowMessage location={props.location} {...user} />
+          {/* {user ? (
+            <ShowMessage location={props.location} {...user} />
+          ) : (
+            <ShowMessage location={props.location} />
+          )} */}
         </Modal.Body>
       </Modal>
     </div>
