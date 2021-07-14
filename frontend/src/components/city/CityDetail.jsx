@@ -26,7 +26,6 @@ export default function CityDetail(props) {
   const { id } = useParams();
 
   const userId = getUser();
-  console.log("userId from line 33=>", userId);
 
   //to handle the click event to create a new trip
   function handleClick(e) {
@@ -54,7 +53,6 @@ export default function CityDetail(props) {
         }));
       } else {
         const { images, cityDetails, attractions } = data.data;
-        console.log("inside useEffect", attractions);
         setState((prev) => ({
           location: cityDetails.short_name,
           images: images,
