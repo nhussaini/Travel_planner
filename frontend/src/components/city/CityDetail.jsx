@@ -30,14 +30,20 @@ export default function CityDetail(props) {
 
   //to handle the click event to create a new trip
   function handleClick(e) {
-    history.push({
-      pathname: `/trip/${id}/new`,
-      state: {
-        key: id,
-        attractions: state.thingsToDo,
-        locationData: state.locationData,
-      },
-    });
+    if (!userId) {
+      history.push({
+        pathname: `/login`,
+      });
+    } else {
+      history.push({
+        pathname: `/trip/${id}/new`,
+        state: {
+          key: id,
+          attractions: state.thingsToDo,
+          locationData: state.locationData,
+        },
+      });
+    }
   }
   useEffect(() => {
     axios.get(`/api/cities/${id}`).then((data) => {

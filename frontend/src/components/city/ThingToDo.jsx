@@ -74,11 +74,6 @@ export default function ThingToDo(props) {
         </Modal.Header>
         <Modal.Body>
           <ShowMessage location={props.location} {...user} />
-          {/* {user ? (
-            <ShowMessage location={props.location} {...user} />
-          ) : (
-            <ShowMessage location={props.location} />
-          )} */}
         </Modal.Body>
       </Modal>
     </div>
