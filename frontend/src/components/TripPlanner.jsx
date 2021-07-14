@@ -5,6 +5,7 @@ import ToDoList from "./ToDoList";
 import NavSticky from "components/NavSticky";
 import "styles/cityDetail.scss";
 import "styles/TripPlanner.scss";
+import { getUser } from "helpers/helper.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -15,10 +16,6 @@ export default function TripPlanner(props) {
   const [attractions, setAttractions] = useState([]);
   const [todos, setTodos] = useState([]);
   const [saveStatus, setSaveStatus] = useState(false);
-
-  // if (!attractions.length) {
-  //   setShow(false);
-  // }
 
   //add a new todo
   const addTodo = (text) => {
@@ -42,11 +39,7 @@ export default function TripPlanner(props) {
     });
   }, []);
 
-  //get the logged in userdata from local storge
-  let userData = localStorage.getItem("user");
-  userData = JSON.parse(userData);
-  //get the user id
-  const id = userData ? userData.id : null;
+  const id = getUser();
 
   //diplay the content conditionally
   const handleDisplayAttraction = () => {
@@ -166,7 +159,9 @@ export default function TripPlanner(props) {
             >
               Save Trip
             </button>
-            <button className="btn btn-danger">Cancel Trip</button>
+            <a href={`/cities/${city}`}>
+              <button className="btn btn-danger">Cancel Trip</button>
+            </a>
           </div>
         ) : (
           <div>

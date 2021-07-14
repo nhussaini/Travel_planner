@@ -1,5 +1,3 @@
-import { useCityData } from "../../hooks/useCityData";
-
 import WeatherList from "./WeatherList";
 import Footer from "components/Footer";
 import ImagesList from "./ImagesList";
@@ -32,9 +30,6 @@ export default function CityDetail(props) {
   //get the user id
   const userId = userData ? userData.id : null;
   console.log("userId from line 33=>", userId);
-
-  //get city id to store in trip table
-  const cityId = state.locationData.id;
 
   //to handle the click event to create a new trip
   function handleClick(e) {
