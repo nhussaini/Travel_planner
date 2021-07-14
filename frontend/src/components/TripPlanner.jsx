@@ -14,6 +14,7 @@ export default function TripPlanner(props) {
   const [show, setShow] = useState(false);
   const [attractions, setAttractions] = useState([]);
   const [todos, setTodos] = useState([]);
+  const [saveStatus, setSaveStatus] = useState(false);
 
   // if (!attractions.length) {
   //   setShow(false);
@@ -62,15 +63,14 @@ export default function TripPlanner(props) {
         todos: todos,
       })
       .then((data) => {
-        // console.log(data);
+        console.log("data coming back from backend", data.data);
       });
   };
 
-  //add chosed attraction to the state attraction
+  //add chosen attraction to the state attraction
   const addAttraction = (name, img_url, id) => {
     // setAttractions([...attractions, newAttraction]);
     const newAttraction = [...attractions, { name, img_url, id }];
-
     setAttractions(newAttraction);
   };
 
@@ -158,10 +158,20 @@ export default function TripPlanner(props) {
           <button className="btn btn-danger">Cancel Trip</button>
         </div> */}
       </div>
+      <div className="save-cancel-trip">
+        <button
+          className="add-to-profile-btn btn btn-primary"
+          onClick={saveTrip}
+        >
+          Save Trip
+        </button>
+        <button className="btn btn-danger">Cancel Trip</button>
+      </div>
 
-      {show ? (
-        <dive>
-          <div className="save-cancel-trip">
+      {
+        show ? (
+          <div>
+            {/* <div className="save-cancel-trip">
             <button
               className="add-to-profile-btn btn btn-primary"
               onClick={saveTrip}
@@ -169,38 +179,39 @@ export default function TripPlanner(props) {
               Save Trip
             </button>
             <button className="btn btn-danger">Cancel Trip</button>
+          </div> */}
+            <div className="map-attraction-container">
+              <h4 className="title-trip-planner">
+                Top Attractions in {cityInfo.short_name}
+                <hr className="hr-trip-planner" />
+              </h4>
+              <section className="map-attraction">
+                <ThingsToDoList
+                  location={cityInfo.short_name}
+                  thingsToDo={cityAttractions.slice(0, 3)}
+                  addAttraction={addAttraction}
+                />
+                <GoogleMap
+                  lat={Number(cityInfo.latitude)}
+                  lng={Number(cityInfo.longitude)}
+                  location={cityInfo.long_name}
+                  thingsToDo={cityAttractions.slice(0, 10)}
+                />
+              </section>
+            </div>
           </div>
-          <div className="map-attraction-container">
-            <h4 className="title-trip-planner">
-              Top Attractions in {cityInfo.short_name}
-              <hr className="hr-trip-planner" />
-            </h4>
-            <section className="map-attraction">
-              <ThingsToDoList
-                location={cityInfo.short_name}
-                thingsToDo={cityAttractions.slice(0, 3)}
-                addAttraction={addAttraction}
-              />
-              <GoogleMap
-                lat={Number(cityInfo.latitude)}
-                lng={Number(cityInfo.longitude)}
-                location={cityInfo.long_name}
-                thingsToDo={cityAttractions.slice(0, 10)}
-              />
-            </section>
-          </div>
-        </dive>
-      ) : (
-        <div className="save-cancel-trip">
-          <button
-            className="add-to-profile-btn btn btn-primary"
-            onClick={saveTrip}
-          >
-            Save Trip
-          </button>
-          <button className="btn btn-danger">Cancel Trip</button>
-        </div>
-      )}
+        ) : null
+
+        // <div className="save-cancel-trip">
+        //   <button
+        //     className="add-to-profile-btn btn btn-primary"
+        //     onClick={saveTrip}
+        //   >
+        //     Save Trip
+        //   </button>
+        //   <button className="btn btn-danger">Cancel Trip</button>
+        // </div>
+      }
     </div>
   );
 }
