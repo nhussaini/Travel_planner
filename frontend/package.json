@@ -53,5 +53,12 @@
   },
   "devDependencies": {
     "sass": "^1.35.1"
+  },
+  "jest": {
+    "watchPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/.git/"
+    ],
+    "testURL":"http://localhost:3001"
   }
 }

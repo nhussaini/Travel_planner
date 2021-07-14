@@ -11,16 +11,11 @@ export default function TrendingCities(props) {
   // loop through the array of cities,
   // show random cities as trending city
 
-  // using /back/cities becase we have to differentiate between back end routing with express and front end routing with React
   useEffect(() => {
     axios.get("/back/cities/trending").then((data) => {
-      console.log(data.data);
       setTrendingCities(data.data);
     });
   }, []);
-
-  console.log("city props", props);
-
   const allTrendingCities = trendingCities.map((city) => {
     return <TrendingCity key={city.id} {...city} />;
   });

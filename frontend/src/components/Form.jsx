@@ -22,7 +22,6 @@ export default function Form(props) {
       props.fetchCity(cityCapitalized);
     }
   }
-  console.log(props.error);
   return (
     <form className="input-form" onSubmit={handleSubmit}>
       <div>
