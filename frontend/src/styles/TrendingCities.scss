@@ -22,6 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     .city-name {
       position: absolute;
       z-index: 100;
@@ -30,8 +31,12 @@
       left: 1rem;
       color: white;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.3em;
     }
+
     .city-summary {
       position: absolute;
       z-index: 100;
@@ -40,6 +45,7 @@
       font-weight: bold;
       font-size: 1.5rem;
       opacity: 0;
+
       p {
         padding: 0;
         margin: 0;
@@ -74,6 +80,9 @@
       }
 
       .city-summary {
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0.2em;
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2);
