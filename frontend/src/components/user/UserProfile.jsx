@@ -1,10 +1,6 @@
 import "styles/UserProfile.scss";
-
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import NavBar from "components/NavBar";
-// import ToDoList from "../ToDoList";
 import UserTripCity from "./UserTripCity";
 import NavSticky from "components/NavSticky";
 import Footer from "components/Footer";
@@ -13,10 +9,6 @@ import UserTripTodo from "./UserTripTodo";
 
 export default function UserProfile(props) {
   const [user, setUser] = useState();
-  // const trip = [1];
-  // let history = useHistory();
-  // const [userTripInfo, setUserTripInfo] = useState({
-  // });
   const [allTrips, setAllTrips] = useState([]);
   const [userTripAttractions, setUserTripAttractions] = useState([]);
   const [userTripTodos, setUserTripTodos] = useState([]);
@@ -42,10 +34,6 @@ export default function UserProfile(props) {
       setAllTrips(data.data);
     });
   }, []);
-
-  // useEffect(() => {
-  //   userTripAttractions
-  // }, [userTripAttractions, userTripTodos]);
 
   // Mapping over trips to create singular trip component
   const userTrips = allTrips.map((trip) => {
