@@ -116,7 +116,7 @@ export default function TripPlanner(props) {
         <img src={cityInfo.image_url} alt="city" className="img-header-trip" />
         <div className="overlay-trip">
           <p>
-            Plan your trip to <i>{cityInfo.short_name}</i> here.
+            Plan your trip to <i>{cityInfo.short_name}</i>.
           </p>
         </div>
       </div>
