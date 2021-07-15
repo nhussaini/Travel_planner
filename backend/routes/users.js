@@ -37,11 +37,12 @@ module.exports = ({
     res.send(trips);
   });
 
-  router.delete("/trip/:id", (req, res) => {
+  router.delete("/trip/:id", async (req, res) => {
     const id = req.params.id;
-    console.log("Reached Here", id);
-    console.log(removeTrip);
-    removeTrip(id).then((data) => console.log(data));
+    // console.log("Reached Here", id);
+    // console.log(removeTrip);
+    const deletedTrip = await removeTrip(id);
+    res.send(deletedTrip);
   });
 
   // Get trip attractions and todos
@@ -57,9 +58,5 @@ module.exports = ({
     getToDos().then((data) => res.send(data));
   });
 
-  // router.delete("/todo/:id", (req, res) => {
-  //   const id = req.params.id;
-  //   removeToDo(id);
-  // });
   return router;
 };

@@ -38,7 +38,11 @@ export default function UserProfile(props) {
   const deleteTrip = (id) => {
     console.log(id);
     axios.delete(`/users/trip/${id}`).then((data) => {
-      console.log(data.data);
+      let deletedTripId = data.data.id;
+      let updatedTrips = [...allTrips].filter(
+        (trip) => trip.id !== deletedTripId
+      );
+      setAllTrips([...allTrips].filter((trip) => trip.id !== deletedTripId));
     });
   };
   // Mapping over trips to create singular trip component
@@ -108,3 +112,29 @@ export default function UserProfile(props) {
     </div>
   );
 }
+
+// let state = [
+//   {
+//     id: '3',
+//     image_url: "https://images.unsplash.com/photo-1517394834181-95ed159986c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHw2fHxMb25kb258ZW58MHwwfHx8MTYyNjE5NzIwOA&ixlib=rb-1.2.1&q=80&w=1080";
+//     long_name: "London, United Kingdom",
+//     short_name: "London",
+//     user_id: '1',
+//   },
+//   {
+//     id: '2',
+//     image_url: "https://images.unsplash.com/photo-1517394834181-95ed159986c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHw2fHxMb25kb258ZW58MHwwfHx8MTYyNjE5NzIwOA&ixlib=rb-1.2.1&q=80&w=1080";
+//     long_name: "Cairo, Egypt",
+//     short_name: "Cairo",
+//     user_id: '1',
+//   },
+//   {
+//     id: '4',
+//     image_url: "https://images.unsplash.com/photo-1517394834181-95ed159986c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTMwNjh8MHwxfHNlYXJjaHw2fHxMb25kb258ZW58MHwwfHx8MTYyNjE5NzIwOA&ixlib=rb-1.2.1&q=80&w=1080";
+//     long_name: "Sylhet Bangladesh",
+//     short_name: "Sylhet",
+//     user_id: '1',
+//   }
+// ]
+
+// let newState = [...state].filter(item => item.id !== 2)
