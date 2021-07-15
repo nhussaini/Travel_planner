@@ -173,12 +173,33 @@
     margin-bottom: 2%;
 
     div {
+      position: relative;
       min-height: 300px;
       // border: 1px solid grey;
+      // .confirmation-button {
+      //   background-color: blue;
+      // }
+      .delete-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+
+        .font-icon {
+          color: #d45757;
+          background-color: transparent;
+          font-size: 1.5rem;
+          background: none;
+          margin-top: 0.3rem;
+          margin-right: 0.5rem;
+          padding: 1px;
+          border-radius: 20px;
+        }
+      }
       button {
         background-color: none;
         border: none;
-        padding: 0 1px;
+        padding: 1px;
         border-radius: 20px;
       }
       img {
@@ -188,9 +209,6 @@
         border-radius: 10px 10px 0 0;
       }
     }
-  }
-  .clicked-trip {
-    border: 5px solid red;
   }
 }
 

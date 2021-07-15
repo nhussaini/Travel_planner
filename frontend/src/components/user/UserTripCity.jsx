@@ -1,7 +1,8 @@
 import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import ConfirmDelete from "./ConfirmDelete";
-import confirmDelete from "./ConfirmDelete";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserTripCity(props) {
   const [clicked, setClicked] = useState(false);
@@ -24,7 +25,9 @@ export default function UserTripCity(props) {
             <img src={props.image_url} alt="" />
             <h2>{props.short_name}</h2>
           </button>
-          <button onClick={showconfirmation}> Delete</button>
+          <button className="delete-btn" onClick={showconfirmation}>
+            <FontAwesomeIcon icon={faTrash} size="lg" className="font-icon" />
+          </button>
         </div>
       ) : (
         <ConfirmDelete cancel={cancel} handleDelete={handleDelete} />
