@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
 export default function GoogleMap(props) {
+  console.log(props);
   const loader = new Loader({
     apiKey: "AIzaSyAKiSBRO8K9Y_DwPGTadsCGzSh7p589d-A",
     version: "weekly",
@@ -37,6 +38,7 @@ export default function GoogleMap(props) {
             map,
             label: `${index}`,
             title: thing.name,
+            animation: google.maps.Animation.DROP,
           });
 
           marker.addListener("mouseover", () => {
@@ -56,7 +58,7 @@ export default function GoogleMap(props) {
       .catch((e) => {
         // do something
       });
-  });
+  }, [props.location]);
 
   return <div id="map"></div>;
 }

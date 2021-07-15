@@ -49,16 +49,18 @@ export default function UserProfile(props) {
     });
   };
   // Mapping over trips to create singular trip component
-  const userTrips = allTrips.map((trip) => {
-    return (
-      <UserTripCity
-        key={trip.id}
-        {...trip}
-        getTripData={getTripData}
-        deleteTrip={deleteTrip}
-      />
-    );
-  });
+  const userTrips = allTrips
+    .sort((a, b) => a.id - b.id)
+    .map((trip) => {
+      return (
+        <UserTripCity
+          key={trip.id}
+          {...trip}
+          getTripData={getTripData}
+          deleteTrip={deleteTrip}
+        />
+      );
+    });
 
   return (
     <div>
