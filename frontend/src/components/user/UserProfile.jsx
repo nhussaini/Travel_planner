@@ -10,18 +10,20 @@ import UserTripTodo from "./UserTripTodo";
 export default function UserProfile(props) {
   const [user, setUser] = useState();
   const [allTrips, setAllTrips] = useState([]);
-  const [userTripAttractions, setUserTripAttractions] = useState([]);
-  const [userTripTodos, setUserTripTodos] = useState([]);
   const [tripCity, setTripCity] = useState("");
+  const [state, setState] = useState({
+    userTripTodos: [],
+    userTripAttractions: [],
+  });
 
   function getTripData(trip_id, trip_city) {
-    setUserTripAttractions([]);
-    setUserTripTodos([]);
-    setTripCity("");
+    setTripCity(trip_city);
     axios.post("/users/trip-data", { trip_id: trip_id }).then((data) => {
-      setUserTripAttractions(data.data.attractions);
-      setUserTripTodos(data.data.todos);
-      setTripCity(trip_city);
+      setState((prev) => ({
+        ...prev,
+        userTripTodos: data.data.todos,
+        userTripAttractions: data.data.attractions,
+      }));
     });
   }
   useEffect(() => {
@@ -33,19 +35,18 @@ export default function UserProfile(props) {
     axios.post("/users/user-trip", { userId: userData.id }).then((data) => {
       setAllTrips(data.data);
     });
-  }, [tripCity]);
+  }, [state.tripCity]);
 
   const deleteTrip = (id) => {
     console.log(id);
     axios.delete(`/users/trip/${id}`).then((data) => {
       let deletedTripId = data.data.id;
-      let updatedTrips = [...allTrips].filter(
-        (trip) => trip.id !== deletedTripId
-      );
       setAllTrips([...allTrips].filter((trip) => trip.id !== deletedTripId));
-      setUserTripAttractions([]);
-      setUserTripTodos([]);
-      setTripCity("");
+      setState((prev) => ({
+        ...prev,
+        userTripTodos: data.data.todos,
+        userTripAttractions: data.data.attractions,
+      }));
     });
   };
   // Mapping over trips to create singular trip component
@@ -78,7 +79,7 @@ export default function UserProfile(props) {
         </div>
         {userTrips}
       </div>
-      {userTripAttractions.length && (
+      {state.userTripAttractions && state.userTripAttractions.length && (
         <section className="w-100">
           <div className="heading">
             <h2>{`Attractions List & Todos for ${tripCity}`} </h2>
@@ -90,9 +91,11 @@ export default function UserProfile(props) {
                 <h2>Your Attractions</h2>
                 <hr className="hr" />
               </div>
-              {userTripAttractions.length
-                ? userTripAttractions.map((item) => {
-                    return <UserTripAttraction key={item.id} {...item} />;
+              {state.userTripAttractions.length
+                ? state.userTripAttractions.map((item) => {
+                    return (
+                      <UserTripAttraction key={item.attractiion_id} {...item} />
+                    );
                   })
                 : null}
             </div>
@@ -101,9 +104,9 @@ export default function UserProfile(props) {
                 <h2>Todos</h2>
                 <hr className="hr" />
               </div>
-              {userTripTodos.length
-                ? userTripTodos.map((item) => {
-                    return <UserTripTodo key={Math.random()} {...item} />;
+              {state.userTripTodos.length
+                ? state.userTripTodos.map((item) => {
+                    return <UserTripTodo key={item.id} {...item} />;
                   })
                 : null}
             </div>
