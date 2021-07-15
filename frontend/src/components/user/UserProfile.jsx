@@ -38,7 +38,6 @@ export default function UserProfile(props) {
   }, [state.tripCity]);
 
   const deleteTrip = (id) => {
-    console.log(id);
     axios.delete(`/users/trip/${id}`).then((data) => {
       let deletedTripId = data.data.id;
       setAllTrips([...allTrips].filter((trip) => trip.id !== deletedTripId));

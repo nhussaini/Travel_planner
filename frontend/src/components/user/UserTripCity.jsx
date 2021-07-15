@@ -1,11 +1,9 @@
-import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import ConfirmDelete from "./ConfirmDelete";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserTripCity(props) {
-  const [clicked, setClicked] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
   function handleClick(e) {

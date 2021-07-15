@@ -58,7 +58,7 @@ export default function ThingToDo(props) {
           <span className="rating-count">({props.reviewsCount})</span>
         </div>
       </div>
-      <Modal show={show} onHide={handleClose} dialogClassName="my-modal w-25">
+      <Modal show={show} onHide={handleClose} dialogClassName="my-modal w-50">
         <Modal.Header closeButton>
           <Modal.Title>{`Create a Plan for your ${props.location} Trip`}</Modal.Title>
         </Modal.Header>

@@ -1,5 +1,4 @@
 export default function UserTripAttraction(props) {
-  console.log("Rendering----");
   return (
     <div className="attraction">
       <img src={props.image_url} alt={props.name} />

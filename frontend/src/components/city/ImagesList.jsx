@@ -61,7 +61,7 @@ export default function ImagesList(props) {
         </div>
       </div>
       <section className="w-50"></section>
-      <Modal show={show} onHide={handleClose} dialogClassName="my-modal">
+      <Modal show={show} onHide={handleClose} dialogClassName="image-modal">
         <Modal.Header closeButton>
           <Modal.Title>{`Images of ${props.location}`}</Modal.Title>
         </Modal.Header>
