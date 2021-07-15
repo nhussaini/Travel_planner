@@ -188,6 +188,10 @@ main {
         height: 300px;
         margin-bottom: 1%;
         margin-right: 0;
+
+        .info-box {
+          border: 5px solid blue;
+        }
       }
     }
   }

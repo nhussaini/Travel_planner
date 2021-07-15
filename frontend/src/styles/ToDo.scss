@@ -3,14 +3,18 @@
   margin-bottom: 2em;
   margin-top: 2em;
   border: none;
+  width: 75%;
   border-bottom: 2px solid rgb(201, 201, 201);
-  font-size: 13px;
+  font-size: 1.2rem;
 }
 
 .todo-buttons {
   display: flex;
   justify-content: center;
-  margin-top: 0.3em;
+  .todo-delete {
+    color: #d45757;
+    margin-left: 1.2rem;
+  }
 
   .todo-complete-btn {
     border: none;
@@ -61,9 +65,12 @@
   .todo {
     background: rgb(247, 247, 247);
     border-radius: 15px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0.7em;
     padding: 3px 10px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 }

@@ -15,6 +15,7 @@ export default function GoogleMap(props) {
     },
     zoom: 12,
   };
+
   useEffect(() => {
     loader
       .load()
@@ -36,7 +37,6 @@ export default function GoogleMap(props) {
             map,
             label: `${index}`,
             title: thing.name,
-            animation: google.maps.Animation.DROP,
           });
 
           marker.addListener("mouseover", () => {

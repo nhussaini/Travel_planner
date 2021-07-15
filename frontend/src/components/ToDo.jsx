@@ -1,5 +1,7 @@
 import { React } from "react";
 import "../styles/ToDo.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function ToDo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -10,14 +12,8 @@ export default function ToDo({ todo, index, completeTodo, removeTodo }) {
       >
         {todo}
         <div className="todo-buttons">
-          <button
-            className="todo-complete-btn"
-            onClick={() => completeTodo(todo.id, index)}
-          >
-            ✓
-          </button>
           <button className="todo-delete-btn" onClick={() => removeTodo(index)}>
-            x
+            <FontAwesomeIcon icon={faTrash} size="xs" className="todo-delete" />
           </button>
         </div>
       </div>
