@@ -28,7 +28,7 @@ You must have your own API keys for the following:
 
 - [Road Goat](https://www.roadgoat.com/business/cities-api)
 - [Google Places](https://developers.google.com/maps/documentation/places/web-service/overview)
-- Weatherbit.io
+- [Weatherbit](https://www.weatherbit.io/api)
 - [Unsplash](https://unsplash.com/developers)
 
 ### Front-End
