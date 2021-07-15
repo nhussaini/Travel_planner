@@ -11,7 +11,15 @@ TREK is a travel planning app inspired by the growing need to travel after month
 
 ## Final Product
 
-Pictures
+!['homepage'](https://github.com/nhussaini/Travel_planner/blob/master/docs/Screen%20Shot%202021-07-14%20at%208.03.59%20PM.png?raw=true)
+
+!['citysearch'](https://github.com/nhussaini/Travel_planner/blob/master/docs/Screen%20Shot%202021-07-14%20at%208.08.56%20PM.png?raw=true)
+
+!['citysearch2'](https://github.com/nhussaini/Travel_planner/blob/master/docs/Screen%20Shot%202021-07-14%20at%208.09.47%20PM.png?raw=true)
+
+!['addplan'](https://github.com/nhussaini/Travel_planner/blob/master/docs/Screen%20Shot%202021-07-14%20at%208.11.36%20PM.png?raw=true)
+
+!['myprofile'](https://github.com/nhussaini/Travel_planner/blob/master/docs/Screen%20Shot%202021-07-14%20at%208.13.01%20PM.png?raw=true)
 
 ## Setup
 
