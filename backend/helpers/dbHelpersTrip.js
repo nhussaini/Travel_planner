@@ -1,7 +1,5 @@
 /* eslint-disable camelcase */
 module.exports = (db) => {
-
-
   const addTrip = (userId, cityId) => {
     const query = {
       text: `INSERT INTO trip(user_id, city_id) values ($1,$2) RETURNING *`,
@@ -13,7 +11,7 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addTripAttractions = (tripId, attractionId) =>{
+  const addTripAttractions = (tripId, attractionId) => {
     const query = {
       text: `INSERT INTO trip_attraction(trip_id, attraction_id) values ($1,$2) RETURNING *`,
       values: [tripId, attractionId],
@@ -33,18 +31,10 @@ module.exports = (db) => {
       .query(query)
       .then((result) => result.rows[0])
       .catch((err) => err);
-
   };
-
-  
-
-
-
-
   return {
     addTrip,
     addTripAttractions,
-    addTripTodos
-  
+    addTripTodos,
   };
 };

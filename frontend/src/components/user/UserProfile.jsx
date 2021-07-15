@@ -37,6 +37,9 @@ export default function UserProfile(props) {
 
   const deleteTrip = (id) => {
     console.log(id);
+    axios.delete(`/users/trip/${id}`).then((data) => {
+      console.log(data.data);
+    });
   };
   // Mapping over trips to create singular trip component
   const userTrips = allTrips.map((trip) => {

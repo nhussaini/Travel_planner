@@ -72,6 +72,17 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const removeTrip = (trip_id) => {
+    const query = {
+      text: `DELETE FROM trip WHERE id = ($1) RETURNING *`,
+      values: [trip_id],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
+
   //get the city and attractions of the city for a user's trip
   const getUserTripAttractions = (trip_id) => {
     const query = {
@@ -112,5 +123,6 @@ module.exports = (db) => {
     getUserTrip,
     getUserTripAttractions,
     getUserTripTodo,
+    removeTrip,
   };
 };

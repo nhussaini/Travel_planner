@@ -7,8 +7,8 @@ module.exports = ({
   addToDo,
   registerUser,
   getToDos,
-  removeToDo,
   getUserTrip,
+  removeTrip,
   getUserTripAttractions,
   getUserTripTodo,
 }) => {
@@ -37,6 +37,13 @@ module.exports = ({
     res.send(trips);
   });
 
+  router.delete("/trip/:id", (req, res) => {
+    const id = req.params.id;
+    console.log("Reached Here", id);
+    console.log(removeTrip);
+    removeTrip(id).then((data) => console.log(data));
+  });
+
   // Get trip attractions and todos
   router.post("/trip-data", async (req, res) => {
     const { trip_id } = req.body;
@@ -50,10 +57,9 @@ module.exports = ({
     getToDos().then((data) => res.send(data));
   });
 
-  router.delete("/todo/:id", (req, res) => {
-    const id = req.params.id;
-    removeToDo(id);
-  });
-
+  // router.delete("/todo/:id", (req, res) => {
+  //   const id = req.params.id;
+  //   removeToDo(id);
+  // });
   return router;
 };
