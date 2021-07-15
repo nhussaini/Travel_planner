@@ -12,6 +12,14 @@ export default function UserTripCity(props) {
         <img src={props.image_url} alt="" />
         <h2>{props.short_name}</h2>
       </button>
+      <button
+        className=""
+        onClick={() => {
+          props.deleteTrip(props.id);
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 }

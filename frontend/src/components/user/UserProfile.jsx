@@ -35,9 +35,19 @@ export default function UserProfile(props) {
     });
   }, []);
 
+  const deleteTrip = (id) => {
+    console.log(id);
+  };
   // Mapping over trips to create singular trip component
   const userTrips = allTrips.map((trip) => {
-    return <UserTripCity key={trip.id} {...trip} getTripData={getTripData} />;
+    return (
+      <UserTripCity
+        key={trip.id}
+        {...trip}
+        getTripData={getTripData}
+        deleteTrip={deleteTrip}
+      />
+    );
   });
 
   return (
@@ -62,7 +72,7 @@ export default function UserProfile(props) {
       {userTripAttractions.length && (
         <section className="w-100">
           <div className="heading">
-            <h2>{`Attractions List & Todos for ${tripCity}`}</h2>
+            <h2>{`Attractions List & Todos for ${tripCity}`} </h2>
             <hr className="hr" />
           </div>
           <div className="attraction-todo-container">
