@@ -33,7 +33,7 @@ export default function UserProfile(props) {
     axios.post("/users/user-trip", { userId: userData.id }).then((data) => {
       setAllTrips(data.data);
     });
-  }, []);
+  }, [tripCity]);
 
   const deleteTrip = (id) => {
     console.log(id);
@@ -43,6 +43,9 @@ export default function UserProfile(props) {
         (trip) => trip.id !== deletedTripId
       );
       setAllTrips([...allTrips].filter((trip) => trip.id !== deletedTripId));
+      setUserTripAttractions([]);
+      setUserTripTodos([]);
+      setTripCity("");
     });
   };
   // Mapping over trips to create singular trip component
@@ -58,7 +61,6 @@ export default function UserProfile(props) {
   });
 
   return (
-    // <div>user Profile</div>
     <div>
       <NavSticky />
       <div className="head">
